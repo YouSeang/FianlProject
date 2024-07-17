@@ -170,29 +170,26 @@
             <div class="footer_top">
                 <div class="ft_inner">
                     <ul class="data-gather">
-                        <li><a href="/cms/content/view/560" title="ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨ ì´ë">ê°ì¸ì ë³´ì²ë¦¬ë°©ì¹¨</a></li>
-                        <li><a href="/cms/content/view/548" title="ì´ë©ì¼ë¬´ë¨ìì§ê±°ë¶ ì´ë">ì´ë©ì¼ë¬´ë¨ìì§ê±°ë¶</a></li>
-                        <li><a href="https://www.kofac.re.kr/cms/content/view/491" target="_blank" title="í´ë¦­íìë©´ ì ì°½ì¼ë¡ ì´ë¦½ëë¤.">ì ìê¶ì ì±</a></li>
+                        <li><a href="/cms/content/view/560" title="개인정보처리방침">개인정보처리방침</a></li>
+                        <li><a href="/cms/content/view/548" title="이메일무단수집거부">이메일무단수집거부</a></li>
+                        <li><a href="https://www.kofac.re.kr/cms/content/view/491" target="_blank" title="저작권정책">저작권정책/a></li>
                     </ul>
                     <div class="familyWrap">
                         <button class="faBtn"><p>Family Site</p></button>
                         <ul class="FamilyList">
                         <li>
-                            <li><a href="https://www.algeomath.kr/main.do" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">ìì§ì¤ë§¤ì¤</a></li>
-                            <li><a href="https://smart.kofac.re.kr/home/kor/main.do" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">ì¤ë§í¸ ìÂ·ê³¼íì¤</a></li>
-                            <li><a href="https://www.scienceall.com/?main" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">ì¬ì´ì¸ì¤ì¬</a></li>
-                            <li><a href="https://software.kr/home/kor/main.do" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">SWì¤ì¬ì¬í</a></li>
-                            <li><a href="https://sciencecareer.kr/kor/Main.do" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">ê³¼ê¸°ì¸ì¬ì§ë¡ì§ìì¼í°</a></li>
-                            <li><a href="https://www.sciencetimes.co.kr/" target="_blank" title="ì ì°½ì¼ë¡ ì´ë¦½ëë¤">ì¬ì´ì¸ì¤íìì¦</a></li>
+                            <li><a href="https://www.algeomath.kr/main.do" target="_blank" title="test">test1</a></li>
+                            <li><a href="https://smart.kofac.re.kr/home/kor/main.do" target="_blank" title="test">test2</a></li>
+                            
                         </ul>
                     </div>
                 </div> <!-- ft_inner -->
             </div>
             <div class="footer_btm">
-                <a href="javascript:void(0)" class="flogo"><img src="/_static/www/img/common/flogo.png" alt="íêµ­ê³¼íì°½ìì¬ë¨"></a>
+                <a href="javascript:void(0)" class="flogo"><img src="/_static/www/img/common/flogo.png" alt="KB큽스쿨"></a>
                 <div class="address">
                     <ul>
-                        <li><p><i class="fas fa-map-marker-alt"></i>(06621) ìì¸ì ìì´êµ¬ ìì´ëë¡74ê¸¸ 33 DIGICAMPUS 3ê¸°</p></li>
+                        <li><p><i class="fas fa-map-marker-alt"></i>(06621) 서울 서초구 서초대로74길 33 DIGICAMPUS 3ê¸°</p></li>
                         <li><p><i class="fas fa-phone-alt"></i>02-123-4567</p><p><i class="far fa-envelope"></i>ringdingding@dicam.kb</p></li>
                     </ul>
                     <p>Copyright Â© RINGDINGDING. All rights reserved.</p>
