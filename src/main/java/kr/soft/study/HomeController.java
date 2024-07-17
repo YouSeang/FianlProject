@@ -1,4 +1,4 @@
-package kr.soft.strudy;
+package kr.soft.study;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -163,26 +163,6 @@
 .footer_link_area form select { background: transparent; border: 1px solid #fff; border-radius: 7px; color: #fff; padding: 13px 50px 13px 15px; }
 .footer_link_area form select option { color: #000; }
 </style>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const faBtn = document.querySelector('.faBtn');
-    const familyList = document.querySelector('.FamilyList');
-
-    faBtn.addEventListener('click', function() {
-        if (familyList.style.display === 'block') {
-            familyList.style.display = 'none';
-        } else {
-            familyList.style.display = 'block';
-        }
-    });
-
-    document.addEventListener('click', function(event) {
-        if (!faBtn.contains(event.target) && !familyList.contains(event.target)) {
-            familyList.style.display = 'none';
-        }
-    });
-});
-</script>
 </head>
 <body>
     <footer id="footer" class="footer">
