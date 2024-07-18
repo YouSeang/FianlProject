@@ -218,8 +218,8 @@
 							</div>
 							<div class="col-lg-7 col-sm-6">
 								<div class="sp-details">
-									<h2>유형별 현황</h2>
-									<span class="pricing"><strong>Price:</strong> $120.50</span>
+									<h2>사기 유형별 현황</h2>
+									<!-- <span class="pricing"><strong>Price:</strong> $120.50</span> -->
 									<p>보이스피싱은 일반적으로 검찰, 경찰, 금융감 독원 등을 사칭하고 의심계좌가 발견되었다며 수사를 할
 										것처럼 겁을 주어 안전한 계좌로 돈을 이체 또는 전달하라는 ‘기관사칭형’과 저리에 대 출을 해주기 위해
 										거래실적을 만들어야 한다거 나 추가 대출을 위해서는 기존 대출금을 모두 상 환해야 한다는 ‘대출사기형’이 가장
@@ -260,6 +260,7 @@
 										<div id="description">
 											<div class="d-flex">
 												<div class="desc-txt pe-5 me-4">
+													<h3>보이스피싱 피해액</h3>
 													<p>보이스피싱 피해액을 연도별로 살펴보면, 2006년에는 106억 원, 2009년에는 621억
 														원으 로 소폭 증가하다가 2011년 1,019억 원의 피해 가 발생해 최초로 1,000억 원을
 														돌파하였다. 그 리고 2015년 2,040억 원, 2018년 4,040억 원, 2021년 7,744억
@@ -279,26 +280,114 @@
 												</div>
 												<img
 													src="${pageContext.request.contextPath}/resources/
-												images/shop/shop9.jpg"
+												images/incident/overView2.png"
 													alt="">
 											</div>
 										</div>
 										<div id="extra-info">
-											<h3>Additional Information</h3>
+											<h3>보이스피싱 유형별 통계</h3>
 											<table class="table w-75">
-
+												<thead>
+													<tr>
+														<th>구분</th>
+														<th>기관사칭형_발생건수</th>
+														<th>기관사칭형_피해액_억원</th>
+														<th>기관사칭형_검거건수</th>
+														<th>기관사칭형_검거인원</th>
+														<th>대출사기형_발생건수</th>
+														<th>대출사기형_피해액_억원</th>
+														<th>대출사기형_검거건수</th>
+														<th>대출사기형_검거인원</th>
+													</tr>
+												</thead>
 												<tbody>
 													<tr>
-														<th scope="row">Color</th>
-														<td>Red, Blue, Green</td>
+														<td>2016</td>
+														<td>3384</td>
+														<td>541</td>
+														<td>3860</td>
+														<td>5682</td>
+														<td>13656</td>
+														<td>927</td>
+														<td>7526</td>
+														<td>9884</td>
 													</tr>
 													<tr>
-														<th scope="row">Size</th>
-														<td>32, 34, 36, 40, 42</td>
+														<td>2017</td>
+														<td>5685</td>
+														<td>967</td>
+														<td>3776</td>
+														<td>4925</td>
+														<td>18574</td>
+														<td>1503</td>
+														<td>15842</td>
+														<td>20548</td>
 													</tr>
 													<tr>
-														<th scope="row">Material</th>
-														<td>Cotton, Wool</td>
+														<td>2018</td>
+														<td>6221</td>
+														<td>1430</td>
+														<td>4673</td>
+														<td>5491</td>
+														<td>27911</td>
+														<td>2610</td>
+														<td>25279</td>
+														<td>32133</td>
+													</tr>
+													<tr>
+														<td>2019</td>
+														<td>7219</td>
+														<td>2506</td>
+														<td>5487</td>
+														<td>6045</td>
+														<td>30448</td>
+														<td>3892</td>
+														<td>33791</td>
+														<td>42668</td>
+													</tr>
+													<tr>
+														<td>2020</td>
+														<td>7844</td>
+														<td>2144</td>
+														<td>4297</td>
+														<td>4797</td>
+														<td>23837</td>
+														<td>4856</td>
+														<td>29754</td>
+														<td>34527</td>
+													</tr>
+													<tr>
+														<td>2021</td>
+														<td>7017</td>
+														<td>1741</td>
+														<td>1954</td>
+														<td>1895</td>
+														<td>23965</td>
+														<td>6003</td>
+														<td>25693</td>
+														<td>24502</td>
+													</tr>
+													<tr>
+														<td>2022</td>
+														<td>8930</td>
+														<td>2077</td>
+														<td>4103</td>
+														<td>4500</td>
+														<td>12902</td>
+														<td>3361</td>
+														<td>20419</td>
+														<td>20530</td>
+													</tr>
+													<tr>
+														<td>2023</td>
+														<td>11314</td>
+														<td>2364</td>
+														<td>7352</td>
+														<td>8039</td>
+														<td>7588</td>
+														<td>2108</td>
+														<td>13639</td>
+														<td>14347</td>
 													</tr>
 												</tbody>
 											</table>
@@ -307,57 +396,32 @@
 											<ol>
 												<li>
 													<article class="single-comment">
+													<h3 class="name">최근 기사</h3>
 														<div class="comment-thumb">
 															<img
 																src="${pageContext.request.contextPath}/resources/
-															images/blog/cl.jpg"
-																alt="Comment">
+															images/incident/phone.jpg"
+																alt="Comment" style="width: 700px; height: auto;">
 														</div>
-														<div class="comment-body">
-															<h3 class="name">Michael Philip</h3>
-															<span class="date">20 June 2018</span>
-															<p>consectetur adipisicing elit. Aliquam aut deleniti
-																dignissimos eum explicabo in magnam molestias nesciunt,
-																provident quae quaerat quam quasi quos repellat
-																repudiandae sed unde, voluptas, voluptate.</p>
-															<div class="item-rating">
-																<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-																	class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-																	class="fa fa-star-half"></i>
-															</div>
+														<div >
+															
+															<span class="date"><strong>작년 보이스피싱 피해자 1인당 1,700만원 피해, 전년比
+																1.5배↑ - 2023년 보이스피싱 피해현황 분석 -</strong></span>
+															<p>□(피해규모)’23년 보이스피싱 피해액은 1,965억원으로 전년(1,451억원)보다
+																514억원(35.4%) 증가 ◦피해자 수는 감소(10.2%↓)하였으나, 1천만원 이상 고액 피해사례가
+																증가 □(피해구제)｢통합신고대응센터(☎112)｣ 개소에 따른 보이스피싱 구제절차 일원화 등으로 신속한
+																지급정지가 가능해짐에 따라 환급률 개선*(7.1%p↑) * 피해금액 1,965억원 중 652억원이
+																피해자에게 환급 □(유형별)주요 사기유형별 비중은 대출빙자형(35.2%)-가족·지인 사칭형
+																메신저피싱(33.7%)-정부기관 사칭형(31.1%) 順* * 메신저피싱 피해는 크게 감소하였으나,
+																정부기관 사칭형 및 대출빙자형 피해 증가 □(연령별)20대 이하(+139억원) 및
+																30대(+135억원) 피해 크게 증가 □(권역별)사기이용계좌 중 인터넷전문은행 비중은 감소한 반면,
+																상호금융조합 등 중소서민금융권 비중이 증가하는 등 풍선효과를 보임</p>
+															
 														</div>
 													</article>
 												</li>
 											</ol>
-											<div class="add-review">
-												<h4>Add a Review</h4>
-												<span class="add-rating"> <i class="fa fa-star"></i>
-													<i class="fa fa-star"></i> <i class="fa fa-star"></i> <i
-													class="fa fa-star"></i> <i class="fa fa-star"></i>
-												</span>
-												<form action="#">
-													<div class="row">
-														<div class="col-lg-6 col-sm-6">
-															<div class="form-group">
-																<input type="text" placeholder="Name">
-															</div>
-														</div>
-														<div class="col-lg-6 col-sm-6">
-															<div class="form-group">
-																<input type="email" placeholder="Email">
-															</div>
-														</div>
-													</div>
-													<div class="row">
-														<div class="col-lg-12">
-															<div class="form-group">
-																<textarea placeholder="Message"></textarea>
-															</div>
-														</div>
-													</div>
-													<button class="custom-btn">Submit</button>
-												</form>
-											</div>
+
 										</div>
 									</div>
 								</div>
