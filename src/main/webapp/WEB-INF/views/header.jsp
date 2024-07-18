@@ -67,7 +67,7 @@
 		</div>
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-lg-0">
-				<a class="navbar-brand" href="./index.html"><img
+				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
 					src="${pageContext.request.contextPath}/resources/images/components/logo.png"
 					alt="Logo"></a>
 				<button class="navbar-toggler offcanvas-nav-btn" type="button">
@@ -114,11 +114,11 @@
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">금융교육</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/sbjoin">KB스타뱅킹
 											체험</a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">KB스타뱅킹 체험</li>
 											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
 											<li><a class="dropdown-item"
@@ -129,18 +129,18 @@
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/ibjoin">인터넷뱅킹 체험
 											체험</a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">KB인터넷뱅킹 체험</li>
 											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/ibjoin">회원가입</a></li>
 											<li><a class="dropdown-item"
-												href=".${pageContext.request.contextPath}/edu/ibtransfer">이체</a></li>
+												href="${pageContext.request.contextPath}/edu/ibtransfer">이체</a></li>
 											<li><a class="dropdown-item"
 												href="${pageContext.request.contextPath}/edu/ibsavings">상품가입</a></li>
 										</ul></li>
 
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/quiz">금융퀴즈</a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">금융게임</li>
 											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
@@ -187,7 +187,7 @@
 				</div>
 			</div>
 		</nav>
-	</header><br><br>
+	</header>
 	<!-- Header End -->
 
 </body>
