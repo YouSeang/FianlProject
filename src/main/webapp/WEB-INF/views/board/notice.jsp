@@ -66,11 +66,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="promo-wrap">
-                        <h1 class="promo-title s-title">FAQ</h1>
+                        <h1 class="promo-title s-title">공지사항</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                                <li class="breadcrumb-item"><a href="#">메인</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">소통창구</li>
                             </ol>
                         </nav>
                     </div>
@@ -85,8 +85,8 @@
         <div class="container">
             <div class="row">
                 <div class="section-header text-center mb-5">
-                    <h2 class="display-5 fw-bold">Frequently Asking Questions</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</p>
+                    <h2 class="display-5 fw-bold">공지사항</h2>
+                    <p>KB큽스쿨의 공지사항을 확인해보세요</p>
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <div class="accordion event-accordion" id="accordionExample">
@@ -94,16 +94,13 @@
                             <h2 class="accordion-header" id="headingOne">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    What kind of event will organished?
+                                   공지1
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    we organise <strong>Highly</strong> Lorem ipsum, dolor sit amet consectetur
-                                    adipisicing elit. Rem maiores quod numquam inventore possimus qui, veritatis sed,
-                                    minus dolores perferendis nostrum ad animi nam ratione dolore accusamus obcaecati
-                                    omnis! Non.
+                                    공지1내용
                                 </div>
                             </div>
                         </div>
@@ -111,15 +108,13 @@
                             <h2 class="accordion-header " id="headingTwo">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Which area will be fixed for most?
+                                    공지2
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    Lorem, ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Ex
-                                    ducimus corrupti modi numquam qui magni magnam recusandae consequatur nobis odit quo
-                                    quasi, laboriosam accusamus harum perspiciatis quod eos animi perferendis.
+                                   공지2내용입니다.
                                 </div>
                             </div>
                         </div>
@@ -127,19 +122,13 @@
                             <h2 class="accordion-header" id="headingThree">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    What is the importance of the event?
+                                    공지3
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                                 data-bs-parent="#accordionExample">
                                 <div class="accordion-body">
-                                    <strong>Our Event always</strong> It is hidden
-                                    by default, until the collapse plugin adds the appropriate classes that
-                                    we use to style each element. These classes control the overall
-                                    appearance, as well as the showing and hiding via CSS transitions. You
-                                    can modify any of this with custom CSS or overriding our default
-                                    variables. It's also worth noting that just about any HTML can go within
-
+                                    <strong>공지3</strong> 내용입니다
                                 </div>
                             </div>
                         </div>
@@ -193,16 +182,13 @@
                             <h2 class="accordion-header" id="headingSix">
                                 <button class="accordion-button" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseSix" aria-expanded="true" aria-controls="collapseSix">
-                                    What kind of event will organished?
+                                   공지내용
                                 </button>
                             </h2>
                             <div id="collapseSix" class="accordion-collapse collapse show" aria-labelledby="headingSix"
                                 data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
-                                    we organise <strong>Highly</strong> Lorem ipsum, dolor sit amet consectetur
-                                    adipisicing elit. Rem maiores quod numquam inventore possimus qui, veritatis sed,
-                                    minus dolores perferendis nostrum ad animi nam ratione dolore accusamus obcaecati
-                                    omnis! Non.
+                                     공지내용
                                 </div>
                             </div>
                         </div>
@@ -210,35 +196,26 @@
                             <h2 class="accordion-header" id="headingSeven">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                                    Which area will be fixed for most?
+                                    공지내용
                                 </button>
                             </h2>
                             <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven"
                                 data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
-                                    Lorem, ipsum dolor sit amet <strong>consectetur</strong> adipisicing elit. Ex
-                                    ducimus corrupti modi numquam qui magni magnam recusandae consequatur nobis odit quo
-                                    quasi, laboriosam accusamus harum perspiciatis quod eos animi perferendis.
-                                </div>
+                                   공지내용                                </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingEight">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                                    What is the importance of the event?
+                                    공지내용
                                 </button>
                             </h2>
                             <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight"
                                 data-bs-parent="#accordionExample2">
                                 <div class="accordion-body">
-                                    <strong>Our Event always</strong> It is hidden
-                                    by default, until the collapse plugin adds the appropriate classes that
-                                    we use to style each element. These classes control the overall
-                                    appearance, as well as the showing and hiding via CSS transitions. You
-                                    can modify any of this with custom CSS or overriding our default
-                                    variables. It's also worth noting that just about any HTML can go within
-
+                                    <strong> 공지내용</strong>  공지내용
                                 </div>
                             </div>
                         </div>
