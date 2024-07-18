@@ -85,7 +85,7 @@
 						<h1 class="banner-title text-white">
 							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
-						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않ㅇ하요</p>
+						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
 							<a href="#" class="custom-btn">체험하러가기</a>
 						</div>
@@ -95,13 +95,13 @@
 	</section>
 	<!-- Banner Area End -->
 
-	<!-- Mission Area Start -->
+	<!-- 큽스쿨소개영역 Start -->
 	<section class="inspiration-area section-padding">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<p>KB큽스쿨에서 할 수 있어요! </p>
+						<p>KB큽스쿨에서 할 수 있어요!</p>
 					</div>
 				</div>
 			</div>
@@ -142,9 +142,9 @@
 			</div>
 		</div>
 	</section>
-	<!-- Mission Area End -->
+	<!-- 큽스쿨소개영역 End -->
 
-	<!-- Feature Cause Area Start -->
+	<!-- 교육영상영역 Start -->
 	<div class="feature-cause-area section-padding">
 		<div class="container">
 			<div class="row">
@@ -175,19 +175,18 @@
 			</div>
 		</div>
 	</div>
-	<!-- Feature Cause Area End -->
+	<!-- 교육영상영역 End -->
 
-	<!-- Our Project Area Start -->
+	<!-- 카드공지영역 Start -->
 	<section class="project-area section-padding">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
 						<h2 class="section-title">
-							Our <span class="color">projects</span>
+							KB큽스쿨 <span class="color">알림마당</span>
 						</h2>
-						<p>The cause is very clear is to help the helpless. assumenda
-							delectus quaerat incidunt. Saepe, sed optio eum.</p>
+						<p>짧은 카드뉴스로 슬기로운 금융생활을!</p>
 					</div>
 				</div>
 			</div>
@@ -256,7 +255,7 @@
 			</div>
 		</div>
 	</section>
-	<!-- Our Project Area End -->
+	<!-- 카드공지영역 End -->
 
 	<!-- Volunteer Area Start -->
 	<section class="donation-area section-padding"
@@ -428,7 +427,7 @@
 	</section>
 	<!-- Blog Area End -->
 
-	<!-- Team Area Start -->
+	<!-- 팀소개 영역 Start -->
 	<section class="team-area section-padding"
 		data-stellar-background-ratio=".3">
 		<div class="container">
@@ -436,10 +435,9 @@
 				<div class="col-lg-12">
 					<div class="section-intro">
 						<h2 class="section-title">
-							Our <span class="color">Team</span>
+							홈페이지 <span class="color">담당자</span>
 						</h2>
-						<p>Our Blogs is to help the helpless. assumenda delectus
-							quaerat incidunt. Saepe, sed optio eum.</p>
+						<p>KB큽스쿨을 만들어가고 있습니다. 고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.</p>
 					</div>
 				</div>
 			</div>
@@ -460,9 +458,9 @@
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">Elezabeth Rosa</a>
+									<a href="volunteer-single.html">박소미</a>
 								</h4>
-								<small>Head of Ideas</small>
+								<small>팀장</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
@@ -480,9 +478,9 @@
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">Angela Megan</a>
+									<a href="volunteer-single.html">최은숙</a>
 								</h4>
-								<small>Head of Ideas</small>
+								<small>부팀장</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
@@ -500,9 +498,9 @@
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">Phillip</a>
+									<a href="volunteer-single.html">이슬기</a>
 								</h4>
-								<small>Head of Ideas</small>
+								<small>팀원</small>
 							</div>
 						</div>
 						<!-- Team Member End -->

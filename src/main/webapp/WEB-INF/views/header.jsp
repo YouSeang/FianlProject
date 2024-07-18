@@ -52,10 +52,8 @@
 </head>
 
 <body>
-
 	<!-- Header Start -->
-	<header class="hearer header-2" style="background-color: #ffffff;">
-		<!-- Header Top End -->
+	<header class="hearer">
 		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
 			data-bs-scroll="true">
 			<div class="container d-flex flex-row py-5">
@@ -78,12 +76,15 @@
 				<div class="offcanvas offcanvas-start offcanvas-nav">
 					<div class="offcanvas-header">
 						<a href="./index.html" class="text-inverse"><img
-							src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+							src="${pageContext.request.contextPath}/resources/
+							images/components/logo.png"
 							alt="Logo"></a>
 						<button type="button" class="btn-close"
 							data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
 					<div class="offcanvas-body pt-0 align-items-center">
+
+
 						<ul class="navbar-nav mx-auto align-items-lg-center">
 
 							<li class="nav-item"><a href="./about.html" class="nav-link"
@@ -93,15 +94,15 @@
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">사고예방</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 									<li><a class="dropdown-item" href="./shop.html">금융사고현황</a></li>
 									<li><a class="dropdown-item" href="./single-product.html">최신피싱기법
 											및 사례</a></li>
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융사고예방
 											시뮬레이션</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">금융사고예방 시뮬레이션</li>
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
+											<li class="dropdown-header" >금융사고예방 시뮬레이션</li>
 											<li><a class="dropdown-item" href="./volunteer.html">메신저피싱</a></li>
 											<li><a class="dropdown-item"
 												href="./volunteer-single.html">보이스피싱</a></li>
@@ -112,12 +113,12 @@
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
-								style="color: #333333;">금융교육</a>
-								<ul class="dropdown-menu">
+								style="color: #333333;" >금융교육</a>
+								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="./volunteer.html">KB스타뱅킹
 											체험</a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">KB스타뱅킹 체험</li>
 											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
 											<li><a class="dropdown-item"
@@ -125,11 +126,12 @@
 											<li><a class="dropdown-item"
 												href="./volunteer-single.html">상품가입</a></li>
 										</ul></li>
-									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">KB스타기업뱅킹
+									<li class="dropdown-submenu dropend" ><a
+										class="dropdown-item dropdown-toggle" href="./volunteer.html" >개인인터넷뱅킹
 											체험</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">KB스타기업뱅킹 체험</li>
+										<ul class="dropdown-menu"
+											style="background-color: rgba(255, 255, 255, 0.9);">
+											<li class="dropdown-header">개인인터넷뱅킹 체험</li>
 											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
 											<li><a class="dropdown-item"
 												href="./volunteer-single.html">이체</a></li>
@@ -139,7 +141,7 @@
 
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융퀴즈</a>
-										<ul class="dropdown-menu">
+										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">금융퀴즈</li>
 											<li><a class="dropdown-item" href="./volunteer.html">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
@@ -155,7 +157,7 @@
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">나의보안</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 									<li><a class="dropdown-item" href="./shop.html">내보안점수</a></li>
 									<li><a class="dropdown-item" href="./single-product.html">보안강화방법</a></li>
 								</ul></li>
@@ -165,9 +167,9 @@
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">소통창구</a>
-								<ul class="dropdown-menu">
+								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 									<li><a class="dropdown-item" href="./shop.html">공지사항</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">이벤트</a></li>
+									<li><a class="dropdown-item" href="./single-product.html">사례공유</a></li>
 								</ul></li>
 
 
@@ -180,7 +182,6 @@
 							<a href="./mypage.html"
 								class="text-reset icon position-relative me-2"><i
 								class="fa fa-user"></i></a>
-
 						</div>
 					</div>
 				</div>
@@ -188,5 +189,6 @@
 		</nav>
 	</header>
 	<!-- Header End -->
+
 </body>
 </html>
