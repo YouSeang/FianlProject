@@ -168,8 +168,8 @@
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">소통창구</a>
 								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-									<li><a class="dropdown-item" href="./shop.html">공지사항</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">사례공유</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/board/notice">공지사항</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
 								</ul></li>
 
 
