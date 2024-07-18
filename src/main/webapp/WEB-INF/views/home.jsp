@@ -177,6 +177,9 @@
 	</div>
 	<!-- 교육영상영역 End -->
 
+
+
+
 	<!-- 카드공지영역 Start -->
 	<section class="project-area section-padding">
 		<div class="container">
@@ -195,17 +198,18 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/causes/cause1.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/신용점수.png"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">World Health, Care Senior Citizen Project.</a>
+								<a href="#">사회초년생을 위한 신용 관리방법</a>
 							</h3>
-							<p>We want to maxime aliquid eveniet et vitae repellendus ab
-								fugit error. Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit. Velit, quasi.</p>
-							<a href="#" class="custom-btn mt-3">View Project</a>
+							<p>
+								1.갚을 능력 고려하여 채무 규모 설정하기<br /> 2.인터넷/전화 대출은 신중하게 결정하기<br />
+								3.소액이라도 절대 연체하지 않기<br /> 4.주거래 금융회사를 정하여 이용하기
+							</p>
+							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>
 					</div>
 					<!-- Single Project End -->
@@ -215,17 +219,18 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/causes/cs3.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/예적금.png"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">We wish to ensure primary education mandatory.</a>
+								<a href="#">예/적금 가입 전 알아두세요!</a>
 							</h3>
-							<p>We want to maxime aliquid eveniet et vitae repellendus ab
-								fugit error. Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit. Velit, quasi.</p>
-							<a href="#" class="custom-btn mt-3">View Project</a>
+							<p>
+								1.예금자보호제도 확인하기<br /> 2.금융상품 한눈에 서비스로 비교해보기<br /> 3.가입가능한 특판 예/적금
+								확인하기<br /> 4.만기라면 잊지말고 재예치하기
+							</p>
+							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>
 
 					</div>
@@ -236,17 +241,18 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/images/project/pr1.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/착오송금.png"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">Africa'n Food Deficiency Project is running.</a>
+								<a href="#">실수로 돈을 잘못송금했다면?</a>
 							</h3>
-							<p>We want to maxime aliquid eveniet et vitae repellendus ab
-								fugit error. Lorem ipsum dolor sit amet, consectetur adipisicing
-								elit. Velit, quasi.</p>
-							<a href="#" class="custom-btn mt-3">View Project</a>
+							<p>
+								ㅇ 착오송금반환지원제도 이용하기<br /> - 신청대상은 최근 1년 이내 발생한 <br /> 5만 원 이상 5천만
+								원 이하 착오송금 건<br /> - 상세내용은 예금보험공사에서 확인하기
+							</p>
+							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>
 					</div>
 					<!-- Single Project End -->
@@ -257,175 +263,6 @@
 	</section>
 	<!-- 카드공지영역 End -->
 
-	<!-- Volunteer Area Start -->
-	<section class="donation-area section-padding"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/donation.jpg');"
-		data-stellar-background-ratio="0.3">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-8 offset-lg-2">
-					<div class="volunteer-wrap">
-						<h2 class="section-title">
-							Make a <span class="color">Donnation ?</span>
-						</h2>
-						<form action="#" class="volunteer-form row">
-							<div class="col-lg-6 col-sm-6">
-								<div class="form-group">
-									<label for="name">*Name</label> <input type="text" id="name">
-								</div>
-								<div class="form-group">
-									<label for="amount">*Amount(USD)</label> <input type="text"
-										id="amount">
-								</div>
-
-							</div>
-							<div class="col-lg-6 col-sm-6">
-								<div class="form-group">
-									<label for="email">*Email</label> <input type="text" id="email">
-								</div>
-								<div class="form-group">
-									<label for="email">Fund Option</label> <select name="fund">
-										<option value="Educate Children" selected>Food
-											Campaign</option>
-										<option value="Educate Children">Educate Children</option>
-										<option value="Child Camps">Campaign for Old</option>
-										<option value="Clean Water for Life">Clean Water</option>
-										<option value="Campaign for Child Poverty">Campaign
-											for Women</option>
-									</select>
-								</div>
-
-							</div>
-							<div class="col-lg-12">
-								<div class="form-group">
-									<label for="comment">*Message</label>
-									<textarea name="comment" id="comment"></textarea>
-								</div>
-								<button class="custom-btn">Submit</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Volunteer Area End -->
-
-	<!-- Blog Area Start -->
-	<section class="blog-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-intro">
-						<h2 class="section-title">
-							Our <span class="color">Journals</span>
-						</h2>
-						<p>Our Blogs is to help the helpless. assumenda delectus
-							quaerat incidunt. Saepe, sed optio eum.</p>
-					</div>
-				</div>
-			</div>
-			<div class="row g-4">
-				<div class="col-lg-6">
-					<div class="list-entry d-sm-flex bg-light rounded-3 border">
-						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg');">
-						</a>
-						<div class="entry-content p-lg-4 p-3">
-							<h3 class="entry-title mb-2">
-								<a href="single-blog.html" class="text-reset">Togather we
-									all want to remove illiteracy. </a>
-							</h3>
-							<div class="entry-meta mb-3">
-								<span><a href="#"><i class="fa-regular fa-user"></i>Tariqul
-										Islam</a></span> <span><i class="fa-regular fa-calendar"></i>5 May
-									2025</span> <span><i class="fa-regular fa-heart"></i>19</span>
-							</div>
-							<p>Lorem ipsum dolor sit amet, adipiscing elit. Aenean
-								commodo ligula eget dolor.</p>
-							<a href="single-blog.html" class="fw-bold text-reset">Read
-								more <i class="fa fa-long-arrow-right ms-2"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- Single Article End -->
-				<div class="col-lg-6">
-					<div class="list-entry d-sm-flex bg-light rounded-3 border">
-						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-2.jpg');">
-						</a>
-						<div class="entry-content p-lg-4 p-3">
-							<h3 class="entry-title mb-2">
-								<a href="single-blog.html" class="text-reset">We are
-									fighting againest malnutrition. </a>
-							</h3>
-							<div class="entry-meta mb-3">
-								<span><a href="#"><i class="fa-regular fa-user"></i>Tariqul
-										Islam</a></span> <span><i class="fa-regular fa-calendar"></i>5 May
-									2025</span> <span><i class="fa-regular fa-heart"></i>19</span>
-							</div>
-							<p>Lorem ipsum dolor sit amet, adipiscing elit. Aenean
-								commodo ligula eget dolor.</p>
-							<a href="single-blog.html" class="fw-bold text-reset">Read
-								more <i class="fa fa-long-arrow-right ms-2"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- Single Article End -->
-				<div class="col-lg-6">
-					<div class="list-entry d-sm-flex bg-light rounded-3 border">
-						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-3.jpg');">
-						</a>
-						<div class="entry-content p-lg-4 p-3">
-							<h3 class="entry-title mb-2">
-								<a href="single-blog.html" class="text-reset">Togather we
-									all want to remove illiteracy. </a>
-							</h3>
-							<div class="entry-meta mb-3">
-								<span><a href="#"><i class="fa-regular fa-user"></i>Tariqul
-										Islam</a></span> <span><i class="fa-regular fa-calendar"></i>5 May
-									2025</span> <span><i class="fa-regular fa-heart"></i>19</span>
-							</div>
-							<p>Lorem ipsum dolor sit amet, adipiscing elit. Aenean
-								commodo ligula eget dolor.</p>
-							<a href="single-blog.html" class="fw-bold text-reset">Read
-								more <i class="fa fa-long-arrow-right ms-2"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- Single Article End -->
-				<div class="col-lg-6">
-					<div class="list-entry d-sm-flex bg-light rounded-3 border">
-						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-4.jpg');">
-						</a>
-						<div class="entry-content p-lg-4 p-3">
-							<h3 class="entry-title mb-2">
-								<a href="single-blog.html" class="text-reset">Togather we
-									all want to remove illiteracy. </a>
-							</h3>
-							<div class="entry-meta mb-3">
-								<span><a href="#"><i class="fa-regular fa-user"></i>Tariqul
-										Islam</a></span> <span><i class="fa-regular fa-calendar"></i>5 May
-									2025</span> <span><i class="fa-regular fa-heart"></i>19</span>
-							</div>
-							<p>Lorem ipsum dolor sit amet, adipiscing elit. Aenean
-								commodo ligula eget dolor.</p>
-							<a href="single-blog.html" class="fw-bold text-reset">Read
-								more <i class="fa fa-long-arrow-right ms-2"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-				<!-- Single Article End -->
-			</div>
-		</div>
-	</section>
-	<!-- Blog Area End -->
 
 	<!-- 팀소개 영역 Start -->
 	<section class="team-area section-padding"
@@ -437,7 +274,9 @@
 						<h2 class="section-title">
 							홈페이지 <span class="color">담당자</span>
 						</h2>
-						<p>KB큽스쿨을 만들어가고 있습니다. 고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.</p>
+						<p>
+							KB큽스쿨을 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.
+						</p>
 					</div>
 				</div>
 			</div>
@@ -447,7 +286,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/박소미.png"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -467,7 +306,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/최은숙.png"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -487,7 +326,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/이슬기.png"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -507,7 +346,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/유세앙.png"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -518,116 +357,20 @@
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">Jonh Trudo</a>
+									<a href="volunteer-single.html">유세앙</a>
 								</h4>
-								<small>Head of Ideas</small>
+								<small>팀원</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">Elezabeth Rosa</a>
-								</h4>
-								<small>Head of Ideas</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">Angela Megan</a>
-								</h4>
-								<small>Head of Ideas</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">Phillip</a>
-								</h4>
-								<small>Head of Ideas</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">Jonh Trudo</a>
-								</h4>
-								<small>Head of Ideas</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Team Area End -->
+	<!-- 팀소개영역 End -->
 
-	<!-- Become Volunteer Area Start -->
-	<div class="volunteer-area bg-cover section-padding"
-		data-stellar-background-ratio="0.4"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/volunteer.jpg');">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="volunteer-wrap text-center">
-						<span>Become a Volunteer</span>
-						<p>Join us to participate yourself for mankind</p>
-						<a href="#" class="custom-btn">join now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Become Volunteer Area End -->
 
 	<%@ include file="footer.jsp"%>
 	<!--

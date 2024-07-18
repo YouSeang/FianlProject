@@ -59,48 +59,6 @@
 	</div>
 	<!-- Header Start -->
 	<header class="hearer">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-sm-6">
-						<ul class="top-info d-none d-md-block">
-							<li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-									class="fa fa-paper-plane"></i>helpplus@yahoo.com</a></li>
-							<li><a href="tel:08829294239" title="Account"><i
-									class="fa fa-phone"></i>+088 292 94 239</a></li>
-						</ul>
-						<div class="dropdown d-md-none">
-							<a href="#" class="dropdown-toggle" id="dropdownMenuButton1"
-								data-bs-toggle="dropdown" aria-expanded="false"> Quick link
-							</a>
-							<ul class="dropdown-menu shadow-sm"
-								aria-labelledby="dropdownMenuButton1">
-								<li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-										class="fa fa-paper-plane"></i>helpplus@gmail.com</a></li>
-								<li><a href="tel:08829294239" title="Account"><i
-										class="fa fa-phone"></i>+088 292 94 239</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 col-sm-6">
-						<div class="account-info d-flex align-items-center">
-							<div class="lang-dropdown d-flex align-items-center">
-								<span><i class="fa fa-flag"></i></span> <select name="lang"
-									id="lang">
-									<option value="1">English</option>
-									<option value="2">Spanish</option>
-									<option value="3">Dutch</option>
-								</select>
-							</div>
-
-							<a class="d-none d-sm-block" href="signin.html" title="Login"><i
-								class="fa fa-user me-2"></i>My Account</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Header Top End -->
 		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
 			data-bs-scroll="true">
 			<div class="container d-flex flex-row py-5">
