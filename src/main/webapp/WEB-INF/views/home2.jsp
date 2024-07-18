@@ -21,7 +21,7 @@
 <!-- Favicon Icon
     ==================================================-->
 <link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
 <!-- Style Libraries
     ==================================================================-->
@@ -58,188 +58,40 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<!-- Header Start -->
-	<header class="hearer header-2">
-		<!-- Header Top End -->
-		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
-			data-bs-scroll="true">
-			<div class="container d-flex flex-row py-5">
-				<form class="search-form w-100">
-					<input id="search-form" type="text" class="form-control"
-						placeholder="Type keyword and hit enter">
-				</form>
-				<button type="button" class="btn-close icon-xs bg-light rounded-5"
-					data-bs-dismiss="offcanvas" aria-label="Close"></button>
-			</div>
-		</div>
-		<nav class="navbar navbar-expand-lg">
-			<div class="container px-lg-0">
-				<a class="navbar-brand" href="./index.html"><img
-					src="${pageContext.request.contextPath}/resources/images/components/logo.png"
-					alt="Logo"></a>
-				<button class="navbar-toggler offcanvas-nav-btn" type="button">
-					<i class="fa fa-bars"></i>
-				</button>
-				<div class="offcanvas offcanvas-start offcanvas-nav">
-					<div class="offcanvas-header">
-						<a href="./index.html" class="text-inverse"><img
-							src="${pageContext.request.contextPath}/resources/images/components/logo.png"
-							alt="Logo"></a>
-						<button type="button" class="btn-close"
-							data-bs-dismiss="offcanvas" aria-label="Close"></button>
-					</div>
-					<div class="offcanvas-body pt-0 align-items-center">
-						<ul class="navbar-nav mx-auto align-items-lg-center">
-
-							<li class="nav-item"><a href="./about.html" class="nav-link">큽스쿨소개</a></li>
-
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">사고예방</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="./shop.html">금융사고현황</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">최신피싱기법
-											및 사례</a></li>
-									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융사고예방
-											시뮬레이션</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">금융사고예방 시뮬레이션</li>
-											<li><a class="dropdown-item" href="./volunteer.html">메신저피싱</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">보이스피싱</a></li>
-										</ul></li>
-
-								</ul></li>
-
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">금융교육</a>
-								<ul class="dropdown-menu">
-									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">KB스타뱅킹
-											체험</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">KB스타뱅킹 체험</li>
-											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">이체</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">상품가입</a></li>
-										</ul></li>
-									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">KB스타기업뱅킹
-											체험</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">KB스타기업뱅킹 체험</li>
-											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">이체</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">상품가입</a></li>
-										</ul></li>
-
-									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융퀴즈</a>
-										<ul class="dropdown-menu">
-											<li class="dropdown-header">금융퀴즈</li>
-											<li><a class="dropdown-item" href="./volunteer.html">OX퀴즈</a></li>
-											<li><a class="dropdown-item"
-												href="./volunteer-single.html">카드퀴즈</a></li>
-										</ul></li>
-
-
-									<li><a class="dropdown-item" href="./shop.html">교육영상</a></li>
-								</ul></li>
-
-
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">나의보안</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="./shop.html">내보안점수</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">보안강화방법</a></li>
-								</ul></li>
-
-
-							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
-								data-bs-toggle="dropdown" aria-expanded="false">소통창구</a>
-								<ul class="dropdown-menu">
-									<li><a class="dropdown-item" href="./shop.html">공지사항</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">이벤트</a></li>
-								</ul></li>
-
-
-						</ul>
-						<div
-							class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
-							<a class="text-reset icon" href="#" data-bs-toggle="offcanvas"
-								data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
-							<a href="./cart.html"
-								class="text-reset icon position-relative me-2"><i
-								class="fa fa-shopping-cart"></i> <span class="cart-num">2</span></a>
-							<a href="./donate.html" class="custom-btn">Donate Us</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</nav>
-	</header>
-	<!-- Header End -->
+	<%@ include file="header.jsp"%>
 
 	<!-- Banner Area Start -->
 	<section class="banner-area">
 		<div class="banner-2 owl-carousel">
 			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/banner/cta-bg.jpg')">
+				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.png')">
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white">
-							Expand your <span>Helping</span> Hand
+							시뮬레이션으로<span>금융사고를 </span><br />예방해보세요
 						</h1>
-						<p>We all want to make better Planet.</p>
+						<p>블라블라</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">Get Started</a> <a href="#"
-								class="custom-btn unfill">Donate Now</a>
+							<a href="#" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
 			</div>
 			<!-- Single Banner End -->
 			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/banner/banner5.jpg')">
+				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.jpg')">
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white">
-							Child future <span>Goal</span> Shaping
+							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
-						<p>We all want to make better Planet.</p>
+						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않ㅇ하요</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">Get Started</a> <a href="#"
-								class="custom-btn unfill">Donate Now</a>
+							<a href="#" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
 			</div>
-			<!-- Single Banner End -->
-			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/banner/banner4.jpg')">
-				<div class="container">
-					<div class="banner-info">
-						<h1 class="banner-title text-white">
-							We are <span>Ready</span> for the Future
-						</h1>
-						<p>We all want to make better Planet.</p>
-						<div class="banner-btn">
-							<a href="#" class="custom-btn">Get Started</a> <a href="#"
-								class="custom-btn unfill">Donate Now</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Single Banner End -->
-		</div>
 	</section>
 	<!-- Banner Area End -->
 
@@ -249,9 +101,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<p>We are spreading all most all over the world soon. voluptas
-							ut molestiae tempora nisi ratione, ipsa, dignissimos
-							reprehenderit voluptatem.</p>
+						<p>KB큽스쿨에서 할 수 있어요!</p>
 					</div>
 				</div>
 			</div>
@@ -259,39 +109,33 @@
 				<div class="col-lg-4 col-sm-4">
 					<div class="single-inspiration">
 						<span><img
-							src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/mis1.png"
+							src="${pageContext.request.contextPath}/resources/images/components/mis1.png"
 							alt=""></span>
-						<h3>Become A Volunteer</h3>
-						<p>Numquam maiores perferendis adipisci ipsum assumenda
-							laboriosam, mollitia ipsa fuga, sed consectetur, similique
-							aliquam.</p>
-						<a href="#">Read more <i class="fa fa-long-arrow-right"></i></a>
+						<h3>사고예방 시뮬레이션</h3>
+						<p>메신저피싱, 보이스피싱을 예방하기 위해 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요</p>
+						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
 				<div class="col-lg-4 col-sm-4">
 					<div class="single-inspiration">
 						<span><img
-							src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/mis2.png"
+							src="${pageContext.request.contextPath}/resources/images/components/mis2.png"
 							alt=""></span>
-						<h3>Give us Inspiration</h3>
-						<p>Numquam maiores perferendis adipisci ipsum assumenda
-							laboriosam, mollitia ipsa fuga, sed consectetur, similique
-							aliquam.</p>
-						<a href="#">Read more <i class="fa fa-long-arrow-right"></i></a>
+						<h3>디지털금융 교육</h3>
+						<p>어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 다양한 거래를 체험해볼 수 있어요.</p>
+						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
 				<div class="col-lg-4 col-sm-4">
 					<div class="single-inspiration">
 						<span><img
-							src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/mis3.png"
+							src="${pageContext.request.contextPath}/resources/images/components/mis3.png"
 							alt=""></span>
-						<h3>Call for Donation</h3>
-						<p>Numquam maiores perferendis adipisci ipsum assumenda
-							laboriosam, mollitia ipsa fuga, sed consectetur, similique
-							aliquam.</p>
-						<a href="#">Read more <i class="fa fa-long-arrow-right"></i></a>
+						<h3>나의 보안점수</h3>
+						<p>보안을 강화할 수 있는 방법을 확인하고 적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!</p>
+						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -307,14 +151,10 @@
 				<div class="col-lg-6 col-sm-6">
 					<div class="f-cause-txt">
 						<h2 class="section-title">
-							Crisis of <span>Myanmar</span>
+							KB큽스쿨 <span>추천영상</span>
 						</h2>
-						<p>Adipisicing elit. Itaque debitis modi doloremque love rem
-							sed asperiores suscipit, ullam minima sunt. Maxime unde tenetur
-							consequatur dolores illum id quos repudiandae. excepturi our
-							placeat, assumenda eveniet, provident voluptatem magni sint
-							voluptates sit.</p>
-						<a href="#" class="custom-btn">Read More <i
+						<p>KB큽스쿨에서 웃음과 재미, 금융지식까지 선물해드려요.</p>
+						<a href="#" class="custom-btn">자세히보기 <i
 							class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -322,17 +162,12 @@
 					<div class="f-cause-wrap owl-carousel">
 						<div class="f-cause-img">
 							<a href="#"><img class="img-rounded"
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/causes/cs4.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/교육영상1.png"
 								alt=""></a>
 						</div>
 						<div class="f-cause-img">
 							<a href="#"><img class="img-rounded"
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/causes/cs5.jpg"
-								alt=""></a>
-						</div>
-						<div class="f-cause-img">
-							<a href="#"><img class="img-rounded"
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/causes/cs6.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/교육영상2.png"
 								alt=""></a>
 						</div>
 					</div>
@@ -361,7 +196,7 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/causes/cause1.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/cause1.jpg"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
@@ -381,7 +216,7 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/causes/cs3.jpg"
+								src="${pageContext.request.contextPath}/resources/images/causes/cs3.jpg"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
@@ -402,7 +237,7 @@
 					<div class="single-project rounded-2 shadow">
 						<figure class="project-thumb">
 							<img
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/project/pr1.jpg"
+								src="${pageContext.request.contextPath}/resources/images/project/pr1.jpg"
 								alt="">
 						</figure>
 						<div class="project-info p-lg-4 p-3">
@@ -425,7 +260,7 @@
 
 	<!-- Volunteer Area Start -->
 	<section class="donation-area section-padding"
-		style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/banner/donation.jpg');"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/donation.jpg');"
 		data-stellar-background-ratio="0.3">
 		<div class="container">
 			<div class="row">
@@ -495,7 +330,7 @@
 				<div class="col-lg-6">
 					<div class="list-entry d-sm-flex bg-light rounded-3 border">
 						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg');">
+							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg');">
 						</a>
 						<div class="entry-content p-lg-4 p-3">
 							<h3 class="entry-title mb-2">
@@ -519,7 +354,7 @@
 				<div class="col-lg-6">
 					<div class="list-entry d-sm-flex bg-light rounded-3 border">
 						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/blog/blog-2.jpg');">
+							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-2.jpg');">
 						</a>
 						<div class="entry-content p-lg-4 p-3">
 							<h3 class="entry-title mb-2">
@@ -543,7 +378,7 @@
 				<div class="col-lg-6">
 					<div class="list-entry d-sm-flex bg-light rounded-3 border">
 						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/blog/blog-3.jpg');">
+							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-3.jpg');">
 						</a>
 						<div class="entry-content p-lg-4 p-3">
 							<h3 class="entry-title mb-2">
@@ -567,7 +402,7 @@
 				<div class="col-lg-6">
 					<div class="list-entry d-sm-flex bg-light rounded-3 border">
 						<a href="single-post.html" class="entry-media bg-cover"
-							style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/blog/blog-4.jpg');">
+							style="background-image: url('${pageContext.request.contextPath}/resources/images/blog/blog-4.jpg');">
 						</a>
 						<div class="entry-content p-lg-4 p-3">
 							<h3 class="entry-title mb-2">
@@ -614,7 +449,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -634,7 +469,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -654,7 +489,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -674,7 +509,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -694,7 +529,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm3.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -714,7 +549,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm4.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -734,7 +569,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm1.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -754,7 +589,7 @@
 						<div class="team-member">
 							<figure class="team-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
+									src="${pageContext.request.contextPath}/resources/images/team/tm2.jpg"
 									alt="">
 								<div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
@@ -781,7 +616,7 @@
 	<!-- Become Volunteer Area Start -->
 	<div class="volunteer-area bg-cover section-padding"
 		data-stellar-background-ratio="0.4"
-		style="background-image: url('${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/banner/volunteer.jpg');">
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/volunteer.jpg');">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -796,103 +631,7 @@
 	</div>
 	<!-- Become Volunteer Area End -->
 
-	<!-- Footer Area Start -->
-	<footer class="footer-area">
-		<div class="footer-top">
-			<div class="newsletter">
-				<h4>SignUp Our Newsletter</h4>
-				<!-- Mailchimp From Start -->
-				<form class="mailchimp inputSubscribeDiv">
-					<input type="email" name="subscribe" id="subscriber-email"
-						placeholder="Your Mail" class="form-control">
-					<button type="submit" id="subscribe-button">
-						<i class="fa fa-paper-plane"></i>
-					</button>
-					<div class="subscription-success"></div>
-					<div class="subscription-error"></div>
-					<label class="subscription-label" for="subscriber-email"></label>
-				</form>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-sm-6">
-					<div class="footer-widget footer-about">
-						<div class="f-logo">
-							<a href="#"> <img
-								src="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/f-logo.png"
-								alt="Logo">
-							</a>
-						</div>
-						<p>Help us to save lifes during a natural disaster, get clean
-							water running in the most remote areas, and much more.</p>
-						<div class="footer-social">
-							<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-								href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-								class="fa-brands fa-youtube"></i></a> <a href="#"><i
-								class="fa-brands fa-pinterest"></i></a> <a href="#"><i
-								class="fa-brands fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 offset-lg-1 col-sm-5 offset-sm-1">
-					<div class="footer-widget">
-						<h3 class="widget-title">about us</h3>
-						<ul>
-							<li><a href="#">About Employee</a></li>
-							<li><a href="#">About Carrier</a></li>
-							<li><a href="#">How it works</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-sm-6">
-					<div class="footer-widget">
-						<h3 class="widget-title">Useful Links</h3>
-						<ul>
-							<li><a href="#">Project</a></li>
-							<li><a href="#">Donner</a></li>
-							<li><a href="#">Relief</a></li>
-							<li><a href="#">Sanitaion</a></li>
-							<li><a href="#">News</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-5 offset-sm-1 offset-lg-0">
-					<div class="footer-widget">
-						<h3 class="widget-title">Contact Us</h3>
-						<ul class="footer-contact">
-							<li><i class="fa fa-home"></i> <span>129, London
-									Street, South London UK.</span></li>
-							<li><i class="fa fa-phone"></i><span><a
-									href="tel:+6494461709.7890">+00- 123.456.7890</a> <br> <a
-									href="tel:+6494461709.7890">+00- 223.456.7890</a></span></li>
-							<li><i class="fa fa-envelope"></i> <span><a
-									href="mailto:help@gmail.com">help@gmail.com</a></span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row copy-right g-0">
-				<div class="col-xl-6 col-md-7 order-2 order-md-1">
-					<p>
-						Copyright © 2024. All Rights Reserved by <a href="#">theme-village</a>
-					</p>
-				</div>
-				<div class="col-xl-6 col-md-5 order-1 order-md-2">
-					<nav class="quick-link text-lg-end">
-						<ul>
-							<li><a href="#" class="nav-link">Terms & Conditions</a></li>
-							<li><a href="#" class="nav-link">Privacy Policy</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Area Start -->
-
+	<%@ include file="footer.jsp"%>
 	<!--
 Javascript
 ======================================================== -->
