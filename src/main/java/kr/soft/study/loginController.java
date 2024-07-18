@@ -26,11 +26,6 @@ public class loginController {
 	}
 	
 	
-	@RequestMapping("/incidentsOverview")
-	public String incidentsOverview(Locale locale, Model model) {
-		
-		return "incidentsOverview";
-	}
-	
+
 	
 }
