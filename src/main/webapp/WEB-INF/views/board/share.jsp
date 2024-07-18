@@ -66,11 +66,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="promo-wrap">
-                        <h1 class="promo-title s-title">FAQ</h1>
+                        <h1 class="promo-title s-title">피해사례 공유</h1>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Faq</li>
+                                <li class="breadcrumb-item"><a href="#">메인</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">소통창구</li>
                             </ol>
                         </nav>
                     </div>
