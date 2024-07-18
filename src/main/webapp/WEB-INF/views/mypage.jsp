@@ -43,9 +43,6 @@
 
     <div class="container mt-5 mb-5">
         <div class="card">
-            <div class="card-header text-center">
-                <img src="${pageContext.request.contextPath}/resources/images/components/logo.png" alt="Logo" class="img-fluid" width="150">
-            </div>
             <div class="card-body">
                 <h5 class="card-title">내 정보</h5>
                 <div class="table-responsive">
