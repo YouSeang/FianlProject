@@ -1,4 +1,4 @@
-package kr.soft.study;
+package kr.soft.study.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -25,6 +25,11 @@ public class loginController {
 		return "login";
 	}
 	
+	@RequestMapping("/signup")
+	public String signup(Model model) {
+		System.out.println("signup");
+		return "signup";
+	}
 	
 	@RequestMapping("/incidentsOverview")
 	public String incidentsOverview(Locale locale, Model model) {

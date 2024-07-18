@@ -113,44 +113,44 @@
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
-								style="color: #333333;" >금융교육</a>
-								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
+								style="color: #333333;">금융교육</a>
+								<ul class="dropdown-menu">
 									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">KB스타뱅킹
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/sbjoin">KB스타뱅킹
 											체험</a>
-										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
+										<ul class="dropdown-menu">
 											<li class="dropdown-header">KB스타뱅킹 체험</li>
-											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">이체</a></li>
+												href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">상품가입</a></li>
+												href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
 										</ul></li>
-									<li class="dropdown-submenu dropend" ><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html" >개인인터넷뱅킹
+									<li class="dropdown-submenu dropend"><a
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/ibjoin">인터넷뱅킹 체험
 											체험</a>
-										<ul class="dropdown-menu"
-											style="background-color: rgba(255, 255, 255, 0.9);">
-											<li class="dropdown-header">개인인터넷뱅킹 체험</li>
-											<li><a class="dropdown-item" href="./volunteer.html">회원가입</a></li>
+										<ul class="dropdown-menu">
+											<li class="dropdown-header">KB인터넷뱅킹 체험</li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/ibjoin">회원가입</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">이체</a></li>
+												href=".${pageContext.request.contextPath}/edu/ibtransfer">이체</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">상품가입</a></li>
+												href="${pageContext.request.contextPath}/edu/ibsavings">상품가입</a></li>
 										</ul></li>
 
 									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융퀴즈</a>
-										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-											<li class="dropdown-header">금융퀴즈</li>
-											<li><a class="dropdown-item" href="./volunteer.html">OX퀴즈</a></li>
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/quiz">금융퀴즈</a>
+										<ul class="dropdown-menu">
+											<li class="dropdown-header">금융게임</li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">카드퀴즈</a></li>
+												href="${pageContext.request.contextPath}/edu/findcrime">범죄자 잡기</a></li>
 										</ul></li>
 
 
-									<li><a class="dropdown-item" href="./shop.html">교육영상</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
 								</ul></li>
+
 
 
 							<li class="nav-item dropdown"><a
@@ -187,7 +187,7 @@
 				</div>
 			</div>
 		</nav>
-	</header>
+	</header><br><br>
 	<!-- Header End -->
 
 </body>
