@@ -51,23 +51,21 @@
                             <tr>
                                 <th scope="row">이름</th>
                                 <td>파덕이</td>
-                                <td rowspan="3"><button class="btn btn-warning">정보수정</button></td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Email</th>
-                                <td>kb@test.com</td>
-                            </tr>
-                            <tr>
+                                <td rowspan="3"></td>
                                 <th scope="row">아이디</th>
                                 <td>Kookmin</td>
                             </tr>
                             <tr>
+                                <th scope="row">Email</th>
+                                <td>kb@test.com</td>
                                 <th scope="row">휴대폰 번호</th>
                                 <td>010-1234-5678</td>
                             </tr>
                         </tbody>
                     </table>
+                    <button class="btn btn-warning">정보수정</button>
                 </div>
+                </hr>
                 <h5 class="card-title mt-4">내 현황</h5>
                 <div class="table-responsive">
                     <table class="table">
@@ -76,8 +74,6 @@
                                 <th scope="row">보유포인트</th>
                                 <td>5760</td>
                                 <td><button class="btn btn-warning">상세내역</button></td>
-                            </tr>
-                            <tr>
                                 <th scope="row">보유쿠폰</th>
                                 <td>0장</td>
                                 <td><button class="btn btn-warning">상세내역</button></td>
