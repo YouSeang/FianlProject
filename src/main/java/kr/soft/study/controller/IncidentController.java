@@ -16,44 +16,49 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class IncidentController {
-	
-	
-	/*
-	 * @RequestMapping("/incidentsOverview") public String incidentsOverview(Locale
-	 * locale, Model model) {
-	 * 
-	 * return "incidentsOverview"; }
-	 */
 
-	@RequestMapping("/recentIncidents")
+	@RequestMapping("/voice/incidentsOverview")
+	public String incidentsOverview(Locale locale, Model model) {
+
+		return "voice/incidentsOverview";
+	}
+
+	@RequestMapping("/voice/recentIncidents")
 	public String recentIncidents(Model model) {
 
-		return "recentIncidents";
+		return "voice/recentIncidents";
 	}
 
-	@RequestMapping("/smishing")
+	@RequestMapping("/voice/smishing")
 	public String smishing(Model model) {
 
-		return "smishing";
+		return "voice/smishing";
 	}
 
-	@RequestMapping("/voicePhishing")
+	@RequestMapping("/voice/voicePhishing")
 	public String voicePhishing(Model model) {
 
-		return "voicePhishing";
+		return "voice/voicePhishing";
 	}
 
-	@RequestMapping("/securityGuide")
+	
+	@RequestMapping("/voice/newVoicePhishing")
+	public String openVoicePhishing(Model model) {
+
+		return "voice/newVoicePhishing";
+	}
+	
+	
+	@RequestMapping("/security/securityGuide")
 	public String securityGuide(Model model) {
 
-		return "securityGuide";
+		return "security/securityGuide";
 	}
 
-	@RequestMapping("/securityTemp")
+	@RequestMapping("/security/securityTemp")
 	public String securityTemp(Model model) {
 
-		return "securityTemp";
+		return "security/securityTemp";
 	}
-	
-	
+
 }
