@@ -22,11 +22,11 @@ public class mypageController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
+	
+	@RequestMapping("/mypage")
+	public String mypage(Locale locale, Model model) {
 
-	@RequestMapping("/login")
-	public String login(Locale locale, Model model) {
-
-		return "login";
+		return "mypage";
 	}
 
 }
