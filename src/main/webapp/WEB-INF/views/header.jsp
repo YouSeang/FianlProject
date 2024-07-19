@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
@@ -51,7 +51,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body> 
 	<!-- Header Start -->
 	<header class="hearer">
 		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
