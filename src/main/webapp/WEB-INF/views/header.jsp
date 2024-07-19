@@ -176,7 +176,7 @@
 						</ul>
 						<div
 							class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
-							<a href="${pageContext.request.contextPath}/login" class="custom-btn">로그인</a> <a
+							<a href="${pageContext.request.contextPath}/loginView" class="custom-btn">로그인</a> <a
 								class="text-reset icon" href="#" data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
 							<a href="./mypage.html"
