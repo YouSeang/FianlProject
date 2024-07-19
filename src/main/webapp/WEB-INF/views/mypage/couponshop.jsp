@@ -63,6 +63,18 @@
 	justify-content: center;
 	margin-top: 1rem;
 }
+
+.coupon-info {
+	font-size: 1.2rem; /* 글씨 크기 조정 */
+	line-height: 1.5; /* 줄 간격 조정 */
+	color: #333; /* 글씨 색상 */
+	margin-top: 10px; /* 상단 여백 */
+	margin-bottom: 10px; /* 하단 여백 */
+	padding: 10px; /* 안쪽 여백 */
+	border: 1px solid #ddd; /* 테두리 */
+	border-radius: 5px; /* 테두리 둥글게 */
+	background-color: #f9f9f9; /* 배경색 */
+}
 </style>
 </head>
 <body>
@@ -93,6 +105,16 @@
 
 	<!-- 쿠폰선택영역 start -->
 	<main class="shop-page section-padding">
+		<div class="col-lg-12">
+			<div class="section-intro">
+				<h2 class="section-title">
+					<span class="color">쿠폰교환</span>
+				</h2>
+				<p>교환하고자하는 쿠폰을 아래에서 선택해주세요</p>
+			</div>
+		</div>
+
+
 		<div class="container">
 			<div class="shop-body row g-4">
 				<div class="col-lg-4 col-sm-6">
@@ -104,7 +126,7 @@
 								alt="product">
 							</a>
 						</div>
-						<div class="product-summery p-3">
+						<div class="product-summery p-3" style="margin-right: 20px;">
 							<h3 class="product-title">
 								<a class="text-reset" href="single-product.html"> 스타벅스
 									아메리카노(Tall)</a>
@@ -126,7 +148,7 @@
 								alt="product">
 							</a>
 						</div>
-						<div class="product-summery p-3">
+						<div class="product-summery p-3" style="margin-right: 20px;">
 							<h3 class="product-title">
 								<a class="text-reset" href="single-product.html">
 									금융쿠폰(10,000원)</a>
@@ -147,7 +169,7 @@
 								alt="product">
 							</a>
 						</div>
-						<div class="product-summery p-3">
+						<div class="product-summery p-3" style="margin-right: 20px;">
 							<h3 class="product-title">
 								<a class="text-reset" href="single-product.html">
 									CU모바일상품권(5,000원)</a>
@@ -161,9 +183,10 @@
 					</div>
 				</div>
 			</div>
-			<div>
+			<br /> <br />
+			<div class="coupon-info">
 				ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br /> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는 소멸됩니다.
-				</br/> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
+				<br /> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
 			</div>
 			<div class="button-container">
 				<button class="btn btn-warning">쿠폰교환</button>
