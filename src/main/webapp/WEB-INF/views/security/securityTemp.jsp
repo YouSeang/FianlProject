@@ -400,27 +400,7 @@
     </div>
     <!-- Cause Page End -->
 	
-	
-	
 
-
-	<!-- Become Volunteer Area Start -->
-	<div class="volunteer-area bg-cover section-padding"
-		data-stellar-background-ratio="0.4"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/volunteer.jpg');">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="volunteer-wrap text-center">
-						<span>Become a Volunteer</span>
-						<p>Join us to participate yourself for mankind</p>
-						<a href="#" class="custom-btn">join now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Become Volunteer Area End -->
 
 	<!-- Footer Area Start -->
 	     <%@ include file="/WEB-INF/views/footer.jsp" %> 

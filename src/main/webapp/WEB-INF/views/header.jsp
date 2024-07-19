@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
@@ -51,7 +51,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body> 
 	<!-- Header Start -->
 	<header class="hearer">
 		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
@@ -91,21 +91,21 @@
 								style="color: #333333;">큽스쿨소개</a></li>
 
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
+								class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/voice/incidentsOverview" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">사고예방</a>
 								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-									<li><a class="dropdown-item" href="./shop.html">금융사고현황</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">최신피싱기법
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/recentIncidents">최신피싱기법
 											및 사례</a></li>
 									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="./volunteer.html">금융사고예방
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/voice/smishing">금융사고예방
 											시뮬레이션</a>
 										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header" >금융사고예방 시뮬레이션</li>
-											<li><a class="dropdown-item" href="./volunteer.html">메신저피싱</a></li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/smishing">메신저피싱</a></li>
 											<li><a class="dropdown-item"
-												href="./volunteer-single.html">보이스피싱</a></li>
+												href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
 										</ul></li>
 
 								</ul></li>
@@ -154,12 +154,12 @@
 
 
 							<li class="nav-item dropdown"><a
-								class="nav-link dropdown-toggle" href="#" role="button"
+								class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/security/securityTemp" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
 								style="color: #333333;">나의보안</a>
 								<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-									<li><a class="dropdown-item" href="./shop.html">내보안점수</a></li>
-									<li><a class="dropdown-item" href="./single-product.html">보안강화방법</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/security/securityTemp">나의 보안점수</a></li>
+									<li><a class="dropdown-item" href="${pageContext.request.contextPath}/security/securityGuide">보안 강화방법</a></li>
 								</ul></li>
 
 
@@ -176,7 +176,7 @@
 						</ul>
 						<div
 							class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
-							<a href="./donate.html" class="custom-btn">로그인</a> <a
+							<a href="${pageContext.request.contextPath}/login" class="custom-btn">로그인</a> <a
 								class="text-reset icon" href="#" data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
 							<a href="./mypage.html"
