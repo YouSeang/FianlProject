@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,22 +7,22 @@
 <meta id="viewport" name="viewport"
 	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<title>KBê¸ˆìœµê³µìµì¬ë‹¨</title>
-<meta name="description" content="KBê¸ˆìœµê³µìµì¬ë‹¨">
-<meta name="keywords" content="KB, ê¸ˆìœµê³µìµì¬ë‹¨, KBê¸ˆìœµê³µìµì¬ë‹¨, KB ê¸ˆìœµê³µìµì¬ë‹¨">
+<title>KB±İÀ¶°øÀÍÀç´Ü</title>
+<meta name="description" content="KB±İÀ¶°øÀÍÀç´Ü">
+<meta name="keywords" content="KB, ±İÀ¶°øÀÍÀç´Ü, KB±İÀ¶°øÀÍÀç´Ü, KB ±İÀ¶°øÀÍÀç´Ü">
 
 <link rel="stylesheet" type="text/css"
-	href="https://www.kbfoundation.or.kr/static/dbe/assets/css/basic.min.css">
+	href="/static/dbe/assets/css/basic.min.css">
 <link rel="stylesheet" type="text/css"
-	href="https://www.kbfoundation.or.kr/static/dbe/assets/css/common.min.css">
+	href="/static/dbe/assets/css/common.min.css">
 <link rel="stylesheet" type="text/css"
-	href="https://www.kbfoundation.or.kr/static/dbe/assets/css/service.min.css">
+	href="/static/dbe/assets/css/service.min.css">
 <link rel="stylesheet" type="text/css"
-	href="https://www.kbfoundation.or.kr/static/dbe/assets/css/banking.min.css">
+	href="/static/dbe/assets/css/banking.min.css">
 
 <style type="text/css">
 .screen-wrapper {
-	background-image: url(https://www.kbfoundation.or.kr/static/dbe/assets/images/banking/send/002.png);
+	background-image: url(/static/dbe/assets/images/banking/send/002.png);
 }
 
 .screen-content .gray-tooltip .tooltip-label {
@@ -52,18 +52,18 @@
 }
 </style>
 
-<script src="https://www.kbfoundation.or.kr/static/dbe/assets/js/jquery-3.7.1.min.js"></script>
-<script src="https://www.kbfoundation.or.kr/static/dbe/assets/js/ui.min.js"></script>
-<script src="https://www.kbfoundation.or.kr/static/dbe/assets/js/banking.min.js"></script>
+<script src="/static/dbe/assets/js/jquery-3.7.1.min.js"></script>
+<script src="/static/dbe/assets/js/ui.min.js"></script>
+<script src="/static/dbe/assets/js/banking.min.js"></script>
 </head>
 <body class="js-reload">
 	<div id="wrapper" class="wrapper">
 		<header id="header" class="header">
 			<div class="header-container">
 				<a href="javascript:history.go(-1);" class="go-back"><span
-					class="ico ico-back ico-circle">ë’¤ë¡œ</span></a> <a
+					class="ico ico-back ico-circle">µÚ·Î</span></a> <a
 					href="/static/dbe/index.html"><h1 class="logo">
-						<span class="blind">KBê¸ˆìœµê³µìµì¬ë‹¨</span>
+						<span class="blind">KB±İÀ¶°øÀÍÀç´Ü</span>
 					</h1></a>
 			</div>
 		</header>
@@ -71,7 +71,7 @@
 		<section id="section" class="section section-login">
 			<div class="section-container">
 				<div class="section-header">
-					<h2 class="section-title">ë±…í‚¹ ììœ ì²´í—˜</h2>
+					<h2 class="section-title">¹ğÅ· ÀÚÀ¯Ã¼Çè</h2>
 				</div>
 				<div class="section-content">
 
