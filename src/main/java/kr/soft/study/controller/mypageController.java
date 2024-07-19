@@ -22,13 +22,17 @@ public class mypageController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	
+
 	@RequestMapping("/mypage")
 	public String mypage(Locale locale, Model model) {
 
-
-		return "mypage";
+		return "mypage/mypage";
 	}
 
+	@RequestMapping("/couponshop")
+	public String couponshop(Locale locale, Model model) {
+
+		return "mypage/couponshop";
+	}
 
 }
