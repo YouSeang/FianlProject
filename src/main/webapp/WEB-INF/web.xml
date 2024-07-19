@@ -9,7 +9,7 @@
 		<param-value>
 			/WEB-INF/spring/root-context.xml
 			<!-- 비밀번호 암호화 -->
-			/WEB-INF/spring/security-context.xml
+			<!-- /WEB-INF/spring/security-context.xml -->
 		</param-value>
 	</context-param>
 	

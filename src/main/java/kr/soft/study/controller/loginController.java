@@ -33,11 +33,5 @@ public class loginController {
 	
 
 	
-	@RequestMapping("/mypage")
-	public String mypage(Locale locale, Model model) {
-		
-		return "mypage";
-	}
-	
 	
 }
