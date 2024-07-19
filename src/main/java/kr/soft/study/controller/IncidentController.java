@@ -41,6 +41,14 @@ public class IncidentController {
 		return "voice/voicePhishing";
 	}
 
+	
+	@RequestMapping("/voice/newVoicePhishing")
+	public String openVoicePhishing(Model model) {
+
+		return "voice/newVoicePhishing";
+	}
+	
+	
 	@RequestMapping("/security/securityGuide")
 	public String securityGuide(Model model) {
 
