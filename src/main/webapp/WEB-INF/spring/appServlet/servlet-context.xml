@@ -31,7 +31,7 @@
 		<beans:property name="password" value="qwe123!@#" />
 	</beans:bean>
 	
-	<!-- mybatis설정 -->
+	<!-- mybatis설정(수정) -->
 	<!-- <beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource"></beans:property>
 		<beans:property name="mapperLocations" value="classpath:com/javalec/spring_mybatis/dao/mapper/*.xml"></beans:property>
