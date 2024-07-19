@@ -97,7 +97,13 @@
                         
 <!--  -->
 
-게임
+<!-- quizForm.jsp -->
+<form action="${pageContext.request.contextPath}/quiz/check" method="post">
+    <p>${quiz1.question}</p>
+    <input type="radio" name="userResponse" value="true">O
+    <input type="radio" name="userResponse" value="false">X
+    <button type="submit">제출</button>
+</form>
                     </div>
                 </div>
             </div>

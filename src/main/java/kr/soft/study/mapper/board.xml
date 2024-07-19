@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "kr.hotel.lahan.dao.NoticeDao">
+
+  <insert id="write">
+        INSERT INTO noticeboard(title, contents, date)
+        VALUES (#{param1}, #{param2}, now())
+    </insert>
+      <select id="list" resultType="kr.hotel.lahan.dto.NoticeDto">
+        SELECT board_num, title, date from noticeboard
+    </select>
+	<select id="contentView" resultType="kr.hotel.lahan.dto.NoticeDto">
+        SELECT * FROM noticeboard WHERE board_num = #{board_num}
+    </select>
+ 	<update id="modify">
+        UPDATE noticeboard SET title = #{param2}, contents = #{param3} WHERE board_num = #{param1}
+    </update>
+    
+    <delete id="delete">
+        DELETE FROM noticeboard WHERE board_num = #{board_num}
+    </delete>
+</mapper>
