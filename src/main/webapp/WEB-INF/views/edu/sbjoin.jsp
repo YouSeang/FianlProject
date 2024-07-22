@@ -115,21 +115,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm">
-                        
+                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                     
   <%@ include file="/WEB-INF/views/edu/sbjoin2.jsp" %> 
 
 </div>
 
 
-               <!--              <div class="form-group">
-                                <label for="message">후기를 남겨주세요</label>
-                                <textarea rows="6" class="form-control" id="message" name="message"></textarea>
-                            </div>
-
-                            <button class="custom-btn mt-4" type="submit">제출</button>
-                        </form> -->
-                    
                 </div>
             </div>
         </div>
