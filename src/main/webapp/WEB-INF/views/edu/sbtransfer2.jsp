@@ -48,10 +48,13 @@
         $(document).on('click', '#area-1', function(event) {
             event.preventDefault();
             var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2.png";
-            changeImage(newSrc);
+            var newMap = `
+                <area target="_self" alt="2stage" title="" href="#" coords="150,250,300,400" shape="rect" id="2stage">
+            `;
+            changeImage(newSrc, newMap);
         });
         
-        // 다른 영역 클릭 시
+        // 첫 번째 이미지에서 다른 영역 클릭 시
         $(document).on('click', 'area', function(event) {
             if (this.id !== 'area-1') {
                 event.preventDefault();
