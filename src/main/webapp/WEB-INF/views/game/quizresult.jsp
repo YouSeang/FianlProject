@@ -98,12 +98,20 @@
 <!--  -->
 
 <!-- quizForm.jsp -->
-<form action="${pageContext.request.contextPath}/quiz/check" method="post">
-    <p>${quiz1.question}</p>
-    <input type="radio" name="userResponse" value="true">O
-    <input type="radio" name="userResponse" value="false">X
-    <button type="submit">제출</button>
-</form>
+  <form action="${pageContext.request.contextPath}/quiz/check" method="post">
+                            <p>${quiz.question}</p>
+                            <input type="radio" name="userResponse" value="true">O
+                            <input type="radio" name="userResponse" value="false">X
+                            <button type="submit">제출</button>
+                        </form>
+                        <nav>
+                            <c:if test="${quizIndex > 0}">
+                                <button onclick="location.href='${pageContext.request.contextPath}/quiz/prev'">이전 문제</button>
+                            </c:if>
+                            <c:if test="${quizIndex < lastQuizIndex}">
+                                <button onclick="location.href='${pageContext.request.contextPath}/quiz/next'">다음 문제</button>
+                            </c:if>
+                        </nav>
                     </div>
                 </div>
             </div>

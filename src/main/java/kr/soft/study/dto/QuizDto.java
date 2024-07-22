@@ -1,42 +1,27 @@
 package kr.soft.study.dto;
 
 public class QuizDto {
-	  private int index;
-	    private String category;
-	    private String question;
-	    private boolean answer;
-	    private int points;
-	    private String explanation;
+    private int id;
+    private String question;
+    private boolean answer;
 
-	    // Constructors
-	    public QuizDto() {
-	    }
-
-	    public QuizDto(int index, String category, String question, boolean answer, int points, String explanation) {
-	        this.index = index;
-	        this.category = category;
+	   
+	    public QuizDto(int id, String question, boolean answer) {
+	        this.id = id;
 	        this.question = question;
 	        this.answer = answer;
-	        this.points = points;
-	        this.explanation = explanation;
 	    }
 
 	    // Getters and Setters
-	    public int getIndex() {
-	        return index;
+	    public int getId() {
+	        return id;
 	    }
 
-	    public void setIndex(int index) {
-	        this.index = index;
+	    public void setId(int id) {
+	        this.id = id;
 	    }
 
-	    public String getCategory() {
-	        return category;
-	    }
-
-	    public void setCategory(String category) {
-	        this.category = category;
-	    }
+	  
 
 	    public String getQuestion() {
 	        return question;
@@ -54,19 +39,5 @@ public class QuizDto {
 	        this.answer = answer;
 	    }
 
-	    public int getPoints() {
-	        return points;
-	    }
-
-	    public void setPoints(int points) {
-	        this.points = points;
-	    }
-
-	    public String getExplanation() {
-	        return explanation;
-	    }
-
-	    public void setExplanation(String explanation) {
-	        this.explanation = explanation;
-	    }
+	    
 	}
