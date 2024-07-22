@@ -255,31 +255,31 @@
                     <div class="login-wrap bg-light">
                         <h2 class="h6 fw-normal mb-5"> <span class="fw-bold tex-primary d-block display-5">
                                 회원가입</span></h2>
-                        <form role="form">
+                        <form role="form" action="./signup" method="post">
                             <div class="form-group">
-                                <label for="email">아이디 :</label>
-                                <input class="form-control" type="text" id="email">
+                                <label for="user_id">아이디 :</label>
+                                <input class="form-control" type="text" id="user_id" name="user_id">
                             </div>
                             <div class="form-group">
                                 
-                                    <label for="fname">이름 :</label>
-                                    <input id="fname" class="form-control" type="text">
+                                    <label for="name">이름 :</label>
+                                    <input id="name" class="form-control" type="text" name="name">
                                                          
                             </div>
 
                             <div class="form-group">
                                 <label for="email">이메일 :</label>
-                                <input class="form-control" type="email" id="email">
+                                <input class="form-control" type="email" id="email" name="email">
                             </div>
                             <div class="form-group">
-                                <label for="pwd">비밀번호 :</label>
-                                <input class="form-control" type="password" id="pwd">
+                                <label for="password">비밀번호 :</label>
+                                <input class="form-control" type="password" id="password" name="password">
                             </div>
                             <div class="form-group">
                                 <label for="pass-c">비밀번호 확인 :</label>
                                 <input class="form-control" type="password" id="pass-c">
                             </div>
-                            <button class="custom-btn mt-3">가입완료</button>
+                            <button class="custom-btn mt-3" type="submit">가입완료</button>
                             <div class="login-bottom mt-4">
                                 <label><i class="fa fa-user me-2"></i> 계정이 이미 있으시다면 <a
                                         href="signin.html">로그인</a> 해주세요</label>

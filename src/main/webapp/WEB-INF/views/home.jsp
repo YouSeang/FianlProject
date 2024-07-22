@@ -19,7 +19,7 @@
 <title>KB스쿨</title>
 
 <!-- Favicon Icon
-    ==================================================-->
+    ==================================================--->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 

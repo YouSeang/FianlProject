@@ -95,21 +95,21 @@
 							KB큽스쿨<span class="fw-bold tex-primary d-block display-5 ">로그인</span>
 						</h2>
 
-						<form action="#">
+						<form action="./login" method="post">
 							<div class="form-group">
-								<label for="email">Id <span class="required">*</span></label> <input
-									class="form-control" type="text" id="email">
+								<label for="user_id">Id <span class="required">*</span></label> <input
+									class="form-control" type="text" id="user_id" name="user_id">
 							</div>
 							<div class="form-group">
 								<label for="password">Password <span class="required">*</span></label>
-								<input class="form-control" type="text" id="password">
+								<input class="form-control" type="text" id="password" name="password">
 							</div>
 							<label class="remember" for="remember"> <input
 								type="checkbox" id="remember" value="Remember"> 자동 로그인
 							</label>
 							<div class="d-flex  align-items-center mb-3">
 								<button class="custom-btn">로그인</button>
-								<a href="signup.html" class="custom-btn unfill ms-4">회원가입</a>
+								<a href="./signupView" class="custom-btn unfill ms-4">회원가입</a>
 							</div>
 							<p>
 								<a href="#">비밀번호 찾기</a>

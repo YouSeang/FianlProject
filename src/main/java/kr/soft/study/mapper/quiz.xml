@@ -4,12 +4,12 @@
 <mapper namespace="kr.soft.study.dao.QuizDao">
 
 
-    <select id="findAll" resultMap="quizResultMap">
+    <select id="list" resultType="kr.soft.study.dao.QuizDao">
         SELECT * FROM OXQuizzes
     </select>
 
     <select id="findById" parameterType="int" resultMap="quizResultMap">
-        SELECT * FROM OXQuizzes WHERE index = #{index}
+        SELECT * FROM OXQuizzes WHERE id = #{id}
     </select>
 
     <insert id="insertQuiz" parameterType="Quiz">
@@ -24,11 +24,11 @@
         answer = #{answer},
         points = #{points},
         explanation = #{explanation}
-        WHERE index = #{index}
+        WHERE id = #{id}
     </update>
 
     <delete id="deleteQuiz" parameterType="int">
-        DELETE FROM OXQuizzes WHERE index = #{index}
+        DELETE FROM OXQuizzes WHERE id = #{id}
     </delete>
 
 </mapper>
