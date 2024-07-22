@@ -35,4 +35,9 @@ public class mypageController {
 		return "mypage/couponshop";
 	}
 
+	@RequestMapping("/modify")
+	public String couponshop(Locale locale, Model model) {
+
+		return "mypage/modify";
+	}
 }
