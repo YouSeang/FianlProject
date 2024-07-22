@@ -92,7 +92,7 @@
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB스타뱅킹 <span> 회원가입</span>
+							KB스타뱅킹 <span> 이체</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -108,29 +108,32 @@
 	<!-- Promo Area End -->
 
 	<!-- Team Area Start -->
-	<section class="donations-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-intro intro-full">
-						<h2 class="section-title">
-							<span class="color">KB스타뱅킹</span> 회원가입
-						</h2>
-						<p>KB스타뱅킹 회원가입을 가상으로 체험해보고, 실제로 진행해보세요!</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-10 offset-lg-1">
-					<div
-						class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center"
-						style="min-height: 100vh;">
-						<%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp"%>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
+  <section class="donations-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-intro intro-full">
+                        <h2 class="section-title"> <span class="color">KB스타뱅킹</span> 회원가입</h2>
+                        <p>KB스타뱅킹 회원가입을 가상으로 체험해보고, 실제로 진행해보세요!</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 offset-lg-1">
+                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                     
+  <%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp" %> 
+
+</div>
+
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Team Area End -->
+
+     <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
 	<!-- Team Area End -->
 
