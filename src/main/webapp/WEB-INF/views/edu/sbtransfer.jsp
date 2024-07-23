@@ -114,9 +114,9 @@
 				<div class="col-lg-12">
 					<div class="section-intro intro-full">
 						<h2 class="section-title">
-							<span class="color">KB스타뱅킹</span> 회원가입
+							<span class="color">KB스타뱅킹</span> 이체
 						</h2>
-						<p>KB스타뱅킹 회원가입을 가상으로 체험해보고, 실제로 진행해보세요!</p>
+						<p>KB스타뱅킹 이체거래를 실제처럼 연습해보세요!</p>
 					</div>
 				</div>
 			</div>
