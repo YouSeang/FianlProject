@@ -131,9 +131,7 @@
             </div>
         </div>
     </section>
-    <!-- Team Area End -->
 
-     <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
 	<!-- Team Area End -->
 
