@@ -121,6 +121,8 @@
 		</div>
 	</main>
 	<!-- Main Area End -->
+	
+	
 
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>

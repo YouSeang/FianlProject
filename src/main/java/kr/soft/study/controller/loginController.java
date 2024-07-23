@@ -57,13 +57,15 @@ public class loginController {
         if ("success".equals(loginResult)) {
             String userRole = (String) session.getAttribute("userRole");
             if ("admin".equals(userRole)) {
-                return "redirect:/adminHome";
+            	System.out.println("admin login");
+                return "admin";
             } else {
                 return "home";
             }
         } else {
             model.addAttribute("loginError", "Invalid username or password.");
-            return "home";
+            System.out.println("admin error");
+            return "login";
         }
     }
 

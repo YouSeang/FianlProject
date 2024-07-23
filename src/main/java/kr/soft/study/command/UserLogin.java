@@ -42,10 +42,12 @@ public class UserLogin implements UCommand {
 		UserDto user = userDao.getUserById(user_id);
 		
 		if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+			System.out.println("matches succese");
 			session.setAttribute("user", user);
 			session.setAttribute("loginResult", "success");
 			session.setAttribute("userRole", user.getRole());
 		} else {
+			System.out.println("matches fail");
 			session.setAttribute("loginResult", "fail");
 		}
 		
