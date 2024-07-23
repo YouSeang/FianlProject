@@ -4,6 +4,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -58,11 +60,16 @@ public class eduController {
 		return "edu/ibsavings";
 	}
 	
-	@RequestMapping("/edu/quiz")
-	public String quiz(Model model) {
-		System.out.println("quiz");
-		return "edu/quiz";
-	}
+	
+	
+	/*
+	 * public String memdelete(HttpServletRequest request, Model model) {
+	 * System.out.println("member1"); model.addAttribute("request", request);
+	 * command = new MemberDeleteCommand(); command.execute(model);
+	 * System.out.println("memberDel"); return "redirect:/admin/member.do"; }
+	 */
+	
+	
 	
 	@RequestMapping("/edu/findcrime")
 	public String find(Model model) {

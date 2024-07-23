@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import kr.soft.studty.command.UCommand;
-import kr.soft.studty.command.UserLogin;
-import kr.soft.studty.command.UserSignup;
-import kr.soft.studty.command.UserValidator;
+import kr.soft.study.command.UCommand;
+import kr.soft.study.command.UserLogin;
+import kr.soft.study.command.UserSignup;
+import kr.soft.study.command.UserValidator;
 import kr.soft.study.dto.UserDto;
 
 @Controller

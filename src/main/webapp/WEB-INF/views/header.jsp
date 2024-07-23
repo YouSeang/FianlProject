@@ -139,12 +139,12 @@
 										</ul></li>
 
 									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/quiz">금융퀴즈</a>
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/game/quiz">금융퀴즈</a>
 										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">금융게임</li>
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/quiz">OX퀴즈</a></li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
-												href="${pageContext.request.contextPath}/edu/findcrime">범죄자 잡기</a></li>
+												href="${pageContext.request.contextPath}/game/findcrime">범죄자 잡기</a></li>
 										</ul></li>
 
 

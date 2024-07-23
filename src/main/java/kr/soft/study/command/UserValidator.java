@@ -1,4 +1,4 @@
-package kr.soft.studty.command;
+package kr.soft.study.command;
 
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
