@@ -1,5 +1,5 @@
 
-package kr.soft.studty.command;
+package kr.soft.study.command;
 
 import org.springframework.ui.Model;
 
