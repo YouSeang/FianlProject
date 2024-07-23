@@ -9,7 +9,7 @@ import java.io.IOException;
 public class OpenAIService {
 
     private static final String API_URL = "https://api.openai.com/v1/chat/completions";
-    private static final String API_KEY = "sk-proj-sIsAbbwOpF9PskExixjbT3BlbkFJCCqdEbsNHbKy1wJ7BlYp";  // 여기에 OpenAI API 키를 입력하세요
+    private static final String API_KEY = "";  // 여기에 OpenAI API 키를 입력하세요
     private static final int MAX_RETRIES = 5; // 최대 재시도 횟수
     private static final long RETRY_DELAY_MS = 2000; // 재시도 사이의 지연 시간 (밀리초)
 
