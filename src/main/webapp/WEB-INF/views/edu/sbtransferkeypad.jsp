@@ -11,7 +11,26 @@
 
     <meta charset="UTF-8">
     <title>KB스타뱅킹 이체시뮬레이션</title>
-
+    <style>
+        #content {
+            position: relative; /* 부모 div를 relative로 설정 */
+        }
+        /* 클릭 가능한 영역 스타일 (디버그용) */
+        .clickable-area {
+            position: absolute;
+            cursor: pointer;
+            background: rgba(255, 0, 0, 0.3); /* 클릭 영역의 시각적 표시 (디버그용) */
+            z-index: 10; /* 클릭 가능한 영역을 이미지 위에 표시 */
+        }
+        #keypad-area {
+            position: absolute; /* 키패드 영역 위치 설정 */
+            top: 485px;
+            left: 257px;
+            width: 377px;
+            height: 245px;
+            z-index: 5; /* 이미지 위에 위치하도록 설정 */
+        }
+    </style>
 </head>
 <body>
     <div id="content">
@@ -27,6 +46,21 @@
             <area id="area-3" target="_self" alt="" title="" href="#"
                 coords="258,298,639,779" shape="rect">
         </map>
+
+        <!-- 키패드 영역 start -->
+        <div id="keypad-area" style="display: none;">
+            <!-- 클릭 가능한 영역을 여기에 포함 -->
+            <div class="clickable-area" id="keypad-1"
+                style="top: 10px; left: 10px; width: 109px; height: 55px;"
+                data-value="1"></div>
+            <div class="clickable-area" id="keypad-2"
+                style="top: 10px; left: 130px; width: 113px; height: 54px;"
+                data-value="2"></div>
+            <div class="clickable-area" id="keypad-3"
+                style="top: 10px; left: 250px; width: 105px; height: 55px;"
+                data-value="3"></div>
+            <!-- 추가로 필요한 클릭 가능한 영역 추가 가능 -->
+        </div>
 
         <!-- 숫자를 표시할 영역 -->
     <div id="display-area"
@@ -83,6 +117,7 @@
                 changeImage(newSrc, newMap);
 
                 // 클릭 가능한 영역 숨기기
+                $("#keypad-area").hide();
                 $("#display-area").hide();
             });
 
@@ -91,29 +126,25 @@
                 event.preventDefault();
                 var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2-1.png";
                 var newMap = `
-                    <area id="keypad-1" target="" alt="" title="" href="#" coords="266,495,375,550" shape="rect">
-                    <area id="keypad-2" target="" alt="" title="" href="#" coords="387,496,500,550" shape="rect">
-                    <area id="keypad-3" target="" alt="" title="" href="#" coords="513,498,620,550" shape="rect">
+                    <area id="keypad-area" target="" alt="" title="" href="#" coords="257,485,634,730" shape="rect">
                 `;
                 changeImage(newSrc, newMap);
 
-                // `display-area` 보이도록 설정
-                $("#display-area").show();
+                // 두 번째 이미지로 전환 후 클릭 가능한 영역 표시
+                $("#keypad-area").show();
+                $("#display-area").show(); // display-area를 보이도록 설정
             });
 
-            // 클릭 가능한 영역 클릭 시 숫자 처리
-            $(document).on('click', 'area', function(event) {
+            // 클릭 가능한 영역에서 숫자 클릭 시 숫자 처리
+            $(document).on('click', '.clickable-area', function(event) {
+                var value = $(this).data('value'); // 클릭한 영역의 숫자 값
+                $("#display-text").text(value); // 숫자 표시
+            });
+
+            // 특정 영역 클릭 시 처리 (키패드 영역 클릭 시)
+            $(document).on('click', '#keypad-area', function(event) {
                 event.preventDefault();
-                var areaId = $(this).attr('id');
-                var value = ''; // 기본값은 빈 문자열
-
-                // 클릭한 영역의 ID에 따라 값을 설정
-                if (areaId === 'keypad-1') value = '1';
-                if (areaId === 'keypad-2') value = '2';
-                if (areaId === 'keypad-3') value = '3';
-
-                // 숫자 표시
-                $("#display-text").text(value);
+                // 키패드 관련 로직이 필요할 경우 여기에 추가
             });
         });
     </script>
