@@ -8,11 +8,13 @@ import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import kr.soft.study.dao.UserDao;
 import kr.soft.study.dto.UserDto;
 
+@Component
 public class UserLogin implements UCommand {
 
 	private SqlSession sqlSession;
@@ -40,10 +42,12 @@ public class UserLogin implements UCommand {
 		UserDto user = userDao.getUserById(user_id);
 		
 		if (user != null && passwordEncoder.matches(password, user.getPassword())) {
+			System.out.println("matches succese");
 			session.setAttribute("user", user);
 			session.setAttribute("loginResult", "success");
 			session.setAttribute("userRole", user.getRole());
 		} else {
+			System.out.println("matches fail");
 			session.setAttribute("loginResult", "fail");
 		}
 		
