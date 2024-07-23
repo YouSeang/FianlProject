@@ -74,7 +74,7 @@
 						</h1>
 						<p>블라블라</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">체험하러가기</a>
+							<a href="voice/voicePhishing" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
