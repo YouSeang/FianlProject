@@ -102,7 +102,7 @@
 							</div>
 							<div class="form-group">
 								<label for="password">Password <span class="required">*</span></label>
-								<input class="form-control" type="text" id="password" name="password">
+								<input class="form-control" type="password" id="password" name="password">
 							</div>
 							<label class="remember" for="remember"> <input
 								type="checkbox" id="remember" value="Remember"> 자동 로그인
