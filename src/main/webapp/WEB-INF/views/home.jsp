@@ -19,7 +19,7 @@
 <title>KB스쿨</title>
 
 <!-- Favicon Icon
-    ==================================================-->
+    ==================================================--->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
@@ -45,6 +45,8 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/kbfont.css">
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -72,7 +74,7 @@
 						</h1>
 						<p>블라블라</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">체험하러가기</a>
+							<a href="voice/voicePhishing" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
@@ -227,8 +229,8 @@
 								<a href="#">예/적금 가입 전 알아두세요!</a>
 							</h3>
 							<p>
-								1.예금자보호제도 확인하기<br /> 2.금융상품 한눈에 서비스로 비교해보기<br /> 3.가입가능한 특판 예/적금
-								확인하기<br /> 4.만기라면 잊지말고 재예치하기
+								1.예금자보호제도 확인하기<br /> 2.금융상품 한눈에 서비스로 비교해보기<br /> 3.가입가능한 특판
+								예/적금 확인하기<br /> 4.만기라면 잊지말고 재예치하기
 							</p>
 							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>
@@ -249,8 +251,8 @@
 								<a href="#">실수로 돈을 잘못송금했다면?</a>
 							</h3>
 							<p>
-								ㅇ 착오송금반환지원제도 이용하기<br /> - 신청대상은 최근 1년 이내 발생한 <br /> 5만 원 이상 5천만
-								원 이하 착오송금 건<br /> - 상세내용은 예금보험공사에서 확인하기
+								ㅇ 착오송금반환지원제도 이용하기<br /> - 신청대상은 최근 1년 이내 발생한 <br /> 5만 원 이상
+								5천만 원 이하 착오송금 건<br /> - 상세내용은 예금보험공사에서 확인하기
 							</p>
 							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>

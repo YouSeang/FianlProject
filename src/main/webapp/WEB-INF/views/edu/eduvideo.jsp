@@ -74,121 +74,149 @@
         </div>
     </section>
     <!-- Promo Area End -->
-  <!-- Our Causes Area Start -->
-    <section class="causes-area cause-page section-padding">
+ 
+ 
+     <!-- Blog Area End -->
+    <section class="blog-area-2 section-padding">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
+            <div class="row g-5">
+            
+            
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
                         </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상1</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Cause End -->
-               <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
-                        </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상2</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상1</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
+                <!-- Single Blog Item End -->
+                
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
                         </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상3</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상2</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
+                <!-- Single Blog Item End -->
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
                         </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상4</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상3</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
+                <!-- Single Blog Item End -->
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
                         </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상5</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상4</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-sm-4">
-                    <div class="single-cause">
-                        <figure class="cause-thumb">
-                            <img src="${pageContext.request.contextPath}/resources/images/causes/cs1.jpg" alt="">
+                <!-- Single Blog Item End -->
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
                         </figure>
-                        <div class="cause-detials">
-                            <h3><a href="www.youtube.com">영상6</a></h3>
-                            <div class="cause-donate">
-                                <div class="cause-goal">
-                                    <label>조회수</label> 500
-                                </div>
-                            </div>
-                            
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상5</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-                <!-- Single Cause End -->
+                
+                <!-- Single Blog Item End -->
+                
+                <div class="col-lg-4 col-sm-6">
+                    <div class="single-article shadow bg-white">
+                        <figure class="article-thumb">
+                            <img src="${pageContext.request.contextPath}/resources/images/blog/blog-1.jpg" alt="">
+                           
+                        </figure>
+                        <div class="article-details">
+                            <h3 class="article-heading"><a href="/">영상6</a>
+                            </h3>
+                            <ul class="article-meta">
+                                
+                                <li><i class="fa fa-eye"></i><a href="#"></a>조회수 100</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Single Blog Item End -->
+                
+                
                 <div class="col-lg-12">
-                    <div class="loadmore">
-                        <a href="#" class="custom-btn">Load More</a>
+                    <div class="pager text-center">
+                        <a href="#" class="next-btn"> <i class="fa fa-angle-left"></i>
+                        </a>
+                        <span>1</span>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#" class="next-btn"> <i class="fa fa-angle-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Our Causes Area End -->
+    <!-- Blog Area End -->
+ 
+ 
 
 
      <%@ include file="/WEB-INF/views/footer.jsp" %> 

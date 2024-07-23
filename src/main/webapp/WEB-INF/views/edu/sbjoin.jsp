@@ -14,6 +14,28 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script> 
+ 
+    <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/wow.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/form.js"/>"></script>
+    <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
+    <script src="<c:url value="/resources/js/custom.js"/>"></script>
+
+
 <!-- Template Title
     ==================================================================-->
 <title>KB스쿨</title>
@@ -93,19 +115,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm">
-                        
-<!--  -->
+                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                     
+  <%@ include file="/WEB-INF/views/edu/sbjoin2.jsp" %> 
+
+</div>
 
 
-                            <div class="form-group">
-                                <label for="message">후기를 남겨주세요</label>
-                                <textarea rows="6" class="form-control" id="message" name="message"></textarea>
-                            </div>
-
-                            <button class="custom-btn mt-4" type="submit">제출</button>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
@@ -117,22 +133,6 @@
     <!--
 Javascript
 ======================================================== -->
-    <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/wow.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/form.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/custom.js"/>"></script>
 
 
 </body>

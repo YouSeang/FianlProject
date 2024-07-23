@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
@@ -51,7 +51,7 @@
     <![endif]-->
 </head>
 
-<body>
+<body> 
 	<!-- Header Start -->
 	<header class="hearer">
 		<div class="offcanvas offcanvas-top bg-info" id="offcanvas-search"
@@ -139,12 +139,12 @@
 										</ul></li>
 
 									<li class="dropdown-submenu dropend"><a
-										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/quiz">금융퀴즈</a>
+										class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/game/quiz">금융퀴즈</a>
 										<ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
 											<li class="dropdown-header">금융게임</li>
-											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/quiz">OX퀴즈</a></li>
+											<li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
-												href="${pageContext.request.contextPath}/edu/findcrime">범죄자 잡기</a></li>
+												href="${pageContext.request.contextPath}/game/findcrime">범죄자 잡기</a></li>
 										</ul></li>
 
 
@@ -176,10 +176,10 @@
 						</ul>
 						<div
 							class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
-							<a href="${pageContext.request.contextPath}/login" class="custom-btn">로그인</a> <a
+							<a href="${pageContext.request.contextPath}/loginView" class="custom-btn">로그인</a> <a
 								class="text-reset icon" href="#" data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
-							<a href="./mypage.html"
+							<a href="mypage"
 								class="text-reset icon position-relative me-2"><i
 								class="fa fa-user"></i></a>
 						</div>
