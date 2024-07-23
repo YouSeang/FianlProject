@@ -59,7 +59,7 @@
 						</h1>
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">대출사기</a>
+							<a href="../index" class="custom-btn">대출사기</a>
 						</div>
 					</div>
 				</div>
@@ -74,7 +74,7 @@
 						</h1>
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">기관사칭</a>
+							<a href="../index" class="custom-btn">기관사칭</a>
 						</div>
 					</div>
 				</div>
