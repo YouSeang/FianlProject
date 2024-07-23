@@ -93,13 +93,13 @@
             </div>
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm">
-                        
-<!--  -->
+                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                     
+  <%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp" %> 
+
+</div>
 
 
-                          
-                    </div>
                 </div>
             </div>
         </div>
