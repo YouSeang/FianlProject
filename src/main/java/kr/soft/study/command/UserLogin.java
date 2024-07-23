@@ -1,4 +1,4 @@
-package kr.soft.studty.command;
+package kr.soft.study.command;
 
 import java.util.Map;
 
