@@ -7,7 +7,6 @@
 <html lang="ko">
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- 뷰포트 설정 제발 -->
 <meta charset="UTF-8">
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
@@ -19,7 +18,7 @@
 	position: relative;
 }
 
-#display-area, #keypad-area {
+#display-area, #display-area1, #display-area2, #display-area3, #display-area4, #keypad-area {
 	position: absolute;
 	border: 1px solid #000;
 	display: none;
@@ -52,20 +51,52 @@
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
 
-		<!-- 이체금액 입력 시 계좌번호를 표시할 영역 -->
+		<!-- 첫 번째 단계에서 입력한 계좌번호를 표시할 영역 -->
 		<div id="display-area1"
-			style="position: absolute; top: -50px; left: 100px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
-			<!-- 이체금액 입력 시 계좌번호를 표시할 곳 -->
+			style="position: absolute; top: 119px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 계좌번호를 표시할 곳 -->
 			<span id="display-text1"
-				style="display: block; line-height: 19px; text-align: left; font-size: 15px;"></span>
+				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
 
-		<!-- 이체금액 표시 영역 -->
+		<!-- 이체금액 입력 시 표시할 영역 -->
 		<div id="display-area2"
-			style="position: absolute; top: -50px; left: 100px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
-			<!-- 이체금액 표시할 곳 -->
+			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 이체금액을 표시할 곳 -->
 			<span id="display-text2"
-				style="display: block; line-height: 19px; text-align: left; font-size: 15px;"></span>
+				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
+		</div>
+		
+		<!-- 이체확인 페이지에서 받는 분 계좌 확인 영역 -->
+		<div id="display-area3"
+			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 이체확인 페이지에서 받는 분 계좌 표시할 곳 -->
+			<span id="display-text3"
+				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
+		</div>
+		
+		<!-- 이체확인 페이지에서 보내는 금액 확인 영역 -->
+		<div id="display-area4"
+			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 이체확인 페이지에서 보내는 금액 표시할 곳 -->
+			<span id="display-text4"
+				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
+		</div>
+		
+		<!-- 이체확인 상세페이지에서 보내는 금액 확인 영역 -->
+		<div id="display-area5"
+			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 이체확인 페이지에서 보내는 금액 표시할 곳 -->
+			<span id="display-text5"
+				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
+		</div>
+		
+		<!--이체완료페이지에서 보낸 금액 확인 영역 -->
+		<div id="display-area6"
+			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
+			<!-- 이체완료페이지에서 보낸 금액 표시할 곳 -->
+			<span id="display-text6"
+				style="display: block; line-height: 42px; text-align: center; font-size: 24px;"></span>
 		</div>
 	</div>
 
@@ -82,7 +113,7 @@
         var inputpay = ""; // 입력된 금액을 저장할 변수
         var originalImgWidth, originalImgHeight;
 
-        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, keypadAreaCoords) {
+        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5,displayAreaCoords6, keypadAreaCoords) {
             $("#main-image").fadeOut(200, function() {
                 $(this).attr("src", newSrc).fadeIn(200);
 
@@ -112,7 +143,7 @@
                     } else {
                         $("#display-area").hide();
                     }
-                    
+
                     // display-area1 위치 조정
                     if (displayAreaCoords1) {
                         var coords = displayAreaCoords1.split(',').map(Number);
@@ -148,7 +179,79 @@
                     } else {
                         $("#display-area2").hide();
                     }
+                    
+                 // display-area3 위치 조정
+                    if (displayAreaCoords3) {
+                        var coords = displayAreaCoords3.split(',').map(Number);
+                        var top = coords[1] * originalImgHeight / originalImgHeight;
+                        var left = coords[0] * originalImgWidth / originalImgWidth;
+                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
+                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
+                        $("#display-area3").css({
+                            top: top + 'px',
+                            left: left + 'px',
+                            width: width + 'px',
+                            height: height + 'px'
+                        }).show();
+                        $("#display-text3").text(inputaccountNum); // 입력된 금액을 display-area3에 표시 
+                    } else {
+                        $("#display-area3").hide();
+                    }
+                 
+                 // display-area4 위치 조정
+                    if (displayAreaCoords4) {
+                        var coords = displayAreaCoords4.split(',').map(Number);
+                        var top = coords[1] * originalImgHeight / originalImgHeight;
+                        var left = coords[0] * originalImgWidth / originalImgWidth;
+                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
+                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
+                        $("#display-area4").css({
+                            top: top + 'px',
+                            left: left + 'px',
+                            width: width + 'px',
+                            height: height + 'px'
+                        }).show();
+                        $("#display-text4").text(inputpay); // 입력된 금액을 display-area4에 표시 
+                    } else {
+                        $("#display-area4").hide();
+                    }
 
+                    // display-area5 위치 조정
+                    if (displayAreaCoords5) {
+                        var coords = displayAreaCoords5.split(',').map(Number);
+                        var top = coords[1] * originalImgHeight / originalImgHeight;
+                        var left = coords[0] * originalImgWidth / originalImgWidth;
+                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
+                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
+                        $("#display-area5").css({
+                            top: top + 'px',
+                            left: left + 'px',
+                            width: width + 'px',
+                            height: height + 'px'
+                        }).show();
+                        $("#display-text5").text(inputpay); // 입력된 금액을 display-area4에 표시 
+                    } else {
+                        $("#display-area5").hide();
+                    }
+                    
+                    // display-area6 위치 조정
+                    if (displayAreaCoords6) {
+                        var coords = displayAreaCoords6.split(',').map(Number);
+                        var top = coords[1] * originalImgHeight / originalImgHeight;
+                        var left = coords[0] * originalImgWidth / originalImgWidth;
+                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
+                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
+                        $("#display-area6").css({
+                            top: top + 'px',
+                            left: left + 'px',
+                            width: width + 'px',
+                            height: height + 'px'
+                        }).show();
+                        $("#display-text6").text(inputpay); // 입력된 금액을 display-area6에 표시 
+                    } else {
+                        $("#display-area6").hide();
+                    }
+                    
                     // keypad-area 위치 조정
                     if (keypadAreaCoords) {
                         var coords = keypadAreaCoords.split(',').map(Number);
@@ -223,7 +326,7 @@
             var displayAreaCoords = "281,124,612,163"; // display-area의 위치와 크기를 설정
             var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
 
-            changeImage(newSrc, newMap, displayAreaCoords, null, null, keypadAreaCoords);
+            changeImage(newSrc, newMap, displayAreaCoords, null, null, null, null, null, null, keypadAreaCoords);
         });
 
         // 클릭 가능한 영역 클릭 시 숫자 처리 (계좌번호입력)
@@ -253,7 +356,7 @@
             if (areaId === 'keypad-10') {
                 if (isAccountInput) {
                     inputaccountNum = inputaccountNum.slice(0, -1);
-                    $("#display-text1").text(inputaccountNum);
+                    $("#display-text").text(inputaccountNum); // 수정된 부분
                 } else {
                     inputpay = inputpay.slice(0, -1);
                     $("#display-text2").text(inputpay);
@@ -262,7 +365,7 @@
                 // 다른 숫자 키패드
                 if (isAccountInput) {
                     inputaccountNum += value;
-                    $("#display-text1").text(inputaccountNum);
+                    $("#display-text").text(inputaccountNum); // 수정된 부분
                 } else {
                     inputpay += value;
                     $("#display-text2").text(inputpay);
@@ -287,13 +390,62 @@
                 <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
                 <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
                 <area id="keypad-00" target="" alt="" title="" href="#" coords="276,665,369,710" shape="rect">
-                <area id="keypad-check" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
+                <area id="keypad-next" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
             `;
             var displayAreaCoords1 = "342,110,527,128"; // display-area1의 위치와 크기를 설정
             var displayAreaCoords2 = "374,186,463,210"; // display-area2의 위치와 크기를 설정
             var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
             
-            changeImage(newSrc, newMap, null, displayAreaCoords1, displayAreaCoords2, keypadAreaCoords);
+            changeImage(newSrc, newMap, null, displayAreaCoords1, displayAreaCoords2, null, null, null, null, keypadAreaCoords);
+        });
+        
+        // 네 번째 이미지 전환 이벤트 (금액 입력 후 '확인'버튼 클릭')
+        $(document).on('click', '#keypad-next', function(event) {
+            event.preventDefault();
+            var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer4.png";
+            var newMap = `
+                <area id="area-7" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
+            `;
+            var displayAreaCoords3 = "343,172,533,193"; // display-area3의 위치와 크기를 설정
+            var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
+            var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
+            
+            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, null, null, keypadAreaCoords);
+
+            // 클릭 가능한 영역 숨기기
+            $("#display-area").hide();
+        });
+        
+        // 다섯 번째 이미지 전환 이벤트 (이체정보 확인 후 '다음' 버튼 클릭 시)
+        $(document).on('click', '#area-7', function(event) {
+            event.preventDefault();
+            var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer5.png";
+            var newMap = `
+                <area id="area-8" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
+            `;
+            var displayAreaCoords3 = "343,172,533,193"; // display-area3의 위치와 크기를 설정
+            var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
+            var displayAreaCoords5 = "316,582,404,604"; // display-area5의 위치와 크기를 설정
+            var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
+            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, null, keypadAreaCoords);
+
+            // 클릭 가능한 영역 숨기기
+            $("#display-area").hide();
+        });
+        
+     // 여섯 번째 이미지 전환 이벤트 (상세 이체정보 확인 후 '다음' 버튼 클릭 시)
+        $(document).on('click', '#area-8', function(event) {
+            event.preventDefault();
+            var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer6.png";
+            var newMap = `
+                <area id="area-9" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
+            `;
+            var displayAreaCoords6 = "347,266,467,289"; // display-area6의 위치와 크기를 설정
+            var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
+            changeImage(newSrc, newMap, null, null, null, null, null,null,displayAreaCoords6, keypadAreaCoords);
+
+            // 클릭 가능한 영역 숨기기
+            $("#display-area").hide();
         });
     });
 </script>
