@@ -59,7 +59,7 @@ public class loginController {
             if ("admin".equals(userRole)) {
                 return "redirect:/adminHome";
             } else {
-                return "redirect:/home";
+                return "home";
             }
         } else {
             model.addAttribute("loginError", "Invalid username or password.");
