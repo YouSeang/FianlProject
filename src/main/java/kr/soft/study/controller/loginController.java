@@ -57,7 +57,7 @@ public class loginController {
         if ("success".equals(loginResult)) {
             String userRole = (String) session.getAttribute("userRole");
             if ("admin".equals(userRole)) {
-                return "redirect:/adminHome";
+                return "admin";
             } else {
                 return "home";
             }
