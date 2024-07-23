@@ -12,6 +12,53 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
 <meta charset="UTF-8">
 <title>KB스타뱅킹 이체시뮬레이션</title>
+<style>
+#keypad-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 100;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #keypad {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        #keypad input {
+            font-size: 18px;
+            padding: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        #keypad button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #account-number-display {
+            position: absolute;
+            top: 150px;
+            left: 300px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px 10px;
+            border-radius: 5px;
+            display: none;
+            z-index: 101;
+        }
+    </style>
 </head>
 <body>
 <div id="content">
@@ -72,6 +119,23 @@
             changeImage(newSrc);
         });
         
+        // 두 번째 이미지에서 특정 영역 클릭 시
+        $(document).on('click', '#area-4', function(event) {
+            event.preventDefault();
+            $("#keypad-overlay").show(); // Show keypad overlay
+        });
+
+        // 키패드 제출 이벤트
+        $(document).on('click', '#submit-account', function() {
+            var accountNumber = $("#account-number").val();
+            if (accountNumber) {
+                $("#keypad-overlay").hide();
+                $("#account-number-display").text("계좌번호: " + accountNumber).show();
+            } else {
+                alert('계좌번호를 입력해주세요.');
+            }
+        });
+
         // 두 번째 이미지에서 다른 영역 클릭 시
         $(document).on('click', 'area', function(event) {
             if ($("#main-image").attr("src").includes("transfer2.png") && this.id !== 'area-4') {
