@@ -7,11 +7,13 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import kr.soft.study.dao.UserDao;
 import kr.soft.study.dto.UserDto;
 
+@Component
 public class UserSignup implements UCommand {
 
     private SqlSession sqlSession;

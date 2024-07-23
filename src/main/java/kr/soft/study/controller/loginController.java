@@ -29,7 +29,11 @@ public class loginController {
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
 
-    private UCommand uCommand;
+    @Autowired
+    private UserLogin userLogin;
+
+    @Autowired
+    private UserSignup userSignup;
 
     @RequestMapping("/loginView")
     public String loginView(Model model) {
@@ -38,7 +42,7 @@ public class loginController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, HttpSession session, Model model) {
+    public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, HttpSession session, Model model, HttpServletRequest request) {
         UserValidator validator = new UserValidator();
         validator.validate(userDto, result);
 
@@ -46,10 +50,8 @@ public class loginController {
             return "login";
         }
 
-        uCommand = new UserLogin(sqlSession, passwordEncoder);
-        model.addAttribute("userDto", userDto);
-        model.addAttribute("request", model.asMap().get("request"));
-        uCommand.execute(model);
+        model.addAttribute("request", request);
+        userLogin.execute(model);
 
         String loginResult = (String) session.getAttribute("loginResult");
         if ("success".equals(loginResult)) {
@@ -61,7 +63,7 @@ public class loginController {
             }
         } else {
             model.addAttribute("loginError", "Invalid username or password.");
-            return "login";
+            return "home";
         }
     }
 
@@ -72,7 +74,7 @@ public class loginController {
     }
 
     @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model) {
+    public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model, HttpServletRequest request) {
         UserValidator validator = new UserValidator();
         validator.validate(userDto, result);
 
@@ -80,10 +82,8 @@ public class loginController {
             return "signup";
         }
 
-        uCommand = new UserSignup(sqlSession, passwordEncoder);
-        model.addAttribute("userDto", userDto);
-        model.addAttribute("request", model.asMap().get("request"));
-        uCommand.execute(model);
+        model.addAttribute("request", request);
+        userSignup.execute(model);
         return "home";
     }
 }
