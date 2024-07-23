@@ -65,7 +65,7 @@
     </script>
 </head>
 <body>
-    <h1>Real-time Speech Recognitions</h1>
+    <h1>Real-time Speech Recognitionss</h1>
     <button id="startButton" onclick="startRecording()">Start Recording</button>
     <button id="stopButton" onclick="stopRecording()" disabled>Stop Recording</button>
     <p id="result"></p>
