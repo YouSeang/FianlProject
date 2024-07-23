@@ -51,8 +51,8 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
 
     private String callClovaCSR(File audioFile) throws IOException {
         String apiURL = "https://naveropenapi.apigw.ntruss.com/recog/v1/stt";
-        String secretKey = "GJEzAf0iJ0vpYv6uHEx7dUYitK3W1mE1SIJXyqyw";
-        String clientId = "4feer17ghj";
+        String secretKey = "";
+        String clientId = "";
         String lang = "Kor"; // 언어 설정
         
         apiURL += "?lang=" + lang;
