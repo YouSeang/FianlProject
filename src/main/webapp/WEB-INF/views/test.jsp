@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
+%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -7,9 +7,9 @@
 <meta id="viewport" name="viewport"
 	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<title>KB±ÝÀ¶°øÀÍÀç´Ü</title>
-<meta name="description" content="KB±ÝÀ¶°øÀÍÀç´Ü">
-<meta name="keywords" content="KB, ±ÝÀ¶°øÀÍÀç´Ü, KB±ÝÀ¶°øÀÍÀç´Ü, KB ±ÝÀ¶°øÀÍÀç´Ü">
+<title>KBê¸ˆìœµê³µìµìž¬ë‹¨</title>
+<meta name="description" content="KBê¸ˆìœµê³µìµìž¬ë‹¨">
+<meta name="keywords" content="KB, ê¸ˆìœµê³µìµìž¬ë‹¨, KBê¸ˆìœµê³µìµìž¬ë‹¨, KB ê¸ˆìœµê³µìµìž¬ë‹¨">
 
 <link rel="stylesheet" type="text/css"
 	href="/static/dbe/assets/css/basic.min.css">
@@ -61,9 +61,9 @@
 		<header id="header" class="header">
 			<div class="header-container">
 				<a href="javascript:history.go(-1);" class="go-back"><span
-					class="ico ico-back ico-circle">µÚ·Î</span></a> <a
+					class="ico ico-back ico-circle">ë’¤ë¡œ</span></a> <a
 					href="/static/dbe/index.html"><h1 class="logo">
-						<span class="blind">KB±ÝÀ¶°øÀÍÀç´Ü</span>
+						<span class="blind">KBê¸ˆìœµê³µìµìž¬ë‹¨</span>
 					</h1></a>
 			</div>
 		</header>
@@ -71,7 +71,7 @@
 		<section id="section" class="section section-login">
 			<div class="section-container">
 				<div class="section-header">
-					<h2 class="section-title">¹ðÅ· ÀÚÀ¯Ã¼Çè</h2>
+					<h2 class="section-title">ë±…í‚¹ ìžìœ ì²´í—˜</h2>
 				</div>
 				<div class="section-content">
 

@@ -11,14 +11,16 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
-
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
 <title>KB스타뱅킹 이체시뮬레이션</title>
 <style>
 #content {
 	position: relative;
 }
 
-#display-area, #display-area1, #display-area2, #display-area3, #display-area4, #keypad-area {
+#display-area, #display-area1, #display-area2, #display-area3,
+	#display-area4, #keypad-area {
 	position: absolute;
 	border: 1px solid #000;
 	display: none;
@@ -66,7 +68,7 @@
 			<span id="display-text2"
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
-		
+
 		<!-- 이체확인 페이지에서 받는 분 계좌 확인 영역 -->
 		<div id="display-area3"
 			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
@@ -74,7 +76,7 @@
 			<span id="display-text3"
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
-		
+
 		<!-- 이체확인 페이지에서 보내는 금액 확인 영역 -->
 		<div id="display-area4"
 			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
@@ -82,7 +84,7 @@
 			<span id="display-text4"
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
-		
+
 		<!-- 이체확인 상세페이지에서 보내는 금액 확인 영역 -->
 		<div id="display-area5"
 			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
@@ -90,7 +92,7 @@
 			<span id="display-text5"
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
-		
+
 		<!--이체완료페이지에서 보낸 금액 확인 영역 -->
 		<div id="display-area6"
 			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
@@ -101,177 +103,86 @@
 	</div>
 
 	<script>
-    $(document).ready(function() {
-        // 이미지가 로드된 후 rwdImageMaps를 호출하여 반응형으로 설정
-        $("#main-image").on('load', function() {
-            $('img[usemap]').rwdImageMaps();
-        }).each(function() {
-            if(this.complete) $(this).trigger('load');
-        });
-
+	$(document).ready(function() {
+	    // 이미지가 로드된 후 rwdImageMaps를 호출하여 반응형으로 설정
+	    $("#main-image").on('load', function() {
+	        $('img[usemap]').rwdImageMaps();
+	    }).each(function() {
+	        if(this.complete) $(this).trigger('load');
+	    });
+	});
+	
         var inputaccountNum = ""; // 입력된 계좌번호를 저장할 변수
         var inputpay = ""; // 입력된 금액을 저장할 변수
         var originalImgWidth, originalImgHeight;
 
-        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5,displayAreaCoords6, keypadAreaCoords) {
+        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, displayAreaCoords6, keypadAreaCoords) {
             $("#main-image").fadeOut(200, function() {
                 $(this).attr("src", newSrc).fadeIn(200);
 
-                // 이미지 로드 완료 후 실행
                 $(this).on('load', function() {
-                    originalImgWidth = $(this).width();
-                    originalImgHeight = $(this).height();
+                    var $img = $(this);
+                    var originalImgWidth = $img[0].naturalWidth; // 원본 이미지의 실제 너비
+                    var originalImgHeight = $img[0].naturalHeight; // 원본 이미지의 실제 높이
 
+                    // 좌표 비율을 계산하는 함수
+                    function calculateResponsiveCoords(originalCoords) {
+                        var coordsArr = originalCoords.split(',').map(Number);
+                        var newCoords = coordsArr.map(function(coord, index) {
+                            return (coord / originalImgWidth) * $img.width();
+                        });
+                        return newCoords.join(',');
+                    }
+
+                    // 이미지가 로드된 후 좌표 비율을 계산하여 적용
+                    function updateAreaPosition(coords, selector) {
+                        if (coords) {
+                            var newCoords = calculateResponsiveCoords(coords);
+                            var coordsArr = newCoords.split(',').map(Number);
+                            var top = coordsArr[1];
+                            var left = coordsArr[0];
+                            var width = coordsArr[2] - coordsArr[0];
+                            var height = coordsArr[3] - coordsArr[1];
+                            $(selector).css({
+                                top: top + 'px',
+                                left: left + 'px',
+                                width: width + 'px',
+                                height: height + 'px'
+                            }).show();
+                        } else {
+                            $(selector).hide();
+                        }
+                    }
+
+                    // 새로운 맵이 있을 때 반응형으로 설정
                     if (newMap) {
                         $('map').html(newMap);
                         $('img[usemap]').rwdImageMaps(); // 새 맵을 반응형으로 설정
                     }
 
-                    // display-area 위치 조정
-                    if (displayAreaCoords) {
-                        var coords = displayAreaCoords.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                    } else {
-                        $("#display-area").hide();
-                    }
-
-                    // display-area1 위치 조정
-                    if (displayAreaCoords1) {
-                        var coords = displayAreaCoords1.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area1").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text1").text(inputaccountNum); // 입력된 계좌번호를 display-area1에 표시 
-                    } else {
-                        $("#display-area1").hide();
-                    }
-
-                    // display-area2 위치 조정
-                    if (displayAreaCoords2) {
-                        var coords = displayAreaCoords2.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area2").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text2").text(inputpay); // 입력된 금액을 display-area2에 표시 
-                    } else {
-                        $("#display-area2").hide();
-                    }
-                    
-                 // display-area3 위치 조정
-                    if (displayAreaCoords3) {
-                        var coords = displayAreaCoords3.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area3").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text3").text(inputaccountNum); // 입력된 금액을 display-area3에 표시 
-                    } else {
-                        $("#display-area3").hide();
-                    }
-                 
-                 // display-area4 위치 조정
-                    if (displayAreaCoords4) {
-                        var coords = displayAreaCoords4.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area4").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text4").text(inputpay); // 입력된 금액을 display-area4에 표시 
-                    } else {
-                        $("#display-area4").hide();
-                    }
-
-                    // display-area5 위치 조정
-                    if (displayAreaCoords5) {
-                        var coords = displayAreaCoords5.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area5").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text5").text(inputpay); // 입력된 금액을 display-area4에 표시 
-                    } else {
-                        $("#display-area5").hide();
-                    }
-                    
-                    // display-area6 위치 조정
-                    if (displayAreaCoords6) {
-                        var coords = displayAreaCoords6.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area6").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text6").text(inputpay); // 입력된 금액을 display-area6에 표시 
-                    } else {
-                        $("#display-area6").hide();
-                    }
-                    
-                    // keypad-area 위치 조정
-                    if (keypadAreaCoords) {
-                        var coords = keypadAreaCoords.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#keypad-area").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                    } else {
-                        $("#keypad-area").hide();
-                    }
+                    // 좌표를 반응형으로 업데이트
+                    updateAreaPosition(displayAreaCoords, "#display-area");
+                    $("#display-text1").text(inputaccountNum);
+                    updateAreaPosition(displayAreaCoords1, "#display-area1");
+                    $("#display-text2").text(inputpay);
+                    updateAreaPosition(displayAreaCoords2, "#display-area2");
+                    $("#display-text3").text(inputaccountNum);
+                    updateAreaPosition(displayAreaCoords3, "#display-area3");
+                    $("#display-text4").text(inputpay);
+                    updateAreaPosition(displayAreaCoords4, "#display-area4");
+                    $("#display-text5").text(inputpay);
+                    updateAreaPosition(displayAreaCoords5, "#display-area5");
+                    $("#display-text6").text(inputpay);
+                    updateAreaPosition(displayAreaCoords6, "#display-area6");
+                    updateAreaPosition(keypadAreaCoords, "#keypad-area");
                 });
             });
-        }
 
+            // 콘솔에 원본 이미지 크기와 좌표를 출력
+            console.log("Original Image Width:", originalImgWidth);
+            console.log("Original Image Height:", originalImgHeight);
+            console.log("Display Area Coords:", displayAreaCoords);
+        }
         // 첫 번째 이미지에서 다른 영역 클릭 시
         $(document).on('click', '#area-2, #area-3', function(event) {
             if ($("#main-image").attr("src").includes("transfer1.png")) {
@@ -447,7 +358,6 @@
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
         });
-    });
 </script>
 
 </body>
