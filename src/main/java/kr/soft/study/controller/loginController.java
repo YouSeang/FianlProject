@@ -61,7 +61,7 @@ public class loginController {
             String userRole = (String) session.getAttribute("userRole");
             if ("admin".equals(userRole)) {
             	System.out.println("admin login");
-                return "redirect:/admin";
+                return "redirect:admin/admin";
             } else {
                 return "redirect:/home";
             }

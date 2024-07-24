@@ -125,7 +125,7 @@
                                     <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
                                     <c:choose>
                                         <c:when test="${sessionScope.user.role eq 'admin'}">
-                                            <a href="${pageContext.request.contextPath}/admin" class="text-reset icon position-relative me-2"><i class="fa fa-user"></i></a>
+                                            <a href="${pageContext.request.contextPath}/admin/admin" class="text-reset icon position-relative me-2"><i class="fa fa-user"></i></a>
                                         </c:when>
                                         <c:otherwise>
                                             <a href="${pageContext.request.contextPath}/mypage" class="text-reset icon position-relative me-2"><i class="fa fa-user"></i></a>
