@@ -55,12 +55,15 @@ public class loginController {
 
         String loginResult = (String) session.getAttribute("loginResult");
         if ("success".equals(loginResult)) {
+        	UserDto user = (UserDto) session.getAttribute("user");
+            System.out.println("User logged in: " + user.getUser_id());
+        	
             String userRole = (String) session.getAttribute("userRole");
             if ("admin".equals(userRole)) {
             	System.out.println("admin login");
-                return "admin";
+                return "redirect:admin/admin";
             } else {
-                return "home";
+                return "redirect:/home";
             }
         } else {
             model.addAttribute("loginError", "Invalid username or password.");
@@ -68,6 +71,19 @@ public class loginController {
             return "login";
         }
     }
+    
+    // 로그인 후 home 으로 이동
+    @RequestMapping("/home")
+    public String home(Model model) {
+        return "home";
+    }
+    
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // 세션 무효화
+        return "home"; 
+    }
+
 
     @RequestMapping("/signupView")
     public String signupView(Model model) {
