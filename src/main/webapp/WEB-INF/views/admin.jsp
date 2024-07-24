@@ -46,7 +46,7 @@
                 <div class="col-lg-12">
                     <div class="section-intro">
                         <h2 class="section-title">관리자 <span class="color">기능</span></h2>
-                        <p>여기서 시스템을 관리할 수 있습니다.</p>
+                        <p>여기서 시스템을 관리할 수 있습니다..</p>
                     </div>
                 </div>
             </div>
