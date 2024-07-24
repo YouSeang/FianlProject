@@ -121,6 +121,14 @@
 
 
 		<div class="container">
+			<c:if test="${not empty coupon_list}">
+				<c:forEach var="coupon" items="${coupon_list}">
+					<!-- coupon list rendering here -->
+				</c:forEach>
+			</c:if>
+			<c:if test="${empty coupon_list}">
+				<p>No coupons available</p>
+			</c:if>
 			<div class="shop-body row g-4">
 				<c:forEach var="coupon" items="${coupon_list}">
 					<div class="col-lg-4 col-sm-6">
@@ -137,7 +145,7 @@
 									<a class="text-reset" href="single-product.html">${coupon.coupon_type}</a>
 								</h3>
 								<div class="radio-container">
-									<label> <input type="radio" name="selectedCouponId"
+									<label> <input type="radio" name="coupon-selection"
 										value="${coupon.id}" />
 									</label>
 								</div>
