@@ -108,37 +108,46 @@
 	<!-- Promo Area End -->
 
 	<!-- Team Area Start -->
-  <section class="donations-area section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-intro intro-full">
-                        <h2 class="section-title"> <span class="color">KB스타뱅킹</span> 회원가입</h2>
-                        <p>KB스타뱅킹 회원가입을 가상으로 체험해보고, 실제로 진행해보세요!</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-                     
-  <%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp" %> 
+	<section class="donations-area section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="section-intro intro-full">
+						<h2 class="section-title">
+							<span class="color">KB스타뱅킹</span> 이체
+						</h2>
+						<p>KB스타뱅킹 이체거래를 실제처럼 연습해보세요!</p>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div
+						class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center"
+						style="min-height: 100vh;">
+						<!-- <div class="header-container">
+							<a href="javascript:history.go(-1);" class="go-back"><span
+								class="ico ico-back ico-circle">뒤로</span></a> <a
+								href="/static/dbe/index.html"><h1 class="logo">
+									<span class="blind">KB큽스쿨</span>
+								</h1></a>
+						</div> -->
+						<%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp"%>
 
-</div>
+					</div>
 
 
-                </div>
-            </div>
-        </div>
-    </section>
-
-
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- Team Area End -->
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
+
 	<!--
-Javascript
+Javascriptg
 ======================================================== -->
 
 
