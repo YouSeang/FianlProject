@@ -52,6 +52,20 @@
     <![endif]-->
 </head>
 
+<script type="text/javascript">
+function openVoicePhishingWindow() {
+    var width = 1300;
+    var height = 650;
+
+    // 팝업을 가운데 위치시키기 위해 아래와 같이 값 구하기
+    var left = (window.innerWidth / 2) - (width / 2);
+    var top = (window.innerHeight / 2) - (height / 2);
+
+    // 새로운 창을 가운데에 띄우기
+    window.open('${pageContext.request.contextPath}/voice/newVoicePhishing', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top);
+}
+</script>
+
 <body>
 	<!-- Preloader -->
 	<div id="preloader">
@@ -73,7 +87,9 @@
 						</h1>
 						<p>블라블라</p>
 						<div class="banner-btn">
-							<a href="voice/voicePhishing" class="custom-btn">체험하러가기</a>
+							<!-- <a href="voice/newVoicePhishing" class="custom-btn">체험하러가기</a> -->
+							<a href="#" class="custom-btn"
+								onclick="openVoicePhishingWindow()">체험하러 가기</a>
 						</div>
 					</div>
 				</div>

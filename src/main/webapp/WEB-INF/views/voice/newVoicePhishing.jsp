@@ -47,7 +47,7 @@
 <body>
 
 
-<!-- Banner Area Start -->
+	<!-- Banner Area Start -->
 	<section class="banner-area">
 		<div class="banner-2 owl-carousel">
 			<div class="single-banner"
@@ -55,11 +55,13 @@
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							KB보이스피싱<div/><span>시뮬레이션 </span><br />체험해보세요
+							KB보이스피싱
+							<div />
+							<span>시뮬레이션 </span><br />체험해보세요
 						</h1>
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
-							<a href="../index" class="custom-btn">대출사기</a>
+							<a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
 						</div>
 					</div>
 				</div>
@@ -74,35 +76,35 @@
 						</h1>
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
-							<a href="../index" class="custom-btn">기관사칭</a>
+							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a>
 						</div>
 					</div>
 				</div>
 			</div>
 	</section>
 	<!-- Banner Area End -->
-	
-	
-			<!--
+
+
+	<!--
 Javascript
 ======================================================== -->
-		<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-		<script
-			src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/wow.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/form.js"/>"></script>
-		<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/custom.js"/>"></script>
-	
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
+	<script
+		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/wow.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/form.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+
 </body>
 </html>

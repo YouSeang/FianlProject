@@ -165,6 +165,7 @@
                         <area target="_self" alt="" title="" href="#" coords="256,33,636,38,642,540,358,540,356,621,642,618,637,781,248,788" shape="poly" id="goto-sbsavings5">
                     `;
                     changeImage(newSrc, newMap);
+                    
                 } else if (targetId === 'goto-sbsavings6') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings6.png";
                     var newMap = `
@@ -183,16 +184,18 @@
                         <area target="" alt="24" title="24" href="" coords="441,459,368,429" shape="rect">
                         <area target="" alt="12" title="12" href="" coords="449,430,523,463" shape="rect">
                         <area target="" alt="6" title="6" href="" coords="531,429,609,464" shape="rect">
-                        <area target="" alt="inputarea" title="inputarea" href="" coords="519,402,757,450" shape="rect">
-                        <area target="" alt="button" title="button" href="" coords="641,795,261,734" shape="rect" id="goto-sbsavings7">
+                        <area target="" alt="inputarea" title="inputarea" href="" coords="288,330,492,380" shape="rect">
+                        <area target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings7">
                         `;
                     changeImage(newSrc, newMap);
+                    
                 } else if (targetId === 'goto-sbsavings7') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings7.png";
                     var newMap = `
                         <area target="_self" alt="" title="" href="#" coords="396,554,614,608" shape="rect" id="goto-sbsavings8">
-                                            `;
+                         `;
                     changeImage(newSrc, newMap);
+                    
                 }else if (targetId === 'goto-sbsavings8') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings8.png";
                     var newMap = `
