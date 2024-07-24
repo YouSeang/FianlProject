@@ -78,6 +78,8 @@
 		<websocket:mapping path="/audio"
 			handler="audioWebSocketHandler" />
 	</websocket:handlers>
-
+	<!-- WebSocket 핸들러 빈 정의 -->
+	<beans:bean id="audioWebSocketHandler"
+		class="kr.soft.study.handler.AudioWebSocketHandler" />
 
 </beans:beans>
