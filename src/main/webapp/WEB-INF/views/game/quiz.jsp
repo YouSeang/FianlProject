@@ -97,20 +97,14 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm">
-                        
-<!--  -->
+                       <%@ include file="/WEB-INF/views/game/quizcontents.jsp" %>    
+</div>
 
-<!-- quizForm.jsp -->
-    <div id="quizContainer">
-        <p id="questionText"></p>
-        <input type="radio" name="userResponse" value="true" id="true">O
-        <input type="radio" name="userResponse" value="false" id="false">X
-        <button id="submitAnswer">제출</button>
-        <div id="feedback"></div>
-    </div>
+
+    </section>
+
+
+     
     <!-- Team Area End -->
 
      <%@ include file="/WEB-INF/views/footer.jsp" %> 
