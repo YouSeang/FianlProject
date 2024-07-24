@@ -179,7 +179,7 @@
 							<a href="${pageContext.request.contextPath}/loginView" class="custom-btn">로그인</a> <a
 								class="text-reset icon" href="#" data-bs-toggle="offcanvas"
 								data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
-							<a href="./mypage.html"
+							<a href="mypage"
 								class="text-reset icon position-relative me-2"><i
 								class="fa fa-user"></i></a>
 						</div>

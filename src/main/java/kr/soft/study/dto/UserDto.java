@@ -12,12 +12,13 @@ public class UserDto {
 	
 	public UserDto(){}
 	
-	public UserDto(String user_id, String name, String email,String password) {
+	public UserDto(String user_id, String name, String email, String password, String role) {
 		this.name = name;
 		//this.birth_date = birth_date;
 		//this.phone_number = phone_number;
 		this.email = email;
 		this.password = password;
+		this.role = role;
 	}
 	
 	public String getUser_id() {
