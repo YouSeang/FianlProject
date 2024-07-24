@@ -15,6 +15,19 @@
     	<org.slf4j-version>1.7.32</org.slf4j-version> <!-- 최신 호환 버전으로 변경 -->
 	</properties>
 	<dependencies>
+	<dependency>
+  <!-- jsoup HTML parser library @ https://jsoup.org/ -->
+  <groupId>org.jsoup</groupId>
+  <artifactId>jsoup</artifactId>
+  <version>1.18.1</version>
+</dependency>
+<!-- websocket -->
+<dependency>
+    <groupId>javax.websocket</groupId>
+    <artifactId>javax.websocket-api</artifactId>
+    <version>1.1</version>
+</dependency>
+
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
