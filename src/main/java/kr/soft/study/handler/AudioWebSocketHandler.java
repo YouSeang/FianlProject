@@ -1,24 +1,36 @@
 package kr.soft.study.handler;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.stereotype.Component;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.BinaryWebSocketHandler;
 
+import kr.soft.study.command.CriminalVoiceCommand;
+import kr.soft.study.controller.CriminalVoiceController;
 import kr.soft.study.service.OpenAIService;
 
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.file.Files;
+import java.util.HashMap;
+import java.util.Map;
 
+@Component
 public class AudioWebSocketHandler extends BinaryWebSocketHandler {
 
-    private final OpenAIService openAIService;
+    @Autowired
+    private OpenAIService openAIService;
+    
+    @Autowired
+    private CriminalVoiceCommand criminalVoiceCommand;
 
-    public AudioWebSocketHandler(OpenAIService openAIService) {
-        this.openAIService = openAIService;
-    }
+    @Autowired
+    private ApplicationContext context;
 
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
@@ -34,6 +46,11 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
             String chatbotResponse = openAIService.getChatbotResponse(transcript);
             session.sendMessage(new TextMessage(chatbotResponse));
 
+            // CriminalVoiceCommand를 호출하여 데이터베이스 조회
+            Map<String, Object> model = new HashMap<>();
+            model.put("id", transcript);
+            String voiceData = criminalVoiceCommand.execute(model);
+            
         } catch (IOException e) {
             e.printStackTrace();
             try {
