@@ -13,6 +13,7 @@ public class UserDto {
 	public UserDto(){}
 	
 	public UserDto(String user_id, String name, String email, String password, String role) {
+		this.user_id = user_id;
 		this.name = name;
 		//this.birth_date = birth_date;
 		//this.phone_number = phone_number;

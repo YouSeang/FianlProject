@@ -59,17 +59,7 @@ public class eduController {
 		System.out.println("ibtransfer");
 		return "edu/ibsavings";
 	}
-	
-	
-	
-	/*
-	 * public String memdelete(HttpServletRequest request, Model model) {
-	 * System.out.println("member1"); model.addAttribute("request", request);
-	 * command = new MemberDeleteCommand(); command.execute(model);
-	 * System.out.println("memberDel"); return "redirect:/admin/member.do"; }
-	 */
-	
-	
+
 	
 	@RequestMapping("/edu/findcrime")
 	public String find(Model model) {
@@ -82,5 +72,14 @@ public class eduController {
 		System.out.println("eduvideo");
 		return "edu/eduvideo";
 	}
+	
+	
+	@RequestMapping("/game/quiz")
+	public String quiz(Model model) {
+		System.out.println("quiz");
+		return "game/quiz";
+	}
+	
+	
 	
 }
