@@ -37,7 +37,7 @@
             <span></span>
         </div>
     </div>
-    <%@ include file="header.jsp"%>
+  	<%@ include file="/WEB-INF/views/header.jsp" %> 
 
     <!-- Admin 기능 영역 Start -->
     <section class="admin-area section-padding">
@@ -56,7 +56,7 @@
                         <span><img src="${pageContext.request.contextPath}/resources/images/components/admin1.png" alt=""></span>
                         <h3>사용자 관리</h3>
                         <p>시스템에 등록된 사용자를 관리할 수 있습니다.</p>
-                        <a href="${pageContext.request.contextPath}/admin/users" class="custom-btn">관리하기</a>
+                        <a href="${pageContext.request.contextPath}/admin/adminUser" class="custom-btn">관리하기</a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6">
@@ -80,7 +80,7 @@
     </section>
     <!-- Admin 기능 영역 End -->
 
-    <%@ include file="footer.jsp"%>
+    <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
     <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
