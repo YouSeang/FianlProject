@@ -82,14 +82,6 @@
 			<span id="display-text4"
 				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
 		</div>
-		
-		<!-- 이체확인 상세페이지에서 보내는 금액 확인 영역 -->
-		<div id="display-area5"
-			style="position: absolute; top: 160px; left: 280px; width: 326px; height: 42px; border: 1px solid #000; display: none;">
-			<!-- 이체확인 페이지에서 보내는 금액 표시할 곳 -->
-			<span id="display-text5"
-				style="display: block; line-height: 42px; text-align: left; font-size: 24px;"></span>
-		</div>
 	</div>
 
 	<script>
@@ -105,7 +97,7 @@
         var inputpay = ""; // 입력된 금액을 저장할 변수
         var originalImgWidth, originalImgHeight;
 
-        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, keypadAreaCoords) {
+        function changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, keypadAreaCoords) {
             $("#main-image").fadeOut(200, function() {
                 $(this).attr("src", newSrc).fadeIn(200);
 
@@ -185,7 +177,7 @@
                             width: width + 'px',
                             height: height + 'px'
                         }).show();
-                        $("#display-text3").text(inputaccountNum); // 입력된 금액을 display-area3에 표시 
+                        $("#display-text3").text(inputpay); // 입력된 금액을 display-area3에 표시 
                     } else {
                         $("#display-area3").hide();
                     }
@@ -208,24 +200,6 @@
                         $("#display-area4").hide();
                     }
 
-                    // display-area5 위치 조정
-                    if (displayAreaCoords5) {
-                        var coords = displayAreaCoords5.split(',').map(Number);
-                        var top = coords[1] * originalImgHeight / originalImgHeight;
-                        var left = coords[0] * originalImgWidth / originalImgWidth;
-                        var width = (coords[2] - coords[0]) * originalImgWidth / originalImgWidth;
-                        var height = (coords[3] - coords[1]) * originalImgHeight / originalImgHeight;
-                        $("#display-area5").css({
-                            top: top + 'px',
-                            left: left + 'px',
-                            width: width + 'px',
-                            height: height + 'px'
-                        }).show();
-                        $("#display-text5").text(inputpay); // 입력된 금액을 display-area4에 표시 
-                    } else {
-                        $("#display-area5").hide();
-                    }
-                    
                     // keypad-area 위치 조정
                     if (keypadAreaCoords) {
                         var coords = keypadAreaCoords.split(',').map(Number);
@@ -300,7 +274,7 @@
             var displayAreaCoords = "281,124,612,163"; // display-area의 위치와 크기를 설정
             var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
 
-            changeImage(newSrc, newMap, displayAreaCoords, null, null, null, null, null, keypadAreaCoords);
+            changeImage(newSrc, newMap, displayAreaCoords, null, null, null, null, keypadAreaCoords);
         });
 
         // 클릭 가능한 영역 클릭 시 숫자 처리 (계좌번호입력)
@@ -369,7 +343,7 @@
             var displayAreaCoords2 = "374,186,463,210"; // display-area2의 위치와 크기를 설정
             var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
             
-            changeImage(newSrc, newMap, null, displayAreaCoords1, displayAreaCoords2, null, null, null,  keypadAreaCoords);
+            changeImage(newSrc, newMap, null, displayAreaCoords1, displayAreaCoords2, null, null, keypadAreaCoords);
         });
         
         // 네 번째 이미지 전환 이벤트 (금액 입력 후 '확인'버튼 클릭')
@@ -383,7 +357,7 @@
             var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
             var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
             
-            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, null, keypadAreaCoords);
+            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, keypadAreaCoords);
 
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
@@ -394,28 +368,13 @@
             event.preventDefault();
             var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer5.png";
             var newMap = `
-                <area id="area-8" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
+                <area id="area-4" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
             `;
             var displayAreaCoords3 = "343,172,533,193"; // display-area3의 위치와 크기를 설정
             var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
-            var displayAreaCoords5 = "316,582,404,604"; // display-area5의 위치와 크기를 설정
+            var displayAreaCoords5 = "316,582,404,604"; // display-area4의 위치와 크기를 설정
             var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
-            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, null, keypadAreaCoords);
-
-            // 클릭 가능한 영역 숨기기
-            $("#display-area").hide();
-        });
-        
-     // 여섯 번째 이미지 전환 이벤트 (상세 이체정보 확인 후 '다음' 버튼 클릭 시)
-        $(document).on('click', '#area-7', function(event) {
-            event.preventDefault();
-            var newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer5.png";
-            var newMap = `
-                <area id="area-8" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
-            `;
-            var displayAreaCoords6 = "347,266,467,289"; // display-area6의 위치와 크기를 설정
-            var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
-            changeImage(newSrc, newMap, null, null, null, null, null,null,displayAreaCoords6, keypadAreaCoords);
+            changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, keypadAreaCoords);
 
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
