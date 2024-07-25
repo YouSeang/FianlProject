@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
     <script src="<c:url value='/resources/js/jquery.min.js'/>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         .banner-btn a.custom-btn {
             margin-right: 10px;
@@ -21,12 +23,13 @@
     </style>
 </head>
 <body>
-    <h1>Real-time Speech Recognition</h1>
+    <h1>데이터 확인용</h1>
     <p id="result"></p>
     <div id="voiceDetail">
         <p id="voicePath"></p>
         <p id="isFinal"></p>
         <p id="voiceNotFound"></p>
+        <p id="finalMessage"></p>
     </div>
     <audio id="audioPlayer" controls style="display: none;" autoplay></audio>
     <section class="banner-area parallax-banner bg-cover" data-stellar-background-ratio=".6"
@@ -57,9 +60,11 @@
     </section>
 
     <script>
+        let voiceType;
+    
         $(document).ready(function() {
             var urlParams = new URLSearchParams(window.location.search);
-            var voiceType = urlParams.get('voice');
+            voiceType = urlParams.get('voice');
             var audioPlayer = document.getElementById("audioPlayer");
 
             if (voiceType) {
@@ -180,6 +185,26 @@
                     $("#isFinal").text("Is Final: " + data.isFinal);
                     $("#voiceNotFound").text("Voice Not Found: " + data.voiceNotFound);
                     
+                    if (data.isFinal) {
+                        let finalMessage = "";
+                        if (voiceType === "impersonation") {
+                            finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
+                        } else if (voiceType === "loan") {
+                            finalMessage = "종료 입니다. 참고하실 내용은 대출 사기에 관한 것입니다.";
+                        }
+                        $("#finalMessage").text(finalMessage);
+                        
+                        // 12초 후에 SweetAlert2 알림 창 띄우기
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: '체험 종료',
+                                text: finalMessage,
+                                icon: 'info',
+                                confirmButtonText: '닫기'
+                            });
+                        }, 13000); // 13초 후 실행
+                    }
+
                     if (data.audioPath && !data.voiceNotFound) {
                         var audioPlayer = document.getElementById("audioPlayer");
                         // 타임스탬프를 추가하여 캐시 방지

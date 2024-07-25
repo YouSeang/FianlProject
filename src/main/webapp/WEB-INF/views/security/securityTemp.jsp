@@ -101,21 +101,21 @@
 					<div class="single-counter">
 						<img src="${pageContext.request.contextPath}/resources/images/components/ct1.png" alt=""> <span
 							class="counter">750</span>
-						<h3>나의 보안온도는?</h3>
+						<h3><strong>나의 보안온도는?</strong></h3>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-3">
 					<div class="single-counter">
 						<img src="${pageContext.request.contextPath}/resources/images/components/ct2.png" alt=""> <span
 							class="counter"></span>
-						<h3>뜨거워요!(변동)</h3>
+						<h3><strong>뜨거워요!(변동)</strong></h3>
 					</div>
 				</div>
 				<div class="col-lg-3 col-sm-3">
 					<div class="single-counter">
 						<img src="${pageContext.request.contextPath}/resources/images/components/ct1.png" alt=""> <span
 							class="counter">60</span>
-						<h3>상위 60%에요!</h3>
+						<h3><strong>상위 60%에요!</strong></h3>
 					</div>
 				</div>
 			</div>
@@ -123,79 +123,50 @@
 	</section>
 	<!-- Project Counter Area End -->
 	
-	
-	
+  <body>
+		
+		<section class="ftco-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 text-center">
+						<h2 class="heading-section mb-5 pb-md-4">Checkbox #04</h2>
+					</div>
+				</div>
+				<div class="row justify-content-center">
+					<div class="col-md-4">
+						<div class="wrap w-100">
+							<div class="heading-title mb-4 text-center">
+								<h3>Choose your sports</h3>
+							</div>
+							<ul class="ks-cboxtags p-0 m-0">
+						    <li>
+						    	<input type="checkbox" id="checkboxOne" value="Order one" checked>
+						    	<label for="checkboxOne">Volleyball</label>
+						    </li>
+						    <li>
+						    	<input type="checkbox" id="checkboxTwo" value="Order Two">
+						    	<label for="checkboxTwo">Swimming</label>
+						    </li>
+						    <li>
+						    	<input type="checkbox" id="checkboxThree" value="Order Two">
+						    	<label for="checkboxThree">Surfing</label>
+						    </li>
+						  </ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+  </body>
 	
 	  <!-- Cause Page Start -->
     <div class="single-blog section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8">
-                    <article class="article-entry">
-                        <figure>
-                            <img src="${pageContext.request.contextPath}/resources/images/blog/sblog.jpg" alt="">
-                        </figure>
-                        <div class="post-detials">
-                            <h2 class="article-title mb-3">보안온도 체크박스 만들기</h2>
-                            <div class="article-meta">
-                                <span><a href=""><i class="fa fa-user"></i>Jeffery Way</a></span>
-                                <span><i class="fa fa-calendar"></i> 23-2-2018</span>
-                                <span><a href=""><i class="fa fa-comment"></i>Comments (23)</a></span>
-                                <span><a href=""><i class="fa fa-map-marker"></i>South Africa</a></span>
-                            </div>
-                            <p>Omnis pariatur similique officiis sit, explicabo harum assumenda laboriosam in ullam
-                                amet,
-                                placeat tempore ex fugit eveniet. At dolorum, eos doloribus, velit delectus officiis
-                                reprehenderit. Dicta, dolorum. Ex, quas quia eveniet deserunt veniam provident ea rerum
-                                temporibus. Quisquam veritatis voluptatibus, repellendus suscipit!Lorem ipsum dolor sit
-                                amet, consectetur adipisicing elit. Numquam sit praesentium velit, at iusto blanditiis
-                                vero
-                                tempora quidem cumque iure non magni nesciunt labore deserunt possimus placeat illo aut
-                                consequuntur est enim? Dolorum doloremque maxime,</p>
-                            <blockquote>Help the poor who are suffer much in the world excepturi numquam voluptate.Ut id
-                                odio quis purus lacinia varius vitae eu. Integer ac elit at nisi ultrices condimentum.
-                            </blockquote>
-                            <ul class="post-image">
-                                <li><a href=""><img src="${pageContext.request.contextPath}/resources/images/blog/blog-2.jpg" alt=""></a></li>
-                                <li><a href=""><img src="${pageContext.request.contextPath}/resources/images/blog/blog-6.jpg" alt=""></a></li>
-                                <li><a href=""><img src="${pageContext.request.contextPath}/resources/images/blog/blog-5.jpg" alt=""></a></li>
-                            </ul>
-                            <ul class="info-list">
-                                <li>Descent into civil war should be checked untill</li>
-                                <li>Humanitarian crisis most of them women and children</li>
-                                <li>We all protect our beautiful world at any cost</li>
-                                <li>labore sed laudantium dignissimos, repudiandae nulla</li>
-                            </ul>
-                            <p> labore sed laudantium dignissimos, repudiandae nulla magnam consequuntur nobis
-                                laboriosam.
-                                Assumenda fugit dolore delectus distinctio suscipit at officia, sequi cupiditate quae
-                                fugiat
-                                aliquid minima unde sunt eligendi nesciunt error enim ratione atque cum consequuntur
-                                rerum,
-                                deserunt quam ipsam maxime. Veritatis ad accusamus alias. Nihil neque iusto, temporibus
-                                minima laudantium hic ipsa.
-                            </p>
-                            <div class="article-footer py-4 d-sm-flex justify-content-between bg-white">
-                                <div class="article-tags d-sm-flex align-items-center mb-4 mb-sm-0">
-                                    <h5 class="m-0 text-uppercase">Tags: </h5>
-                                    <div class="tagcloude widget_tag_cloud ms-3">
-                                        <a href="#">Jersey</a>
-                                        <a href="#">Football</a>
-                                        <a href="#">Basketball</a>
-                                    </div>
-                                </div>
-                                <div class="article-share d-sm-flex align-items-center">
-                                    <h5 class="m-0 text-uppercase">Social Share: </h5>
-                                    <div class="social-share ms-3 mt-3 mt-sm-0">
-                                        <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
-                                        <a href="#"><i class="fa-brands fa-twitter"></i></a>
-                                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </article>
+                  
                     <div class="post-comments">
                         <h3 class="comment-title">Comments <span>(02)</span></h3>
                         <ol class="comment-list">
@@ -424,6 +395,12 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	
+	
+	
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
