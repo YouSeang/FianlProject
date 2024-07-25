@@ -63,6 +63,9 @@
 						<div class="banner-btn">
 							<a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
 						</div>
+						<div class="banner-btn">
+							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a>
+						</div>
 					</div>
 				</div>
 			</div>
