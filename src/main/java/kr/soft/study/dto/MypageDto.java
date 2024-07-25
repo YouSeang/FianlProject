@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 //일단 usercoupon과 points 테이블에 변수 모두 가져옴
 public class MypageDto {
 
-	private String uesr_id;
+	private String user_id;
 	private Timestamp point_time;
 	private String point_reason;
 	private int points_earned;
@@ -22,11 +22,11 @@ public class MypageDto {
 		super();
 	}
 
-	public MypageDto(String uesr_id, Timestamp point_time, String point_reason, int points_earned, Timestamp usage_time,
+	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, Timestamp usage_time,
 			String usage_type, int total_points, int coupon_id, Timestamp issue_date, Timestamp use_date,
 			Boolean isUsed) {
 		super();
-		this.uesr_id = uesr_id;
+		this.user_id = user_id;
 		this.point_time = point_time;
 		this.point_reason = point_reason;
 		this.points_earned = points_earned;
@@ -39,12 +39,12 @@ public class MypageDto {
 		this.isUsed = isUsed;
 	}
 
-	public String getUesr_id() {
-		return uesr_id;
+	public String getuser_id() {
+		return user_id;
 	}
 
-	public void setUesr_id(String uesr_id) {
-		this.uesr_id = uesr_id;
+	public void setuser_id(String user_id) {
+		this.user_id = user_id;
 	}
 
 	public Timestamp getPoint_time() {

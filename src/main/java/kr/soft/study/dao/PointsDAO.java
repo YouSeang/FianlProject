@@ -1,10 +1,11 @@
 package kr.soft.study.dao;
 
-//import org.apache.ibatis.annotations.Select;
-import kr.soft.study.dto.CriminalVoiceDTO;
+import java.util.Map;
+
+import kr.soft.study.dto.PointsDto;
 
 public interface PointsDAO {
-
-    //@Select("SELECT * FROM criminal_voice WHERE id = #{id}")
-    CriminalVoiceDTO getVoiceById(String id);
+    int checkPointsAddedToday(Map<String, Object> params);
+    Integer getTotalPoints(String userId);
+    void addPoints(PointsDto pointsDto);
 }
