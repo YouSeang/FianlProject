@@ -53,7 +53,48 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+    <script>
+            function searchKeyword(keyword) {
+                console.log('Searching for keyword:', keyword);
+                fetch('/study/voice/search', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ keyword: keyword })
+                })
+                .then(response => {
+                    console.log('Response status:', response.status);
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Data received:', data);
+                    displayNews(data.newsList);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+
+            function displayNews(newsList) {
+                const newsContainer = document.getElementById('news-container');
+                newsContainer.innerHTML = '';
+
+                newsList.forEach(news => {
+                    const newsItem = document.createElement('div');
+                    newsItem.innerHTML = `
+                        <h3>${news.title}</h3>
+                        <p>${news.description}</p>
+                        <a href="${news.link}">Read more</a>
+                        <img src="${news.imageUrl}" alt="News Image">
+                    `;
+                    newsContainer.appendChild(newsItem);
+                });
+            }
+        </script>
     
 </head>
 
@@ -90,9 +131,21 @@
     <!-- Our Causes Area Start -->
     
     <main class="main-content testimonial-page">
+    
 		<div class="container">
+     <a class="custom-btn" onclick="searchKeyword('금융사고')">#금융사고</a>
+    <a class="custom-btn" onclick="searchKeyword('금융사기')">#금융사기</a>
+    <a class="custom-btn" onclick="searchKeyword('보이스피싱')">#보이스피싱</a>
+    <a class="custom-btn" onclick="searchKeyword('메신저피싱')">#메신저피싱</a>
+    <a class="custom-btn" onclick="searchKeyword('스미싱')">#스미싱</a>
+    <a class="custom-btn" onclick="searchKeyword('대출사기')">#대출사기</a>
+
+    <div id="news-container"></div>
+
+      
 			<div class="row">
-				<div class="col-lg-6 col-sm-12">
+			
+				<div class="col-sm-12">
 					<div class="single-testimonial">
 						<div class="s-thumb">
 						<ul>
@@ -103,7 +156,7 @@
 						<img src="${news.imageUrl}" alt="News Image">
 							<div class="s-details">
 							<h3>  <a href="${news.link}" target="_blank">${news.title}</a></h3>
-							<span class="status">${news.info}</span>>
+							<span class="status">${news.info}</span>
 							<p>${news.description}</p>
 							</li>
                             </c:forEach>

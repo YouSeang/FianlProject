@@ -9,15 +9,17 @@ import java.util.Map;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 
 import kr.soft.study.util.Command;
 
+@Component
 public class RecentIncidentCommand implements Command {
 
     @Override
     public void execute(Model model) {
-        String keyword = "±ÝÀ¶»ç°í";
+        String keyword = (String) model.getAttribute("keyword");
         String url = "https://search.naver.com/search.naver?where=news&query=" + keyword;
         List<Map<String, String>> newsList = new ArrayList<>();
 
@@ -31,7 +33,7 @@ public class RecentIncidentCommand implements Command {
                 String description = element.select(".dsc_wrap").text();
                 String info = element.select(".info").text();
                 String imageUrl = element.select(".thumb img").attr("src");
-                
+
                 Map<String, String> news = new HashMap<>();
                 news.put("title", title);
                 news.put("link", link);
