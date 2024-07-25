@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -44,32 +45,39 @@
             <div class="text-end mb-3">
                 <a href="${pageContext.request.contextPath}/admin/videoAdd" class="btn btn-primary">새 비디오 추가</a>
             </div>
-
+<c:forEach var="video" items="${videos}">
+    <c:out value="${video.videoName}"/>
+      <c:out value="${video.points}"/>
+        <c:out value="${video.link}"/>
+          <c:out value="${video.category}"/>
+</c:forEach>
             <!-- Video List -->
             <section class="video-area section-padding">
                 <div class="container">
                     <div class="row g-5">
-                        <c:forEach var="video" items="${videos}">
-                            <div class="col-lg-4 col-sm-6">
-                                <div class="single-article shadow bg-white">
-                                    <figure class="article-thumb">
-                                        <img src="${video.link}" alt="">
-                                    </figure>
-                                    <div class="article-details">
-                                        <h3 class="article-heading">${video.videoName}</h3>
-                                        <ul class="article-meta">
-                                            <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
-                                            <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
-                                        </ul>
-                                        <a href="${pageContext.request.contextPath}/admin/videoEdit?id=${video.id}" class="btn btn-warning btn-sm">Edit</a>
-                                        <form action="${pageContext.request.contextPath}/admin/videoDelete" method="post" style="display:inline;">
-                                            <input type="hidden" name="id" value="${video.id}">
-                                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </c:forEach>
+                       <c:forEach var="video" items="${videos}">
+    <div class="col-lg-4 col-sm-6">
+        <div class="single-article shadow bg-white">
+            <%-- <figure class="article-thumb">
+                <img src="${video.link}" alt="${video.videoName}">
+            </figure> --%>
+            <div class="article-details">
+                <h3 class="article-heading">
+                    <c:out value="${video.videoName}"/>
+                </h3>
+                <ul class="article-meta">
+                    <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
+                    <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
+                </ul>
+                <a href="${pageContext.request.contextPath}/admin/videoEdit?id=${video.id}" class="btn btn-warning btn-sm">Edit</a>
+                <form action="${pageContext.request.contextPath}/admin/videoDelete" method="post" style="display:inline;">
+                    <input type="hidden" name="id" value="${video.id}">
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</c:forEach>
                     </div>
                 </div>
             </section>

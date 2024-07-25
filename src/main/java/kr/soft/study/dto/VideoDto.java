@@ -1,5 +1,8 @@
 package kr.soft.study.dto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class VideoDto {
     private int id;
     private String category;
@@ -57,3 +60,5 @@ public class VideoDto {
         this.link = link;
     }
 }
+
+    

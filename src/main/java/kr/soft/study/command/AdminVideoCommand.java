@@ -14,7 +14,9 @@ public class AdminVideoCommand implements Command {
 	@Override
 	public void execute(Model model) {
 		SqlSession sqlSession = Constant.sqlSession;
+		
 		VideoDao dao = sqlSession.getMapper(VideoDao.class);
 		model.addAttribute("videos", dao.getVideos());
+		
 	}
 }
