@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.soft.study.dao.MypageDao"> <!-- 인터페이스와 연결 -->
+
+	<select id="myInfomation"
+		resultType="kr.soft.study.dto.MypageDto">
+		SELECT
+		u.user_id,
+		p.point_time,
+		p.point_reason,
+		p.points_earned,
+		p.usage_time,
+		p.usage_type,
+		p.total_points,
+		c.coupon_id,
+		c.issue_date,
+		c.use_date,
+		c.is_used
+		FROM
+		Users u
+		LEFT JOIN Points p ON u.user_id = p.user_id
+		LEFT JOIN UserCoupons c ON u.user_id = c.user_id
+		ORDER BY u.user_id, p.point_time, c.issue_date;
+	</select>
+
+</mapper>

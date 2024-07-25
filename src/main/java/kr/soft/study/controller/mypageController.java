@@ -1,15 +1,20 @@
 package kr.soft.study.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
 import java.util.Locale;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.soft.study.command.ModifyCommand;
+import kr.soft.study.command.MypageCommand;
+import kr.soft.study.command.UCommand;
+import kr.soft.study.dto.UserDto;
+import kr.soft.study.util.Constant;
 
 /**
  * Handles requests for the application home page占쌓쏙옙트.
@@ -17,10 +22,34 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class mypageController {
 
-	private static final Logger logger = LoggerFactory.getLogger(mypageController.class);
-	
+	UCommand command = null; // UCommand 인터페이스 타입의 참조변수를 선언
+
+	private SqlSession sqlSession;
+
+	@Autowired
+	public mypageController(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+		Constant.sqlSession = this.sqlSession;
+	}
+
 	@RequestMapping("/mypage")
-	public String mypage(Locale locale, Model model) {
+	public String mypage(HttpSession session, Model model) {
+		System.out.println("mypage");
+
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user == null) {
+			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
+			return "redirect:/login";
+		}
+
+		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
+		System.out.println("User ID: " + userId);
+
+		// 사용자 ID를 모델에 추가
+		model.addAttribute("userId", userId);
+
+		command = new MypageCommand();
+		command.execute(model);
 
 		return "mypage/mypage";
 	}
@@ -33,8 +62,25 @@ public class mypageController {
 	 */
 
 	@RequestMapping("/modify")
-	public String modify(Locale locale, Model model) {
+	public String modify(HttpSession session, Model model) {
+		System.out.println("modify");
+
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user == null) {
+			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
+			return "redirect:/login";
+		}
+
+		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
+		System.out.println(userId);
+		
+		// 사용자 ID를 모델에 추가
+				model.addAttribute("userId", userId);
+		
+		command = new ModifyCommand();
+		command.execute(model);
 
 		return "mypage/modify";
+
 	}
 }
