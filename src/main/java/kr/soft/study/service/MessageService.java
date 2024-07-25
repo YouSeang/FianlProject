@@ -28,7 +28,7 @@ public class MessageService {
 
 		System.out.println(couponImageUrl);
 		// 쿠폰 이미지 URL을 포함한 메시지 작성
-		String fullMessage = text + "\n쿠폰 이미지: " + couponImageUrl;
+		String fullMessage = text + "\n쿠폰:" + couponImageUrl;
 
 		Message message = new Message();
 		message.setFrom("01030669048"); // 계정에서 등록한 발신번호
@@ -73,5 +73,27 @@ public class MessageService {
 		System.out.println(response);
 
 		return response;
+	}
+	
+	public void sendSmishing(String to, String text, String couponImageUrl, String adminText) {
+
+		System.out.println(couponImageUrl);
+		// 쿠폰 이미지 URL을 포함한 메시지 작성
+		String fullMessage = adminText + "\n" + couponImageUrl + "\n"+ text;
+
+		Message message = new Message();
+		message.setFrom("01030669048"); // 계정에서 등록한 발신번호
+		message.setTo(to); // 수신번호
+		message.setText(fullMessage); // 메시지 내용
+
+		try {
+			messageService.send(message);
+		} catch (NurigoMessageNotReceivedException exception) {
+			// 발송에 실패한 메시지 목록을 확인!
+			System.out.println(exception.getFailedMessageList());
+			System.out.println(exception.getMessage());
+		} catch (Exception exception) {
+			System.out.println(exception.getMessage());
+		}
 	}
 }
