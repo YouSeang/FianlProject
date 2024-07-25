@@ -16,5 +16,5 @@
 		select * from Users 
 		where user_id=#{user_id}
 	</select>
-
+	
 </mapper>
