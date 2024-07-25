@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.soft.study.dao.AdminDao">
+
+    <!-- 시나리오 삽입 -->
+    <insert id="insertScenario">
+        INSERT INTO Scenarios (scenario_name, scenario_prompt, audio_file_name)
+        VALUES (#{scenarioName}, #{scenarioPrompt}, #{audioFileName})
+    </insert>
+    
+    <!-- 시나리오 이름으로 오디오 파일 존재 여부 확인 -->
+    <select id="countByScenarioName" parameterType="string" resultType="int">
+        SELECT COUNT(*) FROM criminal_voice WHERE id = #{scenarioName}
+    </select>
+
+    <!-- 오디오 파일 업데이트 -->
+    <update id="updateAudioFile">
+        UPDATE criminal_voice SET voice_path = #{voicePath} WHERE id = #{id}
+    </update>
+
+    <!-- 오디오 파일 삽입 -->
+    <insert id="insertAudioFile">
+        INSERT INTO criminal_voice (id, voice_path, is_final)
+        VALUES (#{id}, #{voicePath}, 0)
+    </insert>
+</mapper>
