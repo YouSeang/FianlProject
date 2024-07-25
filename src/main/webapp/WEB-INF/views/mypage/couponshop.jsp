@@ -138,7 +138,8 @@
 								</h3>
 								<div class="radio-container">
 									<label> <input type="radio" name="selectedCouponId"
-										value="${coupon.id}" />
+										value="${coupon.id}"
+										data-coupon-image="${pageContext.request.contextPath}${coupon.coupon_image}" />
 									</label>
 								</div>
 							</div>
@@ -146,7 +147,7 @@
 					</div>
 				</c:forEach>
 				<br />
-				<form action="sendSms" method="post">
+				<form action="sendMms" method="post">
 					<label for="to">전송받을 휴대폰번호: </label> <input type="text" id="to"
 						name="to" required> <br> <label for="text">함께
 						보낼 메시지: </label>
@@ -163,7 +164,9 @@
 					<div class="button-container">
 						<button class="btn btn-warning">쿠폰교환</button>
 					</div>
-					 <input type="hidden" name="selectedCouponId" value="${param.selectedCouponId}">
+					<input type="hidden" id="selectedCouponId" name="selectedCouponId"
+						value=""> <input type="hidden" id="couponImageUrl"
+						name="couponImageUrl" value="">
 				</form>
 			</div>
 	</main>
@@ -189,6 +192,22 @@
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+
+	<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const radios = document.querySelectorAll('input[name="selectedCouponId"]');
+
+    radios.forEach(radio => {
+        radio.addEventListener('change', function() {
+            const selectedCouponId = this.value;
+            const selectedCouponImage = this.dataset.couponImage; // 쿠폰 이미지 URL
+
+            document.getElementById('selectedCouponId').value = selectedCouponId;
+            document.getElementById('couponImageUrl').value = selectedCouponImage;
+        });
+    });
+});
+</script>
 
 
 </body>

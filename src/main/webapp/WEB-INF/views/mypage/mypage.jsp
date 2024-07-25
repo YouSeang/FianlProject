@@ -157,7 +157,10 @@
 				<div class="col-lg-6"></div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="checkout-info">
-						<div class="lead" style="margin-left: 250px;">파덕이 님의 마이페이지</div>
+						<div class="lead" style="margin-left: 250px;">
+							<c:out value="${userInfo.name}" />
+							님의 마이페이지
+						</div>
 					</div>
 				</div>
 			</div>
@@ -173,20 +176,25 @@
 									<tbody>
 										<tr>
 											<th scope="row" class="width-20 bg-light-gray">이름</th>
-											<td class="width-30">파덕이</td>
+											<td class="width-30"><c:out value="${userInfo.name}" /></td>
 											<th scope="row" class="width-20 bg-light-gray">아이디</th>
-											<td class="width-30">Kookmin</td>
+											<td class="width-30"><c:out value="${userInfo.user_id}" />
+											</td>
 										</tr>
 										<tr>
 											<th scope="row" class="width-20 bg-light-gray">Email</th>
-											<td class="width-30">kb@test.com</td>
+											<td class="width-30"><c:out value="${userInfo.email}" />
+											</td>
 											<th scope="row" class="width-20 bg-light-gray">휴대폰 번호</th>
-											<td class="width-30">010-1234-5678</td>
+											<td class="width-30">
+												<%-- <c:out value="${userInfo.phone_number}" /> --%>
+											</td>
 										</tr>
 									</tbody>
 								</table>
 								<div class="button-container">
-									<button class="btn btn-warning">정보수정</button>
+									<button class="btn btn-warning"
+										onclick="location.href='${pageContext.request.contextPath}/modify'">정보수정</button>
 								</div>
 							</div>
 							<hr>
@@ -198,14 +206,14 @@
 											<th scope="row" class="width-20 bg-light-gray">보유포인트</th>
 											<td class="width-25">
 												<div class="flex-container">
-													<span>5760</span>
+													<span><c:out value="${mylist[0].total_points}" /></span>
 													<button class="btn btn-warning">상세내역</button>
 												</div>
 											</td>
 											<th scope="row" class="width-20 bg-light-gray">보유쿠폰</th>
 											<td class="width-25">
 												<div class="flex-container">
-													<span>0장</span>
+													<span><c:out value="${mylist.size()}" />장</span>
 													<button class="btn btn-warning">상세내역</button>
 												</div>
 											</td>
