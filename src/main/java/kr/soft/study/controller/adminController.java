@@ -54,6 +54,5 @@ public class adminController {
         return "admin/adminUser";
     }
     
-    
 
 }
