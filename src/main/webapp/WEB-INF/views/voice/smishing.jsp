@@ -9,167 +9,184 @@
 <html lang="en">
 
 <head>
-    <!-- Meta Tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
-    <meta name="author" content="Tariqul Islam">
+<!-- Meta Tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
+<meta name="author" content="Tariqul Islam">
 
-    <!-- Template Title -->
-    <title>HelpPlus Charity Template</title>
+<!-- Template Title -->
+<title>스미싱</title>
 
-    <!-- Favicon Icon -->
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+<!-- Favicon Icon -->
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
 
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<!-- Plugins CSS -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/animate.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
 
-    <!-- Theme CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<!-- Theme CSS -->
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 
-    <!--[if lt IE 9]>
+<!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+.form-container {
+	background-color: #fff;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	max-width: 600px;
+}
+
+.form-container h2 {
+	margin-top: 0;
+	color: #333;
+}
+
+.form-group {
+	margin-bottom: 15px;
+}
+
+.form-group label {
+	display: block;
+	font-weight: bold;
+	margin-bottom: 5px;
+}
+
+.form-group input, .form-group textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.form-group textarea {
+	resize: vertical;
+	min-height: 100px;
+}
+</style>
 </head>
 
 <body>
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="preloader">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-    <header class="hearer">
-        <div class="header-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-sm-6">
-                        <ul class="top-info d-none d-md-block">
-                            <li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-                                        class="fa fa-paper-plane"></i>helpplus@yahoo.com</a>
-                            </li>
-                            <li><a href="tel:08829294239" title="Account"><i class="fa fa-phone"></i>+088 292 94
-                                    239</a>
-                            </li>
-                        </ul>
-                        <div class="dropdown d-md-none">
-                            <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Quick link
-                            </a>
-                            <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
-                                <li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-                                            class="fa fa-paper-plane"></i>helpplus@gmail.com</a>
-                                </li>
-                                <li><a href="tel:08829294239" title="Account"><i class="fa fa-phone"></i>+088 292 94
-                                        239</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-6">
-                        <div class="account-info d-flex align-items-center">
-                            <div class="lang-dropdown d-flex align-items-center">
-                                <span><i class="fa fa-flag"></i></span>
-                                <select name="lang" id="lang">
-                                    <option value="1">English</option>
-                                    <option value="2">Spanish</option>
-                                    <option value="3">Dutch</option>
-                                </select>
-                            </div>
-    
-                            <a class="d-none d-sm-block" href="signin.html" title="Login"><i class="fa fa-user me-2"></i>My
-                                Account</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- header start -->
+	<!-- Preloader -->
+	<div id="preloader">
+		<div class="preloader">
+			<span></span> <span></span>
+		</div>
+	</div>
 	<%@ include file="/WEB-INF/views/header.jsp"%>
 
 
-    <!-- Promo Area Start -->
-    <section class="promo-area" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="promo-wrap">
-                        <h1 class="promo-title"><span>메신저 피싱</span> 시뮬레이션</h1>
-                        <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">smishing</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Promo Area End -->
+	<!-- 배너영역 Start -->
+	<section class="promo-area" data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="promo-wrap">
+						<h1 class="promo-title">
+							<span>스미싱</span> 시뮬레이션
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+								<li class="breadcrumb-item active" aria-current="page">smishing</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- 배너영억 End -->
 
-    <!-- Ourself Area Start -->
-    <section class="ourself-area section-padding">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6 col-sm-6">
-                    <div class="about-txt">
-                        <h3 class="section-title mb-4">메신저 피싱<span class="color"> 시뮬레이션 </span></h3>
-                        <p>We are a non profit team. We are starting Help at vary begining of 1900s. Quibusdam quidem
-                            alias
-                            saepe vero doloribus consequatur quis nobis molestiae fugit vel quae sapiente.</p>
-                        <ul>
-                            <li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
-                            <li>Sit amet consectetur adipisicing elit. Ea, voluptatem!</li>
-                            <li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
-                        </ul>
-                        <a href="#" class="custom-btn">체험하러 가기</a>
-                    </div>
-                </div>
-                <div class="col-lg-5 col-sm-6">
-                    <div class="ourself-gallery owl-carousel shadow">
-                        <div class="single-item">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/images/incident/smishingIntro.jpg" alt="">
-                                <figcaption>Education Proggrame is running smoothly.</figcaption>
-                            </figure>
-                        </div> <!-- Single Item End -->
-                       <%--  <div class="single-item">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/images/about-us/about-us2.jpg" alt="">
-                                <figcaption>Education Proggrame is running smoothly.</figcaption>
-                            </figure>
-                        </div> <!-- Single Item End -->
-                        <div class="single-item">
-                            <figure>
-                                <img src="${pageContext.request.contextPath}/resources/images/about-us/about-us3.jpg" alt="">
-                                <figcaption>Our Helping Hand spreeding quickly.</figcaption>
-                            </figure>
-                        </div> <!-- Single Item End --> --%>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Ourself Area End -->
+	<!-- Ourself Area Start -->
+	<section class="ourself-area section-padding">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6 col-sm-6">
+					<div class="about-txt">
+						<h3 class="section-title mb-4">
+							스미싱<span class="color"> 시뮬레이션 </span>
+						</h3>
+						<p>
+						<h2>스미싱이란?</h2>
+						<br /> 문자메시지(SMS)와 피싱(Phishing)의 합성어로, ① 가짜 문자메시지내 인터넷주소 클릭하면 → ②
+						악성코드가 스마트폰에 설치되어 → ③ 피해자가 모르는 사이에 소액결제 피해 발생 또는 개인·금융정보 탈취하는 사기
+						수법입니다.
+						</p>
+						<ul>
+							<li>스미싱을 체험하고자 하는 휴대폰 번호 및 함께 전송하고 싶은 메시지가 있다면 입력 후
+								'체험하기'버튼을 클릭하세요<br /> ex) '어머니, 이런 문자를 받으시면 링크를 절대 클릭하시면 안돼요!'
+							</li>
+							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요</li>
+						</ul>
+						<form action="${pageContext.request.contextPath}/sendSmishing"
+							method="post">
+							<div class="form-group">
+								<label for="to">전송받을 휴대폰 번호: </label> <input type="text" id="to"
+									name="to" required>
+							</div>
+							<div class="form-group">
+								<label for="text">받는 분께 전할 메시지:</label>
+								<textarea id="text" name="text" required></textarea>
+							</div>
+							<div class="form-group">
+								<button type="submit" name="buttonType" value="delivery"
+									class="custom-btn">택배문자 체험하기</button>
+								<button type="submit" name="buttonType" value="invitation"
+									class="custom-btn">청접장문자 체험하기</button>
+							</div>
+						</form>
 
-<!-- Footer start-->
+					</div>
+				</div>
+				<div class="col-lg-5 col-sm-6">
+					<div class="ourself-gallery owl-carousel shadow">
+						<div class="single-item">
+							<figure>
+								<img
+									src="${pageContext.request.contextPath}/resources/images/incident/smishingIntro.jpg"
+									alt="">
+								<figcaption>Education Proggrame is running
+									smoothly.</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Ourself Area End -->
+
+	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-    <!--
+	<!--
 Javascript
 ======================================================== -->
-   	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
@@ -186,7 +203,6 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-
 </body>
 
 </html>
