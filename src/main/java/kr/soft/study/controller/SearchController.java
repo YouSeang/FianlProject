@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import kr.soft.study.command.RecentIncidentCommand;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/study/voice")
+@RequestMapping("/voice")
 public class SearchController {
 
     @Autowired
@@ -29,6 +30,8 @@ public class SearchController {
 
         recentIncidentCommand.execute(model);
 
+        
+        
         Map<String, Object> response = new HashMap<>();
         response.put("newsList", model.getAttribute("newsList"));
         return response;
