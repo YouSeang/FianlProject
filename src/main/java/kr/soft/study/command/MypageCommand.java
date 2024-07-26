@@ -24,13 +24,13 @@ public class MypageCommand implements UCommand {
 		UserDao userdao = sqlSession.getMapper(UserDao.class);
 
 		ArrayList<MypageDto> mylist = dao.myInfomation(userId);
+		MypageDto coupon = dao.getCoupon(userId);
 		UserDto userInfo = userdao.getUserById(userId);
 
-		System.out.println("MyList: " + mylist);
-		System.out.println("UserInfo: " + userInfo);
 
 		model.addAttribute("mylist", mylist);
 		model.addAttribute("userInfo", userInfo);
+		model.addAttribute("coupon", coupon);
 
 	}
 

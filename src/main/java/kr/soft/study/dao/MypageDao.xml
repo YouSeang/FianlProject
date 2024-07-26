@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.soft.study.dao.MypageDao"> <!-- 인터페이스와 연결 -->
 
+	<!-- 해당 use의 point, coupon전체정보 -->
 	<select id="myInfomation"
 		resultType="kr.soft.study.dto.MypageDto">
 		SELECT
@@ -25,4 +26,22 @@
 		ORDER BY u.user_id, p.point_time, c.issue_date;
 	</select>
 
+	<!-- 총 포인트와 사용하지 않은 쿠폰 수 가져오기 -->
+	<select id="getCoupon" parameterType="String"
+		resultType="kr.soft.study.dto.MypageDto">
+		SELECT
+		u.user_id,
+		u.name,
+		COALESCE(SUM(p.total_points), 0) AS
+		total_points,
+		COALESCE(COUNT(DISTINCT CASE WHEN uc.is_used = FALSE THEN
+		uc.coupon_id END), 0) AS
+		unused_coupons
+		FROM Users u
+		LEFT JOIN Points p
+		ON u.user_id = p.user_id
+		LEFT JOIN UserCoupons uc ON u.user_id =
+		uc.user_id
+		WHERE u.user_id = #{user_id}
+	</select>
 </mapper>

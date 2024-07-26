@@ -44,7 +44,15 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-
+<script>
+	window.onload = function() {
+		// 쿼리 파라미터를 읽어와서 팝업을 띄우기
+		const urlParams = new URLSearchParams(window.location.search);
+		if (urlParams.get('success') === 'true') {
+			alert('정보 수정이 완료되었습니다');
+		}
+	}
+</script>
 <style>
 .table {
 	width: 100%;
@@ -206,14 +214,14 @@
 											<th scope="row" class="width-20 bg-light-gray">보유포인트</th>
 											<td class="width-25">
 												<div class="flex-container">
-													<span><c:out value="${mylist[0].total_points}" /></span>
+													<span><c:out value="${coupon.total_points}" /></span>
 													<button class="btn btn-warning">상세내역</button>
 												</div>
 											</td>
 											<th scope="row" class="width-20 bg-light-gray">보유쿠폰</th>
 											<td class="width-25">
 												<div class="flex-container">
-													<span><c:out value="${mylist.size()}" />장</span>
+													<span><c:out value="${coupon.unused_coupons}" />장</span>
 													<button class="btn btn-warning">상세내역</button>
 												</div>
 											</td>
