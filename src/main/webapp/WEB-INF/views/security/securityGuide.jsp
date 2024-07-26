@@ -67,6 +67,9 @@
 
 
 	<!-- Promo Area Start -->
+	
+	
+	
 	<section class="promo-area" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
@@ -86,7 +89,68 @@
 		</div>
 	</section>
 	<!-- Promo Area End -->
+                            <div class="event-accordion mt-5 border-top pt-5">
+                                <h3 class="accord-title h2">Frequently Ask Question</h3>
+                                <div class="accordion" id="accordionExample">
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                                data-bs-target="#collapseOne" aria-expanded="true"
+                                                aria-controls="collapseOne">
+                                                What kind of event will organished?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseOne" class="accordion-collapse collapse show"
+                                            aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                We organise <strong>Highly</strong> Lorem ipsum, dolor sit amet
+                                                consectetur adipisicing elit. Rem maiores quod numquam inventore
+                                                possimus qui, veritatis sed, minus dolores perferendis nostrum ad animi
+                                                nam ratione dolore accusamus obcaecati omnis! Non.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header " id="headingTwo">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                                aria-expanded="false" aria-controls="collapseTwo">
+                                                Which area will be fixed for most?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseTwo" class="accordion-collapse collapse"
+                                            aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                Lorem, ipsum dolor sit amet <strong>consectetur</strong> adipisicing
+                                                elit. Ex ducimus corrupti modi numquam qui magni magnam recusandae
+                                                consequatur nobis odit quo quasi, laboriosam accusamus harum
+                                                perspiciatis quod eos animi perferendis.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="accordion-item">
+                                        <h2 class="accordion-header" id="headingThree">
+                                            <button class="accordion-button collapsed" type="button"
+                                                data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                                aria-expanded="false" aria-controls="collapseThree">
+                                                What is the importance of the event?
+                                            </button>
+                                        </h2>
+                                        <div id="collapseThree" class="accordion-collapse collapse"
+                                            aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                            <div class="accordion-body">
+                                                <strong>Our Event always</strong> It is hidden
+                                                by default, until the collapse plugin adds the appropriate classes that
+                                                we use to style each element. These classes control the overall
+                                                appearance, as well as the showing and hiding via CSS transitions. You
+                                                can modify any of this with custom CSS or overriding our default
+                                                variables. It's also worth noting that just about any HTML can go within
 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 	<main class="main-content testimonial-page">
 		<div class="container">
 			<div class="row">
