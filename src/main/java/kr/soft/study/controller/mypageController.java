@@ -1,7 +1,8 @@
 package kr.soft.study.controller;
 
-import java.util.Locale;
+import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.soft.study.command.ModifyActionCommand;
 import kr.soft.study.command.ModifyCommand;
 import kr.soft.study.command.MypageCommand;
 import kr.soft.study.command.UCommand;
@@ -73,14 +75,35 @@ public class mypageController {
 
 		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
 		System.out.println(userId);
-		
+
 		// 사용자 ID를 모델에 추가
-				model.addAttribute("userId", userId);
-		
+		model.addAttribute("userId", userId);
+
 		command = new ModifyCommand();
 		command.execute(model);
 
 		return "mypage/modify";
 
+	}
+
+	@RequestMapping("/modifyAction")
+	public String modifyAction(HttpSession session, HttpServletRequest request, Model model) throws Exception {
+		System.out.println("modifyAction()");
+
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user == null) {
+			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
+			return "redirect:/login";
+		}
+
+		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
+
+		model.addAttribute("userId", userId);
+		model.addAttribute("request", request);
+
+		command = new ModifyActionCommand();
+		command.execute(model);
+
+		 return "redirect:/mypage?success=true";
 	}
 }
