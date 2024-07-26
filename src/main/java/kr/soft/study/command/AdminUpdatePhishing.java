@@ -9,27 +9,38 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class AdminAddPhishing {
+public class AdminUpdatePhishing {
 
     private AdminDao adminDao;
     private ServletContext context;
 
-    public AdminAddPhishing(AdminDao adminDao, ServletContext context) {
+    public AdminUpdatePhishing(AdminDao adminDao, ServletContext context) {
         this.adminDao = adminDao;
         this.context = context;
     }
 
     public void execute(Map<String, Object> model) {
+        int scenarioId = (int) model.get("scenarioId");
         String scenarioName = (String) model.get("scenarioName");
         String scenarioPrompt = (String) model.get("scenarioPrompt");
         List<MultipartFile> audioFiles = (List<MultipartFile>) model.get("audioFiles");
+        List<String> existingAudioFiles = (List<String>) model.get("existingAudioFiles");
 
-        // Insert scenario
-        adminDao.insertScenario(model);
+        // Update scenario
+        adminDao.updateScenario(model);
 
-        // Handle audio files
+        // Handle existing audio files
+        adminDao.deleteAudioFilesByScenarioId(scenarioId);
+
+        // Handle new audio files
+        int fileId = 1;
+        if (existingAudioFiles != null) {
+            for (String voicePath : existingAudioFiles) {
+                adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", voicePath, "isFinal", 0));
+            }
+        }
+
         if (audioFiles != null) {
-            int fileId = 1;
             for (MultipartFile file : audioFiles) {
                 if (!file.isEmpty()) {
                     String fileName = saveFile(file);

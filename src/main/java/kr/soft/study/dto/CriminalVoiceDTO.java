@@ -5,8 +5,21 @@ public class CriminalVoiceDTO {
     private String id;
     private String voicePath;
     private boolean isFinal;
+    private String scenarioName; // 세앙 추가
 
-    // 기본 생성자
+    public String getScenarioName() {
+		return scenarioName;
+	}
+
+	public void setScenarioName(String scenarioName) {
+		this.scenarioName = scenarioName;
+	}
+
+	public void setFinal(boolean isFinal) {
+		this.isFinal = isFinal;
+	}
+
+	// 기본 생성자
     public CriminalVoiceDTO() {}
 
     // 생성자
