@@ -1,8 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -49,7 +46,7 @@
 ================================================================================ -->
 <!-- 비동기방식 추가 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="${pageContext.request.contextPath}/resources/js/seulkiscript.js"></script>
+
 
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -97,13 +94,28 @@
                     </div>
                 </div>
             </div>
-                       <%@ include file="/WEB-INF/views/game/quizcontents.jsp" %>    
-</div>
-
-
+             <div class="quiz-container">
+                <div class="mb-3">
+                    <label for="quizCategory" class="form-label">카테고리 선택</label>
+                    <select class="form-control" id="quizCategory" onchange="loadQuestions()">
+                        <option value="">카테고리 선택</option>
+                        <option value="금융">금융</option>
+                        <option value="사회">사회</option>
+                        <option value="생활지식">생활지식</option>
+                        <option value="기타">기타</option>
+                    </select>
+                </div>
+                <div id="quiz-question">퀴즈 질문이 여기에 표시됩니다.</div>
+                <div class="quiz-buttons">
+                    <button id="btn-true" style="display:none" onclick="checkAnswer('O')">O</button>
+                    <button id="btn-false" style="display:none" onclick="checkAnswer('X')">X</button>
+                </div>
+                <div id="quiz-feedback"></div>
+                <button id="next-question" style="display: none;" onclick="loadNextQuestion()">다음 문제로</button>
+                <button id="retry-question" style="display: none;" onclick="retryQuestion()">다시 풀기</button>
+            </div>
+        </div>
     </section>
-
-
      
     <!-- Team Area End -->
 
@@ -129,6 +141,90 @@ Javascript
     <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
 
+ <script>
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let questions = [];
+        let userId = '<%= session.getAttribute("userId") %>'; // 로그인한 사용자 ID
+
+        async function loadQuestions() {
+            const category = document.getElementById('quizCategory').value;
+            if (category) {
+                const response = await fetch('${pageContext.request.contextPath}/game/quiz/category/' + category);
+                questions = await response.json();
+                console.log('Fetched Questions: ', questions); // Fetch 결과를 로그로 출력
+                if (questions.length > 0) {
+                    document.getElementById('btn-true').style.display = 'inline';
+                    document.getElementById('btn-false').style.display = 'inline';
+                    currentQuestionIndex = 0;
+                    score = 0;
+                    loadQuestion(currentQuestionIndex);
+                } else {
+                    document.getElementById('quiz-question').innerText = '선택한 카테고리에 퀴즈가 없습니다.';
+                    document.getElementById('btn-true').style.display = 'none';
+                    document.getElementById('btn-false').style.display = 'none';
+                }
+            }
+        }
+
+        function loadQuestion(index) {
+            if (index < questions.length) {
+                const quizQuestion = document.getElementById('quiz-question');
+                quizQuestion.innerText = questions[index].question;
+                document.getElementById('quiz-feedback').innerText = '';
+                document.getElementById('next-question').style.display = 'none';
+                document.getElementById('retry-question').style.display = 'none';
+            } else {
+            	document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
+                document.getElementById('quiz-buttons').style.display = 'none';
+                document.getElementById('next-question').style.display = 'none';
+                document.getElementById('retry-question').style.display = 'none';
+            }
+        }
+
+        async function checkAnswer(answer) {
+            const question = questions[currentQuestionIndex];
+            const feedback = document.getElementById('quiz-feedback');
+            if ((answer === 'O' && question.answer) || (answer === 'X' && !question.answer)) {
+                score += question.points;
+                feedback.innerText = '정답입니다! 점수: ' + score;
+                await updatePoints(question.points, '퀴즈 정답');
+                document.getElementById('next-question').style.display = 'inline';
+            } else {
+                feedback.innerText = '오답입니다. 이유: ' + question.explanation;
+                document.getElementById('retry-question').style.display = 'inline';
+            }
+        }
+
+        function loadNextQuestion() {
+            currentQuestionIndex++;
+            loadQuestion(currentQuestionIndex);
+        }
+
+        function retryQuestion() {
+            loadQuestion(currentQuestionIndex);
+        }
+
+        async function updatePoints(points, reason) {
+            const data = {
+                userId: userId,
+                pointsEarned: points,
+                pointReason: reason
+            };
+            const response = await fetch('${pageContext.request.contextPath}/game/quiz/points/update', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+            const result = await response.json();
+            console.log(result.message);
+        }
+
+        // 초기 로드
+        loadQuestion(currentQuestionIndex);
+    </script>
 
 </body>
 
