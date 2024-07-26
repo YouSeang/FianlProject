@@ -6,23 +6,74 @@
 
     <!-- 시나리오 삽입 -->
     <insert id="insertScenario">
-        INSERT INTO Scenarios (scenario_name, scenario_prompt, audio_file_name)
-        VALUES (#{scenarioName}, #{scenarioPrompt}, #{audioFileName})
+        INSERT INTO Scenarios (scenario_name, scenario_prompt, created_at)
+        VALUES (#{scenarioName}, #{scenarioPrompt}, CURRENT_TIMESTAMP)
     </insert>
-    
+
     <!-- 시나리오 이름으로 오디오 파일 존재 여부 확인 -->
     <select id="countByScenarioName" parameterType="string" resultType="int">
-        SELECT COUNT(*) FROM criminal_voice WHERE id = #{scenarioName}
+        SELECT COUNT(*) FROM criminal_voice WHERE scenario_name = #{scenarioName}
     </select>
 
     <!-- 오디오 파일 업데이트 -->
     <update id="updateAudioFile">
-        UPDATE criminal_voice SET voice_path = #{voicePath} WHERE id = #{id}
+        UPDATE criminal_voice SET voice_path = #{voicePath}, is_final = #{isFinal} WHERE id = #{id} AND scenario_name = #{scenarioName}
     </update>
 
     <!-- 오디오 파일 삽입 -->
     <insert id="insertAudioFile">
-        INSERT INTO criminal_voice (id, voice_path, is_final)
-        VALUES (#{id}, #{voicePath}, 0)
+        INSERT INTO criminal_voice (id, scenario_name, voice_path, is_final)
+        VALUES (#{id}, #{scenarioName}, #{voicePath}, #{isFinal})
     </insert>
+
+    <!-- 오디오 파일 삭제 -->
+    <delete id="deleteAudioFile">
+        DELETE FROM criminal_voice WHERE id = #{id} AND scenario_name = #{scenarioName}
+    </delete>
+
+    <!-- 시나리오 ID로 오디오 파일 삭제 -->
+    <delete id="deleteAudioFilesByScenarioId" parameterType="int">
+        DELETE FROM criminal_voice WHERE scenario_name = (SELECT scenario_name FROM Scenarios WHERE id = #{scenarioId})
+    </delete>
+
+    <!-- 시나리오 이름으로 최대 오디오 ID 가져오기 -->
+    <select id="getMaxAudioIdByScenarioName" parameterType="string" resultType="int">
+        SELECT COALESCE(MAX(id), 0) FROM criminal_voice WHERE scenario_name = #{scenarioName}
+    </select>
+
+    <!-- 모든 시나리오 가져오기 -->
+    <select id="getAllScenarios" resultMap="ScenarioMap">
+        SELECT s.id, s.scenario_name, s.scenario_prompt, cv.voice_path
+        FROM Scenarios s
+        LEFT JOIN criminal_voice cv ON s.scenario_name = cv.scenario_name
+    </select>
+
+    <!-- 특정 시나리오 가져오기 -->
+    <select id="getScenarioById" parameterType="int" resultMap="ScenarioMap">
+        SELECT s.id, s.scenario_name, s.scenario_prompt, cv.voice_path
+        FROM Scenarios s
+        LEFT JOIN criminal_voice cv ON s.scenario_name = cv.scenario_name
+        WHERE s.id = #{scenarioId}
+    </select>
+
+    <!-- 시나리오 업데이트 -->
+    <update id="updateScenario">
+        UPDATE Scenarios
+        SET scenario_name = #{scenarioName}, scenario_prompt = #{scenarioPrompt}
+        WHERE id = #{scenarioId}
+    </update>
+
+    <!-- 시나리오 삭제 -->
+    <delete id="deleteScenario" parameterType="int">
+        DELETE FROM Scenarios WHERE id = #{scenarioId}
+    </delete>
+
+    <resultMap id="ScenarioMap" type="kr.soft.study.dto.Scenario">
+        <id property="id" column="id"/>
+        <result property="scenarioName" column="scenario_name"/>
+        <result property="scenarioPrompt" column="scenario_prompt"/>
+        <collection property="audioFiles" ofType="kr.soft.study.dto.CriminalVoiceDTO">
+            <result property="voicePath" column="voice_path"/>
+        </collection>
+    </resultMap>
 </mapper>
