@@ -1,10 +1,7 @@
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-
+<%-- <%@ page session="false"%> --%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -51,6 +48,108 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<link
+	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
+	rel="stylesheet">
+
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+
+<style>
+/* Custom Styles */
+.ks-cboxtags li {
+	margin-bottom: 10px;
+	list-style: none;
+}
+
+.ks-cboxtags input[type="checkbox"] {
+	width: 25px;
+	height: 25px;
+	margin-right: 10px;
+	position: relative;
+}
+
+.ks-cboxtags input[type="checkbox"]::before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	border: 2px solid #000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.ks-cboxtags input[type="checkbox"]:checked::before {
+	background-color: #ffb200;
+	border-color: black;
+}
+
+.ks-cboxtags input[type="checkbox"]:checked::after {
+	content: "";
+	display: block;
+	width: 5px;
+	height: 10px;
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	position: absolute;
+	top: 5px;
+	left: 9px;
+	transform: rotate(45deg);
+}
+
+.ks-cboxtags label {
+	font-size: 30px;
+}
+
+/* Add margin between checkbox section and footer */
+.ftco-section {
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+
+/* Add margin between checkbox section and header */
+.promo-area {
+	margin-bottom: 50px;
+}
+
+.donation-form {
+	background-color: #f8f9fa; /* 연한 회색 배경 */
+	padding: 20px;
+	border-radius: 8px;
+}
+
+.card {
+	margin-bottom: 15px;
+	border-radius: 8px;
+}
+
+.card-body {
+	display: flex;
+	align-items: center;
+}
+
+.submit-btn {
+	background-color: #ffb200;
+	border: 2px solid black;
+	color: black;
+	font-size: 22px;
+	font-weight: bold;
+	padding: 10px 20px;
+	border-radius: 8px;
+	cursor: pointer;
+	text-align: center;
+	width: 100%;
+}
+
+.submit-btn:hover {
+	background-color: #ff9900;
+}
+</style>
 </head>
 
 <body>
@@ -60,8 +159,8 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-  <%@ include file="/WEB-INF/views/header.jsp" %> 
-	
+	<%@ include file="/WEB-INF/views/header.jsp"%>
+
 
 
 	<!-- Promo Area Start -->
@@ -86,295 +185,178 @@
 	</section>
 	<!-- Promo Area End -->
 
-	<!-- Project Counter Area Start -->
-	<section class="counter-area" data-stellar-background-ratio="0.5">
+
+
+	<!-- Checkbox Section Start -->
+	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
-			<div class="col-lg-3 col-sm-3">
-					<div class="single-counter">
-						<img src="${pageContext.request.contextPath}/resources/images/components/ct1.png" alt=""> <span
-							class="counter"></span>
-						<h3></h3>
-					</div>
+				<div class="col-md-12 text-center">
+					<h2 class="heading-section mb-5 pb-md-4">나의 정보 보안 점수</h2>
 				</div>
-				<div class="col-lg-3 col-sm-3">
-					<div class="single-counter">
-						<img src="${pageContext.request.contextPath}/resources/images/components/ct1.png" alt=""> <span
-							class="counter">750</span>
-						<h3><strong>나의 보안온도는?</strong></h3>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-3">
-					<div class="single-counter">
-						<img src="${pageContext.request.contextPath}/resources/images/components/ct2.png" alt=""> <span
-							class="counter"></span>
-						<h3><strong>뜨거워요!(변동)</strong></h3>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-3">
-					<div class="single-counter">
-						<img src="${pageContext.request.contextPath}/resources/images/components/ct1.png" alt=""> <span
-							class="counter">60</span>
-						<h3><strong>상위 60%에요!</strong></h3>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="wrap w-100">
+						<div class="heading-title mb-4 text-center">
+							<h3>현재 실천하고 있는 것을 체크하세요.</h3>
+						</div>
+
+						<form action="${pageContext.request.contextPath}/submitChecklist"
+							method="post">
+							<div class="donation-form p-3 p-xl-4 rounded-6">
+								<ul class="ks-cboxtags p-0 m-0">
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category1-1" name="category1[]"
+													value="1"> <label for="category1-1" class="mb-0">분야
+													1-1</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category1-2" name="category1[]"
+													value="1"> <label for="category1-2" class="mb-0">분야
+													1-2</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category1-3" name="category1[]"
+													value="1"> <label for="category1-3" class="mb-0">분야
+													1-3</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category1-4" name="category1[]"
+													value="1"> <label for="category1-4" class="mb-0">분야
+													1-4</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category1-5" name="category1[]"
+													value="1"> <label for="category1-5" class="mb-0">분야
+													1-5</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category2-1" name="category2[]"
+													value="1"> <label for="category2-1" class="mb-0">분야
+													2-1</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category2-2" name="category2[]"
+													value="1"> <label for="category2-2" class="mb-0">분야
+													2-2</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category2-3" name="category2[]"
+													value="1"> <label for="category2-3" class="mb-0">분야
+													2-3</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category2-4" name="category2[]"
+													value="1"> <label for="category2-4" class="mb-0">분야
+													2-4</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category2-5" name="category2[]"
+													value="1"> <label for="category2-5" class="mb-0">분야
+													2-5</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category3-1" name="category3[]"
+													value="1"> <label for="category3-1" class="mb-0">분야
+													3-1</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category3-2" name="category3[]"
+													value="1"> <label for="category3-2" class="mb-0">분야
+													3-2</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category3-3" name="category3[]"
+													value="1"> <label for="category3-3" class="mb-0">분야
+													3-3</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category3-4" name="category3[]"
+													value="1"> <label for="category3-4" class="mb-0">분야
+													3-4</label>
+											</div>
+										</div>
+									</li>
+									<li>
+										<div class="card">
+											<div class="card-body">
+												<input type="checkbox" id="category3-5" name="category3[]"
+													value="1"> <label for="category3-5" class="mb-0">분야
+													3-5</label>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="text-center mt-4">
+									<button type="submit" class="submit-btn">점수 확인해보기</button>
+								</div>
+							</div>
+						</form>
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-	<!-- Project Counter Area End -->
-	
-  <body>
-		
-		<section class="ftco-section">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h2 class="heading-section mb-5 pb-md-4">Checkbox #04</h2>
-					</div>
-				</div>
-				<div class="row justify-content-center">
-					<div class="col-md-4">
-						<div class="wrap w-100">
-							<div class="heading-title mb-4 text-center">
-								<h3>Choose your sports</h3>
-							</div>
-							<ul class="ks-cboxtags p-0 m-0">
-						    <li>
-						    	<input type="checkbox" id="checkboxOne" value="Order one" checked>
-						    	<label for="checkboxOne">Volleyball</label>
-						    </li>
-						    <li>
-						    	<input type="checkbox" id="checkboxTwo" value="Order Two">
-						    	<label for="checkboxTwo">Swimming</label>
-						    </li>
-						    <li>
-						    	<input type="checkbox" id="checkboxThree" value="Order Two">
-						    	<label for="checkboxThree">Surfing</label>
-						    </li>
-						  </ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-
-  </body>
-	
-	  <!-- Cause Page Start -->
-    <div class="single-blog section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8">
-                  
-                    <div class="post-comments">
-                        <h3 class="comment-title">Comments <span>(02)</span></h3>
-                        <ol class="comment-list">
-                            <li>
-                                <article class="comment-body">
-                                    <div class="comment-thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/blog/cl.jpg" alt="Comments">
-                                    </div>
-                                    <div class="comment-details">
-                                        <h5 class="comment-name">Willam Bannet</h5>
-                                        <span class="date">10 March 2018</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula
-                                            eget dolor. nascetur ridiculus mus. Donec quam felis.</p>
-                                        <a href="#" class="comment-reply">Reply</a>
-                                    </div>
-                                </article>
-                                <ol class="children">
-                                    <li>
-                                        <article class="comment-body">
-                                            <div class="comment-thumb">
-                                                <img src="${pageContext.request.contextPath}/resources/images/blog/cl2.jpg" alt="Comments">
-                                            </div>
-                                            <div class="comment-details">
-                                                <h5 class="comment-name">Benedict Luis</h5>
-                                                <span class="date">10 March 2018</span>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean
-                                                    commodo
-                                                    ligula eget dolor.</p>
-                                                <a href="#" class="comment-reply">Reply</a>
-                                            </div>
-                                        </article>
-                                    </li>
-                                </ol>
-                            </li>
-                            <li>
-                                <article class="comment-body">
-                                    <div class="comment-thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/blog/cl3.jpg" alt="Comments">
-                                    </div>
-                                    <div class="comment-details">
-                                        <h5 class="comment-name">Mark Peter</h5>
-                                        <span class="date">10 March 2018</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula
-                                            eget dolor. nascetur ridiculus mus. Donec quam felis.</p>
-                                        <a href="#" class="comment-reply">Reply</a>
-                                    </div>
-                                </article>
-                            </li>
-                            <li>
-                                <article class="comment-body">
-                                    <div class="comment-thumb">
-                                        <img src="${pageContext.request.contextPath}/resources/images/blog/cl.jpg" alt="Comments">
-                                    </div>
-                                    <div class="comment-details">
-                                        <h5 class="comment-name">Tomas Padrick</h5>
-                                        <span class="date">10 March 2018</span>
-                                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
-                                            ligula
-                                            eget dolor. nascetur ridiculus mus. Donec quam felis.</p>
-                                        <a href="#" class="comment-reply">Reply</a>
-                                    </div>
-                                </article>
-                                </article>
-                            </li>
-                        </ol>
-                    </div>
-                  
-                </div>
-                <!-- Single Cause Article End -->
-
-                <!-- Sidebar Start -->
-                <div class="col-lg-4 col-sm-12">
-                    <aside class="sidebar">
-                        
-                        <!-- Category Widget -->
-                        <div class="widget">
-                            <h3 class="widget-title">categories</h3>
-                            <ul>
-                                <li><a href="#">Clean Water</a><span>(32)</span></li>
-                                <li><a href="#">Environment</a><span>(12)</span></li>
-                                <li><a href="#">Child Protection</a><span>(35)</span></li>
-                                <li><a href="#">Education</a><span>(32)</span></li>
-                                <li><a href="#">Poverty</a><span>(32)</span></li>
-                            </ul>
-                        </div>
-                        <div class="widget">
-                            <h3 class="widget-title"> popular post</h3>
-                            <div class="post-entry">
-                                <div class="s-post">
-                                    <div class="sp-thumb">
-                                        <a href="#"><img src="${pageContext.request.contextPath}/resources/images/blog/pp1.jpg" alt="ok">
-                                        </a>
-                                    </div>
-                                    <div class="sp-details">
-                                        <h4><a href="single-blog.html" class="text-reset">Iiste libero possimus beatae
-                                                death </a></h4>
-                                        <span>19 Jun 2024</span>
-                                    </div>
-                                </div>
-                                <div class="s-post">
-                                    <div class="sp-thumb">
-                                        <a href="#"><img src="${pageContext.request.contextPath}/resources/images/blog/pp3.jpg" alt="ok">
-                                        </a>
-                                    </div>
-                                    <div class="sp-details">
-                                        <h4><a href="single-blog.html" class="text-reset">More Food, Water and Cloths
-                                                are needed </a>
-                                        </h4>
-                                        <span>19 Jun 2024</span>
-                                    </div>
-                                </div>
-                                <div class="s-post">
-                                    <div class="sp-thumb">
-                                        <a href="#"><img src="${pageContext.request.contextPath}/resources/images/blog/pp2.jpg" alt="ok">
-                                        </a>
-                                    </div>
-                                    <div class="sp-details">
-                                        <h4><a href="single-blog.html" class="text-reset">Inventore quae iste libero
-                                                possimus beatae
-                                                death </a></h4>
-                                        <span>19 Jun 2024</span>
-                                    </div>
-                                </div>
-                                <div class="s-post">
-                                    <div class="sp-thumb">
-                                        <a href="#"><img src="${pageContext.request.contextPath}/resources/images/blog/pp4.jpg" alt="Help">
-                                        </a>
-                                    </div>
-                                    <div class="sp-details">
-                                        <h4><a href="single-blog.html" class="text-reset">More Food, Water and Cloths
-                                                are needed.</a>
-                                        </h4>
-                                        <span>19 Jun 2024</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Instagram Widget -->
-                        <div class="widget instagram-widget">
-                            <h3 class="widget-title">Instagram</h3>
-                            <ul>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/insta.jpg" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/ins1.jpg" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/ins2.jpg" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/pp4.jpg" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/ins4.jpg" alt=""></a>
-                                </li>
-                                <li>
-                                    <a href="#" target="_blank"><img src="${pageContext.request.contextPath}/resources/images/blog/ins5.jpg" alt=""></a>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Newsletter Widget -->
-                        <div class="widget">
-                            <h3 class="widget-title"> newsletter</h3>
-                            <div class="newsletter-entry">
-                                <p>Hi we are waiting for your submission any quaries. Lorem ipsum dolor sit amet.</p>
-                                <form action="#">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Name">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Email">
-                                    </div>
-                                    <button class="w-100 custom-btn">submit</button>
-                                </form>
-                            </div>
-                        </div>
-
-                        <!-- Tag Widget -->
-                        <div class="widget">
-                            <h3 class="widget-title">Popular Tags</h3>
-                            <div class="tagcloud">
-                                <a href="#">charity</a>
-                                <a href="#">humanity</a>
-                                <a href="#">helpless</a>
-                                <a href="#">link</a>
-                                <a href="#">children</a>
-                                <a href="#">poverty</a>
-                                <a href="#">education</a>
-                                <a href="#">love</a>
-                                <a href="#">charity</a>
-                            </div>
-                        </div>
-                        <!-- Tag End -->
-                    </aside>
-                </div>
-                <!-- Sidebar End -->
-            </div>
-        </div>
-    </div>
-    <!-- Cause Page End -->
-	
-
+	<!-- Checkbox Section End -->
 
 	<!-- Footer Area Start -->
-	     <%@ include file="/WEB-INF/views/footer.jsp" %> 
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 	<!--
 Javascript
 ======================================================== -->
@@ -395,12 +377,6 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-	
-	
-	
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
 
 </body>
 
