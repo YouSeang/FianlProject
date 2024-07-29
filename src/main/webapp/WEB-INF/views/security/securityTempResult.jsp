@@ -1,6 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -22,6 +22,10 @@
 <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+
+<!-- SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.min.css">
+
 <style>
 /* Custom Styles */
 .ks-cboxtags li {
@@ -101,7 +105,7 @@
 	background-color: #ffb200;
 	border: 2px solid black;
 	color: black;
-	font-size: 22px;
+	font-size: 22px; 
 	font-weight: bold;
 	padding: 10px 20px;
 	border-radius: 8px;
@@ -177,7 +181,7 @@
                             <h4><span class="counter">
                                 <c:choose>
                                     <c:when test="${totalSubmissions > 0}">
-                                        ${rank * 100 / totalSubmissions}
+                                        <fmt:formatNumber value="${rank * 100.0 / totalSubmissions}" type="number" maxFractionDigits="2"/>
                                     </c:when>
                                     <c:otherwise>
                                         0
@@ -257,31 +261,42 @@
     </section>
     <!-- Service Area End -->
 
-	<c:if test="${eventWinner}">
-		<script>
-			alert("축하합니다! 이벤트에 당첨되었습니다! 포인트 500점이 적립되었습니다.");
-		</script>
-	</c:if>
-
 	<!-- Footer Area Start -->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 	<!-- Javascript ======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/wow.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/form.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<script src="<c:url value='/resources/js/jquery.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/bootstrap.bundle.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.stellar.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.scrollUp.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.easing.1.3.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.magnific-popup.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.syotimer.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/wow.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.counterup.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.waypoints.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/isotope.pkgd.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.ajaxchimp.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/form.js'/>"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/custom.js'/>"></script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.4/dist/sweetalert2.min.js"></script>
+    
+    <!-- SweetAlert 실행 -->
+	<c:if test="${eventWinner}">
+		<script>
+            $(document).ready(function() {
+                Swal.fire({
+                    title: '축하합니다!',
+                    text: '이벤트에 당첨되었습니다! 포인트 500점이 적립되었습니다.',
+                    icon: 'success',
+                    confirmButtonText: '확인'
+                });
+            });
+		</script>
+	</c:if>
 </body>
 </html>

@@ -79,7 +79,7 @@ public class SecureCommand implements SCommand {
         // 이벤트 당첨 로직 (로그인된 경우에만)
         if (userId != null) {
             int pointsAddedToday = secureDAO.checkPointsAddedToday(userId);
-            if (pointsAddedToday == 0 && Math.random() < 0.1) { // 10% 확률로 이벤트 당첨
+            if (pointsAddedToday == 0 && Math.random() < 1) { // 10% 확률로 이벤트 당첨
                 PointsDto pointsDto = new PointsDto();
                 pointsDto.setUserId(userId); // String으로 유지
                 pointsDto.setPointsEarned(500);
