@@ -82,7 +82,7 @@
     let voiceType;
     let userId = '<c:out value="${sessionScope.userId}"/>'; // JSP에서 세션 값을 JavaScript로 전달
     let audioPlayer;
-    
+
     $(document).ready(function() {
         console.log("User ID from session: ", userId); // JavaScript 콘솔에 출력
         audioPlayer = document.getElementById("audioPlayer");
@@ -90,7 +90,7 @@
         voiceType = urlParams.get('voice');
 
         Swal.fire({
-            title: '기관사칭 금융사기 연루 케이스',
+            title: voiceType === 'impersonation' ? '기관사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
             text: '확인 버튼을 누르면 보이스 피싱 범인과의 시뮬레이션 통화가 시작됩니다.',
             icon: 'info',
             confirmButtonText: '확인'
@@ -107,7 +107,7 @@
             if (voiceType === "impersonation") {
                 audioPath = "voice001.mp3"; // 기관사칭 음성 파일 경로
             } else if (voiceType === "loan") {
-                audioPath = "대출사기음성.mp3"; // 대출사기 음성 파일 경로
+                audioPath = "voice020.m4a"; // 대출사기 음성 파일 경로
             }
 
             if (audioPath) {
@@ -232,32 +232,12 @@
                     let finalMessage = "";
                     if (voiceType === "impersonation") {
                         finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
+                        showAlert(finalMessage);
                     } else if (voiceType === "loan") {
-                        finalMessage = "종료 입니다. 참고하실 내용은 대출 사기에 관한 것입니다.";
+                        finalMessage = "범인은 대출 조건을 맞추기 위한 편법으로 타 대출을 일시적으로 실행하게끔 유도하여 상환 목적으로 자금을 갈취하는 경우가 많으니 주의 바랍니다.";
+                        showMultipleAlerts(finalMessage);
                     }
                     $("#finalMessage").text(finalMessage);
-                    
-                    // 12초 후에 SweetAlert2 알림 창 띄우기
-                    setTimeout(() => {
-                        Swal.fire({
-                            title: '체험 종료',
-                            text: finalMessage,
-                            icon: 'info',
-                            confirmButtonText: '닫기'
-                        });
-                    }, 12000); // 12초 후 실행
-
-                    // 포인트 업데이트 요청
-                    $.ajax({
-                        url: "${pageContext.request.contextPath}/updatePoints",
-                        method: "POST",
-                        success: function(response) {
-                            console.log(response);
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Failed to update points. Status: " + status + ", Error: " + error);
-                        }
-                    });
                 }
 
                 if (data.audioPath && !data.voiceNotFound) {
@@ -288,6 +268,35 @@
             },
             error: function(xhr, status, error) {
                 console.error("AJAX request failed. Status:", status, "Error:", error);
+            }
+        });
+    }
+
+    function showAlert(message) {
+        Swal.fire({
+            title: '체험 종료',
+            text: message,
+            icon: 'info',
+            confirmButtonText: '닫기'
+        });
+    }
+
+    function showMultipleAlerts(message) {
+        Swal.fire({
+            title: '체험 종료',
+            text: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?',
+            icon: 'info',
+            confirmButtonText: '확인'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                setTimeout(() => {
+                    Swal.fire({
+                        title: '유의 사항',
+                        text: message,
+                        icon: 'info',
+                        confirmButtonText: '닫기'
+                    });
+                }, 3000); // 3초 후 실행
             }
         });
     }
@@ -396,6 +405,7 @@
 
         draw();
     }
+
     </script>
 
     <script src="<c:url value='/resources/js/bootstrap.bundle.min.js'/>"></script>
