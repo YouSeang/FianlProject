@@ -15,7 +15,7 @@ public class PointsCommand implements PCommand {
 		this.sqlSession = sqlSession;
 	}
 
-//소미 수정 (메신저피싱, 보이스피싱, 스미싱 포인트 업데이트)
+//�ҹ̼���
 	@Override
 	public String execute(Map<String, Object> map) {
 		String userId = (String) map.get("userId");
@@ -47,7 +47,7 @@ public class PointsCommand implements PCommand {
 			return "Points already added today.";
 		}
 	}
-//슬기언니 추가부분
+//�������߰�
 	public void updatePoints(String userId, int pointsEarned, String pointReason, int quizId) {
 		System.out.println("Executing PointsCommand with userId: " + userId + ", quizId: " + quizId + ", pointsEarned: "
 				+ pointsEarned + ", pointReason: " + pointReason);

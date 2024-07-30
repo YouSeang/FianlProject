@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -14,7 +13,7 @@
 	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
 <meta name="author" content="Tariqul Islam">
 
-<title>마이페이지</title>
+<title>쿠폰교환</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"
@@ -35,6 +34,8 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -154,9 +155,6 @@
 						보낼 메시지: </label>
 					<textarea id="text" name="text" required></textarea>
 					<br> <br>
-					<c:if test="${not empty message}">
-						<p>${message}</p>
-					</c:if>
 					<br />
 					<div class="coupon-info">
 						ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br /> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는
@@ -174,15 +172,14 @@
 	</main>
 	<!-- 쿠폰선택영역 end -->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
-
 	<!--Javascript======================================================== -->
 	<script>
-	function updateSelectedCoupon(radio) {
-		document.getElementById('selectedCouponId').value = radio.value;
-		document.getElementById('couponImageUrl').value = radio.getAttribute('data-coupon-image');
-	}
-</script>
-
+        function updateSelectedCoupon(radio) {
+            document.getElementById('selectedCouponId').value = radio.value;
+            document.getElementById('couponImageUrl').value = radio.getAttribute('data-coupon-image');
+        }
+    </script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
@@ -200,23 +197,33 @@
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-
 	<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const radios = document.querySelectorAll('input[name="selectedCouponId"]');
+        document.addEventListener('DOMContentLoaded', function() {
+            const radios = document.querySelectorAll('input[name="selectedCouponId"]');
 
-    radios.forEach(radio => {
-        radio.addEventListener('change', function() {
-            const selectedCouponId = this.value;
-            const selectedCouponImage = this.dataset.couponImage; // 쿠폰 이미지 URL
+            radios.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const selectedCouponId = this.value;
+                    const selectedCouponImage = this.dataset.couponImage; // 쿠폰 이미지 URL
 
-            document.getElementById('selectedCouponId').value = selectedCouponId;
-            document.getElementById('couponImageUrl').value = selectedCouponImage;
+                    document.getElementById('selectedCouponId').value = selectedCouponId;
+                    document.getElementById('couponImageUrl').value = selectedCouponImage;
+                });
+            });
         });
-    });
-});
-</script>
-
-
+        // SweetAlert 사용하여 쿠폰 발송 결과 알림
+        <c:if test="${not empty message}">
+            Swal.fire({
+                title: "${success ? '쿠폰 발송 완료!' : '쿠폰 발송 실패!'}",
+                text: "${message}",
+                icon: "${success ? 'success' : 'error'}",
+                confirmButtonText: '확인'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.close();
+                }
+            });
+        </c:if>
+    </script>
 </body>
 </html>

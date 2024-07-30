@@ -1,10 +1,6 @@
 package kr.soft.study.controller;
 
-import java.io.File;
 import java.io.IOException;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.soft.study.command.PCommand;
 import kr.soft.study.dao.SmishingLogDAO;
@@ -46,27 +43,25 @@ public class SmsController {
 	/*
 	 * @GetMapping("/sendSms") public String showSmsForm() { return "sendSms"; }
 	 */
-
-	@PostMapping("/sendSms")
-	public String sendSms(@RequestParam("to") String to, @RequestParam("text") String text,
-			@RequestParam("couponImageUrl") String couponImageUrl, Model model) {
-		try {
-			messageService.sendMessage(to, text, couponImageUrl);
-			model.addAttribute("message", "SMS 발송 성공!");
-		} catch (Exception e) {
-			model.addAttribute("message", "SMS 발송 실패: " + e.getMessage());
-		}
-		return "sendSms";
-	}
+	/*
+	 * @PostMapping("/sendSms") public String sendSms(@RequestParam("to") String
+	 * to, @RequestParam("text") String text,
+	 * 
+	 * @RequestParam("couponImageUrl") String couponImageUrl, Model model) { try {
+	 * messageService.sendMessage(to, text, couponImageUrl);
+	 * model.addAttribute("message", "SMS 발송 성공!"); } catch (Exception e) {
+	 * model.addAttribute("message", "SMS 발송 실패: " + e.getMessage()); } return
+	 * "sendSms"; }
+	 */
 
 	/*
 	 * @GetMapping("/sendMms") public String showMmsForm() { return "sendMms"; }
 	 */
 
 	@PostMapping("/sendMms")
-	public String sendMms(@RequestParam("to") String to, @RequestParam("text") String text,
+	public String sendMms(HttpSession session, @RequestParam("to") String to, @RequestParam("text") String text,
 			@RequestParam("selectedCouponId") String selectedCouponId,
-			@RequestParam("couponImageUrl") String couponImageUrl, Model model) {
+			@RequestParam("couponImageUrl") String couponImageUrl, Model model, RedirectAttributes redirectAttributes) {
 		String imageToSend;
 
 		// 선택된 쿠폰 ID에 따라 전송할 이미지 결정
@@ -88,19 +83,24 @@ public class SmsController {
 		java.net.URL resource = classLoader.getResource(imageToSend);
 
 		if (resource == null) {
-			model.addAttribute("message", "MMS 발송 실패: 파일이 존재하지 않습니다 - " + imageToSend);
-			return "sendMms";
+			redirectAttributes.addFlashAttribute("message", "MMS 발송 실패: 파일이 존재하지 않습니다 - " + imageToSend);
+			redirectAttributes.addFlashAttribute("success", false);
+			return "redirect:/couponshop";
 		}
 
 		try {
-			SingleMessageSentResponse response = messageService.sendMms(to, text, imageToSend);
-			model.addAttribute("message", "MMS 발송 성공! 응답: " + response);
+			SingleMessageSentResponse response = messageService.sendMms(session, to, text, imageToSend);
+			redirectAttributes.addFlashAttribute("message", "선택하신 쿠폰이 발송되었습니다");
+			redirectAttributes.addFlashAttribute("success", true);
 		} catch (IOException e) {
-			model.addAttribute("message", "파일 업로드 실패: " + e.getMessage());
+			redirectAttributes.addFlashAttribute("message", "파일 업로드 실패: " + e.getMessage());
+			redirectAttributes.addFlashAttribute("success", false);
 		} catch (Exception e) {
-			model.addAttribute("message", "MMS 발송 실패: " + e.getMessage());
+			redirectAttributes.addFlashAttribute("message", "MMS 발송 실패: " + e.getMessage());
+			redirectAttributes.addFlashAttribute("success", false);
 		}
-		return "sendMms";
+
+		return "redirect:/couponshop";
 	}
 
 	// 스미싱문자
@@ -122,16 +122,15 @@ public class SmsController {
 		String userId = user.getUser_id();
 		System.out.println("User ID: " + userId); // 세션에 사용자 ID 출력
 
-		// 오늘 발송했는지 확인
-		LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(), LocalTime.MIDNIGHT);
-		boolean hasSentToday = smishingLogDAO.hasSentToday(userId, startOfDay);
-		System.out.println("Has sent today: " + hasSentToday);
-
-		if (hasSentToday) {
-			response.put("isSent", false);
-			response.put("message", "스미싱 체험은 하루에 한 번만 가능합니다.");
-			return response;
-		}
+		/*
+		 * // 오늘 발송했는지 확인 LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(),
+		 * LocalTime.MIDNIGHT); boolean hasSentToday =
+		 * smishingLogDAO.hasSentToday(userId, startOfDay);
+		 * System.out.println("Has sent today: " + hasSentToday);
+		 * 
+		 * if (hasSentToday) { response.put("isSent", false); response.put("message",
+		 * "스미싱 체험은 하루에 한 번만 가능합니다."); return response; }
+		 */
 
 		String imageUrl;
 		String adminText;
@@ -176,18 +175,19 @@ public class SmsController {
 	}
 
 	@GetMapping("/smishing")
-	public void showSmishingImage(@RequestParam(value = "buttonType", required = false) String buttonType,
+	public String showSmishingImage(@RequestParam(value = "buttonType", required = false) String buttonType,
 			Model model) {
 		String imageUrl;
 		if ("delivery".equals(buttonType)) {
-			imageUrl = "/images/aaaa.jpg";
+			imageUrl = "스미싱예방.jpg";
 		} else if ("invitation".equals(buttonType)) {
-			imageUrl = "/images/coffee.jpg";
+			imageUrl = "스미싱예방.jpg";
 		} else {
 			// 기본 이미지 또는 오류 처리
-			imageUrl = "/images/default.jpg";
+			imageUrl = "스미싱예방.jpg";
 		}
 
 		model.addAttribute("imageUrl", imageUrl);
+		return "voice/smishingimage";
 	}
 }

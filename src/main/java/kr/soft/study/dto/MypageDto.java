@@ -9,6 +9,7 @@ public class MypageDto {
 	private Timestamp point_time;
 	private String point_reason;
 	private int points_earned;
+	private String points_used;
 	private Timestamp usage_time;
 	private String usage_type;
 	private int total_points;
@@ -23,14 +24,15 @@ public class MypageDto {
 		super();
 	}
 
-	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, Timestamp usage_time,
-			String usage_type, int total_points, int coupon_id, Timestamp issue_date, Timestamp use_date,
-			Boolean isUsed, Integer unused_coupons) {
+	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, String points_used,
+			Timestamp usage_time, String usage_type, int total_points, int coupon_id, Timestamp issue_date,
+			Timestamp use_date, Boolean isUsed, Integer unused_coupons) {
 		super();
 		this.user_id = user_id;
 		this.point_time = point_time;
 		this.point_reason = point_reason;
 		this.points_earned = points_earned;
+		this.points_used = points_used;
 		this.usage_time = usage_time;
 		this.usage_type = usage_type;
 		this.total_points = total_points;
@@ -135,6 +137,14 @@ public class MypageDto {
 
 	public void setUnused_coupons(Integer unused_coupons) {
 		this.unused_coupons = unused_coupons;
+	}
+
+	public String getpoints_used() {
+		return points_used;
+	}
+
+	public void setpoints_used(String points_used) {
+		this.points_used = points_used;
 	}
 
 }
