@@ -22,6 +22,10 @@
 
 <!-- Style Libraries
     ==================================================================-->
+    <!-- SweetAlert CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.min.css">
+<!-- SweetAlert JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -112,7 +116,7 @@
                     <button id="btn-true" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('O')">O</button>
                     <button id="btn-false" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('X')">X</button>
                 </div>
-                <div id="quiz-feedback" class="alert text-center mt-3" role="alert" style="display:none"></div>
+                
                 <div class="text-center mt-3">
                     <button id="next-question" class="btn btn-primary m-2" style="display:none" onclick="loadNextQuestion()">다음 문제로</button>
                     <button id="retry-question" class="btn btn-secondary m-2" style="display:none" onclick="retryQuestion()">다시 풀기</button>
@@ -145,97 +149,121 @@ Javascript
     <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
 
- <script>
-        let currentQuestionIndex = 0;
-        let score = 0;
-        let questions = [];
-        let userId = '<%= session.getAttribute("userId") %>'; // 로그인한 사용자 ID
+  <script>
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let questions = [];
+    let userId = '<%= session.getAttribute("userId") %>'; // 로그인한 사용자 ID
 
-        async function loadQuestions() {
-            const category = document.getElementById('quizCategory').value;
-            if (category) {
-                const response = await fetch('${pageContext.request.contextPath}/game/quiz/category/' + category);
-                questions = await response.json();
-                console.log('Fetched Questions: ', questions); // Fetch 결과를 로그로 출력
-                if (questions.length > 0) {
-                    document.getElementById('btn-true').style.display = 'inline';
-                    document.getElementById('btn-false').style.display = 'inline';
-                    currentQuestionIndex = 0;
-                    score = 0;
-                    loadQuestion(currentQuestionIndex);
-                } else {
-                    document.getElementById('quiz-question').innerText = '선택한 카테고리에 퀴즈가 없습니다.';
-                    document.getElementById('btn-true').style.display = 'none';
-                    document.getElementById('btn-false').style.display = 'none';
-                }
-            }
-        }
-
-        function loadQuestion(index) {
-            if (index < questions.length) {
-                const quizQuestion = document.getElementById('quiz-question');
-                quizQuestion.innerText = questions[index].question;
-                document.getElementById('quiz-feedback').style.display = 'none';
-                document.getElementById('next-question').style.display = 'none';
-                document.getElementById('retry-question').style.display = 'none';
+    async function loadQuestions() {
+        const category = document.getElementById('quizCategory').value;
+        if (category) {
+            const response = await fetch('${pageContext.request.contextPath}/game/quiz/category/' + category);
+            questions = await response.json();
+            console.log('Fetched Questions: ', questions); // Fetch 결과를 로그로 출력
+            if (questions.length > 0) {
+                document.getElementById('btn-true').style.display = 'inline';
+                document.getElementById('btn-false').style.display = 'inline';
+                currentQuestionIndex = 0;
+                score = 0;
+                loadQuestion(currentQuestionIndex);
             } else {
-                document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
-                document.getElementById('quiz-buttons').style.display = 'none';
-                document.getElementById('next-question').style.display = 'none';
-                document.getElementById('retry-question').style.display = 'none';
+                document.getElementById('quiz-question').innerText = '선택한 카테고리에 퀴즈가 없습니다.';
+                document.getElementById('btn-true').style.display = 'none';
+                document.getElementById('btn-false').style.display = 'none';
             }
         }
+    }
 
-        async function checkAnswer(answer) {
-            const question = questions[currentQuestionIndex];
-            const feedback = document.getElementById('quiz-feedback');
-            if ((answer === 'O' && question.answer) || (answer === 'X' && !question.answer)) {
-                score += question.points;
-                feedback.classList.remove('alert-danger');
-                feedback.classList.add('alert-success');
-                feedback.innerText = '정답입니다! 점수: ' + score;
+    function loadQuestion(index) {
+        if (index < questions.length) {
+            const quizQuestion = document.getElementById('quiz-question');
+            quizQuestion.innerText = questions[index].question;
+            document.getElementById('next-question').style.display = 'none';
+            document.getElementById('retry-question').style.display = 'none';
+        } else {
+            document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
+            document.getElementById('quiz-buttons').style.display = 'none';
+            document.getElementById('next-question').style.display = 'none';
+            document.getElementById('retry-question').style.display = 'none';
+        }
+    }
+
+    async function checkAnswer(answer) {
+        const question = questions[currentQuestionIndex];
+        const isCorrect = (answer === 'O' && question.answer) || (answer === 'X' && !question.answer);
+
+        if (isCorrect) {
+            score += question.points;
+
+            if (userId !== null && userId !== '') { // 로그인한 경우
+                Swal.fire({
+                    icon: 'success',
+                    title: '정답입니다!',
+                    text: '포인트: ' + score,
+                    confirmButtonText: '다음 문제로'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        loadNextQuestion();
+                    }
+                });
                 await updatePoints(question.points, '퀴즈 정답', question.id); // quizId를 함께 전송합니다.
-                document.getElementById('next-question').style.display = 'inline';
-            } else {
-                feedback.classList.remove('alert-success');
-                feedback.classList.add('alert-danger');
-                feedback.innerText = '오답입니다. 이유: ' + question.explanation;
-                document.getElementById('retry-question').style.display = 'inline';
+            } else { // 로그인하지 않은 경우
+                Swal.fire({
+                    icon: 'success',
+                    title: '정답입니다!',
+                    text: '다음 문제로 넘어갑니다.',
+                    confirmButtonText: '다음 문제로'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        loadNextQuestion();
+                    }
+                });
             }
-            feedback.style.display = 'block';
-        }
-
-        function loadNextQuestion() {
-            currentQuestionIndex++;
-            loadQuestion(currentQuestionIndex);
-        }
-
-        function retryQuestion() {
-            loadQuestion(currentQuestionIndex);
-        }
-
-        async function updatePoints(points, reason, quizId) {
-            const data = {
-                pointsEarned: points,
-                pointReason: reason,
-                quizId: quizId // quizId를 함께 전송합니다.
-            };
-            const response = await fetch('${pageContext.request.contextPath}/game/quiz/points/update', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: '오답입니다!',
+                text: '이유: ' + question.explanation,
+                showCancelButton: true,
+                cancelButtonText: '다시 풀기'
+            }).then((result) => {
+                if (result.dismiss === Swal.DismissReason.cancel) {
+                    retryQuestion();
+                }
             });
-            const result = await response.json();
-            console.log(result.message);
         }
+    }
 
-        // 초기 로드
+    function loadNextQuestion() {
+        currentQuestionIndex++;
         loadQuestion(currentQuestionIndex);
-    </script>
+    }
 
+    function retryQuestion() {
+        loadQuestion(currentQuestionIndex);
+    }
 
+    async function updatePoints(points, reason, quizId) {
+        const data = {
+            pointsEarned: points,
+            pointReason: reason,
+            quizId: quizId // quizId를 함께 전송합니다.
+        };
+        const response = await fetch('${pageContext.request.contextPath}/game/quiz/points/update', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        });
+        const result = await response.json();
+        console.log(result.message);
+    }
+
+    // 초기 로드
+    loadQuestion(currentQuestionIndex);
+</script>
 </body>
 
 </html>
