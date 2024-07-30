@@ -103,7 +103,7 @@
 }
 
 .ks-cboxtags label {
-	font-size: 30px;
+	font-size: 20px;
 }
 
 /* Add margin between checkbox section and footer */
@@ -118,9 +118,12 @@
 }
 
 .donation-form {
-	background-color: #f8f9fa; /* 연한 회색 배경 */
-	padding: 20px;
-	border-radius: 8px;
+    background-color: #f8f9fa; /* 연한 회색 배경 */
+    padding: 20px; /* 내부 여백 조정 */
+    border-radius: 8px;
+    width: 120%; /* 폭을 100%로 설정 */
+    max-width: 1200px; /* 최대 폭 설정 (필요 시 조정 가능) */
+    margin: 0 auto; /* 가운데 정렬 */
 }
 
 .card {
@@ -148,6 +151,11 @@
 
 .submit-btn:hover {
 	background-color: #ff9900;
+}
+
+.separator {
+    border-top: 2px solid #ddd;
+    margin: 20px 0;
 }
 </style>
 </head>
@@ -210,8 +218,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category1-1" name="category1[]"
-													value="1"> <label for="category1-1" class="mb-0">분야
-													1-1</label>
+													value="1"> <label for="category1-1" class="mb-0">스마트폰에 암호/패턴을 설정해 놓았다.</label>
 											</div>
 										</div>
 									</li>
@@ -219,8 +226,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category1-2" name="category1[]"
-													value="1"> <label for="category1-2" class="mb-0">분야
-													1-2</label>
+													value="1"> <label for="category1-2" class="mb-0">스미싱 문자 유포에 유의해 스미싱 차단 앱을 설치하였다.</label>
 											</div>
 										</div>
 									</li>
@@ -228,8 +234,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category1-3" name="category1[]"
-													value="1"> <label for="category1-3" class="mb-0">분야
-													1-3</label>
+													value="1"> <label for="category1-3" class="mb-0">스팸메세지 차단기능을 설정해 놓았다.</label>
 											</div>
 										</div>
 									</li>
@@ -237,8 +242,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category1-4" name="category1[]"
-													value="1"> <label for="category1-4" class="mb-0">분야
-													1-4</label>
+													value="1"> <label for="category1-4" class="mb-0">스마트폰 앱의 권한은 필요한 것만 허용을 해두었다.</label>
 											</div>
 										</div>
 									</li>
@@ -246,17 +250,16 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category1-5" name="category1[]"
-													value="1"> <label for="category1-5" class="mb-0">분야
-													1-5</label>
+													value="1"> <label for="category1-5" class="mb-0">소프트웨어를 항상 최신 버전으로 업데이트 해둔다.</label>
 											</div>
 										</div>
 									</li>
+									 <div class="separator"></div> <!-- 구분선 추가 -->
 									<li>
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category2-1" name="category2[]"
-													value="1"> <label for="category2-1" class="mb-0">분야
-													2-1</label>
+													value="1"> <label for="category2-1" class="mb-0">은행 어플에서 제공하는 입출금 알림서비스를 등록해 놓았다.</label>
 											</div>
 										</div>
 									</li>
@@ -264,8 +267,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category2-2" name="category2[]"
-													value="1"> <label for="category2-2" class="mb-0">분야
-													2-2</label>
+													value="1"> <label for="category2-2" class="mb-0">보안카드 번호 및 중요 개인정보가 휴대폰 사진첩에 저장 되어 있지 않다.</label>
 											</div>
 										</div>
 									</li>
@@ -273,8 +275,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category2-3" name="category2[]"
-													value="1"> <label for="category2-3" class="mb-0">분야
-													2-3</label>
+													value="1"> <label for="category2-3" class="mb-0">금융사 어플 비밀번호 혹은 패턴을 주기적으로 변경하고 있다.</label>
 											</div>
 										</div>
 									</li>
@@ -282,8 +283,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category2-4" name="category2[]"
-													value="1"> <label for="category2-4" class="mb-0">분야
-													2-4</label>
+													value="1"> <label for="category2-4" class="mb-0">계좌 비밀번호를 주기적으로 변경하고 있다.</label>
 											</div>
 										</div>
 									</li>
@@ -291,17 +291,17 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category2-5" name="category2[]"
-													value="1"> <label for="category2-5" class="mb-0">분야
-													2-5</label>
+													value="1"> <label for="category2-5" class="mb-0">택배 송장 정보는 떼어내고 폐기한다.</label>
 											</div>
 										</div>
 									</li>
+									
+									<div class="separator"></div> <!-- 구분선 추가 -->
 									<li>
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category3-1" name="category3[]"
-													value="1"> <label for="category3-1" class="mb-0">분야
-													3-1</label>
+													value="1"> <label for="category3-1" class="mb-0">웹사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
 											</div>
 										</div>
 									</li>
@@ -309,8 +309,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category3-2" name="category3[]"
-													value="1"> <label for="category3-2" class="mb-0">분야
-													3-2</label>
+													value="1"> <label for="category3-2" class="mb-0">공용 컴퓨터 등에서 업무 처리 후 계정 로그아웃을 생활화 한다.</label>
 											</div>
 										</div>
 									</li>
@@ -318,8 +317,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category3-3" name="category3[]"
-													value="1"> <label for="category3-3" class="mb-0">분야
-													3-3</label>
+													value="1"> <label for="category3-3" class="mb-0">기관에서 전송된 문자의 링크를 확인하지 않고는 클릭하지 않는다.</label>
 											</div>
 										</div>
 									</li>
@@ -327,8 +325,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category3-4" name="category3[]"
-													value="1"> <label for="category3-4" class="mb-0">분야
-													3-4</label>
+													value="1"> <label for="category3-4" class="mb-0">사용하고 있는 이메일 계정에 스팸 방지 기능을 설정해 두었다.</label>
 											</div>
 										</div>
 									</li>
@@ -336,8 +333,7 @@
 										<div class="card">
 											<div class="card-body">
 												<input type="checkbox" id="category3-5" name="category3[]"
-													value="1"> <label for="category3-5" class="mb-0">분야
-													3-5</label>
+													value="1"> <label for="category3-5" class="mb-0">웹 사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
 											</div>
 										</div>
 									</li>
