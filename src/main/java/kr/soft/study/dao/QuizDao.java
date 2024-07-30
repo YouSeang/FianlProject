@@ -4,15 +4,19 @@ import org.springframework.stereotype.Repository;
 
 import kr.soft.study.dto.QuizDto;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public interface QuizDao {
+public interface QuizDao {	 
 	
-	public ArrayList <QuizDto> list();
-
+	QuizDto getQuizById(int id);
+	
+	public ArrayList<QuizDto> getQuizs();
+	
+	public List<QuizDto> getQuizzesByCategory(String category);
+	 
+	public void addQuiz(QuizDto quiz);
+	public void updateQuiz(QuizDto quiz);
+	public void deleteQuiz(int id);
 }
-

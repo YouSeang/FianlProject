@@ -9,6 +9,6 @@ public interface MypageDao {
 	// 내 정보 가져오기
 	public ArrayList<MypageDto> myInfomation(String user_id);
 	
-	
+	public MypageDto getCoupon(String userId);
 
 }

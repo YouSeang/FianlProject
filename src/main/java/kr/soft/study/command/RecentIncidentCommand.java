@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -33,6 +34,12 @@ public class RecentIncidentCommand implements Command {
                 String description = element.select(".dsc_wrap").text();
                 String info = element.select(".info").text();
                 String imageUrl = element.select(".thumb img").attr("src");
+
+                if (imageUrl == null || imageUrl.isEmpty() || imageUrl.startsWith("data:image")) {
+                    // 이미지 URL이 없는 경우 기본 이미지를 사용
+                
+                    imageUrl = "s";
+                }
 
                 Map<String, String> news = new HashMap<>();
                 news.put("title", title);

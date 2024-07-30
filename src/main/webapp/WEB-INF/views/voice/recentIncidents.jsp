@@ -56,7 +56,7 @@
     <script>
             function searchKeyword(keyword) {
                 console.log('Searching for keyword:', keyword);
-                fetch('/study/voice/search', {
+                fetch('search', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -78,22 +78,65 @@
                     console.error('Error:', error);
                 });
             }
-
+            
             function displayNews(newsList) {
+                console.log('Displaying news:', newsList);
                 const newsContainer = document.getElementById('news-container');
+                if (!newsContainer) {
+                    console.error('news-container element not found');
+                    return;
+                }
                 newsContainer.innerHTML = '';
 
+                const ulElement = document.createElement('ul');
+                ulElement.classList.add('news-list');
+                
                 newsList.forEach(news => {
-                    const newsItem = document.createElement('div');
-                    newsItem.innerHTML = `
-                        <h3>${news.title}</h3>
-                        <p>${news.description}</p>
-                        <a href="${news.link}">Read more</a>
-                        <img src="${news.imageUrl}" alt="News Image">
-                    `;
-                    newsContainer.appendChild(newsItem);
+                    console.log('News item:', news);
+
+                    const liElement = document.createElement('li');
+
+                    const imgWrapper = document.createElement('div');
+                    imgWrapper.classList.add('img-wrapper');
+
+                    const imgElement = document.createElement('img');
+                    imgElement.src = news.imageUrl;
+                    imgElement.alt = "News Image";
+                    imgWrapper.appendChild(imgElement);
+
+                    liElement.appendChild(imgWrapper);
+
+                    const detailsDiv = document.createElement('div');
+                    detailsDiv.classList.add('s-details');
+
+                    const titleElement = document.createElement('h3');
+                    const linkElement = document.createElement('a');
+                    linkElement.href = news.link;
+                    linkElement.target = "_blank";
+                    linkElement.textContent = news.title;
+                    titleElement.appendChild(linkElement);
+                    detailsDiv.appendChild(titleElement);
+
+                    const infoElement = document.createElement('span');
+                    infoElement.classList.add('status');
+                    infoElement.textContent = news.info;
+                    detailsDiv.appendChild(infoElement);
+
+                    const descriptionElement = document.createElement('p');
+                    descriptionElement.textContent = news.description;
+                    detailsDiv.appendChild(descriptionElement);
+
+                    liElement.appendChild(detailsDiv);
+
+                    ulElement.appendChild(liElement);
+
+                    console.log('Appended news item:', liElement.innerHTML);
                 });
+
+                newsContainer.appendChild(ulElement);
+                console.log('Final newsContainer innerHTML:', newsContainer.innerHTML);
             }
+
         </script>
     
 </head>
@@ -131,58 +174,56 @@
     <!-- Our Causes Area Start -->
     
     <main class="main-content testimonial-page">
-    
+     
+ 
 		<div class="container">
+		<div class="section-intro intro-full">
+		    <h3 class="section-title">최근 금융사고 뉴스</h3>
+		    <p>키워드로 뉴스내용을 확인해보세요.</p><br><br>
      <a class="custom-btn" onclick="searchKeyword('금융사고')">#금융사고</a>
     <a class="custom-btn" onclick="searchKeyword('금융사기')">#금융사기</a>
     <a class="custom-btn" onclick="searchKeyword('보이스피싱')">#보이스피싱</a>
     <a class="custom-btn" onclick="searchKeyword('메신저피싱')">#메신저피싱</a>
     <a class="custom-btn" onclick="searchKeyword('스미싱')">#스미싱</a>
-    <a class="custom-btn" onclick="searchKeyword('대출사기')">#대출사기</a>
-
+    <a class="custom-btn" onclick="searchKeyword('대출사기')">#대출사기</a><br><br>
+</div>
     <div id="news-container"></div>
-
       
-			<div class="row">
-			
-				<div class="col-sm-12">
-					<div class="single-testimonial">
-						<div class="s-thumb">
-						<ul>
-                        <c:if test="${not empty newsList}">
-                            <c:forEach var="news" items="${newsList}">
-                             <li>
-                             
-						<img src="${news.imageUrl}" alt="News Image">
-							<div class="s-details">
-							<h3>  <a href="${news.link}" target="_blank">${news.title}</a></h3>
-							<span class="status">${news.info}</span>
-							<p>${news.description}</p>
-							</li>
-                            </c:forEach>
-                        </c:if>
-                    </ul>
-							</div>
-					</div>
-				</div>
-					<div class="col-lg-12">
-					<div class="pager text-center">
-						<a href="#" class="next-btn"> <i class="fa fa-angle-left"></i>
-						</a> <span>1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a>
-						<a href="#">5</a> <a href="#" class="next-btn"> <i
-							class="fa fa-angle-right"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		</main>
-		
-		
-
-    <!-- Our Causes Area End -->
-
-    
+			   <div class="row">
+                <div class="col-sm-12">
+                    <div class="single-testimonial">
+                        <div class="s-thumb">
+                            <%-- <ul>
+                                <c:if test="${not empty newsList}">
+                                    <c:forEach var="news" items="${newsList}">
+                                        <li>
+                                            <img src="${news.imageUrl}" alt="News Image">
+                                            <div class="s-details">
+                                                <h3><a href="${news.link}" target="_blank">${news.title}</a></h3>
+                                                <span class="status">${news.info}</span>
+                                                <p>${news.description}</p>
+                                            </div>
+                                        </li>
+                                    </c:forEach>
+                                </c:if>
+                            </ul> --%>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="pager text-center">
+                        <a href="#" class="next-btn"><i class="fa fa-angle-left"></i></a>
+                        <span>1</span>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">4</a>
+                        <a href="#">5</a>
+                        <a href="#" class="next-btn"><i class="fa fa-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
 
     
 <!-- Footer start-->

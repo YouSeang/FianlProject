@@ -139,7 +139,8 @@
 								<div class="radio-container">
 									<label> <input type="radio" name="selectedCouponId"
 										value="${coupon.id}"
-										data-coupon-image="${pageContext.request.contextPath}${coupon.coupon_image}" />
+										data-coupon-image="${pageContext.request.contextPath}${coupon.coupon_image}"
+										onclick="updateSelectedCoupon(this)">
 									</label>
 								</div>
 							</div>
@@ -169,11 +170,18 @@
 						name="couponImageUrl" value="">
 				</form>
 			</div>
+		</div>
 	</main>
 	<!-- 쿠폰선택영역 end -->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
 	<!--Javascript======================================================== -->
+	<script>
+	function updateSelectedCoupon(radio) {
+		document.getElementById('selectedCouponId').value = radio.value;
+		document.getElementById('couponImageUrl').value = radio.getAttribute('data-coupon-image');
+	}
+</script>
 
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>

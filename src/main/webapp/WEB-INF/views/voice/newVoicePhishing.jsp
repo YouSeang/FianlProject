@@ -62,15 +62,14 @@
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
 							<a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
-						</div>
-						<div class="banner-btn">
 							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a>
 						</div>
+						<div class="banner-btn"></div>
 					</div>
 				</div>
 			</div>
 			<!-- Single Banner End -->
-			<div class="single-banner"
+			<%-- <div class="single-banner"
 				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/voiceBanner2.jpg')">
 				<div class="container">
 					<div class="banner-info">
@@ -83,7 +82,7 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> --%>
 	</section>
 	<!-- Banner Area End -->
 
