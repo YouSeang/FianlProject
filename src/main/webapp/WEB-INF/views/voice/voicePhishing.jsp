@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 
 
 
@@ -72,48 +72,6 @@ function openVoicePhishingWindow() {
 			<span></span> <span></span>
 		</div>
 	</div>
-	<header class="hearer">
-		<div class="header-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6 col-sm-6">
-						<ul class="top-info d-none d-md-block">
-							<li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-									class="fa fa-paper-plane"></i>helpplus@yahoo.com</a></li>
-							<li><a href="tel:08829294239" title="Account"><i
-									class="fa fa-phone"></i>+088 292 94 239</a></li>
-						</ul>
-						<div class="dropdown d-md-none">
-							<a href="#" class="dropdown-toggle" id="dropdownMenuButton1"
-								data-bs-toggle="dropdown" aria-expanded="false"> Quick link
-							</a>
-							<ul class="dropdown-menu shadow-sm"
-								aria-labelledby="dropdownMenuButton1">
-								<li><a href="mailto:helpplus@yahoo.com" title="Message"><i
-										class="fa fa-paper-plane"></i>helpplus@gmail.com</a></li>
-								<li><a href="tel:08829294239" title="Account"><i
-										class="fa fa-phone"></i>+088 292 94 239</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6 col-sm-6">
-						<div class="account-info d-flex align-items-center">
-							<div class="lang-dropdown d-flex align-items-center">
-								<span><i class="fa fa-flag"></i></span> <select name="lang"
-									id="lang">
-									<option value="1">English</option>
-									<option value="2">Spanish</option>
-									<option value="3">Dutch</option>
-								</select>
-							</div>
-
-							<a class="d-none d-sm-block" href="signin.html" title="Login"><i
-								class="fa fa-user me-2"></i>My Account</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
 
 
 		<!-- header start -->
@@ -152,13 +110,11 @@ function openVoicePhishingWindow() {
 							<h3 class="section-title mb-4">
 								보이스 피싱<span class="color"> 시뮬레이션 </span>
 							</h3>
-							<p>We are a non profit team. We are starting Help at vary
-								begining of 1900s. Quibusdam quidem alias saepe vero doloribus
-								consequatur quis nobis molestiae fugit vel quae sapiente.</p>
+							<p>실제 보이스피싱 범인들의 음성으로 구성된 통화 시뮬레이션입니다. 음성인식을 통해 가상의 피해자 입장이 되어 대답하면서, 보이스피싱 범죄의 주요 시나리오 흐름에 대해 습득하는 시간을 가져보세요. </p>
 							<ul>
-								<li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
-								<li>Sit amet consectetur adipisicing elit. Ea, voluptatem!</li>
-								<li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
+								<li>가상의 피해자가 되어 범인의 심리와 시나리오를 파악해 봅시다.</li>
+								<li>시뮬레이션 체험 종료시 500포인트 지급됩니다.</li>
+								<li>포인트는 하루에 한번만 지급됩니다.</li>
 							</ul>
 							<a href="#" class="custom-btn"
 								onclick="openVoicePhishingWindow()">체험하러 가기</a>

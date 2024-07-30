@@ -59,7 +59,11 @@
 							<div />
 							<span>시뮬레이션 </span><br />체험해보세요
 						</h1>
-						<p>설명 설명 설명</p>
+						<ul style="color: white;">
+							<li>가상의 피해자가 되어 범인의 심리와 시나리오를 파악해 봅시다.</li>
+							<li>시뮬레이션 체험 종료시 500포인트 지급됩니다.</li>
+							<li>포인트는 하루에 한번만 지급됩니다.</li>
+						</ul>
 						<div class="banner-btn">
 							<a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
 							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a>

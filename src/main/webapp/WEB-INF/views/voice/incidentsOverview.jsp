@@ -59,6 +59,28 @@
 	</div>
 		<!-- header start -->
 	<%@ include file="/WEB-INF/views/header.jsp"%>
+	
+	<!-- Promo Area Start -->
+	<section class="promo-area" data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="promo-wrap">
+						<h1 class="promo-title">
+							<span>금융사고</span> 현황
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
+								<li class="breadcrumb-item active" aria-current="page">금융사고현황</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Promo Area End -->
 
 
 
@@ -291,193 +313,7 @@
 						</div>
 						<div class="row mb-5 pb-4">
 							<!-- Related Product Start -->
-							<div class="col-lg-12">
-								<div class="related-product">
-									<h2>Related Products</h2>
-									<div class="p-wrap owl-carousel">
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop3.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop4.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop2.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop7.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop4.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop2.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-									</div>
-								</div>
-							</div>
+
 						</div>
 					</div>
 				</div>
