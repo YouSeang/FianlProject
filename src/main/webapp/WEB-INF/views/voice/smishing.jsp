@@ -21,7 +21,6 @@
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-
 <!-- Plugins CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -43,8 +42,8 @@
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
 .form-container {
@@ -84,6 +83,55 @@
 	min-height: 100px;
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+        var contextPath = '${pageContext.request.contextPath}';
+    </script>
+<script>
+    function sendSmishing(buttonType) {
+        var formData = {
+            to: $('#to').val(),
+            text: $('#text').val(),
+            buttonType: buttonType,
+            pointReason: '스미싱 체험완료'
+        };
+
+        $.ajax({
+            url: contextPath + '/sendSmishing',
+            method: 'POST',
+            data: formData,
+            success: function(response) {
+                if (response.isSent) {
+                    Swal.fire({
+                        title: '문자 발송 성공!',
+                        text: '문자가 성공적으로 발송되었습니다. ' + response.pointUpdateResult,
+                        icon: 'success',
+                        confirmButtonText: '확인',
+                        showDenyButton: true,
+                        denyButtonText: '체험 다시하기'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: '포인트 업데이트 완료!',
+                                text: response.pointUpdateResult,
+                                icon: 'success'
+                            }).then(() => {
+                                window.location.href = contextPath + "/voice/smishing";
+                            });
+                        } else if (result.isDenied) {
+                            location.reload();
+                        }
+                    });
+                } else {
+                    Swal.fire('문자 발송 실패', response.message || '문자 발송에 실패했습니다.', 'error');
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire('문자 발송 실패', `상태: ${status}, 오류: ${error}`, 'error');
+            }
+        });
+    }
+</script>
 </head>
 
 <body>
@@ -93,8 +141,7 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header.jsp"%>
-
+	<jsp:include page="/WEB-INF/views/header.jsp" />
 
 	<!-- 배너영역 Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5">
@@ -138,9 +185,10 @@
 								'체험하기'버튼을 클릭하세요<br /> ex) '어머니, 이런 문자를 받으시면 링크를 절대 클릭하시면 안돼요!'
 							</li>
 							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요</li>
+							<li>스미싱 시뮬레이션은 로그인 후 하루에 한 번만 가능합니다.</li>
 						</ul>
-						<form action="${pageContext.request.contextPath}/sendSmishing"
-							method="post">
+						<div class="form-container">
+							<h2>스미싱 시뮬레이션</h2>
 							<div class="form-group">
 								<label for="to">전송받을 휴대폰 번호: </label> <input type="text" id="to"
 									name="to" required>
@@ -150,13 +198,14 @@
 								<textarea id="text" name="text" required></textarea>
 							</div>
 							<div class="form-group">
-								<button type="submit" name="buttonType" value="delivery"
-									class="custom-btn">택배문자 체험하기</button>
-								<button type="submit" name="buttonType" value="invitation"
-									class="custom-btn">청접장문자 체험하기</button>
+								<button type="button" name="buttonType" value="delivery"
+									class="custom-btn" onclick="sendSmishing('delivery')">택배문자
+									체험하기</button>
+								<button type="button" name="buttonType" value="invitation"
+									class="custom-btn" onclick="sendSmishing('invitation')">청접장문자
+									체험하기</button>
 							</div>
-						</form>
-
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-5 col-sm-6">
@@ -178,28 +227,26 @@
 	<!-- Ourself Area End -->
 
 	<!-- Footer start-->
-	<%@ include file="/WEB-INF/views/footer.jsp"%>
+	<jsp:include page="/WEB-INF/views/footer.jsp" />
 
-	<!--
-Javascript
-======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
+	<!-- Javascript -->
+	<script src="<c:url value='/resources/js/jquery.min.js' />"></script>
+	<script src="<c:url value='/resources/js/bootstrap.bundle.min.js' />"></script>
+	<script src="<c:url value='/resources/js/owl.carousel.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.stellar.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.scrollUp.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.easing.1.3.js' />"></script>
 	<script
-		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/wow.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/form.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+		src="<c:url value='/resources/js/jquery.magnific-popup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.syotimer.min.js' />"></script>
+	<script src="<c:url value='/resources/js/wow.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.counterup.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.waypoints.min.js' />"></script>
+	<script src="<c:url value='/resources/js/isotope.pkgd.min.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.ajaxchimp.min.js' />"></script>
+	<script src="<c:url value='/resources/js/form.js' />"></script>
+	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
+	<script src="<c:url value='/resources/js/custom.js' />"></script>
 </body>
 
 </html>
