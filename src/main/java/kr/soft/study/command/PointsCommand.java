@@ -1,15 +1,11 @@
 package kr.soft.study.command;
-
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import kr.soft.study.dao.PointsDAO;
 import kr.soft.study.dto.PointsDto;
-
 @Component
 public class PointsCommand implements PCommand {
 	private SqlSession sqlSession;
@@ -19,12 +15,11 @@ public class PointsCommand implements PCommand {
 		this.sqlSession = sqlSession;
 	}
 
-//¼Ò¹Ì ¼öÁ¤ (¸Ş½ÅÀúÇÇ½Ì, º¸ÀÌ½ºÇÇ½Ì, ½º¹Ì½Ì Æ÷ÀÎÆ® ¾÷µ¥ÀÌÆ®)
+//ì†Œë¯¸ ìˆ˜ì • (ë©”ì‹ ì €í”¼ì‹±, ë³´ì´ìŠ¤í”¼ì‹±, ìŠ¤ë¯¸ì‹± í¬ì¸íŠ¸ ì—…ë°ì´íŠ¸)
 	@Override
 	public String execute(Map<String, Object> map) {
 		String userId = (String) map.get("userId");
 		String pointReason = (String) map.get("pointReason");
-
 		System.out.println("Executing PointsCommand with userId: " + userId + ", pointReason: " + pointReason);
 		if (userId == null || userId.isEmpty()) {
 			System.out.println("User ID is null or empty.");
@@ -40,7 +35,6 @@ public class PointsCommand implements PCommand {
 			Integer totalPoints = pointsDAO.getTotalPoints(userId);
 			int newPoints = 500; // or you can pass this value in the map
 			int updatedTotalPoints = totalPoints != null ? totalPoints + newPoints : newPoints;
-
 			PointsDto pointsDto = new PointsDto();
 			pointsDto.setUserId(userId);
 			pointsDto.setPointsEarned(newPoints);
@@ -53,8 +47,7 @@ public class PointsCommand implements PCommand {
 			return "Points already added today.";
 		}
 	}
-
-//½½±â¾ğ´Ï Ãß°¡ºÎºĞ
+//ìŠ¬ê¸°ì–¸ë‹ˆ ì¶”ê°€ë¶€ë¶„
 	public void updatePoints(String userId, int pointsEarned, String pointReason, int quizId) {
 		System.out.println("Executing PointsCommand with userId: " + userId + ", quizId: " + quizId + ", pointsEarned: "
 				+ pointsEarned + ", pointReason: " + pointReason);
