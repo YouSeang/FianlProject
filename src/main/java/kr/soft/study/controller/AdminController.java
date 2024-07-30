@@ -35,6 +35,12 @@ public class AdminController {
     public String adminView(Model model) {
         return "admin/admin";
     }
+    
+    // 사용자 관리 페이지
+    @RequestMapping("/admin/adminUser")
+    public String adminUser(Model model) {
+        return "admin/adminUser";
+    }
 
     // 시나리오 관리 페이지
     @RequestMapping("/admin/adminPhishing")
@@ -78,12 +84,9 @@ public class AdminController {
         return "redirect:/admin/adminPhishing";
     }
 
-    // 시나리오 삭제 처리
     @PostMapping("/admin/deleteScenario")
     public String deleteScenario(@RequestParam("scenarioId") int scenarioId) {
-        adminDao.deleteAudioFilesByScenarioId(scenarioId);
         adminDao.deleteScenario(scenarioId);
-
         return "redirect:/admin/adminPhishing";
     }
 }

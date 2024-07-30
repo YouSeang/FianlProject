@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -25,6 +25,20 @@
         .scenario-card {
             margin-bottom: 30px;
         }
+        .sortable-placeholder {
+            border: 2px dashed #cccccc;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        .drag-handle {
+            cursor: move;
+            margin-left: 10px;
+        }
+        .sortable-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -48,6 +62,7 @@
                     <div class="card scenario-card">
                         <div class="card-header">
                             <h5>${scenario.scenarioName}</h5>
+                            <button class="btn btn-danger float-end" onclick="deleteScenario(${scenario.id})">삭제</button>
                         </div>
                         <div class="card-body">
                             <form action="${pageContext.request.contextPath}/admin/updateScenario" method="post" enctype="multipart/form-data">
@@ -58,19 +73,20 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="scenarioPrompt${scenario.id}" class="form-label">프롬프트</label>
-                                    <textarea class="form-control" id="scenarioPrompt${scenario.id}" name="scenarioPrompt" rows="5" required>${scenario.scenarioPrompt}</textarea>
+                                    <textarea class="form-control" id="scenarioPrompt${scenario.id}" name="scenarioPrompt" rows="10" required>${scenario.scenarioPrompt}</textarea>
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">오디오 파일</label>
-                                    <div id="fileInputsContainer${scenario.id}">
+                                    <ul id="fileInputsContainer${scenario.id}" class="sortable list-unstyled">
                                         <c:forEach var="audio" items="${scenario.audioFiles}">
-                                            <div class="row align-items-center mb-2">
+                                            <li class="sortable-item" data-id="${audio.voicePath}">
+                                                <span class="drag-handle"><i class="fas fa-bars"></i></span>
                                                 <input type="hidden" name="existingAudioFiles" value="${audio.voicePath}">
                                                 <input type="text" class="form-control col" value="${audio.voicePath}" readonly>
                                                 <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
-                                            </div>
+                                            </li>
                                         </c:forEach>
-                                    </div>
+                                    </ul>
                                 </div>
                                 <button type="button" class="btn btn-secondary mb-3" onclick="addFileInput('${scenario.id}')">다른 파일 추가</button>
                                 <div class="text-end mb-3">
@@ -97,11 +113,14 @@
                                 <label for="scenarioPromptNew" class="form-label">프롬프트</label>
                                 <textarea class="form-control" id="scenarioPromptNew" name="scenarioPrompt" rows="5" required></textarea>
                             </div>
-                            <div id="fileInputsContainerNew" class="mb-3">
+                            <div class="mb-3">
                                 <label for="audioFileNew" class="form-label">오디오 파일</label>
-                                <div class="row align-items-center">
-                                    <input type="file" class="form-control col" id="audioFileNew" name="audioFiles" accept="audio/*">
-                                    <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+                                <div id="fileInputsContainerNew" class="sortable">
+                                    <div class="sortable-item">
+                                        <span class="drag-handle"><i class="fas fa-bars"></i></span>
+                                        <input type="file" class="form-control col" id="audioFileNew" name="audioFiles" accept="audio/*">
+                                        <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+                                    </div>
                                 </div>
                             </div>
                             <button type="button" class="btn btn-secondary mb-3" onclick="addFileInput('New')">다른 파일 추가</button>
@@ -121,6 +140,8 @@
     <script src="<c:url value='/resources/js/bootstrap.bundle.min.js'/>"></script>
     <script src="<c:url value='/resources/js/owl.carousel.min.js'/>"></script>
     <script src="<c:url value='/resources/js/custom.js'/>"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script> <!-- jQuery UI 추가 -->
+
     <script>
         function toggleForm(formType) {
             if (formType === 'add') {
@@ -130,25 +151,13 @@
 
         function addFileInput(tabId) {
             const container = document.getElementById('fileInputsContainer' + tabId);
-            const fileInputDiv = document.createElement('div');
-            fileInputDiv.classList.add('mb-3', 'row', 'align-items-center');
-
-            const fileInput = document.createElement('input');
-            fileInput.type = 'file';
-            fileInput.className = 'form-control col';
-            fileInput.name = 'audioFiles';
-            fileInput.accept = 'audio/*';
-
-            const removeButton = document.createElement('button');
-            removeButton.type = 'button';
-            removeButton.className = 'btn btn-danger col-auto';
-            removeButton.innerText = '제거';
-            removeButton.onclick = function() {
-                container.removeChild(fileInputDiv);
-            };
-
-            fileInputDiv.appendChild(fileInput);
-            fileInputDiv.appendChild(removeButton);
+            const fileInputDiv = document.createElement('li');
+            fileInputDiv.classList.add('sortable-item');
+            fileInputDiv.innerHTML = `
+                <span class="drag-handle"><i class="fas fa-bars"></i></span>
+                <input type="file" class="form-control col" name="audioFiles" accept="audio/*">
+                <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+            `;
             container.appendChild(fileInputDiv);
         }
 
@@ -156,6 +165,33 @@
             const container = button.parentElement.parentElement;
             container.removeChild(button.parentElement);
         }
+
+        function deleteScenario(scenarioId) {
+            if (confirm("정말로 이 시나리오를 삭제하시겠습니까?")) {
+                $.ajax({
+                    url: '${pageContext.request.contextPath}/admin/deleteScenario',
+                    type: 'POST',
+                    data: { scenarioId: scenarioId },
+                    success: function(response) {
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        alert("시나리오 삭제에 실패했습니다. 다시 시도해 주세요.");
+                    }
+                });
+            }
+        }
+
+        $(function() {
+            $(".sortable").sortable({
+                handle: ".drag-handle",
+                placeholder: "sortable-placeholder",
+                update: function(event, ui) {
+                    // 순서 변경 시의 처리 로직 추가 (옵션)
+                }
+            });
+            $(".sortable").disableSelection();
+        });
     </script>
 </body>
 </html>
