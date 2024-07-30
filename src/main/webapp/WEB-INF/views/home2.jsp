@@ -49,6 +49,12 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<style type="text/css">
+.text-white-custom {
+	color: white;
+}
+</style>
 </head>
 
 <body>
@@ -70,9 +76,11 @@
 						<h1 class="banner-title text-white">
 							시뮬레이션으로<span>금융사고를 </span><br />예방해보세요
 						</h1>
-						<p>블라블라</p>
+						<p>적을 알아야 예방할 수 있어요.</p>
 						<div class="banner-btn">
-							<a href="#" class="custom-btn">체험하러가기</a>
+							<!-- <a href="voice/newVoicePhishing" class="custom-btn">체험하러가기</a> -->
+							<a href="#" class="custom-btn"
+								onclick="openVoicePhishingWindow()">체험하러 가기</a>
 						</div>
 					</div>
 				</div>

@@ -59,6 +59,28 @@
 	</div>
 		<!-- header start -->
 	<%@ include file="/WEB-INF/views/header.jsp"%>
+	
+	<!-- Promo Area Start -->
+	<section class="promo-area" data-stellar-background-ratio="0.5">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="promo-wrap">
+						<h1 class="promo-title">
+							<span>금융사고</span> 현황
+						</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
+								<li class="breadcrumb-item active" aria-current="page">금융사고현황</li>
+							</ol>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- Promo Area End -->
 
 
 
@@ -268,7 +290,7 @@
 														<div >
 															
 															<span class="date"><strong>작년 보이스피싱 피해자 1인당 1,700만원 피해, 전년比
-																1.5배↑ - 2023년 보이스피싱 피해현황 분석 -</strong></span>
+																1.5배↑ -  2023년 보이스피싱 피해현황 분석 -</strong></span>
 															<p>□(피해규모)’23년 보이스피싱 피해액은 1,965억원으로 전년(1,451억원)보다
 																514억원(35.4%) 증가 ◦피해자 수는 감소(10.2%↓)하였으나, 1천만원 이상 고액 피해사례가
 																증가 □(피해구제)｢통합신고대응센터(☎112)｣ 개소에 따른 보이스피싱 구제절차 일원화 등으로 신속한
@@ -291,193 +313,7 @@
 						</div>
 						<div class="row mb-5 pb-4">
 							<!-- Related Product Start -->
-							<div class="col-lg-12">
-								<div class="related-product">
-									<h2>Related Products</h2>
-									<div class="p-wrap owl-carousel">
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop3.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop4.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop2.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop7.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop4.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-										<div class="product-entry">
-											<div class="product-media position-relative">
-												<a href="single-product.html"> <img class="img-fluid"
-													src="${pageContext.request.contextPath}/resources/
-													images/shop/shop2.jpg"
-													alt="product">
-												</a>
-												<div class="product-actions position-absolute">
-													<a href="#" class="button add_to_cart_button icon"><i
-														class="fa fa-shopping-cart"></i></a> <a href="#"
-														class="button add_to_wish icon"><i class="fa fa-eye"></i></a>
-												</div>
-											</div>
-											<div class="product-summery p-3">
-												<div class="star-rating mb-2">
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span> <span><i class="fa fa-star"></i></span>
-													<span><i class="fa fa-star"></i></span> <span><i
-														class="fa fa-star"></i></span>
-												</div>
-												<h3 class="product-title">
-													<a class="text-reset" href="single-product.html">
-														Fashion Style Bag</a>
-												</h3>
-												<span class="price h5"> <span
-													class="currency fw-bold">$</span>59.00
-												</span>
-											</div>
-										</div>
-										<!-- Product Entry End -->
-									</div>
-								</div>
-							</div>
+
 						</div>
 					</div>
 				</div>
