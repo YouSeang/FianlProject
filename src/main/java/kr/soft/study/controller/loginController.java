@@ -23,85 +23,90 @@ import kr.soft.study.dto.UserDto;
 @Controller
 public class loginController {
 
-    @Autowired
-    private SqlSession sqlSession;
+	@Autowired
+	private SqlSession sqlSession;
 
-    @Autowired
-    private BCryptPasswordEncoder passwordEncoder;
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 
-    @Autowired
-    private UserLogin userLogin;
+	@Autowired
+	private UserLogin userLogin;
 
-    @Autowired
-    private UserSignup userSignup;
+	@Autowired
+	private UserSignup userSignup;
 
-    @RequestMapping("/loginView")
-    public String loginView(Model model) {
-        model.addAttribute("userDto", new UserDto());
-        return "login";
-    }
+	@RequestMapping("/loginView")
+	public String loginView(Model model) {
+		model.addAttribute("userDto", new UserDto());
+		return "login";
+	}
 
-    @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, HttpSession session, Model model, HttpServletRequest request) {
-        UserValidator validator = new UserValidator();
-        validator.validate(userDto, result);
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result,
+			HttpSession session, Model model, HttpServletRequest request) {
+		UserValidator validator = new UserValidator();
+		validator.validate(userDto, result);
 
-        if (result.hasErrors()) {
-            return "login";
-        }
+		if (result.hasErrors()) {
+			session.setAttribute("isLoggedIn", false); // 로그인 실패 시
+			return "login";
+		}
 
-        model.addAttribute("request", request);
-        userLogin.execute(model);
+		model.addAttribute("request", request);
+		userLogin.execute(model);
 
-        String loginResult = (String) session.getAttribute("loginResult");
-        if ("success".equals(loginResult)) {
-        	UserDto user = (UserDto) session.getAttribute("user");
-            System.out.println("User logged in: " + user.getUser_id());
-        	
-            String userRole = (String) session.getAttribute("userRole");
-            if ("admin".equals(userRole)) {
-            	System.out.println("admin login");
-                return "redirect:admin/admin";
-            } else {
-                return "redirect:/home";
-            }
-        } else {
-            model.addAttribute("loginError", "Invalid username or password.");
-            System.out.println("admin error");
-            return "login";
-        }
-    }
-    
-    // 로그인 후 home 으로 이동
-    @RequestMapping("/home")
-    public String home(Model model) {
-        return "home";
-    }
-    
-    @RequestMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate(); // 세션 무효화
-        return "home"; 
-    }
+		String loginResult = (String) session.getAttribute("loginResult");
+		if ("success".equals(loginResult)) {
+			session.setAttribute("isLoggedIn", true); // 로그인 성공 시 세션에 true값 담음
+			UserDto user = (UserDto) session.getAttribute("user");
+			System.out.println("User logged in: " + user.getUser_id());
+			System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
 
+			String userRole = (String) session.getAttribute("userRole");
+			if ("admin".equals(userRole)) {
+				System.out.println("admin login");
+				return "redirect:admin/admin";
+			} else {
+				return "redirect:/home";
+			}
+		} else {
+			session.setAttribute("isLoggedIn", false); // 로그인 실패 시
+			model.addAttribute("loginError", "Invalid username or password.");
+			System.out.println("admin error");
+			return "login";
+		}
+	}
 
-    @RequestMapping("/signupView")
-    public String signupView(Model model) {
-        model.addAttribute("userDto", new UserDto());
-        return "signup";
-    }
+	// 로그인 후 home 으로 이동
+	@RequestMapping("/home")
+	public String home(Model model) {
+		return "home";
+	}
 
-    @RequestMapping(value = "/signup", method = RequestMethod.POST)
-    public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model, HttpServletRequest request) {
-        UserValidator validator = new UserValidator();
-        validator.validate(userDto, result);
+	@RequestMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate(); // 세션 무효화
+		return "home";
+	}
 
-        if (result.hasErrors()) {
-            return "signup";
-        }
+	@RequestMapping("/signupView")
+	public String signupView(Model model) {
+		model.addAttribute("userDto", new UserDto());
+		return "signup";
+	}
 
-        model.addAttribute("request", request);
-        userSignup.execute(model);
-        return "home";
-    }
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model,
+			HttpServletRequest request) {
+		UserValidator validator = new UserValidator();
+		validator.validate(userDto, result);
+
+		if (result.hasErrors()) {
+			return "signup";
+		}
+
+		model.addAttribute("request", request);
+		userSignup.execute(model);
+		return "home";
+	}
 }

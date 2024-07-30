@@ -28,6 +28,7 @@ public class PointsController {
 	@RequestMapping(value = "/updatePoints", method = RequestMethod.POST)
 	@ResponseBody
 	public String updatePoints(HttpSession session, @RequestParam("pointReason") String pointReason) {
+		System.out.println("여기까지는 오나?");
 		UserDto user = (UserDto) session.getAttribute("user");
 		if (user != null && user.getUser_id() != null) {
 			System.out.println("User ID: " + user.getUser_id()); // 세션에 사용자 ID 출력

@@ -3,9 +3,12 @@ package kr.soft.study.service;
 import java.io.File;
 import java.io.IOException;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
+import kr.soft.study.dto.UserDto;
 import net.nurigo.sdk.NurigoApp;
 import net.nurigo.sdk.message.exception.NurigoMessageNotReceivedException;
 import net.nurigo.sdk.message.model.Message;
@@ -46,13 +49,21 @@ public class MessageService {
 		}
 	}
 
-	public SingleMessageSentResponse sendMms(String to, String text, String imagePath) throws IOException {
+	public SingleMessageSentResponse sendMms(HttpSession session, String to, String text, String imagePath)
+			throws IOException {
 		// 이미지 파일을 읽어옵니다
 		ClassPathResource resource = new ClassPathResource(imagePath);
 		if (!resource.exists()) {
 			throw new IOException("파일이 존재하지 않습니다: " + imagePath);
 		}
 		File file = resource.getFile();
+
+		UserDto user = (UserDto) session.getAttribute("user");
+
+		String userName = user.getName(); // user가 null이 아닌 경우에만 호출됨
+		System.out.println(userName);
+
+		String fullMessage = "[KB국민은행]" + userName + "님이 발송한 쿠폰입니다" +"\n 보낸 메시지: "+ text;
 
 		// 파일 업로드를 통해 이미지 ID를 얻어옵니다
 		String imageId = this.messageService.uploadFile(file, StorageType.MMS, null);
@@ -61,7 +72,7 @@ public class MessageService {
 		Message message = new Message();
 		message.setFrom("01030669048");
 		message.setTo(to);
-		message.setText(text);
+		message.setText(fullMessage);
 		message.setImageId(imageId);
 
 		// MMS 발송
@@ -73,7 +84,7 @@ public class MessageService {
 
 	public boolean sendSmishing(String to, String text, String couponImageUrl, String adminText) {
 		System.out.println(couponImageUrl);
-		// 쿠폰 이미지 URL을 포함한 메시지 작성
+
 		String fullMessage = adminText + "\n" + couponImageUrl + "\n" + text;
 
 		Message message = new Message();
