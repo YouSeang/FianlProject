@@ -20,6 +20,10 @@ public interface AdminDao {
     void deleteAudioFilesByScenarioId(int scenarioId); // 시나리오 ID로 오디오 파일 삭제
 
     int getMaxAudioIdByScenarioName(String scenarioName); // 시나리오 이름으로 최대 오디오 ID 가져오기
+    
+    void updateIsFinal(Map<String, Object> paramMap); // is_final 업데이트
+    
+    void resetIsFinalByScenarioName(String scenarioName); // 시나리오 이름으로 모든 is_final 값을 0으로 리셋
 
     List<Scenario> getAllScenarios(); // 모든 시나리오 가져오기
 

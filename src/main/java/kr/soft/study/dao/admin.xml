@@ -46,6 +46,7 @@
         SELECT s.id, s.scenario_name, s.scenario_prompt, cv.voice_path
         FROM Scenarios s
         LEFT JOIN criminal_voice cv ON s.scenario_name = cv.scenario_name
+        ORDER BY s.id ASC, cv.id ASC;
     </select>
 
     <!-- 특정 시나리오 가져오기 -->
@@ -76,4 +77,16 @@
             <result property="voicePath" column="voice_path"/>
         </collection>
     </resultMap>
+    
+    <update id="resetIsFinalByScenarioName">
+	    UPDATE criminal_voice 
+	    SET is_final = 0 
+	    WHERE scenario_name = #{scenarioName}
+	</update>
+	
+	<update id="updateIsFinal">
+	    UPDATE criminal_voice 
+	    SET is_final = 1 
+	    WHERE id = #{id} AND scenario_name = #{scenarioName}
+	</update>
 </mapper>

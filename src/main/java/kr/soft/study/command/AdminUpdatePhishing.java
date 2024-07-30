@@ -31,6 +31,9 @@ public class AdminUpdatePhishing {
 
         // Handle existing audio files
         adminDao.deleteAudioFilesByScenarioId(scenarioId);
+        
+        // Reset all is_final to 0 for this scenario before adding new files
+        adminDao.resetIsFinalByScenarioName(scenarioName);
 
         // Handle new audio files
         int fileId = 1;
@@ -46,6 +49,15 @@ public class AdminUpdatePhishing {
                     String fileName = saveFile(file);
                     adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", fileName, "isFinal", 0));
                 }
+            }
+            // Set the isFinal of the last file to 1
+            int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
+            adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
+        } else {
+            // If no new audio files are added, ensure the last existing file is set to isFinal = 1
+            int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
+            if (maxId > 0) {
+                adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
             }
         }
     }
