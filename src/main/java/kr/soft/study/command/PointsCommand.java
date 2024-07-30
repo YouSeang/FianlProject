@@ -9,11 +9,13 @@ import kr.soft.study.dto.PointsDto;
 @Component
 public class PointsCommand implements PCommand {
 	private SqlSession sqlSession;
+
 	@Autowired
 	public PointsCommand(SqlSession sqlSession) {
 		this.sqlSession = sqlSession;
 	}
-//¼Ò¹Ì ¼öÁ¤ (¸Ş½ÅÀúÇÇ½Ì, º¸ÀÌ½ºÇÇ½Ì, ½º¹Ì½Ì Æ÷ÀÎÆ® ¾÷µ¥ÀÌÆ®)
+
+//ì†Œë¯¸ ìˆ˜ì • (ë©”ì‹ ì €í”¼ì‹±, ë³´ì´ìŠ¤í”¼ì‹±, ìŠ¤ë¯¸ì‹± í¬ì¸íŠ¸ ì—…ë°ì´íŠ¸)
 	@Override
 	public String execute(Map<String, Object> map) {
 		String userId = (String) map.get("userId");
@@ -23,6 +25,7 @@ public class PointsCommand implements PCommand {
 			System.out.println("User ID is null or empty.");
 			return "User ID is null or empty.";
 		}
+
 		PointsDAO pointsDAO = sqlSession.getMapper(PointsDAO.class);
 		Map<String, Object> params = new HashMap<>();
 		params.put("userId", userId);
@@ -44,7 +47,7 @@ public class PointsCommand implements PCommand {
 			return "Points already added today.";
 		}
 	}
-//½½±â¾ğ´Ï Ãß°¡ºÎºĞ
+//ìŠ¬ê¸°ì–¸ë‹ˆ ì¶”ê°€ë¶€ë¶„
 	public void updatePoints(String userId, int pointsEarned, String pointReason, int quizId) {
 		System.out.println("Executing PointsCommand with userId: " + userId + ", quizId: " + quizId + ", pointsEarned: "
 				+ pointsEarned + ", pointReason: " + pointReason);

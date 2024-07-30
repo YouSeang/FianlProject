@@ -1,24 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description"
+	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
+<meta name="author" content="Tariqul Islam">
+<title>메신저피싱</title>
 
-
-<!-- Template Title -->
-<title>메시지피싱</title>
-
-<!-- Favicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
-
-
-<!-- Plugins CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -33,15 +29,9 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-
-<!-- Theme CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 <style>
 body {
 	margin: 0;
@@ -51,40 +41,101 @@ body {
 	align-items: center;
 	height: 100vh;
 	background-color: #f0f0f0;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+.wrapper {
+	width: 100%;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
+}
+
+.header {
+	width: 100%;
+	padding: 10px;
+	background-color: #ffb200;
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	box-sizing: border-box;
 }
 
 .container {
 	display: flex;
-	width: 900px; /* 전체 컨테이너의 너비 */
-	height: 667px; /* 전체 컨테이너의 높이 */
+	flex-direction: column;
+	width: 100%;
+	max-width: 900px;
+	height: auto;
+	margin-top: 10px;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
 }
 
 .mobile-frame {
-	width: 390px; /* 모바일 화면 너비 */
-	height: 100%; /* 모바일 화면 높이 */
-	border: 16px solid #000; /* 프레임의 두께와 색상 */
-	border-radius: 36px; /* 둥근 모서리 */
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
-	background-color: #fff; /* 배경 색상 */
-	overflow: hidden; /* 프레임 밖으로 내용이 나가지 않도록 */
-	position: relative; /* 스크롤 등을 설정하기 위해 position을 relative로 설정 */
-	margin-right: 20px; /* 모바일 프레임과 사이드바 사이의 간격 */
+	width: 100%;
+	max-width: 390px;
+	height: 667px;
+	border: 16px solid #000;
+	border-radius: 36px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 20px;
+	box-sizing: border-box;
 }
 
 .mobile-content {
 	width: 100%;
 	height: 100%;
-	overflow-y: auto; /* 스크롤 가능 */
+	overflow-y: auto;
 	padding: 10px;
 	box-sizing: border-box;
 }
 
+.message {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.message.sent {
+	justify-content: flex-end;
+}
+
+.message.received {
+	justify-content: flex-start;
+}
+
+.message .bubble {
+	max-width: 70%;
+	padding: 10px;
+	border-radius: 20px;
+	background-color: #f1f0f0;
+	position: relative;
+}
+
+.message.sent .bubble {
+	background-color: #007aff;
+	color: white;
+}
+
 .sidebar {
-	width: 390px; /* 답변 이미지의 너비 */
-	height: 100%;
-	background-color: #e0e0e0; /* 배경 색상 */
+	width: 100%;
+	max-width: 390px;
+	height: auto;
+	background-color: transparent;
 	padding: 10px;
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .sidebar img {
@@ -92,52 +143,218 @@ body {
 	height: auto;
 	border-radius: 8px;
 }
+
+button {
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffb200;
+	color: white;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #005bb5;
+}
+
+@media ( min-width : 768px) {
+	.container {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.mobile-frame {
+		margin-right: 20px;
+		margin-bottom: 0;
+	}
+	.sidebar {
+		align-items: flex-start;
+	}
+}
 </style>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function addMessagesSequentially(messages, type, delay, callback) {
+        if (messages.length === 0) {
+            if (callback) callback();
+            return;
+        }
+        addMessage(messages[0], type);
+        setTimeout(function() {
+            addMessagesSequentially(messages.slice(1), type, delay, callback);
+        }, delay);
+    }
+
+    function addMessage(content, type) {
+        var mobileContent = document.getElementById('mobile-content');
+        var message = document.createElement('div');
+        message.className = 'message ' + type;
+        var bubble = document.createElement('div');
+        bubble.className = 'bubble';
+        bubble.innerText = content;
+        message.appendChild(bubble);
+        mobileContent.appendChild(message);
+        mobileContent.scrollTop = mobileContent.scrollHeight;
+    }
+
+    function updateChat(choice) {
+        console.log('updateChat called with choice:', choice);
+        if (!choice) {
+            console.error('Choice is empty!');
+            return;
+        }
+
+        addMessage(choice, 'sent');
+
+        switch (choice) {
+            case '핸드폰이 고장났다구? 전화를 해봐':
+                addMessagesSequentially([
+                    '계속 목소리가 끊겨서 통화는 어려울 것 같아...',
+                    '임시폰이라 그런가봐',
+                    '일단 중고거래로 휴대폰을 사려고 하는데 이체가 안돼서 아빠/엄마가 먼저 돈 좀 보내줄 수 있어?'
+                ], 'received', 1000, function() {
+                    updateSidebar('그럼 어떻게 해주면 돼?', '아무리 급해도 알아보고 하는게 좋을 것 같아. 이따가 집에가서 같이 이야기해보자');
+                });
+                break;
+            case '어떻게 도와줘?':
+                addMessagesSequentially([
+                    '중고거래로 휴대폰을 사려고 하는데 이체가 안돼서 아빠/엄마가 먼저 돈 좀 보내줄 수 있어?',
+                    '[국민은행 123456-78-90123] 홍사기 여기로 650,000원 보내고 나한테 알려줘!'
+                ], 'received', 1000, function() {
+                    updateSidebar('그래, 지금 보냈어.', '아무리 급해도 엄마/아빠랑도 이야기해보는게 맞을 것 같다. 확인해보고 다시 연락해줄게');
+                });
+                break;
+            case '그래, 지금 보냈어.':
+                Swal.fire({
+                    title: '예방실패!',
+                    text: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요.',
+                    icon: 'warning',
+                    showCloseButton: true,
+                    confirmButtonText: '체험 다시하기'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        location.reload();
+                    }
+                });
+                break;
+            case '그럼 어떻게 해주면 돼?':
+                addMessagesSequentially([
+                    '[국민은행 123456-78-90123] 홍사기 여기로 650,000원 보내고 나한테 알려줘!'
+                ], 'received', 1000, function() {
+                    updateSidebar('그래, 지금 보냈어.', '아무리 급해도 엄마/아빠랑도 이야기해보는게 맞을 것 같다. 확인해보고 다시 연락해줄게');
+                });
+                break;
+            case '아무리 급해도 알아보고 하는게 좋을 것 같아. 이따가 집에가서 같이 이야기해보자':
+            case '아무리 급해도 엄마/아빠랑도 이야기해보는게 맞을 것 같다. 확인해보고 다시 연락해줄게':
+                Swal.fire({
+                    title: '예방성공!',
+                    text: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요',
+                    icon: 'success',
+                    showCloseButton: true,
+                    showDenyButton: true,
+                    confirmButtonText: '확인',
+                    denyButtonText: '체험 다시하기'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // 포인트 업데이트 요청
+                        $.ajax({
+                            url: "${pageContext.request.contextPath}/updatePoints",
+                            method: "POST",
+                            data: { pointReason: '메신저피싱 체험완료' }, // 추가된 부분
+                            success: function(response) {
+                                console.log(response);
+                                // 응답 확인을 위해 추가 로그
+                                Swal.fire({
+                                    title: '포인트 업데이트 완료!',
+                                    text: response,
+                                    icon: 'success'
+                                }).then(() => {
+                                    window.close();
+                                });
+                            },
+                            error: function(xhr, status, error) {
+                                console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                                Swal.fire('포인트 업데이트 실패', `상태: ${status}, 오류: ${error}`, 'error').then(() => {
+                                    window.close();
+                                });
+                            }
+                        });
+                    } else if (result.isDenied) {
+                        location.reload();
+                    }
+                });
+                break;
+            default:
+                console.error('Unhandled choice:', choice);
+        }
+    }
+
+    function updateSidebar(optionA, optionB) {
+        var sidebar = document.getElementById('sidebar');
+        sidebar.innerHTML = ''; // Clear previous content
+
+        var buttonA = document.createElement('button');
+        buttonA.className = 'response-button';
+        buttonA.setAttribute('data-choice', optionA);
+        buttonA.textContent = 'A: ' + optionA;
+        sidebar.appendChild(buttonA);
+
+        var buttonB = document.createElement('button');
+        buttonB.className = 'response-button';
+        buttonB.setAttribute('data-choice', optionB);
+        buttonB.textContent = 'B: ' + optionB;
+        sidebar.appendChild(buttonB);
+
+        console.log('updateSidebar called with options:', optionA, optionB);
+
+        document.querySelectorAll('.response-button').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var choice = this.getAttribute('data-choice');
+                console.log('Button clicked with choice:', choice);
+                updateChat(choice);
+            });
+        });
+    }
+
+    // 초기화 로직
+    Swal.fire({
+        title: '메신저피싱 시뮬레이션',
+        text: '확인 버튼을 누르면 체험이 시작됩니다!',
+        icon: 'info',
+        confirmButtonText: '확인'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            addMessagesSequentially([
+                '아빠/엄마!! 지금 바빠??',
+                '나 핸드폰 물에 빠뜨려서 고장났어ㅠㅠ지금 임시폰으로 연락하고 있어',
+                '지금 좀 급한데 도와줄 수 있어?'
+            ], 'received', 1000, function() {
+                updateSidebar('핸드폰이 고장났다구? 전화를 해봐', '어떻게 도와줘?');
+            });
+        }
+    });
+});
+</script>
 </head>
+
 <body>
 
-	<div class="container">
-		<div class="mobile-frame">
-			<div class="mobile-content">
-				<!-- 여기에 실제 내용을 삽입합니다 -->
-				<img
-					src="${pageContext.request.contextPath}/resources/images/messagePhishing/메시지피싱1.jpg"
-					alt="Message Image">
-				<p>이곳에 내용을 넣으세요.</p>
+	<div class="wrapper">
+		<div class="header">메신저피싱 모의 체험</div>
+		<div class="container">
+			<div class="mobile-frame">
+				<div class="mobile-content" id="mobile-content">
+					<!-- 메시지가 이곳에 동적으로 추가됩니다 -->
+				</div>
+			</div>
+			<div class="sidebar" id="sidebar">
+				<!-- 버튼이 동적으로 추가됩니다 -->
 			</div>
 		</div>
-		<div class="sidebar">
-			<h2>Choose Your Response</h2>
-			<img
-				src="${pageContext.request.contextPath}/resources/images/answer1.jpg"
-				alt="Answer Option 1"> <img
-				src="${pageContext.request.contextPath}/resources/images/answer2.jpg"
-				alt="Answer Option 2">
-		</div>
 	</div>
-
-
-
-	<!--
-Javascript
-======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-	<script
-		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/wow.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/form.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 
 </body>
 </html>

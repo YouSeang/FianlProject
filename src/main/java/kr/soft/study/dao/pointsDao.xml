@@ -2,9 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
 <mapper namespace="kr.soft.study.dao.PointsDAO">
-
+  
     <select id="checkPointsAddedToday" parameterType="map" resultType="int">
         SELECT COUNT(*)
         FROM Points
@@ -23,3 +22,4 @@
     </insert>
 
 </mapper>
+

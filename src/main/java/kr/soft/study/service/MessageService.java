@@ -48,16 +48,12 @@ public class MessageService {
 
 	public SingleMessageSentResponse sendMms(String to, String text, String imagePath) throws IOException {
 		// 이미지 파일을 읽어옵니다
-		ClassPathResource resource = new ClassPathResource("아메리카노.jpg");
+		ClassPathResource resource = new ClassPathResource(imagePath);
 		if (!resource.exists()) {
 			throw new IOException("파일이 존재하지 않습니다: " + imagePath);
 		}
 		File file = resource.getFile();
-		if (!resource.exists()) {
-			throw new IOException("파일 경로: " + file.getAbsolutePath());
-		}
 
-		System.out.println(file);
 		// 파일 업로드를 통해 이미지 ID를 얻어옵니다
 		String imageId = this.messageService.uploadFile(file, StorageType.MMS, null);
 
@@ -74,12 +70,11 @@ public class MessageService {
 
 		return response;
 	}
-	
-	public void sendSmishing(String to, String text, String couponImageUrl, String adminText) {
 
+	public boolean sendSmishing(String to, String text, String couponImageUrl, String adminText) {
 		System.out.println(couponImageUrl);
 		// 쿠폰 이미지 URL을 포함한 메시지 작성
-		String fullMessage = adminText + "\n" + couponImageUrl + "\n"+ text;
+		String fullMessage = adminText + "\n" + couponImageUrl + "\n" + text;
 
 		Message message = new Message();
 		message.setFrom("01030669048"); // 계정에서 등록한 발신번호
@@ -88,12 +83,15 @@ public class MessageService {
 
 		try {
 			messageService.send(message);
+			return true;
 		} catch (NurigoMessageNotReceivedException exception) {
-			// 발송에 실패한 메시지 목록을 확인!
+			// 발송에 실패한 메시지 목록을 확인
 			System.out.println(exception.getFailedMessageList());
 			System.out.println(exception.getMessage());
+			return false;
 		} catch (Exception exception) {
 			System.out.println(exception.getMessage());
+			return false;
 		}
 	}
 }
