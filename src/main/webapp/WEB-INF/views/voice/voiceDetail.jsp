@@ -1,84 +1,94 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%-- <%@ page session="false"%> --%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Voice Detail">
-    <meta name="author" content="Your Name">
-    <title>Voice Detail</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="<c:url value='/resources/js/jquery.min.js'/>"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <style>
-        .banner-btn a.custom-btn {
-            margin-right: 10px;
-            padding: 15px 30px;
-            font-size: 18px;
-        }
-        
-        #recordButton {
-            color: white;
-            background-color: #fc0707;
-            border: none;
-            border-radius: 20px;
-            padding: 15px 30px;
-            font-size: 22px;
-            text-align: center;
-            display: inline-block;
-            cursor: pointer;
-            text-decoration: none;
-             font-weight: bold;
-        }
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="Voice Detail">
+<meta name="author" content="Your Name">
+<title>Voice Detail</title>
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script src="<c:url value='/resources/js/jquery.min.js'/>"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<style>
+.banner-btn a.custom-btn {
+	margin-right: 10px;
+	padding: 15px 30px;
+	font-size: 18px;
+}
 
-        #recordButton:hover {
-            border: 2px solid #ebc0b6; /* 호버 시 테두리 추가 */
-        }
-    </style>
+#recordButton {
+	color: white;
+	background-color: #fc0707;
+	border: none;
+	border-radius: 20px;
+	padding: 15px 30px;
+	font-size: 22px;
+	text-align: center;
+	display: inline-block;
+	cursor: pointer;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#recordButton:hover {
+	border: 2px solid #ebc0b6; /* 호버 시 테두리 추가 */
+}
+</style>
 </head>
 <body>
-    <h1>데이터 확인용</h1>
-    <p id="result"></p>
-    <div id="voiceDetail">
-        <p id="voicePath"></p>
-        <p id="isFinal"></p>
-        <p id="voiceNotFound"></p>
-        <p id="finalMessage"></p>
-    </div>
-    <audio id="audioPlayer" controls style="display: none;" autoplay></audio>
-    <section class="banner-area parallax-banner bg-cover" data-stellar-background-ratio=".6"
-        style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/voiceBanner3.jpg');">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="banner-info">
-                        <h1 class="banner-title text-white" style="color: white;">범인의 음성에 <div>답변을 완성하세요.</div></h1>
-                        <div class="donation-form p-3 p-xl-4 rounded-6">
-                            <p style="color: red;">이것은, 범죄자의 실제 목소리입니다.</p>
-                            <h2 class="mb-4"></h2>
-                            <canvas class="visualizer" height="60px" style="width: 100%;"></canvas>
-                        </div>
-                        <div class="banner-meta mt-5">
-                            <span>정확한 발성으로 말씀해주세요</span> <span>start/stop버튼을 눌러주세요</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
-                    <div class="banner-btn mt-5 d-flex align-items-center">
-                        <a href="#" class="custom-btn2" id="recordButton" onclick="toggleRecording()">답변 시작</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<h1>데이터 확인용</h1>
+	<p id="result"></p>
+	<div id="voiceDetail">
+		<p id="voicePath"></p>
+		<p id="isFinal"></p>
+		<p id="voiceNotFound"></p>
+		<p id="finalMessage"></p>
+	</div>
+	<audio id="audioPlayer" controls style="display: none;" autoplay></audio>
+	<section class="banner-area parallax-banner bg-cover"
+		data-stellar-background-ratio=".6"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/voiceBanner3.jpg');">
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-lg-6">
+					<div class="banner-info">
+						<h1 class="banner-title text-white" style="color: white;">
+							범인의 음성에
+							<div>답변을 완성하세요.</div>
+						</h1>
+						<div class="donation-form p-3 p-xl-4 rounded-6">
+							<p style="color: red;">이것은, 범죄자의 실제 목소리입니다.</p>
+							<h2 class="mb-4"></h2>
+							<canvas class="visualizer" height="60px" style="width: 100%;"></canvas>
+						</div>
+						<div class="banner-meta mt-5">
+							<span>정확한 발성으로 말씀해주세요</span> <span>start/stop버튼을 눌러주세요</span>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
+					<div class="banner-btn mt-5 d-flex align-items-center">
+						<a href="#" class="custom-btn2" id="recordButton"
+							onclick="toggleRecording()">답변 시작</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <script>
+	<script>
     let voiceType;
     let userId = '<c:out value="${sessionScope.userId}"/>'; // JSP에서 세션 값을 JavaScript로 전달
     let audioPlayer;
@@ -238,8 +248,32 @@
                         showMultipleAlerts(finalMessage);
                     }
                     $("#finalMessage").text(finalMessage);
+                    
+                    // 12초 후에 SweetAlert2 알림 창 띄우기
+                    setTimeout(() => {
+                        Swal.fire({
+                            title: '체험 종료',
+                            text: finalMessage,
+                            icon: 'info',
+                            confirmButtonText: '닫기'
+                        });
+                    }, 12000); // 12초 후 실행
+
+                    // 포인트 업데이트 요청
+                    $.ajax({
+                        url: "${pageContext.request.contextPath}/updatePoints",
+                        method: "POST",
+                        data: { pointReason: '보이스피싱 체험완료' }, // 추가된 부분(소미추가)
+                        success: function(response) {
+                            console.log(response);
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                        }
+                    });
                 }
 
+                
                 if (data.audioPath && !data.voiceNotFound) {
                     var audioPlayer = document.getElementById("audioPlayer");
                     // 타임스탬프를 추가하여 캐시 방지
@@ -408,7 +442,7 @@
 
     </script>
 
-    <script src="<c:url value='/resources/js/bootstrap.bundle.min.js'/>"></script>
-    <script src="<c:url value='/resources/js/custom.js'/>"></script>
+	<script src="<c:url value='/resources/js/bootstrap.bundle.min.js'/>"></script>
+	<script src="<c:url value='/resources/js/custom.js'/>"></script>
 </body>
 </html>
