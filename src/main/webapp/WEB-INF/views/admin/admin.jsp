@@ -75,6 +75,22 @@
                         <a href="${pageContext.request.contextPath}/admin/logs" class="custom-btn">관리하기</a>
                     </div>
                 </div>
+                 <div class="col-lg-4 col-sm-6">
+                    <div class="single-admin-feature">
+                        <span><img src="${pageContext.request.contextPath}/resources/images/components/admin3.png" alt=""></span>
+                        <h3>OX 퀴즈 관리</h3>
+                        <p>OX퀴즈를 추가, 수정, 삭제할 수 있습니다.</p>
+                        <a href="${pageContext.request.contextPath}/admin/quiz" class="custom-btn">관리하기</a>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-sm-6">
+                    <div class="single-admin-feature">
+                        <span><img src="${pageContext.request.contextPath}/resources/images/components/admin3.png" alt=""></span>
+                        <h3>교육영상 관리</h3>
+                        <p>교육영상을 확인하고 관리할 수 있습니다.</p>
+                        <a href="${pageContext.request.contextPath}/admin/adminVideo" class="custom-btn">관리하기</a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

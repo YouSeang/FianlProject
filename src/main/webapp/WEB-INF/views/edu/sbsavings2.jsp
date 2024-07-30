@@ -1,8 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -12,11 +7,15 @@
     <meta charset="UTF-8">
     <title>적금가입</title>
     <style>
-        #inputarea {
-            display: none;
+        #intxt {
             position: absolute;
+            display: none;
             border: 1px solid #000;
             resize: none;
+            font-size: 24px;
+            background-color: white;
+            z-index: 15;
+            text-align: center;
         }
     </style>
 </head>
@@ -24,98 +23,91 @@
     <div id="content" style="position: relative;">
         <img id="main-image" src="${pageContext.request.contextPath}/resources/images/sb/sbsavings1.png" alt="" usemap="#photo" class="img-fluid">
         <map name="photo">
-           <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
-           <area target="_self" alt="" title="" href="#" coords="255,40,635,39,645,376,387,378,388,444,648,449,638,779,260,793" shape="poly" id="goto-sbsavings1-1">
-           <area target="" alt="inputarea" title="inputarea" href="" coords="519,402,757,450" shape="rect">
+            <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
+            <area target="_self" alt="" title="" href="#" coords="255,40,635,39,645,376,387,378,388,444,648,449,638,779,260,793" shape="poly" id="goto-sbsavings1-1">
         </map>
+        <input type="text" id="intxt">
     </div>
 
-    <textarea id="inputarea" readonly></textarea>
+    
+      <script>
+      $(document).ready(function() {
+          $('img[usemap]').rwdImageMaps();
 
-    <script>
-        $(document).ready(function() {
-            $('img[usemap]').rwdImageMaps();
+          function changeImage(newSrc, newMap) {
+              console.log(`Changing image to ${newSrc}`);
+              $("#main-image").fadeOut(200, function() {
+                  $(this).attr("src", newSrc).fadeIn(200, function() {
+                      if (newSrc.includes('sbsavings6.png')) {
+                          console.log('sbsavings6.png detected');
+                          positionIntxt();
+                      } else {
+                          $('#intxt').hide();
+                      }
+                  });
 
-            // 이벤트 핸들러 정의
-            function changeImage(newSrc, newMap) {
-                $("#main-image").fadeOut(200, function() {
-                    $(this).attr("src", newSrc).fadeIn(200, function() {
-                        if (newSrc.includes('sbsavings6.png')) {
-                            $('area[alt="inputarea"]').on('click', function(event) {
-                                event.preventDefault();
-                                const coords = $(this).attr('coords').split(',');
-                                const left = parseInt(coords[0]);
-                                const top = parseInt(coords[1]);
-                                const right = parseInt(coords[2]);
-                                const bottom = parseInt(coords[3]);
-                                const width = right - left;
-                                const height = bottom - top;
+                  if (newMap) {
+                      $('map').html(newMap);
+                      $('img[usemap]').rwdImageMaps();
+                      setupKeyboardHandlers();
+                  }
+              });
+          }
 
-                                $('#inputarea').css({
-                                    display: 'block',
-                                    top: `${top}px`,
-                                    left: `${left}px`,
-                                    width: `${width}px`,
-                                    height: `${height}px`
-                                }).focus();
-                            });
-                        } else {
-                            $('#inputarea').hide();
-                        }
-                    });
-                    if (newMap) {
-                        $('map').html(newMap);
-                        $('img[usemap]').rwdImageMaps();
-                        // 새로운 맵을 설정할 때마다 이벤트 핸들러를 다시 설정합니다.
-                        setupKeyboardHandlers();
-                    }
-                });
-            }
+          function positionIntxt() {
+              const img = $('#main-image')[0];
+              const naturalWidth = img.naturalWidth;
+              const naturalHeight = img.naturalHeight;
 
-            // 키보드 핸들러 설정 함수
+              const currentWidth = img.clientWidth;
+              const currentHeight = img.clientHeight;
+
+              const scaleX = currentWidth / naturalWidth;
+              const scaleY = currentHeight / naturalHeight;
+
+              // 원본 이미지의 좌표
+              const intxtCoords = { left: 285, top: 351, width: 493 - 285, height: 402 - 351 };
+
+              // 현재 이미지 크기에 맞게 조정된 좌표
+              const adjustedCoords = {
+                  left: intxtCoords.left * scaleX,
+                  top: intxtCoords.top * scaleY,
+                  width: intxtCoords.width * scaleX,
+                  height: intxtCoords.height * scaleY
+              };
+
+              $('#intxt').css({
+                  display: 'block',
+                  top: `${adjustedCoords.top}px`,
+                  left: `${adjustedCoords.left}px`,
+                  width: `${adjustedCoords.width}px`,
+                  height: `${adjustedCoords.height}px`
+              }).focus();
+
+              console.log('Input area CSS applied:', $('#intxt').css(['top', 'left', 'width', 'height']));
+          }
+
             function setupKeyboardHandlers() {
                 $('area').off('click').on('click', function(event) {
                     event.preventDefault();
-                    const inputArea = document.getElementById('inputarea');
+                    const intxt = document.getElementById('intxt');
                     const value = $(this).attr('title');
 
-                    // Check if backspace
                     if (value === 'back') {
-                        inputArea.value = inputArea.value.slice(0, -1);
-                    } else if (value !== 'inputarea') {
-                        inputArea.value += value;
+                        intxt.value = intxt.value.slice(0, -1);
+                    } else if (value !== 'intxt' && value !== undefined) {
+                        intxt.value += value;
                     }
-                });
-
-                // inputarea 클릭 시 textarea 위치 설정
-                $('area[alt="inputarea"]').on('click', function(event) {
-                    event.preventDefault();
-                    const coords = $(this).attr('coords').split(',');
-                    const left = parseInt(coords[0]);
-                    const top = parseInt(coords[1]);
-                    const right = parseInt(coords[2]);
-                    const bottom = parseInt(coords[3]);
-                    const width = right - left;
-                    const height = bottom - top;
-
-                    $('#inputarea').css({
-                        display: 'block',
-                        top: `${top}px`,
-                        left: `${left}px`,
-                        width: `${width}px`,
-                        height: `${height}px`
-                    }).focus();
                 });
             }
 
-            // 초기화 시 키보드 핸들러 설정
             setupKeyboardHandlers();
 
-            // 이미지 맵 영역 클릭 이벤트
             $(document).on('click', 'area', function(event) {
                 const targetId = $(this).attr('id');
                 event.preventDefault();
-
+                console.log(`Area clicked: ${targetId}`);
+                
                 if (targetId === 'goto-sbsavings2') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2.png";
                     var newMap = `
@@ -165,7 +157,6 @@
                         <area target="_self" alt="" title="" href="#" coords="256,33,636,38,642,540,358,540,356,621,642,618,637,781,248,788" shape="poly" id="goto-sbsavings5">
                     `;
                     changeImage(newSrc, newMap);
-                    
                 } else if (targetId === 'goto-sbsavings6') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings6.png";
                     var newMap = `
@@ -184,19 +175,17 @@
                         <area target="" alt="24" title="24" href="" coords="441,459,368,429" shape="rect">
                         <area target="" alt="12" title="12" href="" coords="449,430,523,463" shape="rect">
                         <area target="" alt="6" title="6" href="" coords="531,429,609,464" shape="rect">
-                        <area target="" alt="inputarea" title="inputarea" href="" coords="288,330,492,380" shape="rect">
+                        <area target="" alt="intxt" title="intxt" href="" coords="285,351,493,402" shape="rect">
                         <area target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings7">
-                        `;
+                    `;
                     changeImage(newSrc, newMap);
-                    
                 } else if (targetId === 'goto-sbsavings7') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings7.png";
                     var newMap = `
                         <area target="_self" alt="" title="" href="#" coords="396,554,614,608" shape="rect" id="goto-sbsavings8">
-                         `;
+                    `;
                     changeImage(newSrc, newMap);
-                    
-                }else if (targetId === 'goto-sbsavings8') {
+                } else if (targetId === 'goto-sbsavings8') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings8.png";
                     var newMap = `
                         <area target="" alt="1" title="1" href="" coords="275,482,384,532" shape="rect">
@@ -216,12 +205,18 @@
                         <area target="" alt="10" title="10" href="" coords="417,429,474,462" shape="rect">
                         <area target="" alt="5" title="5" href="" coords="482,429,540,463" shape="rect">
                         <area target="" alt="1" title="1" href="" coords="545,430,607,463" shape="rect">
-                        <area target="" alt="inputarea" title="inputarea" href="" coords="288,330,492,380" shape="rect">
+                        <area target="" alt="intxt" title="intxt" href="" coords="285,351,493,402" shape="rect">
                         <area target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings9">
-                                            `;
+                    `;
                     changeImage(newSrc, newMap);
                 }
             });
+            $('#main-image').on('load', function() {
+                console.log('Image loaded:', $(this).width(), $(this).height());
+                if ($(this).attr("src").includes('sbsavings6.png')) {
+                    positionIntxt();
+                }
+                });
         });
     </script>
 </body>
