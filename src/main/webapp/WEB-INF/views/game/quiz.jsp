@@ -84,17 +84,17 @@
     <!-- Promo Area End -->
 
     <!-- Team Area Start -->
-    <section class="donations-area section-padding">
+    <section class="quiz-area section-padding">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="section-intro intro-full">
-                        <h2 class="section-title"> <span class="color">OX</span> 퀴즈</h2>
+                        <h2 class="section-title"><span class="color">OX</span> 퀴즈</h2>
                         <p>퀴즈를 풀고 금융지식을 올려요</p>
                     </div>
                 </div>
             </div>
-             <div class="quiz-container">
+            <div class="quiz-container card p-4">
                 <div class="mb-3">
                     <label for="quizCategory" class="form-label">카테고리 선택</label>
                     <select class="form-control" id="quizCategory" onchange="loadQuestions()">
@@ -105,14 +105,18 @@
                         <option value="기타">기타</option>
                     </select>
                 </div>
-                <div id="quiz-question">퀴즈 질문이 여기에 표시됩니다.</div>
-                <div class="quiz-buttons">
-                    <button id="btn-true" style="display:none" onclick="checkAnswer('O')">O</button>
-                    <button id="btn-false" style="display:none" onclick="checkAnswer('X')">X</button>
+                <div id="quiz-question" class="alert alert-info text-center" role="alert">
+                   <h3> 퀴즈 질문이 여기에 표시됩니다. </h3>
                 </div>
-                <div id="quiz-feedback"></div>
-                <button id="next-question" style="display: none;" onclick="loadNextQuestion()">다음 문제로</button>
-                <button id="retry-question" style="display: none;" onclick="retryQuestion()">다시 풀기</button>
+                <div class="quiz-buttons text-center">
+                    <button id="btn-true" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('O')">O</button>
+                    <button id="btn-false" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('X')">X</button>
+                </div>
+                <div id="quiz-feedback" class="alert text-center mt-3" role="alert" style="display:none"></div>
+                <div class="text-center mt-3">
+                    <button id="next-question" class="btn btn-primary m-2" style="display:none" onclick="loadNextQuestion()">다음 문제로</button>
+                    <button id="retry-question" class="btn btn-secondary m-2" style="display:none" onclick="retryQuestion()">다시 풀기</button>
+                </div>
             </div>
         </div>
     </section>
@@ -171,11 +175,11 @@ Javascript
             if (index < questions.length) {
                 const quizQuestion = document.getElementById('quiz-question');
                 quizQuestion.innerText = questions[index].question;
-                document.getElementById('quiz-feedback').innerText = '';
+                document.getElementById('quiz-feedback').style.display = 'none';
                 document.getElementById('next-question').style.display = 'none';
                 document.getElementById('retry-question').style.display = 'none';
             } else {
-            	document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
+                document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
                 document.getElementById('quiz-buttons').style.display = 'none';
                 document.getElementById('next-question').style.display = 'none';
                 document.getElementById('retry-question').style.display = 'none';
@@ -187,13 +191,18 @@ Javascript
             const feedback = document.getElementById('quiz-feedback');
             if ((answer === 'O' && question.answer) || (answer === 'X' && !question.answer)) {
                 score += question.points;
+                feedback.classList.remove('alert-danger');
+                feedback.classList.add('alert-success');
                 feedback.innerText = '정답입니다! 점수: ' + score;
-                await updatePoints(question.points, '퀴즈 정답');
+                await updatePoints(question.points, '퀴즈 정답', question.id); // quizId를 함께 전송합니다.
                 document.getElementById('next-question').style.display = 'inline';
             } else {
+                feedback.classList.remove('alert-success');
+                feedback.classList.add('alert-danger');
                 feedback.innerText = '오답입니다. 이유: ' + question.explanation;
                 document.getElementById('retry-question').style.display = 'inline';
             }
+            feedback.style.display = 'block';
         }
 
         function loadNextQuestion() {
@@ -205,11 +214,11 @@ Javascript
             loadQuestion(currentQuestionIndex);
         }
 
-        async function updatePoints(points, reason) {
+        async function updatePoints(points, reason, quizId) {
             const data = {
-                userId: userId,
                 pointsEarned: points,
-                pointReason: reason
+                pointReason: reason,
+                quizId: quizId // quizId를 함께 전송합니다.
             };
             const response = await fetch('${pageContext.request.contextPath}/game/quiz/points/update', {
                 method: 'POST',
@@ -225,6 +234,7 @@ Javascript
         // 초기 로드
         loadQuestion(currentQuestionIndex);
     </script>
+
 
 </body>
 

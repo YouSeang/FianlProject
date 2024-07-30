@@ -8,7 +8,7 @@
     <select id="checkPointsAddedToday" parameterType="map" resultType="int">
         SELECT COUNT(*)
         FROM Points
-        WHERE user_id = #{userId} AND DATE(point_time) = CURDATE()
+        WHERE user_id = #{userId} AND point_reason = #{pointReason} AND DATE(point_time) = CURDATE()
     </select>
 
     <select id="getTotalPoints" parameterType="String" resultType="Integer">

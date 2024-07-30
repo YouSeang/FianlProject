@@ -5,11 +5,14 @@
 <mapper namespace="kr.soft.study.dao.VideoDao">
 
     <select id="getVideos" resultType="kr.soft.study.dto.VideoDto">
-        SELECT * FROM Videos
+        SELECT id, category, video_name AS videoName, views, points, link
+        FROM Videos
     </select>
 
     <select id="getVideoById" parameterType="int" resultType="kr.soft.study.dto.VideoDto">
-        SELECT * FROM Videos WHERE id = #{id}
+        SELECT id, category, video_name AS videoName, views, points, link
+        FROM Videos
+        WHERE id = #{id}
     </select>
 
     <insert id="addVideo">

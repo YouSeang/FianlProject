@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +16,7 @@ import kr.soft.study.command.AdminQuizCommand;
 import kr.soft.study.command.PointsCommand;
 import kr.soft.study.dao.QuizDao;
 import kr.soft.study.dto.QuizDto;
+import kr.soft.study.dto.UserDto;
 import kr.soft.study.dto.PointsDto;
 import kr.soft.study.util.Command;
 
@@ -75,15 +77,40 @@ public class QuizController {
         return quizzs;
     }
    
+
     @RequestMapping(value = "/game/quiz/points/update", method = RequestMethod.POST)
     @ResponseBody
-    public Map<String, String> updateGamePoints(@RequestBody PointsDto points) {
-        Map<String, Object> params = new HashMap<>();
-        params.put("userId", points.getUserId());
-        params.put("points", points.getPointsEarned());
-        String resultMessage = pointsCommand.execute(params);
+    public Map<String, String> updateGamePoints(HttpSession session, @RequestBody Map<String, Object> pointsData) {
+        UserDto user = (UserDto) session.getAttribute("user");
+        if (user == null || user.getUser_id() == null) {
+            System.out.println("세션에 아이디 없음");
+            Map<String, String> response = new HashMap<>();
+            response.put("message", "User is not logged in.");
+            return response;
+        }
+
+        String userId = user.getUser_id();
+        int pointsEarned = ((Double) pointsData.get("pointsEarned")).intValue(); // Double to Integer
+        String pointReason = (String) pointsData.get("pointReason");
+        int quizId = ((Double) pointsData.get("quizId")).intValue(); // Double to Integer
+        String fullPointReason = "퀴즈 ID:" + quizId + " " + pointReason;
+        System.out.println("Updating points for userId: " + userId + ", quizId: " + quizId + ", pointsEarned: " + pointsEarned + ", pointReason: " + fullPointReason);
+        pointsCommand.updatePoints(userId, pointsEarned, fullPointReason, quizId);
         Map<String, String> response = new HashMap<>();
-        response.put("message", resultMessage);
+        response.put("message", "포인트가 업데이트되었습니다.");
         return response;
     }
+    
+	/*
+	 * @RequestMapping(value = "/game/quiz/points/update", method =
+	 * RequestMethod.POST)
+	 * 
+	 * @ResponseBody public Map<String, String> updateGamePoints(@RequestBody
+	 * PointsDto points) { Map<String, Object> params = new HashMap<>();
+	 * params.put("userId", points.getUserId()); params.put("Id", points.getId());
+	 * params.put("points", points.getPointsEarned()); params.put("pointReason",
+	 * points.getPointReason()); // 포인트 이유 추가 String resultMessage =
+	 * pointsCommand.execute(params); Map<String, String> response = new
+	 * HashMap<>(); response.put("message", resultMessage); return response; }
+	 */
 }
