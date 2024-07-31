@@ -8,17 +8,26 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import kr.soft.study.command.AdminVideoCommand;
+import kr.soft.study.dao.VideoDao;
+import kr.soft.study.util.Command;
 
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class eduController {
+	Command command = null;
 	
+	@Autowired
+	private VideoDao videoDao;
+
 	private static final Logger logger = LoggerFactory.getLogger(eduController.class);
 	
 	/**
@@ -37,12 +46,16 @@ public class eduController {
 		System.out.println("sbtransfer");
 		return "edu/sbtransfer";
 	}
+	@RequestMapping("/edu/sbsavings2")
+	public String sbsavingss(Model model) {
+		System.out.println("sbtransfer");
+		return "edu/sbsavings2";
+	}
 	@RequestMapping("/edu/sbsavings")
 	public String sbsavings(Model model) {
 		System.out.println("sbtransfer");
 		return "edu/sbsavings";
 	}
-	
 	
 	@RequestMapping("/edu/ibjoin")
 	public String ibjoin(Model model) {
@@ -68,8 +81,11 @@ public class eduController {
 	}
 	
 	@RequestMapping("/edu/eduvideo")
-	public String eduvideo(Model model) {
-		System.out.println("eduvideo");
+	public String eduVideo(HttpServletRequest request, Model model) {
+		 System.out.println("±³À°¿µ»ó");
+		 model.addAttribute("request", request);
+		 command = new AdminVideoCommand();
+	     command.execute(model);
 		return "edu/eduvideo";
 	}
 	

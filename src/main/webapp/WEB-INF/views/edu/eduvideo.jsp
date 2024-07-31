@@ -88,7 +88,7 @@
                                         Your browser does not support the video tag.
                                     </video>             
                                     <canvas id="thumbnail-${video.id}" width="400" height="300" style="display:none;"></canvas>
-                                    <img id="img-thumbnail-${video.id}" class="thumbnail-img" src="" alt="Thumbnail">
+                                    
                                 </figure> 
                                 <div class="article-details">
                                     <h3 class="article-heading">
@@ -100,11 +100,7 @@
                                         <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
                                         <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
                                     </ul>
-                                    <a href="${pageContext.request.contextPath}/admin/videoEdit?id=${video.id}" class="btn btn-warning btn-sm">Edit</a>
-                                    <form action="${pageContext.request.contextPath}/admin/videoDelete" method="post" style="display:inline;">
-                                        <input type="hidden" name="id" value="${video.id}">
-                                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
