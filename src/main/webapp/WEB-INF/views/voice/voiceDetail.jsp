@@ -173,7 +173,7 @@
 
         document.getElementById("recordButton").innerText = "답변 종료";
 
-        socket = new WebSocket("ws://localhost:8080/study/audio");
+        socket = new WebSocket("ws://localhost:80/study/audio");
         socket.binaryType = "arraybuffer";
 
         socket.onopen = function(event) {
