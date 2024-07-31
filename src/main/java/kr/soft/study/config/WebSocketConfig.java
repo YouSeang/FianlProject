@@ -6,6 +6,8 @@ import org.springframework.web.socket.config.annotation.EnableWebSocket;
 import org.springframework.web.socket.config.annotation.WebSocketConfigurer;
 import org.springframework.web.socket.config.annotation.WebSocketHandlerRegistry;
 import org.springframework.web.socket.server.standard.ServletServerContainerFactoryBean;
+
+import kr.soft.study.dao.CriminalVoiceDAO;
 import kr.soft.study.handler.AudioWebSocketHandler;
 import kr.soft.study.service.OpenAIService;
 
@@ -14,8 +16,8 @@ import kr.soft.study.service.OpenAIService;
 public class WebSocketConfig implements WebSocketConfigurer {
 
     @Bean
-    public OpenAIService openAIService() {
-        return new OpenAIService();
+    public OpenAIService openAIService(CriminalVoiceDAO criminalVoiceDAO) {
+    	return new OpenAIService(criminalVoiceDAO);
     }
 
     @Bean

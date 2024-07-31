@@ -25,10 +25,11 @@ public class CriminalVoiceCommand implements CCommand {
 	@Override
 	public String execute(Map<String, Object> map) {
 		String id = (String) map.get("id");
-		logger.debug("Requested ID: {}", id);
+		String scenarioName = (String) map.get("scenarioName");
+		logger.debug("Requested ID: {}", id, scenarioName);
 
 		CriminalVoiceDAO criminalVoiceDAO = sqlSession.getMapper(CriminalVoiceDAO.class);
-		CriminalVoiceDTO criminalVoiceDTO = criminalVoiceDAO.getVoiceById(id);
+		CriminalVoiceDTO criminalVoiceDTO = criminalVoiceDAO.getVoiceById(map);
 
 		if (criminalVoiceDTO == null) {
 			return "{\"audioPath\": null, \"isFinal\": false, \"voiceNotFound\": true}";
