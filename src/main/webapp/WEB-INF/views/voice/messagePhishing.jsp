@@ -31,7 +31,6 @@
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 function openMessagePhishingWindow() {
@@ -52,7 +51,7 @@ function openMessagePhishingWindow() {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							<span>스미싱</span> 시뮬레이션
+							<span>메신저피싱</span> 시뮬레이션
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -74,13 +73,11 @@ function openMessagePhishingWindow() {
 						<h3 class="section-title mb-4">
 							메신저피싱<span class="color"> 시뮬레이션 </span>
 						</h3>
-						<p>We are a non profit team. We are starting Help at vary
-							begining of 1900s. Quibusdam quidem alias saepe vero doloribus
-							consequatur quis nobis molestiae fugit vel quae sapiente.</p>
+						<h2>메신저피싱이란?</h2>
+						<p>주로 문자메시지나 카카오톡 등 모바일 메신저를 통해 이루어지는 범죄의 일종으로 피해자를 기망 또는 협박하여 개인정보 및 금융거래 정보를 요구하거나 피해자의 금전을 이체하도록 하는 수법입니다.</p>
 						<ul>
-							<li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
-							<li>Sit amet consectetur adipisicing elit. Ea, voluptatem!</li>
-							<li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
+							<li>지인을 사칭한 메신저피싱에 유의하세요</li>
+							<li>로그인 후 체험하시면 포인트가 지급되며, 하루에 한 번만 지급됩니다.</li>
 						</ul>
 						<a href="#" class="custom-btn"
 							onclick="openMessagePhishingWindow()">체험하러 가기</a>

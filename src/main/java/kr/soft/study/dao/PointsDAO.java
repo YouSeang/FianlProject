@@ -8,4 +8,7 @@ public interface PointsDAO {
     int checkPointsAddedToday(Map<String, Object> params);
     Integer getTotalPoints(String userId);
     void addPoints(PointsDto pointsDto);
+    
+    //포인트 차감
+    void substractPoints(PointsDto pointsDto);
 }

@@ -1,7 +1,5 @@
 package kr.soft.study.controller;
 
-import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -9,10 +7,14 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import kr.soft.study.command.ModifyActionCommand;
 import kr.soft.study.command.ModifyCommand;
+import kr.soft.study.command.MyCouponCommand;
+import kr.soft.study.command.MyPointCommand;
 import kr.soft.study.command.MypageCommand;
 import kr.soft.study.command.UCommand;
 import kr.soft.study.dto.UserDto;
@@ -56,13 +58,6 @@ public class mypageController {
 		return "mypage/mypage";
 	}
 
-	/*
-	 * @RequestMapping("/couponshop") public String couponshop(Locale locale, Model
-	 * model) {
-	 * 
-	 * return "mypage/couponshop"; }
-	 */
-
 	@RequestMapping("/modify")
 	public String modify(HttpSession session, Model model) {
 		System.out.println("modify");
@@ -104,6 +99,50 @@ public class mypageController {
 		command = new ModifyActionCommand();
 		command.execute(model);
 
-		 return "redirect:/mypage?success=true";
+		return "redirect:/mypage?success=true";
 	}
+
+	@RequestMapping("/mypoint")
+	public String mypoint(HttpSession session, Model model) {
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user == null) {
+			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
+			return "redirect:/login";
+		}
+
+		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
+		System.out.println("User ID: " + userId);
+
+		// 사용자 ID를 모델에 추가
+		model.addAttribute("userId", userId);
+
+		command = new MyPointCommand();
+		command.execute(model);
+
+		return "mypage/myPoint";
+	}
+
+	@RequestMapping("/myCoupon")
+	public String myCoupon(HttpSession session, Model model) {
+		System.out.println("myCoupon");
+
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user == null) {
+			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
+			return "redirect:/login";
+		}
+
+		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
+		System.out.println("User ID: " + userId);
+
+		// 사용자 ID를 모델에 추가
+		model.addAttribute("userId", userId);
+
+		command = new MyCouponCommand();
+		command.execute(model);
+
+		return "mypage/myCoupon";
+	}
+
+	
 }

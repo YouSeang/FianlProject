@@ -33,12 +33,11 @@ public class RecentIncidentCommand implements Command {
                 String link = element.select(".news_tit").attr("href");
                 String description = element.select(".dsc_wrap").text();
                 String info = element.select(".info").text();
-                String imageUrl = element.select(".thumb img").attr("src");
+                String imageUrl = element.select(".dsc_thumb").attr("src");
 
-                if (imageUrl == null || imageUrl.isEmpty() || imageUrl.startsWith("data:image")) {
+                if (imageUrl == null || imageUrl.isEmpty()) {
                     // 이미지 URL이 없는 경우 기본 이미지를 사용
-                
-                    imageUrl = "s";
+                    imageUrl = "https://via.placeholder.com/150";
                 }
 
                 Map<String, String> news = new HashMap<>();

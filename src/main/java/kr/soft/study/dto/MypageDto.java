@@ -2,42 +2,46 @@ package kr.soft.study.dto;
 
 import java.sql.Timestamp;
 
-//일단 usercoupon과 points 테이블에 변수 모두 가져옴
+//일단 usercoupon과 points, coupon 테이블에 변수 모두 가져옴
 public class MypageDto {
 
 	private String user_id;
 	private Timestamp point_time;
 	private String point_reason;
 	private int points_earned;
+	private String points_used;
 	private Timestamp usage_time;
 	private String usage_type;
 	private int total_points;
 
 	private int coupon_id;
+	private String coupon_type;
 	private Timestamp issue_date;
 	private Timestamp use_date;
-	private Boolean isUsed;
+	private Boolean is_used;
 	private Integer unused_coupons;
 
 	public MypageDto() {
 		super();
 	}
 
-	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, Timestamp usage_time,
-			String usage_type, int total_points, int coupon_id, Timestamp issue_date, Timestamp use_date,
-			Boolean isUsed, Integer unused_coupons) {
+	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, String points_used,
+			Timestamp usage_time, String usage_type, int total_points, int coupon_id, String coupon_type,
+			Timestamp issue_date, Timestamp use_date, Boolean is_used, Integer unused_coupons) {
 		super();
 		this.user_id = user_id;
 		this.point_time = point_time;
 		this.point_reason = point_reason;
 		this.points_earned = points_earned;
+		this.points_used = points_used;
 		this.usage_time = usage_time;
 		this.usage_type = usage_type;
 		this.total_points = total_points;
 		this.coupon_id = coupon_id;
+		this.coupon_type = coupon_type;
 		this.issue_date = issue_date;
 		this.use_date = use_date;
-		this.isUsed = isUsed;
+		this.is_used = is_used;
 		this.unused_coupons = unused_coupons;
 	}
 
@@ -73,6 +77,14 @@ public class MypageDto {
 		this.points_earned = points_earned;
 	}
 
+	public String getPoints_used() {
+		return points_used;
+	}
+
+	public void setPoints_used(String points_used) {
+		this.points_used = points_used;
+	}
+
 	public Timestamp getUsage_time() {
 		return usage_time;
 	}
@@ -105,6 +117,14 @@ public class MypageDto {
 		this.coupon_id = coupon_id;
 	}
 
+	public String getCoupon_type() {
+		return coupon_type;
+	}
+
+	public void setCoupon_type(String coupon_type) {
+		this.coupon_type = coupon_type;
+	}
+
 	public Timestamp getIssue_date() {
 		return issue_date;
 	}
@@ -121,12 +141,12 @@ public class MypageDto {
 		this.use_date = use_date;
 	}
 
-	public Boolean getIsUsed() {
-		return isUsed;
+	public Boolean getIs_used() {
+		return is_used;
 	}
 
-	public void setIsUsed(Boolean isUsed) {
-		this.isUsed = isUsed;
+	public void setIs_used(Boolean isUsed) {
+		this.is_used = is_used;
 	}
 
 	public Integer getUnused_coupons() {

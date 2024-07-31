@@ -2,11 +2,9 @@ package kr.soft.study.command;
 
 import java.util.HashMap;
 import java.util.Map;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import kr.soft.study.dao.PointsDAO;
 import kr.soft.study.dto.PointsDto;
 
@@ -19,12 +17,11 @@ public class PointsCommand implements PCommand {
 		this.sqlSession = sqlSession;
 	}
 
-//소미 수정 (메신저피싱, 보이스피싱, 스미싱 포인트 업데이트)
+//소미수정
 	@Override
 	public String execute(Map<String, Object> map) {
 		String userId = (String) map.get("userId");
 		String pointReason = (String) map.get("pointReason");
-
 		System.out.println("Executing PointsCommand with userId: " + userId + ", pointReason: " + pointReason);
 		if (userId == null || userId.isEmpty()) {
 			System.out.println("User ID is null or empty.");
@@ -40,7 +37,6 @@ public class PointsCommand implements PCommand {
 			Integer totalPoints = pointsDAO.getTotalPoints(userId);
 			int newPoints = 500; // or you can pass this value in the map
 			int updatedTotalPoints = totalPoints != null ? totalPoints + newPoints : newPoints;
-
 			PointsDto pointsDto = new PointsDto();
 			pointsDto.setUserId(userId);
 			pointsDto.setPointsEarned(newPoints);
@@ -50,11 +46,36 @@ public class PointsCommand implements PCommand {
 			return "Points added successfully.";
 		} else {
 			System.out.println("Points already added today for userId: " + userId + ", pointReason: " + pointReason);
-			return "Points already added today.";
+			return "오늘은 이미 체험을 통한 포인트 지급이 완료되었습니다.";
 		}
 	}
 
-//슬기언니 추가부분
+	// 소미추가 - 포인트사용
+	@Override
+	public String useExecute(Map<String, Object> map) {
+		String userId = (String) map.get("userId");
+		String used_pointReason = (String) map.get("pointReason");
+		if (userId == null || userId.isEmpty()) {
+			return "User ID is null or empty.";
+		}
+
+		PointsDAO pointsDAO = sqlSession.getMapper(PointsDAO.class);
+		Integer totalPoints = pointsDAO.getTotalPoints(userId);
+		if (totalPoints != null && totalPoints >= 5000) {
+			int updatedTotalPoints = totalPoints - 5000;
+			PointsDto pointsDto = new PointsDto();
+			pointsDto.setUserId(userId);
+			pointsDto.setPointsUsed(5000);
+			pointsDto.setUsageType(used_pointReason);
+			pointsDto.setTotalPoints(updatedTotalPoints);
+			pointsDAO.substractPoints(pointsDto);
+			return "Points used successfully.";
+		} else {
+			return "Not enough points.";
+		}
+	}
+
+//슬기언니추가
 	public void updatePoints(String userId, int pointsEarned, String pointReason, int quizId) {
 		System.out.println("Executing PointsCommand with userId: " + userId + ", quizId: " + quizId + ", pointsEarned: "
 				+ pointsEarned + ", pointReason: " + pointReason);

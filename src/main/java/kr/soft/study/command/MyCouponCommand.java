@@ -13,7 +13,7 @@ import kr.soft.study.dto.UserDto;
 import kr.soft.study.util.Constant;
 
 @Component
-public class MypageCommand implements UCommand {
+public class MyCouponCommand implements UCommand {
 
 	@Override
 	public void execute(Model model) {
@@ -23,16 +23,11 @@ public class MypageCommand implements UCommand {
 		MypageDao dao = sqlSession.getMapper(MypageDao.class);
 		UserDao userdao = sqlSession.getMapper(UserDao.class);
 
-		ArrayList<MypageDto> mylist = dao.myInfomation(userId);
-		MypageDto coupon = dao.getCoupon(userId);
+		ArrayList<MypageDto> couponList = dao.getUserCouponsDetail(userId);
 		UserDto userInfo = userdao.getUserById(userId);
 
-		int totalPoints = dao.getUserTotalPoints(userId);
-
-		model.addAttribute("mylist", mylist);
+		model.addAttribute("couponList", couponList);
 		model.addAttribute("userInfo", userInfo);
-		model.addAttribute("coupon", coupon);
-		model.addAttribute("totalPoints", totalPoints);
 
 	}
 

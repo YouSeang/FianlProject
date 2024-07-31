@@ -28,6 +28,7 @@ public class PointsController {
 	@RequestMapping(value = "/updatePoints", method = RequestMethod.POST)
 	@ResponseBody
 	public String updatePoints(HttpSession session, @RequestParam("pointReason") String pointReason) {
+		System.out.println("여기까지는 오나?");
 		UserDto user = (UserDto) session.getAttribute("user");
 		if (user != null && user.getUser_id() != null) {
 			System.out.println("User ID: " + user.getUser_id()); // 세션에 사용자 ID 출력
@@ -37,6 +38,21 @@ public class PointsController {
 			return pointsCommand.execute(map);
 		} else {
 			System.out.println("세션에 아이디 없음");
+			return "User is not logged in.";
+		}
+	}
+
+	// 포인트 사용
+	@RequestMapping(value = "/subtractPoints", method = RequestMethod.POST)
+	@ResponseBody
+	public String subtractPoints(HttpSession session, @RequestParam("pointReason") String pointReason) {
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user != null && user.getUser_id() != null) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("userId", user.getUser_id());
+			map.put("pointReason", pointReason);
+			return pointsCommand.useExecute(map);
+		} else {
 			return "User is not logged in.";
 		}
 	}

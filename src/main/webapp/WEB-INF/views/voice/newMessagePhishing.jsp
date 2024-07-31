@@ -173,6 +173,9 @@ button:hover {
 	}
 }
 </style>
+<script>
+var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
+</script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
@@ -258,33 +261,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     confirmButtonText: '확인',
                     denyButtonText: '체험 다시하기'
                 }).then((result) => {
-                    if (result.isConfirmed) {
-                        // 포인트 업데이트 요청
-                        $.ajax({
-                            url: "${pageContext.request.contextPath}/updatePoints",
-                            method: "POST",
-                            data: { pointReason: '메신저피싱 체험완료' }, // 추가된 부분
-                            success: function(response) {
-                                console.log(response);
-                                // 응답 확인을 위해 추가 로그
-                                Swal.fire({
-                                    title: '포인트 업데이트 완료!',
-                                    text: response,
-                                    icon: 'success'
-                                }).then(() => {
-                                    window.close();
-                                });
-                            },
-                            error: function(xhr, status, error) {
-                                console.error("Failed to update points. Status: " + status + ", Error: " + error);
-                                Swal.fire('포인트 업데이트 실패', `상태: ${status}, 오류: ${error}`, 'error').then(() => {
-                                    window.close();
-                                });
-                            }
-                        });
-                    } else if (result.isDenied) {
-                        location.reload();
-                    }
+                	if (result.isConfirmed && isLoggedIn === true) {
+                	    // 로그인한 사용자만 포인트 업데이트
+                	    $.ajax({
+                	        url: "${pageContext.request.contextPath}/updatePoints",
+                	        method: "POST",
+                	        data: { pointReason: '메신저피싱 체험완료' },
+                	        success: function(response) {
+                	            Swal.fire({
+                	                title: '포인트 업데이트 완료!',
+                	                text: response,
+                	                icon: 'success'
+                	            }).then(() => {
+                	                window.close();
+                	            });
+                	        },
+                	        error: function(xhr, status, error) {
+                	            console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                	            Swal.fire({
+                	                title: '포인트 업데이트 실패',
+                	                text: `상태: ${status}, 오류: ${error}`,
+                	                icon: 'error'
+                	            }).then(() => {
+                	                window.close();
+                	            });
+                	        }
+                	    });
+                	} else if (result.isDenied) {
+                	    location.reload(); // 사용자가 다시 시도하기를 원할 경우 페이지를 리로드
+                	}
                 });
                 break;
             default:
