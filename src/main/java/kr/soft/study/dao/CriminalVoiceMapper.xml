@@ -5,16 +5,10 @@
   
 <mapper namespace="kr.soft.study.dao.CriminalVoiceDAO">
 
-    <select id="getVoiceById" parameterType="String" resultType="kr.soft.study.dto.CriminalVoiceDTO">
+    <select id="getVoiceById" parameterType="map" resultType="kr.soft.study.dto.CriminalVoiceDTO">
         SELECT idx, id, voice_path AS voicePath, is_final AS isFinal
         FROM criminal_voice 
-        WHERE id = #{id}
-    </select>
-    
-    <select id="getScenarioPromptByName" parameterType="String" resultType="String">
-        SELECT scenario_prompt 
-        FROM scenarios
-        WHERE scenario_name = #{scenarioName}
+        WHERE id = #{id} AND scenario_name = #{scenarioName}
     </select>
     
     <select id="getPromptByScenarioName" parameterType="String" resultType="String">

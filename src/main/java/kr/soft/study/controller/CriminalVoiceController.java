@@ -31,13 +31,14 @@ public class CriminalVoiceController {
 
 	@RequestMapping("/getVoice")
 	@ResponseBody
-	public String getVoiceById(@RequestParam("id") String id) {
+	public String getVoiceById(@RequestParam("id") String id, @RequestParam("scenarioName") String scenarioName) {
 		if (id == null || id.isEmpty()) {
 			return "{\"error\": \"ID parameter is missing\"}";
 		}
 
 		Map<String, Object> model = new HashMap<>();
 		model.put("id", id);
+		model.put("scenarioName", scenarioName);
 		return criminalVoiceCommand.execute(model);
 	}
 	

@@ -80,7 +80,7 @@
 				</div>
 				<div class="col-lg-5 offset-lg-1 mt-5 mt-lg-0">
 					<div class="banner-btn mt-5 d-flex align-items-center">
-						<a href="#" class="custom-btn2" id="recordButton"
+						<a class="custom-btn2" id="recordButton"
 							onclick="toggleRecording()">답변 시작</a>
 					</div>
 				</div>
@@ -92,13 +92,15 @@
     let voiceType;
     let userId = '<c:out value="${sessionScope.userId}"/>'; // JSP에서 세션 값을 JavaScript로 전달
     let audioPlayer;
+    let scenarioName; // 세앙 시나리오 name
 
     $(document).ready(function() {
         console.log("User ID from session: ", userId); // JavaScript 콘솔에 출력
         audioPlayer = document.getElementById("audioPlayer");
         var urlParams = new URLSearchParams(window.location.search);
         voiceType = urlParams.get('voice');
-
+        scenarioName = urlParams.get('scenarioName'); // 시나리오 이름 설정
+        
         Swal.fire({
             title: voiceType === 'impersonation' ? '기관사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
             text: '확인 버튼을 누르면 보이스 피싱 범인과의 시뮬레이션 통화가 시작됩니다.',
@@ -117,7 +119,7 @@
             if (voiceType === "impersonation") {
                 audioPath = "voice001.mp3"; // 기관사칭 음성 파일 경로
             } else if (voiceType === "loan") {
-                audioPath = "voice020.m4a"; // 대출사기 음성 파일 경로
+                audioPath = "voice010.m4a"; // 대출사기 음성 파일 경로
             }
 
             if (audioPath) {
@@ -154,6 +156,7 @@
     }
 
     function startRecording() {
+    	var urlParams = new URLSearchParams(window.location.search); // URL 파라미터 가져오기
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(function(stream) {
                 mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm', timeSlice: 1000 });
@@ -166,14 +169,15 @@
                 visualize(stream);
                 console.log("Recording started.");
                 document.getElementById("recordButton").style.backgroundColor = "#ffb200"; // 답변 시작 시 배경색 변경
+                
             })
             .catch(function(error) {
                 console.error("Error accessing media devices.", error);
             });
 
         document.getElementById("recordButton").innerText = "답변 종료";
-
-        socket = new WebSocket("ws://localhost:8080/study/audio");
+        
+        socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
 
         socket.onopen = function(event) {
@@ -183,7 +187,7 @@
         socket.onmessage = function(event) {
             console.log("Received from server: ", event.data);
             document.getElementById("result").innerText = event.data;
-            getVoiceData(event.data);
+            getVoiceData(event.data, scenarioName);
         };
 
         socket.onclose = function(event) {
@@ -202,6 +206,7 @@
     }
 
     function sendData(audioBlob) {
+    	console.log("Sending audio data to server"); // Debug message
         var reader = new FileReader();
         reader.onload = function(event) {
             if (socket.readyState === WebSocket.OPEN) {
@@ -214,12 +219,13 @@
         reader.readAsArrayBuffer(audioBlob);
     }
 
-    function getVoiceData(id) {
-        console.log("Requesting voice data with id: " + id); // Debug message
+    // scenarioName 추가
+    function getVoiceData(id, scenarioName) {
+        console.log("Requesting voice data with id: " + id + " and scenario: " + scenarioName); // Debug message
         $.ajax({
             url: "${pageContext.request.contextPath}/getVoice",
             method: "GET",
-            data: { id: id },
+            data: { id: id, scenarioName: scenarioName},
             success: function(response) {
                 console.log("AJAX request successful. Response:", response);
 
@@ -240,10 +246,10 @@
                 
                 if (data.isFinal) {
                     let finalMessage = "";
-                    if (voiceType === "impersonation") {
+                    if (scenarioName  === "impersonation") {
                         finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
                         showAlert(finalMessage);
-                    } else if (voiceType === "loan") {
+                    } else if (scenarioName  === "loan") {
                         finalMessage = "범인은 대출 조건을 맞추기 위한 편법으로 타 대출을 일시적으로 실행하게끔 유도하여 상환 목적으로 자금을 갈취하는 경우가 많으니 주의 바랍니다.";
                         showMultipleAlerts(finalMessage);
                     }
