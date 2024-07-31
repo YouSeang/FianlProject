@@ -6,18 +6,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
     <meta charset="UTF-8">
     <title>적금가입</title>
-    <style>
-        #intxt {
-            position: absolute;
-            display: none;
-            border: 1px solid #000;
-            resize: none;
-            font-size: 24px;
-            background-color: white;
-            z-index: 15;
-            text-align: center;
-        }
-    </style>
+   <style>
+    #content {
+        position: relative;
+        display: inline-block;
+    }
+    #intxt {
+        position: absolute;
+        display: none;
+        border: 1px solid #000;
+        resize: none;
+        font-size: 24px;
+        background-color: white;
+        z-index: 15;
+        text-align: center;
+        pointer-events: none;
+    }
+</style>
 </head>
 <body>
     <div id="content" style="position: relative;">
@@ -26,66 +31,71 @@
             <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
             <area target="_self" alt="" title="" href="#" coords="255,40,635,39,645,376,387,378,388,444,648,449,638,779,260,793" shape="poly" id="goto-sbsavings1-1">
         </map>
-        <input type="text" id="intxt">
+        <div id="content">
+        <input type="text" id="intxt"></div>
     </div>
 
-    
-      <script>
-      $(document).ready(function() {
-          $('img[usemap]').rwdImageMaps();
+     
+     <script>
+        $(document).ready(function() {
+            $('img[usemap]').rwdImageMaps();
 
-          function changeImage(newSrc, newMap) {
-              console.log(`Changing image to ${newSrc}`);
-              $("#main-image").fadeOut(200, function() {
-                  $(this).attr("src", newSrc).fadeIn(200, function() {
-                      if (newSrc.includes('sbsavings6.png')) {
-                          console.log('sbsavings6.png detected');
-                          positionIntxt();
-                      } else {
-                          $('#intxt').hide();
-                      }
-                  });
+            function changeImage(newSrc, newMap) {
+            	 console.log("Changing image to: " + newSrc);
+                $("#main-image").fadeOut(200, function() {
+                    const img = $(this);
+                    img.attr("src", newSrc).off('load').on('load', function() {
+                        console.log('Image load event fired for:', newSrc);
+                        img.fadeIn(200, function() {
+                            if (newSrc.includes('sbsavings6.png')) {
+                                console.log('sbsavings6.png detected');
+                                positionIntxt();
+                            } else {
+                                $('#intxt').hide();
+                            }
+                        });
+                    });
 
-                  if (newMap) {
-                      $('map').html(newMap);
-                      $('img[usemap]').rwdImageMaps();
-                      setupKeyboardHandlers();
-                  }
-              });
-          }
+                    if (newMap) {
+                        $('map').html(newMap);
+                        $('img[usemap]').rwdImageMaps();
+                        setupKeyboardHandlers();
+                    }
+                });
+            }
 
-          function positionIntxt() {
-              const img = $('#main-image')[0];
-              const naturalWidth = img.naturalWidth;
-              const naturalHeight = img.naturalHeight;
+            function positionIntxt() {
+                const img = $('#main-image')[0];
+                const imgRect = img.getBoundingClientRect();
+                const contentRect = $('#content')[0].getBoundingClientRect();
 
-              const currentWidth = img.clientWidth;
-              const currentHeight = img.clientHeight;
+                
+                const scaleX = img.width / img.naturalWidth;
+                const scaleY = img.height / img.naturalHeight;
 
-              const scaleX = currentWidth / naturalWidth;
-              const scaleY = currentHeight / naturalHeight;
+                // 원본 이미지의 좌표
+                const intxtCoords = { left: 285, top: 351, right: 493, bottom: 802 };
 
-              // 원본 이미지의 좌표
-              const intxtCoords = { left: 285, top: 351, width: 493 - 285, height: 402 - 351 };
+                // 현재 이미지 크기에 맞게 조정된 좌표
+                const adjustedCoords = {
+                    left: intxtCoords.left * scaleX + imgRect.left - contentRect.left,
+                    top: intxtCoords.top * scaleY + imgRect.top - contentRect.top,
+                    width: (intxtCoords.right - intxtCoords.left) * scaleX,
+                    height: (intxtCoords.bottom - intxtCoords.top) * scaleY
+                };
+                console.log('adjustedCoords', adjustedCoords)
 
-              // 현재 이미지 크기에 맞게 조정된 좌표
-              const adjustedCoords = {
-                  left: intxtCoords.left * scaleX,
-                  top: intxtCoords.top * scaleY,
-                  width: intxtCoords.width * scaleX,
-                  height: intxtCoords.height * scaleY
-              };
+                $('#intxt').css({
+                    display: 'block',
+                    position: 'relative',
+                    top: `${adjustedCoords.top}px`,
+                    left: `${adjustedCoords.left}px`,
+                    width: `${adjustedCoords.width}px`,
+                    height: `${adjustedCoords.height}px`
+                });
 
-              $('#intxt').css({
-                  display: 'block',
-                  top: `${adjustedCoords.top}px`,
-                  left: `${adjustedCoords.left}px`,
-                  width: `${adjustedCoords.width}px`,
-                  height: `${adjustedCoords.height}px`
-              }).focus();
-
-              console.log('Input area CSS applied:', $('#intxt').css(['top', 'left', 'width', 'height']));
-          }
+                console.log('Input area CSS applied:', $('#intxt').css(['top', 'left', 'width', 'height']));
+            }
 
             function setupKeyboardHandlers() {
                 $('area').off('click').on('click', function(event) {
@@ -102,12 +112,11 @@
             }
 
             setupKeyboardHandlers();
-
             $(document).on('click', 'area', function(event) {
                 const targetId = $(this).attr('id');
                 event.preventDefault();
                 console.log(`Area clicked: ${targetId}`);
-                
+
                 if (targetId === 'goto-sbsavings2') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2.png";
                     var newMap = `
@@ -211,12 +220,22 @@
                     changeImage(newSrc, newMap);
                 }
             });
+
+
+            // 윈도우 리사이즈 시 intxt 위치 조정
+            $(window).resize(function() {
+                if ($('#main-image').attr("src").includes('sbsavings6.png')) {
+                    positionIntxt();
+                }
+            });
+
+            // 이미지 로드 완료 후 intxt 위치 조정
             $('#main-image').on('load', function() {
                 console.log('Image loaded:', $(this).width(), $(this).height());
                 if ($(this).attr("src").includes('sbsavings6.png')) {
-                    positionIntxt();
+                    setTimeout(positionIntxt, 0);
                 }
-                });
+            });
         });
     </script>
 </body>
