@@ -222,7 +222,7 @@
 											<td class="width-25">
 												<div class="flex-container">
 													<span><c:out value="${coupon.unused_coupons}" />장</span>
-													<button class="btn btn-warning">상세내역</button>
+													<button class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/myCoupon'">상세내역</button>
 												</div>
 											</td>
 										</tr>

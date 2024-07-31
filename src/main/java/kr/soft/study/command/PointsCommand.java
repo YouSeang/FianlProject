@@ -1,4 +1,5 @@
 package kr.soft.study.command;
+
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.ibatis.session.SqlSession;
@@ -6,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import kr.soft.study.dao.PointsDAO;
 import kr.soft.study.dto.PointsDto;
+
 @Component
 public class PointsCommand implements PCommand {
 	private SqlSession sqlSession;
@@ -44,9 +46,35 @@ public class PointsCommand implements PCommand {
 			return "Points added successfully.";
 		} else {
 			System.out.println("Points already added today for userId: " + userId + ", pointReason: " + pointReason);
-			return "Points already added today.";
+			return "오늘은 이미 체험을 통한 포인트 지급이 완료되었습니다.";
 		}
 	}
+
+	// 소미추가 - 포인트사용
+	@Override
+	public String useExecute(Map<String, Object> map) {
+		String userId = (String) map.get("userId");
+		String used_pointReason = (String) map.get("pointReason");
+		if (userId == null || userId.isEmpty()) {
+			return "User ID is null or empty.";
+		}
+
+		PointsDAO pointsDAO = sqlSession.getMapper(PointsDAO.class);
+		Integer totalPoints = pointsDAO.getTotalPoints(userId);
+		if (totalPoints != null && totalPoints >= 5000) {
+			int updatedTotalPoints = totalPoints - 5000;
+			PointsDto pointsDto = new PointsDto();
+			pointsDto.setUserId(userId);
+			pointsDto.setPointsUsed(5000);
+			pointsDto.setUsageType(used_pointReason);
+			pointsDto.setTotalPoints(updatedTotalPoints);
+			pointsDAO.substractPoints(pointsDto);
+			return "Points used successfully.";
+		} else {
+			return "Not enough points.";
+		}
+	}
+
 //슬기언니추가
 	public void updatePoints(String userId, int pointsEarned, String pointReason, int quizId) {
 		System.out.println("Executing PointsCommand with userId: " + userId + ", quizId: " + quizId + ", pointsEarned: "

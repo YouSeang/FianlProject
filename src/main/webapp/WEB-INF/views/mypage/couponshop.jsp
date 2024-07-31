@@ -149,19 +149,19 @@
 					</div>
 				</c:forEach>
 				<br />
-				<form action="sendMms" method="post">
+				<form id="couponForm" method="post">
 					<label for="to">전송받을 휴대폰번호: </label> <input type="text" id="to"
 						name="to" required> <br> <label for="text">함께
 						보낼 메시지: </label>
 					<textarea id="text" name="text" required></textarea>
-					<br> <br>
-					<br />
+					<br> <br> <br />
 					<div class="coupon-info">
 						ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br /> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는
 						소멸됩니다. <br /> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
 					</div>
 					<div class="button-container">
-						<button class="btn btn-warning">쿠폰교환</button>
+						<button type="button" class="btn btn-warning"
+							onclick="exchangeCoupon()">쿠폰교환</button>
 					</div>
 					<input type="hidden" id="selectedCouponId" name="selectedCouponId"
 						value=""> <input type="hidden" id="couponImageUrl"
@@ -174,11 +174,66 @@
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 	<!--Javascript======================================================== -->
 	<script>
-        function updateSelectedCoupon(radio) {
-            document.getElementById('selectedCouponId').value = radio.value;
-            document.getElementById('couponImageUrl').value = radio.getAttribute('data-coupon-image');
-        }
-    </script>
+    function updateSelectedCoupon(radio) {
+        document.getElementById('selectedCouponId').value = radio.value;
+        document.getElementById('couponImageUrl').value = radio.getAttribute('data-coupon-image');
+    }
+
+    function exchangeCoupon() {
+        const form = document.getElementById('couponForm');
+        const formData = new FormData(form);
+
+        $.ajax({
+            url: "${pageContext.request.contextPath}/subtractPoints",
+            method: "POST",
+            data: { pointReason: '쿠폰 교환' },
+            success: function(response) {
+                if (response.includes("successfully")) {
+                    $.ajax({
+                        url: "${pageContext.request.contextPath}/sendMms",
+                        method: "POST",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        success: function(response) {
+                            Swal.fire({
+                                title: '쿠폰 발송 완료!',
+                                text: '쿠폰이 성공적으로 발송되었습니다.',
+                                icon: 'success',
+                                confirmButtonText: '확인'
+                            }).then(() => {
+                                window.close();
+                            });
+                        },
+                        error: function(xhr, status, error) {
+                            Swal.fire({
+                                title: '쿠폰 발송에 실패하였습니다. 포인트를 확인해주세요',
+                                text: `쿠폰 발송 중 오류가 발생했습니다: ${error}`,
+                                icon: 'error',
+                                confirmButtonText: '확인'
+                            });
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        title: '포인트 부족',
+                        text: '포인트가 부족하여 쿠폰을 발송할 수 없습니다.',
+                        icon: 'error',
+                        confirmButtonText: '확인'
+                    });
+                }
+            },
+            error: function(xhr, status, error) {
+                Swal.fire({
+                    title: '포인트 차감 실패',
+                    text: `포인트 차감 중 오류가 발생했습니다: ${error}`,
+                    icon: 'error',
+                    confirmButtonText: '확인'
+                });
+            }
+        });
+    }
+</script>
 	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
@@ -197,33 +252,5 @@
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-	<script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const radios = document.querySelectorAll('input[name="selectedCouponId"]');
-
-            radios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    const selectedCouponId = this.value;
-                    const selectedCouponImage = this.dataset.couponImage; // 쿠폰 이미지 URL
-
-                    document.getElementById('selectedCouponId').value = selectedCouponId;
-                    document.getElementById('couponImageUrl').value = selectedCouponImage;
-                });
-            });
-        });
-        // SweetAlert 사용하여 쿠폰 발송 결과 알림
-        <c:if test="${not empty message}">
-            Swal.fire({
-                title: "${success ? '쿠폰 발송 완료!' : '쿠폰 발송 실패!'}",
-                text: "${message}",
-                icon: "${success ? 'success' : 'error'}",
-                confirmButtonText: '확인'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.close();
-                }
-            });
-        </c:if>
-    </script>
 </body>
 </html>

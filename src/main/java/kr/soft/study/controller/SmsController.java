@@ -58,6 +58,13 @@ public class SmsController {
 	 * @GetMapping("/sendMms") public String showMmsForm() { return "sendMms"; }
 	 */
 
+	// 쿠폰재발송을 위한
+	@GetMapping("/resendCouponForm")
+	public String showResendCouponForm(@RequestParam("couponId") String couponId, Model model) {
+		model.addAttribute("couponId", couponId);
+		return "mypage/resendCouponForm";
+	}
+
 	@PostMapping("/sendMms")
 	public String sendMms(HttpSession session, @RequestParam("to") String to, @RequestParam("text") String text,
 			@RequestParam("selectedCouponId") String selectedCouponId,
@@ -73,8 +80,11 @@ public class SmsController {
 			imageToSend = "적금쿠폰.jpg"; // 쿠폰 ID 2에 대한 이미지
 			break;
 		// 추가 쿠폰 ID와 이미지 매핑
+		case "3":
+			imageToSend = "CU쿠폰.jpg"; // 쿠폰 ID 2에 대한 이미지
+			break;
 		default:
-			imageToSend = "CU쿠폰.jpg"; // 기본 이미지
+			imageToSend = "커피쿠폰.jpg"; // 기본 이미지
 			break;
 		}
 

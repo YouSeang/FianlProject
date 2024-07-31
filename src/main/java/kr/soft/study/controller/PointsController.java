@@ -41,4 +41,19 @@ public class PointsController {
 			return "User is not logged in.";
 		}
 	}
+
+	// 포인트 사용
+	@RequestMapping(value = "/subtractPoints", method = RequestMethod.POST)
+	@ResponseBody
+	public String subtractPoints(HttpSession session, @RequestParam("pointReason") String pointReason) {
+		UserDto user = (UserDto) session.getAttribute("user");
+		if (user != null && user.getUser_id() != null) {
+			Map<String, Object> map = new HashMap<>();
+			map.put("userId", user.getUser_id());
+			map.put("pointReason", pointReason);
+			return pointsCommand.useExecute(map);
+		} else {
+			return "User is not logged in.";
+		}
+	}
 }
