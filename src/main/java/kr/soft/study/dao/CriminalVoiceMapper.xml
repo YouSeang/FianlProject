@@ -10,5 +10,15 @@
         FROM criminal_voice 
         WHERE id = #{id}
     </select>
+    
+    <select id="getScenarioPromptByName" parameterType="String" resultType="String">
+        SELECT scenario_prompt 
+        FROM scenarios
+        WHERE scenario_name = #{scenarioName}
+    </select>
+    
+    <select id="getPromptByScenarioName" parameterType="String" resultType="String">
+        SELECT scenario_prompt FROM scenarios WHERE scenario_name = #{scenarioName}
+    </select>
 
 </mapper>

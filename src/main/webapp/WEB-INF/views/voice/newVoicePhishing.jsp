@@ -61,8 +61,14 @@
 						</h1>
 						<p>설명 설명 설명</p>
 						<div class="banner-btn">
-							<a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
-							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a>
+							<!-- 시나리오에서 꺼내기 -->
+							<c:forEach var="scenario" items="${scenarios}">
+                                <a href="../voiceDetail?voice=${scenario.scenarioName}&scenarioName=${scenario.scenarioName}" class="custom-btn">${scenario.scenarioName}</a>
+                            </c:forEach>
+                            
+                            <!-- 원래 코드 -->
+							<!-- <a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
+							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a> -->
 						</div>
 						<div class="banner-btn"></div>
 					</div>
