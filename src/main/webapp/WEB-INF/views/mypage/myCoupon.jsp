@@ -77,8 +77,15 @@
 }
 
 .points-note {
-	font-size: 0.9em;
-	color: #555;
+	font-size: 1.2rem; /* 글씨 크기 조정 */
+	line-height: 1.5; /* 줄 간격 조정 */
+	color: #333; /* 글씨 색상 */
+	margin-top: 10px; /* 상단 여백 */
+	margin-bottom: 10px; /* 하단 여백 */
+	padding: 10px; /* 안쪽 여백 */
+	border: 1px solid #ddd; /* 테두리 */
+	border-radius: 5px; /* 테두리 둥글게 */
+	background-color: #f9f9f9; /* 배경색 */
 }
 
 .points-note ul {

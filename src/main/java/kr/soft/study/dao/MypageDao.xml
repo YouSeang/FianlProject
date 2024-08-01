@@ -14,7 +14,8 @@
 		p.points_earned,
 		p.usage_time,
 		p.usage_type,
-		p.total_points,
+		IFNULL(p.total_points, 0) as
+		total_points,
 		c.coupon_id,
 		c.issue_date,
 		c.use_date,
@@ -22,14 +23,14 @@
 		coup.coupon_type
 		FROM
 		Users u
-		LEFT JOIN
-		Points p ON u.user_id = p.user_id
-		LEFT JOIN UserCoupons c ON u.user_id
-		= c.user_id
-		LEFT JOIN Coupons coup ON c.coupon_id = coup.id
+		LEFT JOIN Points p ON u.user_id = p.user_id
+		LEFT JOIN UserCoupons c ON u.user_id = c.user_id
+		LEFT JOIN Coupons coup
+		ON c.coupon_id = coup.id
 		WHERE
 		u.user_id = #{user_id}
-		ORDER BY u.user_id, p.point_time, c.issue_date
+		ORDER BY u.user_id,
+		p.point_time, c.issue_date
 	</select>
 
 	<!-- 총 포인트와 사용하지 않은 쿠폰 수 가져오기 -->
@@ -73,12 +74,9 @@
 	</select>
 
 	<!-- 해당 사용자의 현재 사용가능 포인트 구하기 -->
-	<select id="getUserTotalPoints" parameterType="String"
-		resultType="int">
-		SELECT
-		SUM(points_earned - points_used) AS total_points
-		FROM
-		Points
+	<select id="getUserTotalPoints" resultType="java.lang.Integer">
+		SELECT IFNULL(SUM(points_earned - points_used), 0) AS total_points
+		FROM Points
 		WHERE user_id = #{user_id}
 	</select>
 

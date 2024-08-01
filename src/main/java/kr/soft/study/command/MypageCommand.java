@@ -27,13 +27,12 @@ public class MypageCommand implements UCommand {
 		MypageDto coupon = dao.getCoupon(userId);
 		UserDto userInfo = userdao.getUserById(userId);
 
-		int totalPoints = dao.getUserTotalPoints(userId);
+		Integer totalPointsObj = dao.getUserTotalPoints(userId);
+		int totalPoints = (totalPointsObj != null) ? totalPointsObj : 0;
 
 		model.addAttribute("mylist", mylist);
 		model.addAttribute("userInfo", userInfo);
 		model.addAttribute("coupon", coupon);
 		model.addAttribute("totalPoints", totalPoints);
-
 	}
-
 }
