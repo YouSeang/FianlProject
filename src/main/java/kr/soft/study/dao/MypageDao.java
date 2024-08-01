@@ -10,7 +10,7 @@ public interface MypageDao {
 	public ArrayList<MypageDto> myInfomation(String user_id);
 
 	// 현재 사용가능한 총 포인트 구하기
-	int getUserTotalPoints(String user_id);
+	Integer getUserTotalPoints(String userId);
 
 	// 사용안한 쿠폰 개수 가져오기
 	public MypageDto getCoupon(String user_id);
