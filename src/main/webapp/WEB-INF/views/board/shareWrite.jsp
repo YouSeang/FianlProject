@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -13,17 +12,14 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
-<!-- Template Title
-    ==================================================================-->
+<!-- Template Title -->
 <title>KB스쿨</title>
 
-<!-- Favicon Icon
-    ==================================================-->
+<!-- Favicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-<!-- Style Libraries
-    ==================================================================-->
+<!-- Style Libraries -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -39,11 +35,13 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 
-<!-- Style css
-    ==================================================================== -->
+<!-- Style css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+<script>
+var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
+</script>
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -51,12 +49,12 @@
 </head>
 
 <body>
-	<!-- Preloader -->
+<!-- Preloader
 	<div id="preloader">
 		<div class="preloader">
 			<span></span> <span></span>
 		</div>
-	</div>
+	</div> -->
   <%@ include file="/WEB-INF/views/header.jsp" %> 
 	
    <!-- Promo Area Start -->
@@ -79,35 +77,33 @@
     </section>
     <!-- Promo Area End -->
 
-    <!-- case share board -->
-      <!-- Case Share Board Start -->
+    <!-- Case Share Board Start -->
     <div class="container py-5">
         <div class="row">
-            <div class="col-lg-12">
-                <h2 class="text-center mb-4">피해사례 공유 게시판</h2>
-                  <div class="text-end mb-3">
-            <a href="${pageContext.request.contextPath}/board/shareWrite" class="btn btn-primary">사례공유 글 작성</a>
-        </div><br><br>
-                <table class="table table-hover table-bordered text-center">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>제목</th>
-                            <th>작성일시</th>
-                            <th>작성자 ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="share" items="${shareList}">
-                            <tr>
-                                <td>${share.id}</td>
-                                <td><a href="detail?id=${share.id}">${share.title}</a></td>
-                                <td>${share.writetime}</td>
-                                <td>${share.userId}</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+            <div class="col-lg-8 mx-auto">
+                <h2 class="text-center mb-4">피해사례 작성</h2>
+                <form action="${pageContext.request.contextPath}/board/shareWriteProcess" method="post" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">제목</label>
+                        <input type="text" class="form-control" id="title" name="title" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contents" class="form-label">내용</label>
+                        <textarea class="form-control" id="contents" name="contents" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="image" class="form-label">이미지 첨부 (선택)</label>
+                        <input type="file" class="form-control" id="image" name="image">
+                    </div>
+
+   
+<input type="hidden" name="userId" value="${sessionScope.userId}">
+
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-primary">작성하기</button>
+                        <a href="${pageContext.request.contextPath}/board/share" class="btn btn-secondary">취소</a>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -115,11 +111,9 @@
     
     <!-- FAQ AREA END -->
 
-     <%@ include file="/WEB-INF/views/footer.jsp" %> 
+    <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
-    <!--
-Javascript
-======================================================== -->
+    <!-- Javascript -->
     <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
@@ -136,8 +130,6 @@ Javascript
     <script src="<c:url value="/resources/js/form.js"/>"></script>
     <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
-
-
 </body>
 
 </html>
