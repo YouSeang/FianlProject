@@ -48,10 +48,7 @@ public class boardController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	
 
-
-	UCommand command = null; // UCommand 인터페이스 타입의 참조변수를 선언
 
 	private SqlSession sqlSession;
 
@@ -70,7 +67,7 @@ public class boardController {
 
 	@RequestMapping("/board/share")
 	public String share(HttpServletRequest request, Model model) {
-		 System.out.println("사례공유");
+		 System.out.println("share");
 		 model.addAttribute("request", request);
 		 command = new ShareCommand();
 	     command.execute(model);
@@ -80,7 +77,7 @@ public class boardController {
 	
 	@RequestMapping("/board/shareWrite")
 	public String shareWrite(Model model) {
-		 System.out.println("사례공유작성");
+		 System.out.println("shareWrite");
 		return "board/shareWrite";
 	}
 	
@@ -93,8 +90,8 @@ public class boardController {
                                Model model) {
 
 		
-		 // 디버깅 로그 출력
-	    System.out.println("로그인한 userId: " + userId);
+		
+	    System.out.println("userId: " + userId);
 	    
 	    
         ShareDto shareDto = new ShareDto();
@@ -106,7 +103,7 @@ public class boardController {
         Timestamp timestamp = Timestamp.from(now.toInstant());
         shareDto.setWritetime(timestamp);
         
-        // 이미지 업로드 처리
+        
         if (image != null && !image.isEmpty()) {
             String uploadDir = "uploads/";
             String originalFilename = image.getOriginalFilename();
@@ -123,14 +120,14 @@ public class boardController {
         }
 
         shareDao.writeShare(shareDto);
-        return "redirect:/board/share";  // 저장 후 리스트 페이지로 리다이렉트
+        return "redirect:/board/share"; 
     }
     
     @GetMapping("/board/detail")
     public String detail(@RequestParam("id") int id, Model model) {
         ShareDto shareDto = shareDao.getCasebyId(id);
         model.addAttribute("share", shareDto);
-        return "board/shareDetail";  // 상세보기 페이지로 이동
+        return "board/shareDetail"; 
     }
 
 }
