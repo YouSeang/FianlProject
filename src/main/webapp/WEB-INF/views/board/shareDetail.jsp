@@ -84,30 +84,22 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-12">
-                <h2 class="text-center mb-4">피해사례 공유 게시판</h2>
-                  <div class="text-end mb-3">
-            <a href="${pageContext.request.contextPath}/board/shareWrite" class="btn btn-primary">사례공유 글 작성</a>
-        </div><br><br>
-                <table class="table table-hover table-bordered text-center">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th>ID</th>
-                            <th>제목</th>
-                            <th>작성일시</th>
-                            <th>작성자 ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach var="share" items="${shareList}">
-                            <tr>
-                                <td>${share.id}</td>
-                                <td><a href="detail?id=${share.id}">${share.title}</a></td>
-                                <td>${share.writetime}</td>
-                                <td>${share.userId}</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
+                <h2 class="text-center mb-4">피해사례 상세보기</h2>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>${share.title}</h3>
+                        <p class="text-muted">작성자: ${share.userId} | 작성일시: ${share.writetime}</p>
+                    </div>
+                    <div class="card-body">
+                        <p>${share.contents}</p>
+                        <c:if test="${not empty share.image}">
+                            <img src="${pageContext.request.contextPath}/${share.image}" class="img-fluid" alt="관련 이미지">
+                        </c:if>
+                    </div>
+                    <div class="card-footer text-end">
+                        <a href="${pageContext.request.contextPath}/board/share" class="btn btn-secondary">목록으로 돌아가기</a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

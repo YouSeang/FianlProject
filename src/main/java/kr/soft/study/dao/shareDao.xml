@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.soft.study.dao.ShareDao">
+
+   <select id="list" resultType="kr.soft.study.dto.ShareDto">
+    SELECT id, title, contents, image, writetime, user_id AS userId, post_type AS postType
+    FROM caseshare
+</select>
+
+<select id="getCasebyId" parameterType="int" resultType="kr.soft.study.dto.ShareDto">
+    SELECT id, title, contents, image, writetime, user_id AS userId, post_type AS postType
+    FROM caseshare WHERE id = #{id}
+</select>
+
+<insert id="writeShare">
+    INSERT INTO caseshare (user_id, title, contents, image, post_type)
+    VALUES (#{userId}, #{title}, #{contents}, #{image}, #{postType})
+</insert>
+
+<update id="updateCase">
+    UPDATE caseshare
+    SET title = #{title}, contents = #{contents}, image = #{image}
+    WHERE id = #{id}
+</update>
+
+<delete id="deleteCase">
+    DELETE FROM caseshare WHERE id = #{id}
+</delete>
+
+
+</mapper>

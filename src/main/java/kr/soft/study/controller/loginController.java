@@ -59,6 +59,7 @@ public class loginController {
 		if ("success".equals(loginResult)) {
 			session.setAttribute("isLoggedIn", true); // 로그인 성공 시 세션에 true값 담음
 			UserDto user = (UserDto) session.getAttribute("user");
+			session.setAttribute("userId", user.getUser_id());
 			System.out.println("User logged in: " + user.getUser_id());
 			System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
 
