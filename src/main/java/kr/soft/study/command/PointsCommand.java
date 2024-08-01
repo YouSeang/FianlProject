@@ -35,7 +35,13 @@ public class PointsCommand implements PCommand {
 		int pointsAddedToday = pointsDAO.checkPointsAddedToday(params);
 		if (pointsAddedToday == 0) {
 			Integer totalPoints = pointsDAO.getTotalPoints(userId);
-			int newPoints = 500; // or you can pass this value in the map
+			int newPoints = 500; // 기본 포인트
+
+			// 포인트 이유에 따라 다른 포인트를 설정
+			if ("출석체크".equals(pointReason)) {
+				newPoints = 100; // 출석체크일 경우 100 포인트
+			}
+
 			int updatedTotalPoints = totalPoints != null ? totalPoints + newPoints : newPoints;
 			PointsDto pointsDto = new PointsDto();
 			pointsDto.setUserId(userId);
@@ -43,6 +49,7 @@ public class PointsCommand implements PCommand {
 			pointsDto.setPointReason(pointReason);
 			pointsDto.setTotalPoints(updatedTotalPoints);
 			pointsDAO.addPoints(pointsDto);
+
 			return "Points added successfully.";
 		} else {
 			System.out.println("Points already added today for userId: " + userId + ", pointReason: " + pointReason);

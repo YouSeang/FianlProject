@@ -23,11 +23,12 @@ public class CriminalVoiceDTO {
     public CriminalVoiceDTO() {}
 
     // 생성자
-    public CriminalVoiceDTO(int idx, String id, String voicePath, boolean isFinal) {
+    public CriminalVoiceDTO(int idx, String id, String voicePath, boolean isFinal, String scenarioName) {
         this.idx = idx;
         this.id = id;
         this.voicePath = voicePath;
         this.isFinal = isFinal;
+        this.scenarioName = scenarioName;
     }
 
     // Getter 및 Setter 메서드

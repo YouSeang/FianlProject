@@ -99,7 +99,92 @@
 	<!-- Promo Area End -->
 	<section>
 
+		<!-- Our Project Area Start -->
+		<section class="project-area section-padding">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="section-intro">
+							<h2 class="section-title">
+								유용한<span class="color">보안 어플</span>
+							</h2>
+							<p>다양한 위험으로부터 우리의 정보와 재산을 지켜주는데 도움 되는 어플리케이션들을 소개합니다. 지금 바로
+								다운로드 받으세요!</p>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-4 col-sm-4">
+						<div class="single-project rounded-2 shadow">
+							<figure class="project-thumb">
+								<img
+									src="${pageContext.request.contextPath}/resources/images/secure/시티즌코난1.png"
+									alt="">
+							</figure>
+							<div class="project-info p-lg-4 p-3">
+								<h3>
+									<a href="#">시티즌코난</a>
+								</h3>
+								<p>한국형 자연어 분석 기반 전화금융 사기 탐지기로 시민들의 핸드폰에 설치된 악성앱을 탐지해내는 앱입니다.
+									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기(구 피시앙이즈 폴리스)로서 피싱아이즈와 함께 운영되며,
+									안드로이드용으로 제공되며 아이폰은 피싱아이즈 다운로드를 권장합니다.</p>
+								<button class="custom-btn"
+									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.police.phishingeyes&pcampaignid=web_share'">링크
+									연결</button>
+							</div>
+						</div>
+						<!-- Single Project End -->
+					</div>
+					<!-- Single Cause End -->
+					<div class="col-lg-4 col-sm-4">
+						<div class="single-project rounded-2 shadow">
+							<figure class="project-thumb">
+								<img
+									src="${pageContext.request.contextPath}/resources/images/secure/피싱아이즈.png"
+									alt="">
+							</figure>
+							<div class="project-info p-lg-4 p-3">
+								<h3>
+									<a href="#">피싱아이즈</a>
+								</h3>
+								<p>경찰청 및 제휴된 금융사와 다양한 유형의 피싱에 대해 실시간적으로 공동 대응함으로써, 피싱범의 4대
+									현혹 행위(악성 앱, 원격제어 앱, 문자, 카카오톡)와 5대 갈취 채널(APP, WEB, ARS, ATM,
+									창구)로부터 보이스피싱을 예방하는 "보이스피싱 민관 공동 대응망 서비스" 입니다.</p>
+								<button class="custom-btn"
+									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.lite.phishingeyes&pcampaignid=web_share'">링크
+									연결</button>
+							</div>
 
+						</div>
+						<!-- Single Project End -->
+					</div>
+					<!-- Single Cause End -->
+					<div class="col-lg-4 col-sm-4">
+						<div class="single-project rounded-2 shadow">
+							<figure class="project-thumb">
+								<img
+									src="${pageContext.request.contextPath}/resources/images/secure/폰가디언.png"
+									alt="">
+							</figure>
+							<div class="project-info p-lg-4 p-3">
+								<h3>
+									<a href="#">폰가디언</a>
+								</h3>
+								<p>폰가디언이 제공하는 서비스입니다. ・암호화 VPN 기술로 인터넷 통신 보호 ・글로벌 개인정보 유출 및
+									해킹방지 ・VPN 보안으로 간단하고 정확하게 해킹 차단 ・손 쉬운 온 오프(On-Off) 기능 ・공공 와이파이
+									해킹, 개인정보 유출 위험을 VPN 보안으로 간단하게 방지</p>
+								<button class="custom-btn"
+									onclick="location.href='https://play.google.com/store/apps/details?id=com.distimo.phoneguardian&pcampaignid=web_share'">링크
+									연결</button>
+							</div>
+						</div>
+						<!-- Single Project End -->
+					</div>
+					<!-- Single Cause End -->
+				</div>
+			</div>
+		</section>
+		<!-- Our Project Area End -->
 		<main class="main-content">
 			<div class="container">
 				<div class="row">
@@ -110,28 +195,34 @@
 									<div class="sp-thumb">
 										<img
 											src="${pageContext.request.contextPath}/resources/images/secure/1사이트.png"
-											alt=""> 
+											alt="">
 									</div>
 								</div>
 								<div class="col-lg-7 col-sm-6">
 									<div class="sp-details">
 										<h2>금융감독원</h2>
-										
+
 
 										<div class="item-rating d-flex align-items-center">
 											<a href="#">09 Reviews</a>
 										</div>
-										<p><div><strong>의심하고, 끊고, 확인하세요! 예방만이 최선의 대책입니다.</strong></div> <div>피해신고(상담) : 경찰청(☎112)</div>
-											<div>지급정지 : 금융감독원(☎1332)</div> <div>스팸 차단 : 한국인터넷진흥원(☎118)</div></p>
+										<p>
+										<div>
+											<strong>의심하고, 끊고, 확인하세요! 예방만이 최선의 대책입니다.</strong>
+										</div>
+										<div>피해신고(상담) : 경찰청(☎112)</div>
+										<div>지급정지 : 금융감독원(☎1332)</div>
+										<div>스팸 차단 : 한국인터넷진흥원(☎118)</div>
+										</p>
 
 
 										<div class="s-cart d-flex">
-											<div class="input-content">
-												
-											</div>
+											<div class="input-content"></div>
 											<div class="cart-cta ms-3">
 
-												<button class="custom-btn">링크 연결</button>
+												<button class="custom-btn"
+									onclick="location.href='https://www.fss.or.kr/'">링크
+									연결</button>
 											</div>
 										</div>
 
@@ -155,7 +246,7 @@
 														<div class="col-lg-7 col-sm-6">
 															<div class="sp-details">
 																<h2>명의도용방지서비스</h2>
-																
+
 
 																<div class="item-rating d-flex align-items-center">
 																	<a href="#">09 Reviews</a>
@@ -182,12 +273,12 @@
 
 
 																<div class="s-cart d-flex">
-																	<div class="input-content">
-																		
-																	</div>
+																	<div class="input-content"></div>
 																	<div class="cart-cta ms-3">
 
-																		<button class="custom-btn">링크연결</button>
+																		<button class="custom-btn"
+									onclick="location.href='https://www.msafer.or.kr/service/introduction.do'">링크
+									연결</button>
 																	</div>
 																</div>
 
@@ -197,7 +288,7 @@
 															<div class="sp-thumb">
 																<img
 																	src="${pageContext.request.contextPath}/resources/images/secure/2사이트.png"
-																	alt=""> 
+																	alt="">
 															</div>
 														</div>
 													</div>
@@ -219,13 +310,13 @@
 																					<div class="sp-thumb">
 																						<img
 																							src="${pageContext.request.contextPath}/resources/images/secure/3사이트.png"
-																							alt=""> 
+																							alt="">
 																					</div>
 																				</div>
 																				<div class="col-lg-7 col-sm-6">
 																					<div class="sp-details">
 																						<h2>개인정보 포털</h2>
-																						
+
 
 																						<div class="item-rating d-flex align-items-center">
 																							<a href="#">09 Reviews</a>
@@ -246,12 +337,12 @@
 
 
 																						<div class="s-cart d-flex">
-																							<div class="input-content">
-																								
-																							</div>
+																							<div class="input-content"></div>
 																							<div class="cart-cta ms-3">
 
-																								<button class="custom-btn">링크연결</button>
+																								<button class="custom-btn"
+									onclick="location.href='https://www.privacy.go.kr/front/main/main.do'">링크
+									연결</button>
 																							</div>
 																						</div>
 
@@ -280,7 +371,7 @@
 																										<div class="col-lg-7 col-sm-6">
 																											<div class="sp-details">
 																												<h2>털린 내 정보 찾기 서비스</h2>
-																											
+
 																												<div
 																													class="item-rating d-flex align-items-center">
 																													<a href="#">09 Reviews</a>
@@ -299,12 +390,12 @@
 
 
 																												<div class="s-cart d-flex">
-																													<div class="input-content">
-																														
-																													</div>
+																													<div class="input-content"></div>
 																													<div class="cart-cta ms-3">
 
-																														<button class="custom-btn">링크 연결</button>
+																														<button class="custom-btn"
+									onclick="location.href='https://kidc.eprivacy.go.kr/'">링크
+									연결</button>
 																													</div>
 																												</div>
 
@@ -314,13 +405,17 @@
 																											<div class="sp-thumb">
 																												<img
 																													src="${pageContext.request.contextPath}/resources/images/secure/4사이트.png"
-																													alt=""> 
+																													alt="">
 																											</div>
 																										</div>
 																									</div>
-																									<div class="row mb-5">
 	</section>
-	<!-- Partner Area Start -->
+
+
+
+
+
+	<%-- <!-- Partner Area Start -->
 	<section class="partner-area bg-cover section-padding"
 		data-stellar-background-ratio="0.5"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/partner/partner-bg.jpg');">
@@ -373,7 +468,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> --%>
 	<!-- Partner Area End -->
 
 

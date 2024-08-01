@@ -59,20 +59,21 @@
 	</div>
 		<!-- header start -->
 	<%@ include file="/WEB-INF/views/header.jsp"%>
-	
+
 	<!-- Promo Area Start -->
+
+
+
 	<section class="promo-area" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title">
-							<span>금융사고</span> 현황
-						</h1>
+						<h1 class="promo-title">금융 사고 현황</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">금융사고현황</li>
+								<li class="breadcrumb-item active" aria-current="page">금융 사고 현황</li>
 							</ol>
 						</nav>
 					</div>
@@ -81,8 +82,6 @@
 		</div>
 	</section>
 	<!-- Promo Area End -->
-
-
 
 
 	<!-- Main Area Start -->
@@ -290,7 +289,7 @@
 														<div >
 															
 															<span class="date"><strong>작년 보이스피싱 피해자 1인당 1,700만원 피해, 전년比
-																1.5배↑ -  2023년 보이스피싱 피해현황 분석 -</strong></span>
+																1.5배↑ - 2023년 보이스피싱 피해현황 분석 -</strong></span>
 															<p>□(피해규모)’23년 보이스피싱 피해액은 1,965억원으로 전년(1,451억원)보다
 																514억원(35.4%) 증가 ◦피해자 수는 감소(10.2%↓)하였으나, 1천만원 이상 고액 피해사례가
 																증가 □(피해구제)｢통합신고대응센터(☎112)｣ 개소에 따른 보이스피싱 구제절차 일원화 등으로 신속한
@@ -312,8 +311,10 @@
 							</div>
 						</div>
 						<div class="row mb-5 pb-4">
-							<!-- Related Product Start -->
-
+							
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

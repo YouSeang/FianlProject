@@ -7,13 +7,11 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.TimeZone;
-
 import java.util.UUID;
-
 import javax.servlet.http.HttpServletRequest;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,11 +27,17 @@ import kr.soft.study.dao.ShareDao;
 import kr.soft.study.dto.ShareDto;
 import kr.soft.study.util.Command;
 
+
+import kr.soft.study.command.UCommand;
+import kr.soft.study.util.Constant;
+
+
 /**
  * Handles requests for the application home page.
  */
 @Controller
 public class boardController {
+
 	Command command = null;
 	
 	@Autowired
@@ -45,25 +49,38 @@ public class boardController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	
-	
+
+
+	UCommand command = null; // UCommand ì¸í„°í˜ì´ìŠ¤ íƒ€ì…ì˜ ì°¸ì¡°ë³€ìˆ˜ë¥¼ ì„ ì–¸
+
+	private SqlSession sqlSession;
+
+	@Autowired
+	public boardController(SqlSession sqlSession) {
+		this.sqlSession = sqlSession;
+		Constant.sqlSession = this.sqlSession;
+	}
+
+
 	@RequestMapping("/board/notice")
 	public String notice(Model model) {
 		System.out.println("notice");
 		return "board/notice";
 	}
-	
+
 	@RequestMapping("/board/share")
 	public String share(HttpServletRequest request, Model model) {
-		 System.out.println("»ç·Ê°øÀ¯");
+		 System.out.println("ì‚¬ë¡€ê³µìœ ");
 		 model.addAttribute("request", request);
 		 command = new ShareCommand();
 	     command.execute(model);
 		return "board/share";
 	}
+
 	
 	@RequestMapping("/board/shareWrite")
 	public String shareWrite(Model model) {
-		 System.out.println("»ç·Ê°øÀ¯ÀÛ¼º");
+		 System.out.println("ì‚¬ë¡€ê³µìœ ì‘ì„±");
 		return "board/shareWrite";
 	}
 	
@@ -76,8 +93,8 @@ public class boardController {
                                Model model) {
 
 		
-		 // µğ¹ö±ë ·Î±× Ãâ·Â
-	    System.out.println("·Î±×ÀÎÇÑ userId: " + userId);
+		 // ë””ë²„ê¹… ë¡œê·¸ ì¶œë ¥
+	    System.out.println("ë¡œê·¸ì¸í•œ userId: " + userId);
 	    
 	    
         ShareDto shareDto = new ShareDto();
@@ -89,7 +106,7 @@ public class boardController {
         Timestamp timestamp = Timestamp.from(now.toInstant());
         shareDto.setWritetime(timestamp);
         
-        // ÀÌ¹ÌÁö ¾÷·Îµå Ã³¸®
+        // ì´ë¯¸ì§€ ì—…ë¡œë“œ ì²˜ë¦¬
         if (image != null && !image.isEmpty()) {
             String uploadDir = "uploads/";
             String originalFilename = image.getOriginalFilename();
@@ -106,13 +123,14 @@ public class boardController {
         }
 
         shareDao.writeShare(shareDto);
-        return "redirect:/board/share";  // ÀúÀå ÈÄ ¸®½ºÆ® ÆäÀÌÁö·Î ¸®´ÙÀÌ·ºÆ®
+        return "redirect:/board/share";  // ì €ì¥ í›„ ë¦¬ìŠ¤íŠ¸ í˜ì´ì§€ë¡œ ë¦¬ë‹¤ì´ë ‰íŠ¸
     }
     
     @GetMapping("/board/detail")
     public String detail(@RequestParam("id") int id, Model model) {
         ShareDto shareDto = shareDao.getCasebyId(id);
         model.addAttribute("share", shareDto);
-        return "board/shareDetail";  // »ó¼¼º¸±â ÆäÀÌÁö·Î ÀÌµ¿
+        return "board/shareDetail";  // ìƒì„¸ë³´ê¸° í˜ì´ì§€ë¡œ ì´ë™
     }
+
 }
