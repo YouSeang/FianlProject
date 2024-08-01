@@ -2,6 +2,7 @@ package kr.soft.study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -60,4 +61,12 @@ public class SecureController {
 
         return "security/securityTempResult"; // 결과 페이지로 리디렉션
     }
+    
+    
+    @RequestMapping("/goSecureGuide")
+    public String goSecureGuide(Model model) {
+
+        return "security/securityGuide"; // 결과 페이지로 리디렉션
+    }
+    
 }
