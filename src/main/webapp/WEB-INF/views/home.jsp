@@ -86,7 +86,7 @@ function openVoicePhishingWindow() {
 				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너2.jpg')">
 				<div class="container">
 					<div class="banner-info">
-						<h1 class="banner-title text-white" style="color: white;" >
+						<h1 class="banner-title text-white" style="color: white;">
 							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
 						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
@@ -265,12 +265,8 @@ function openVoicePhishingWindow() {
 
 	<!-- 팀소개 영역 Start -->
 	<section class="team-area section-padding"
-<<<<<<< HEAD
 		data-stellar-background-ratio=".3"
 		style="background: none; background-position: initial;">
-=======
-		data-stellar-background-ratio=".3" style="background: none; background-position: initial;">
->>>>>>> branch 'main' of https://github.com/YouSeang/FianlProject.git
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
