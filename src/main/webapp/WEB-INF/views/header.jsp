@@ -178,13 +178,10 @@
 								<ul class="dropdown-menu"
 									style="background-color: rgba(255, 255, 255, 0.9);">
 									<li><a class="dropdown-item"
-<<<<<<< HEAD
 										href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/guide">공지사항</a></li>
-=======
-										href="${pageContext.request.contextPath}/board/notice">공지사항</a></li>
->>>>>>> branch 'main' of https://github.com/YouSeang/FianlProject.git
+
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
 								</ul></li>
