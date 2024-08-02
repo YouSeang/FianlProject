@@ -180,7 +180,7 @@
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
 									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/board/guide">공지사항</a></li>
+										href="${pageContext.request.contextPath}/board/notice">공지사항</a></li>
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
 								</ul></li>

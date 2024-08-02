@@ -7,21 +7,24 @@
 
 	<!-- 회원가입 -->
 	<insert id="Join">
-		insert into Users (user_id, name, email, password, role)
-		values (#{param1},#{param2},#{param3},#{param4}, 'user') <!-- 기본 역할을 'user'로 설정 -->
+		insert into Users (user_id, name, email, phone_number, password, role)
+		values (#{param1},#{param2},#{param3},#{param4},#{param5}, 'user') <!-- 기본 
+			역할을 'user'로 설정 -->
 	</insert>
 
 	<!-- 로그인 아이디랑 비밀번호 확인 -->
 	<select id="getUserById" resultType="kr.soft.study.dto.UserDto">
 		select * from Users
-		where user_id=#{user_id}
+		where
+		user_id=#{user_id}
 	</select>
 
 	<!-- 이메일 업데이트 쿼리 -->
 	<update id="update">
 		UPDATE Users
 		SET email = #{email}
-		WHERE user_id = #{user_id}
+		WHERE user_id =
+		#{user_id}
 	</update>
 
 </mapper>

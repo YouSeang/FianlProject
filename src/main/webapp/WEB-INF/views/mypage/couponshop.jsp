@@ -186,9 +186,12 @@
         $.ajax({
             url: "${pageContext.request.contextPath}/subtractPoints",
             method: "POST",
-            data: { pointReason: '쿠폰 교환' },
+            data: {
+                pointReason: '쿠폰 교환',
+                couponId: document.getElementById('selectedCouponId').value
+            },
             success: function(response) {
-                if (response.includes("successfully")) {
+                if (response.includes("Points subtracted and coupon issued successfully.")) {
                     $.ajax({
                         url: "${pageContext.request.contextPath}/sendMms",
                         method: "POST",
@@ -216,8 +219,8 @@
                     });
                 } else {
                     Swal.fire({
-                        title: '포인트 부족',
-                        text: '포인트가 부족하여 쿠폰을 발송할 수 없습니다.',
+                        title: '포인트 부족 또는 쿠폰 저장 실패',
+                        text: response,
                         icon: 'error',
                         confirmButtonText: '확인'
                     });

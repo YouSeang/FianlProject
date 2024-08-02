@@ -197,14 +197,24 @@
 								<label for="text">받는 분께 전할 메시지:</label>
 								<textarea id="text" name="text" required></textarea>
 							</div>
+
+
 							<div class="form-group">
+								<c:forEach var="scenario" items="${scenarios}">
+									<button type="button" name="buttonType"
+										value="${scenario.type}" class="custom-btn"
+										onclick="sendSmishing('${scenario.type}')">${scenario.type}
+										체험하기</button>
+								</c:forEach>
+							</div>
+							<!-- <div class="form-group">
 								<button type="button" name="buttonType" value="delivery"
 									class="custom-btn" onclick="sendSmishing('delivery')">택배문자
 									체험하기</button>
 								<button type="button" name="buttonType" value="invitation"
 									class="custom-btn" onclick="sendSmishing('invitation')">청접장문자
 									체험하기</button>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -249,8 +259,8 @@
 										<figure>
 											<img src="/study/resources/images/incident/voiceIntro.jpg"
 												alt="">
-											<figcaption>Education Proggrame is runningcpgjagkrl
-												smoothly.</figcaption>
+											<figcaption>Education Proggrame is
+												runningcpgjagkrl smoothly.</figcaption>
 										</figure>
 									</div>
 								</div>
