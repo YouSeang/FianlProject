@@ -3067,8 +3067,17 @@ header.header-2 nav.navbar.scroll-on {
 16. Team Area
 ============================================*/
 
+<<<<<<< HEAD
 .team-area {
  
+=======
+
+
+  &::before {
+    background: $white;
+    @include opacity(.92);
+  }
+>>>>>>> branch 'main' of https://github.com/YouSeang/FianlProject.git
 
   .owl-nav>div {
     top: 35%;

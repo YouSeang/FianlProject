@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
+
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -14,29 +15,40 @@
 
 <!-- Template Title
     ==================================================================-->
-<title>KB큽스쿨</title>
+<title>KB스쿨</title>
 
 <!-- Favicon Icon
-    ==================================================-->
-<link rel="shortcut icon" href="images/components/favicon.ico">
+    ==================================================--->
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
 <!-- Style Libraries
     ==================================================================-->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/fontawesome/all.min.css">
-<link rel="stylesheet" href="css/font/flaticon.css">
-<link rel="stylesheet" href="css/owl.carousel.min.css">
-<link rel="stylesheet" href="css/nice-select.css">
-<link rel="stylesheet" href="css/animate.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/animate.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 
 <!-- Style css
     ==================================================================== -->
-<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/kbfont.css">
 <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
 
@@ -70,11 +82,12 @@ function openVoicePhishingWindow() {
 				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.png')">
 				<div class="container">
 					<div class="banner-info">
-						<h1 class="banner-title text-white" style="color: white;">
+						<h1 class="banner-title text-white">
 							시뮬레이션으로<span>금융사고를 </span><br />예방해보세요
 						</h1>
-						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
+						<p>블라블라</p>
 						<div class="banner-btn">
+							<!-- <a href="voice/newVoicePhishing" class="custom-btn">체험하러가기</a> -->
 							<a href="#" class="custom-btn"
 								onclick="openVoicePhishingWindow()">체험하러 가기</a>
 						</div>
@@ -83,15 +96,15 @@ function openVoicePhishingWindow() {
 			</div>
 			<!-- Single Banner End -->
 			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너2.jpg')">
+				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.jpg')">
 				<div class="container">
 					<div class="banner-info">
-						<h1 class="banner-title text-white" style="color: white;" >
+						<h1 class="banner-title text-white">
 							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
 						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
-							<a href="/study/edu/sbjoin" class="custom-btn">체험하러가기</a>
+							<a href="#" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
@@ -181,6 +194,9 @@ function openVoicePhishingWindow() {
 	</div>
 	<!-- 교육영상영역 End -->
 
+
+
+
 	<!-- 카드공지영역 Start -->
 	<section class="project-area section-padding">
 		<div class="container">
@@ -233,6 +249,7 @@ function openVoicePhishingWindow() {
 							</p>
 							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
 						</div>
+
 					</div>
 					<!-- Single Project End -->
 				</div>
@@ -263,14 +280,10 @@ function openVoicePhishingWindow() {
 	</section>
 	<!-- 카드공지영역 End -->
 
+
 	<!-- 팀소개 영역 Start -->
 	<section class="team-area section-padding"
-<<<<<<< HEAD
-		data-stellar-background-ratio=".3"
-		style="background: none; background-position: initial;">
-=======
-		data-stellar-background-ratio=".3" style="background: none; background-position: initial;">
->>>>>>> branch 'main' of https://github.com/YouSeang/FianlProject.git
+		data-stellar-background-ratio=".3">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -367,6 +380,7 @@ function openVoicePhishingWindow() {
 							</div>
 						</div>
 						<!-- Team Member End -->
+
 					</div>
 				</div>
 			</div>
@@ -374,39 +388,27 @@ function openVoicePhishingWindow() {
 	</section>
 	<!-- 팀소개영역 End -->
 
-	<%@ include file="footer.jsp"%>
 
-	<!-- JavaScript Libraries
-    ======================================================== -->
+	<%@ include file="footer.jsp"%>
+	<!--
+Javascript
+======================================================== -->
+
+	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
 	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/owl.carousel.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.stellar.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.scrollUp.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.easing.1.3.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.magnific-popup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.syotimer.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/wow.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.counterup.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.waypoints.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/isotope.pkgd.min.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.ajaxchimp.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/form.js"></script>
-	<script
-		src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
+		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/wow.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/form.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 
 </body>
 
