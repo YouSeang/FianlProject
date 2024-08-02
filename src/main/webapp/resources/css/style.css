@@ -3219,9 +3219,6 @@ opacity
 /* ==========================================
 16. Team Area
 ============================================*/
-.team-area {
-	background: url("../images/banner/team-bg.jpg") no-repeat center center/cover;
-}
 
 .team-area::before {
 	background: #ffffff;
