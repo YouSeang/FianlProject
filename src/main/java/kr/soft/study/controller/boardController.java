@@ -32,6 +32,7 @@ import kr.soft.study.util.Constant;
  */
 @Controller
 public class boardController {
+
 	Command command = null;
 
 	@Autowired
@@ -82,12 +83,14 @@ public class boardController {
 		ZonedDateTime now = ZonedDateTime.now(ZoneId.of("UTC"));
 		Timestamp timestamp = Timestamp.from(now.toInstant());
 		shareDto.setWritetime(timestamp);
-		// �씠誘몄� �뾽濡쒕뱶 泥섎━
+
+		// �씠誘몄� �뾽濡쒕뱶 泥섎━
 		if (image != null && !image.isEmpty()) {
 			String uploadDir = "uploads/";
 			String originalFilename = image.getOriginalFilename();
 			String uniqueFilename = UUID.randomUUID().toString() + "_" + originalFilename;
 			String filePath = uploadDir + uniqueFilename;
+
 			try {
 				File uploadFile = new File(filePath);
 				image.transferTo(uploadFile);
@@ -96,14 +99,16 @@ public class boardController {
 				e.printStackTrace();
 			}
 		}
+
 		shareDao.writeShare(shareDto);
-		return "redirect:/board/share"; // ���옣 �썑 由ъ뒪�듃 �럹�씠吏�濡� 由щ떎�씠�젆�듃
+		return "redirect:/board/share"; // ���옣 �썑 由ъ뒪�듃 �럹�씠吏�濡� 由щ떎�씠�젆�듃
 	}
 
 	@GetMapping("/board/detail")
 	public String detail(@RequestParam("id") int id, Model model) {
 		ShareDto shareDto = shareDao.getCasebyId(id);
 		model.addAttribute("share", shareDto);
-		return "board/shareDetail"; // �긽�꽭蹂닿린 �럹�씠吏�濡� �씠�룞
+		return "board/shareDetail"; // �긽�꽭蹂닿린 �럹�씠吏�濡� �씠�룞
 	}
+
 }
