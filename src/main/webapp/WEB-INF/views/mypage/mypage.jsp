@@ -39,7 +39,8 @@
 <!-- Theme CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
-
+<%-- <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/ourfont.css"> --%>
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -166,7 +167,8 @@
 				<div class="col-lg-5 offset-lg-1">
 					<div class="checkout-info">
 						<div class="lead" style="margin-left: 250px;">
-							<strong style="font-weight: 900;"><c:out value="${userInfo.name}"/></strong>님의 마이페이지
+							<strong style="font-weight: 900;"><c:out
+									value="${userInfo.name}" /></strong>님의 마이페이지
 						</div>
 					</div>
 				</div>
@@ -193,8 +195,7 @@
 											<td class="width-30"><c:out value="${userInfo.email}" />
 											</td>
 											<th scope="row" class="width-20 bg-light-gray">휴대폰 번호</th>
-											<td class="width-30">
-												<%-- <c:out value="${userInfo.phone_number}" /> --%>
+											<td class="width-30"><c:out value="${userInfo.phone_number}" />
 											</td>
 										</tr>
 									</tbody>
@@ -222,7 +223,8 @@
 											<td class="width-25">
 												<div class="flex-container">
 													<span><c:out value="${coupon.unused_coupons}" />장</span>
-													<button class="btn btn-warning" onclick="location.href='${pageContext.request.contextPath}/myCoupon'">상세내역</button>
+													<button class="btn btn-warning"
+														onclick="location.href='${pageContext.request.contextPath}/myCoupon'">상세내역</button>
 												</div>
 											</td>
 										</tr>

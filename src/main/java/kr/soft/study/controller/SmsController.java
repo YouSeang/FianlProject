@@ -18,7 +18,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.soft.study.command.PCommand;
 import kr.soft.study.dao.SmishingLogDAO;
+import kr.soft.study.dto.SmishingDto;
 import kr.soft.study.dto.UserDto;
+import kr.soft.study.service.AdminSmishingService;
 import kr.soft.study.service.MessageService;
 import kr.soft.study.util.Constant;
 import net.nurigo.sdk.message.response.SingleMessageSentResponse;
@@ -30,12 +32,15 @@ public class SmsController {
 	private SqlSession sqlSession;
 	private final MessageService messageService;
 	private final SmishingLogDAO smishingLogDAO;
+	private final AdminSmishingService smishingService;
 
 	@Autowired
-	public SmsController(SqlSession sqlSession, PCommand pointsCommand, SmishingLogDAO smishingLogDAO) {
+	public SmsController(SqlSession sqlSession, PCommand pointsCommand, SmishingLogDAO smishingLogDAO,
+			AdminSmishingService smishingService) {
 		this.messageService = new MessageService();
 		this.pointsCommand = pointsCommand;
 		this.smishingLogDAO = smishingLogDAO;
+		this.smishingService = smishingService;
 		this.sqlSession = sqlSession;
 		Constant.sqlSession = this.sqlSession;
 	}
@@ -142,17 +147,25 @@ public class SmsController {
 		 * "스미싱 체험은 하루에 한 번만 가능합니다."); return response; }
 		 */
 
-		String imageUrl;
-		String adminText;
-		if ("delivery".equals(buttonType)) {
-			imageUrl = "http://211.37.179.32:8080/smishing";
-			adminText = "[KB국민은행] 주문하신 물품이 오늘 도착예정입니다.";
-		} else if ("invitation".equals(buttonType)) {
-			imageUrl = "http://211.37.179.32:8080/smishing";
-			adminText = "[KB국민은행] 저희의 결혼식에 와서 함께 축하해주세요!";
-		} else {
-			throw new IllegalArgumentException("Invalid button type");
+		// 스미싱 시나리오 정보 가져오기
+		SmishingDto smishingCase = smishingService.getSmishingByType(buttonType);
+		if (smishingCase == null) {
+			response.put("isSent", false);
+			response.put("message", "Invalid button type");
+			return response;
 		}
+
+		String imageUrl = smishingCase.getImageUrl();
+		String adminText = smishingCase.getAdminText();
+
+		/*
+		 * String imageUrl; String adminText; if ("delivery".equals(buttonType)) {
+		 * imageUrl = "http://211.37.179.32:8080/smishing"; adminText =
+		 * "[KB국민은행] 주문하신 물품이 오늘 도착예정입니다."; } else if ("invitation".equals(buttonType))
+		 * { imageUrl = "http://211.37.179.32:8080/smishing"; adminText =
+		 * "[KB국민은행] 저희의 결혼식에 와서 함께 축하해주세요!"; } else { throw new
+		 * IllegalArgumentException("Invalid button type"); }
+		 */
 
 		// 문자 메시지 발송
 		boolean isSent = false;
@@ -187,16 +200,7 @@ public class SmsController {
 	@GetMapping("/smishing")
 	public String showSmishingImage(@RequestParam(value = "buttonType", required = false) String buttonType,
 			Model model) {
-		String imageUrl;
-		if ("delivery".equals(buttonType)) {
-			imageUrl = "스미싱예방.jpg";
-		} else if ("invitation".equals(buttonType)) {
-			imageUrl = "스미싱예방.jpg";
-		} else {
-			// 기본 이미지 또는 오류 처리
-			imageUrl = "스미싱예방.jpg";
-		}
-
+		String imageUrl = "스미싱예방.jpg";
 		model.addAttribute("imageUrl", imageUrl);
 		return "voice/smishingimage";
 	}
