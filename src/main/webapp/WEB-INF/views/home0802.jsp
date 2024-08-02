@@ -82,10 +82,10 @@ function openVoicePhishingWindow() {
 				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.png')">
 				<div class="container">
 					<div class="banner-info">
-						<h1 class="banner-title text-white" style="color: white;">
+						<h1 class="banner-title text-white">
 							시뮬레이션으로<span>금융사고를 </span><br />예방해보세요
 						</h1>
-						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
+						<p>블라블라</p>
 						<div class="banner-btn">
 							<!-- <a href="voice/newVoicePhishing" class="custom-btn">체험하러가기</a> -->
 							<a href="#" class="custom-btn"
@@ -96,15 +96,15 @@ function openVoicePhishingWindow() {
 			</div>
 			<!-- Single Banner End -->
 			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너2.jpg')">
+				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.jpg')">
 				<div class="container">
 					<div class="banner-info">
-						<h1 class="banner-title text-white" style="color: white;" >
+						<h1 class="banner-title text-white">
 							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
 						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
-							<a href="/study/edu/sbjoin" class="custom-btn">체험하러가기</a>
+							<a href="#" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
@@ -283,7 +283,7 @@ function openVoicePhishingWindow() {
 
 	<!-- 팀소개 영역 Start -->
 	<section class="team-area section-padding"
-		data-stellar-background-ratio=".3" style="background: none; background-position: initial;">
+		data-stellar-background-ratio=".3">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -393,8 +393,7 @@ function openVoicePhishingWindow() {
 	<!--
 Javascript
 ======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>

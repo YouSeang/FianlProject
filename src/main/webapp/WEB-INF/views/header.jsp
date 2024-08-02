@@ -66,7 +66,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-lg-0">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
-					src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+					src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
 					alt="Logo"></a>
 				<button class="navbar-toggler offcanvas-nav-btn" type="button">
 					<i class="fa fa-bars"></i>
@@ -74,7 +74,7 @@
 				<div class="offcanvas offcanvas-start offcanvas-nav">
 					<div class="offcanvas-header">
 						<a href="./index.html" class="text-inverse"><img
-							src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+							src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
 							alt="Logo"></a>
 						<button type="button" class="btn-close"
 							data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -177,8 +177,6 @@
 								style="color: #333333;">소통창구</a>
 								<ul class="dropdown-menu"
 									style="background-color: rgba(255, 255, 255, 0.9);">
-									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/notice">공지사항</a></li>
 									<li><a class="dropdown-item"
