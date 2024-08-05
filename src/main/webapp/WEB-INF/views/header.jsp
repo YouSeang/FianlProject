@@ -19,7 +19,7 @@
 <!-- Favicon Icon
     ==================================================-->
 <link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
 <!-- Style Libraries
     ==================================================================-->

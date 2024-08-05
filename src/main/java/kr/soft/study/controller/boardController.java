@@ -54,7 +54,7 @@ public class boardController {
 
 	@RequestMapping("/board/share")
 	public String share(HttpServletRequest request, Model model) {
-		 System.out.println("share");
+
 		 model.addAttribute("request", request);
 		 command = new ShareCommand();
 	     command.execute(model);
@@ -63,7 +63,7 @@ public class boardController {
 
 	@RequestMapping("/board/shareWrite")
 	public String shareWrite(Model model) {
-		 System.out.println("shareWrite");
+
 		return "board/shareWrite";
 	}
 
@@ -72,9 +72,10 @@ public class boardController {
 			@RequestParam(value = "image", required = false) MultipartFile image, @RequestParam("userId") String userId,
 			@RequestParam(value = "postType", defaultValue = "main") String postType, Model model) {
 
-		
-		
+	    System.out.println("Login userId: " + userId);
+
 	    System.out.println("userId: " + userId);
+
 	    
 	    
         ShareDto shareDto = new ShareDto();
@@ -86,31 +87,36 @@ public class boardController {
         Timestamp timestamp = Timestamp.from(now.toInstant());
         shareDto.setWritetime(timestamp);
         
-        
+
         if (image != null && !image.isEmpty()) {
-            String uploadDir = "uploads/";
+        	String uploadDir = new File("uploads").getAbsolutePath();
+        	System.out.println("업로드디렉토리: " + uploadDir);
+        
             String originalFilename = image.getOriginalFilename();
             String uniqueFilename = UUID.randomUUID().toString() + "_" + originalFilename;
-            String filePath = uploadDir + uniqueFilename;
-            
+            String filePath = uploadDir + File.separator + uniqueFilename;
+        	System.out.println("파일경로: " + filePath);
             try {
                 File uploadFile = new File(filePath);
                 image.transferTo(uploadFile);
-                shareDto.setImage(filePath);
+                // 웹에서 접근 가능한 경로로 설정
+                String webPath = "/uploads/" + uniqueFilename;
+                shareDto.setImage(webPath);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
         }
-
+        }
         shareDao.writeShare(shareDto);
         return "redirect:/board/share"; 
+
     }
     
     @GetMapping("/board/detail")
     public String detail(@RequestParam("id") int id, Model model) {
         ShareDto shareDto = shareDao.getCasebyId(id);
         model.addAttribute("share", shareDto);
-        return "board/shareDetail"; 
+        return "board/shareDetail";  
+
     }
 
 }

@@ -11,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
+ <meta name="description" content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title
@@ -45,353 +45,537 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
-<!--[if lt IE 9]>
+
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+
 
 <style type="text/css">
 .text-white-custom {
 	color: white;
 }
 </style>
+
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
-	<%@ include file="header.jsp"%>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <!-- Header Start -->
 
-	<!-- Banner Area Start -->
-	<section class="banner-area">
-		<div class="banner-2 owl-carousel">
-			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.png')">
-				<div class="container">
-					<div class="banner-info">
-						<h1 class="banner-title text-white">
-							시뮬레이션으로<span>금융사고를 </span><br />예방해보세요
-						</h1>
-						<p>적을 알아야 예방할 수 있어요.</p>
-						<div class="banner-btn">
-							<!-- <a href="voice/newVoicePhishing" class="custom-btn">체험하러가기</a> -->
-							<a href="#" class="custom-btn"
-								onclick="openVoicePhishingWindow()">체험하러 가기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- Single Banner End -->
-			<div class="single-banner"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/배너1.jpg')">
-				<div class="container">
-					<div class="banner-info">
-						<h1 class="banner-title text-white">
-							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
-						</h1>
-						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
-						<div class="banner-btn">
-							<a href="#" class="custom-btn">체험하러가기</a>
-						</div>
-					</div>
-				</div>
-			</div>
-	</section>
-	<!-- Banner Area End -->
+    <header class="hearer">
+        <div class="header-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-sm-6">
+                        <ul class="top-info d-none d-md-block">
+                            <li><a href="mailto:helpplus@yahoo.com" title="Message"><i
+                                        class="fa fa-paper-plane"></i>helpplus@yahoo.com</a>
+                            </li>
+                            <li><a href="tel:08829294239" title="Account"><i class="fa fa-phone"></i>+088 292 94
+                                    239</a>
+                            </li>
+                        </ul>
+                        <div class="dropdown d-md-none">
+                            <a href="#" class="dropdown-toggle" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Quick link
+                            </a>
+                            <ul class="dropdown-menu shadow-sm" aria-labelledby="dropdownMenuButton1">
+                                <li><a href="mailto:helpplus@yahoo.com" title="Message"><i
+                                            class="fa fa-paper-plane"></i>helpplus@gmail.com</a>
+                                </li>
+                                <li><a href="tel:08829294239" title="Account"><i class="fa fa-phone"></i>+088 292 94
+                                        239</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-6">
+                        <div class="account-info d-flex align-items-center">
+                            <div class="lang-dropdown d-flex align-items-center">
+                                <span><i class="fa fa-flag"></i></span>
+                                <select name="lang" id="lang">
+                                    <option value="1">English</option>
+                                    <option value="2">Spanish</option>
+                                    <option value="3">Dutch</option>
+                                </select>
+                            </div>
 
-	<!-- 큽스쿨소개영역 Start -->
-	<section class="inspiration-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-intro">
-						<p>KB큽스쿨에서 할 수 있어요!</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-inspiration">
-						<span><img
-							src="${pageContext.request.contextPath}/resources/images/components/mis1.png"
-							alt=""></span>
-						<h3>사고예방 시뮬레이션</h3>
-						<p>메신저피싱, 보이스피싱을 예방하기 위해 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-				<!-- Single Mission End -->
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-inspiration">
-						<span><img
-							src="${pageContext.request.contextPath}/resources/images/components/mis2.png"
-							alt=""></span>
-						<h3>디지털금융 교육</h3>
-						<p>어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 다양한 거래를 체험해볼 수 있어요.</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-				<!-- Single Mission End -->
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-inspiration">
-						<span><img
-							src="${pageContext.request.contextPath}/resources/images/components/mis3.png"
-							alt=""></span>
-						<h3>나의 보안점수</h3>
-						<p>보안을 강화할 수 있는 방법을 확인하고 적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-				<!-- Single Mission End -->
-			</div>
-		</div>
-	</section>
-	<!-- 큽스쿨소개영역 End -->
+                            <a class="d-none d-sm-block" href="signin.html" title="Login"><i
+                                    class="fa fa-user me-2"></i>My
+                                Account</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Header Top End -->
+        <div class="offcanvas offcanvas-top bg-info" id="offcanvas-search" data-bs-scroll="true">
+            <div class="container d-flex flex-row py-5">
+                <form class="search-form w-100">
+                    <input id="search-form" type="text" class="form-control" placeholder="Type keyword and hit enter">
+                </form>
+                <button type="button" class="btn-close icon-xs bg-light rounded-5" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container px-lg-0">
+                <a class="navbar-brand" href="./index.html"><img src="images/components/logo.png" alt="Logo"></a>
+                <button class="navbar-toggler offcanvas-nav-btn" type="button">
+                    <i class="fa fa-bars"></i>
+                </button>
+                <div class="offcanvas offcanvas-start offcanvas-nav">
+                    <div class="offcanvas-header">
+                        <a href="./index.html" class="text-inverse"><img src="images/components/logo.png"
+                                alt="Logo"></a>
+                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body pt-0 align-items-center">
+                        <ul class="navbar-nav mx-auto align-items-lg-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Home</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./index.html">Home 1</a></li>
+                                    <li><a class="dropdown-item" href="./index-2.html">Home 2</a></li>
+                                    <li><a class="dropdown-item" href="./index-3.html">Home 3</a></li>
+                                    <li><a class="dropdown-item" href="./index-4.html">Home 4
+                                            <span class="badge text-bg-success ms-2">New</span>
+                                        </a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="./about.html" class="nav-link">About</a></li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Pages</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./about.html">About Us</a></li>
+                                    <li class="dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-toggle" href="./volunteer.html">Volunteer</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Volunteer </li>
+                                            <li><a class="dropdown-item" href="./volunteer.html">Volunteer</a></li>
+                                            <li><a class="dropdown-item" href="./volunteer-single.html">Volunteer
+                                                    Details</a></li>
+                                        </ul>
+                                    </li>
 
-	<!-- 교육영상영역 Start -->
-	<div class="feature-cause-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-sm-6">
-					<div class="f-cause-txt">
-						<h2 class="section-title">
-							KB큽스쿨 <span>추천영상</span>
-						</h2>
-						<p>KB큽스쿨에서 웃음과 재미, 금융지식까지 선물해드려요.</p>
-						<a href="#" class="custom-btn">자세히보기 <i
-							class="fa fa-long-arrow-right"></i></a>
-					</div>
-				</div>
-				<div class="col-lg-6 col-sm-6">
-					<div class="f-cause-wrap owl-carousel">
-						<div class="f-cause-img">
-							<a href="#"><img class="img-rounded"
-								src="${pageContext.request.contextPath}/resources/images/causes/교육영상1.png"
-								alt=""></a>
-						</div>
-						<div class="f-cause-img">
-							<a href="#"><img class="img-rounded"
-								src="${pageContext.request.contextPath}/resources/images/causes/교육영상2.png"
-								alt=""></a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- 교육영상영역 End -->
+                                    <li class="dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Gallery</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Gallery </li>
+                                            <li><a class="dropdown-item" href="./gallery.html">Gallery 1</a></li>
+                                            <li><a class="dropdown-item" href="./gallery-2.html">Gallery 2</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class="dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Event</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Event </li>
+                                            <li><a class="dropdown-item" href="./event.html">Event</a></li>
+                                            <li><a class="dropdown-item" href="./single-event.html">Event Details</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./testimonial.html" class="dropdown-item">Testimonial</a></li>
+                                    <li><a href="./donate.html" class="dropdown-item">Donation</a></li>
+                                    <li><a href="./faq.html" class="dropdown-item">FAQ</a></li>
+                                    <li class="dropdown-submenu dropend">
+                                        <a class="dropdown-item dropdown-toggle" href="#">Authentication</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-header">Account</li>
+                                            <li>
+                                                <a class="dropdown-item" href="./signin.html">Sign In</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item" href="./signup.html">Sign Up</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="./error.html" class="dropdown-item">404 Error</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Causes</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./causes.html">Causes</a></li>
+                                    <li><a class="dropdown-item" href="./single-cause.html">Single Cause</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Shop</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./shop.html">Shop</a></li>
+                                    <li><a class="dropdown-item" href="./single-product.html">Single Product</a></li>
+                                    <li><a class="dropdown-item" href="./cart.html">Cart</a></li>
+                                    <li><a class="dropdown-item" href="./checkout.html">Checkout</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">Blog</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="./blog.html">Blog</a></li>
+                                    <li><a class="dropdown-item" href="./blog-sidebar.html">Blog with Sidebar</a></li>
+                                    <li><a class="dropdown-item" href="./single-post.html">Single Post</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a href="./contact.html" class="nav-link">Contact</a></li>
+                        </ul>
+                        <div class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
+                            <a class="text-reset icon" href="#" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
+                            <a href="./cart.html" class="text-reset icon position-relative me-2"><i
+                                    class="fa fa-shopping-cart"></i> <span class="cart-num">2</span></a>
+                            <a href="./donate.html" class="custom-btn">Donate Us</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header End -->
 
+    <!-- Promo Area Start -->
+    <section class="promo-area" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="promo-wrap">
+                        <h1 class="promo-title"><span>About</span> Us</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Promo Area End -->
 
+    <!-- Ourself Area Start -->
+    <section class="ourself-area section-padding">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-sm-6">
+                    <div class="about-txt">
+                        <h3 class="section-title mb-4">About Sociaty and<span class="color"> Organization </span></h3>
+                        <p>We are a non profit team. We are starting Help at vary begining of 1900s. Quibusdam quidem
+                            alias
+                            saepe vero doloribus consequatur quis nobis molestiae fugit vel quae sapiente.</p>
+                        <ul>
+                            <li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
+                            <li>Sit amet consectetur adipisicing elit. Ea, voluptatem!</li>
+                            <li>Quibusdam quidem alias saepe vero doloribus consequatur</li>
+                        </ul>
+                        <a href="#" class="custom-btn">Join with Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-sm-6">
+                    <div class="ourself-gallery owl-carousel shadow">
+                        <div class="single-item">
+                            <figure>
+                                <img src="images/about-us/about-us1.jpg" alt="">
+                                <figcaption>Education Proggrame is running smoothly.</figcaption>
+                            </figure>
+                        </div> <!-- Single Item End -->
+                        <div class="single-item">
+                            <figure>
+                                <img src="images/about-us/about-us2.jpg" alt="">
+                                <figcaption>Education Proggrame is running smoothly.</figcaption>
+                            </figure>
+                        </div> <!-- Single Item End -->
+                        <div class="single-item">
+                            <figure>
+                                <img src="images/about-us/about-us3.jpg" alt="">
+                                <figcaption>Our Helping Hand spreeding quickly.</figcaption>
+                            </figure>
+                        </div> <!-- Single Item End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Ourself Area End -->
 
+    <!-- Service Area Start -->
+    <section class="service-area section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-intro">
+                        <h2 class="section-title">Our <span class="color">Services</span></h2>
+                        <p>We are a non profit team. We are starting Help at vary begining of 1900s. Quibusdam quidem
+                            alias
+                            saepe.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-nature"></span>
+                        <h4>Sanitation</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-technology"></span>
+                        <h4>Raise Awareness</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-medical"></span>
+                        <h4>Education Proggrame</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-money"></span>
+                        <h4>Donation</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-people"></span>
+                        <h4>Medical Proggrame</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+                <div class="col-lg-4 col-sm-4">
+                    <div class="service-item border rounded-2">
+                        <span class="flaticon-business"></span>
+                        <h4>Elevated Proverty</h4>
+                        <p>Obcaecati beatae porro sequi, consequatur dolores impedit atque doloribus blanditiis sint
+                            magni,
+                            dolorem commodi.</p>
+                    </div>
+                </div><!-- Service Item End -->
+            </div>
+        </div>
+    </section>
+    <!-- Service Area End -->
 
-	<!-- 카드공지영역 Start -->
-	<section class="project-area section-padding">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-intro">
-						<h2 class="section-title">
-							KB큽스쿨 <span class="color">알림마당</span>
-						</h2>
-						<p>짧은 카드뉴스로 슬기로운 금융생활을!</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-project rounded-2 shadow">
-						<figure class="project-thumb">
-							<img
-								src="${pageContext.request.contextPath}/resources/images/causes/신용점수.png"
-								alt="">
-						</figure>
-						<div class="project-info p-lg-4 p-3">
-							<h3>
-								<a href="#">사회초년생을 위한 신용 관리방법</a>
-							</h3>
-							<p>
-								1.갚을 능력 고려하여 채무 규모 설정하기<br /> 2.인터넷/전화 대출은 신중하게 결정하기<br />
-								3.소액이라도 절대 연체하지 않기<br /> 4.주거래 금융회사를 정하여 이용하기
-							</p>
-							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
-						</div>
-					</div>
-					<!-- Single Project End -->
-				</div>
-				<!-- Single Cause End -->
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-project rounded-2 shadow">
-						<figure class="project-thumb">
-							<img
-								src="${pageContext.request.contextPath}/resources/images/causes/예적금.png"
-								alt="">
-						</figure>
-						<div class="project-info p-lg-4 p-3">
-							<h3>
-								<a href="#">예/적금 가입 전 알아두세요!</a>
-							</h3>
-							<p>
-								1.예금자보호제도 확인하기<br /> 2.금융상품 한눈에 서비스로 비교해보기<br /> 3.가입가능한 특판
-								예/적금 확인하기<br /> 4.만기라면 잊지말고 재예치하기
-							</p>
-							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
-						</div>
+    <!-- Project Counter Area Start -->
+    <section class="counter-area about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-sm-3">
+                    <div class="single-counter">
+                        <img src="images/components/ct1.png" alt="">
+                        <span class="counter">4000</span>
+                        <h3>Volunteers</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3">
+                    <div class="single-counter">
+                        <img src="images/components/ct2.png" alt="">
+                        <span class="counter">7600</span>
+                        <h3>Donation</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3">
+                    <div class="single-counter">
+                        <img src="images/components/ct3.png" alt="">
+                        <span class="counter">100</span>
+                        <h3>Total Project</h3>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-3">
+                    <div class="single-counter">
+                        <img src="images/components/ct4.png" alt="">
+                        <span class="counter">200</span>
+                        <h3>Countries</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Project Counter Area End -->
 
-					</div>
-					<!-- Single Project End -->
-				</div>
-				<!-- Single Cause End -->
-				<div class="col-lg-4 col-sm-4">
-					<div class="single-project rounded-2 shadow">
-						<figure class="project-thumb">
-							<img
-								src="${pageContext.request.contextPath}/resources/images/causes/착오송금.png"
-								alt="">
-						</figure>
-						<div class="project-info p-lg-4 p-3">
-							<h3>
-								<a href="#">실수로 돈을 잘못송금했다면?</a>
-							</h3>
-							<p>
-								ㅇ 착오송금반환지원제도 이용하기<br /> - 신청대상은 최근 1년 이내 발생한 <br /> 5만 원 이상
-								5천만 원 이하 착오송금 건<br /> - 상세내용은 예금보험공사에서 확인하기
-							</p>
-							<!-- <a href="#" class="custom-btn mt-3">View Project</a> -->
-						</div>
-					</div>
-					<!-- Single Project End -->
-				</div>
-				<!-- Single Cause End -->
-			</div>
-		</div>
-	</section>
-	<!-- 카드공지영역 End -->
+    <!-- Partner Area Start -->
+    <section class="partner-area bg-cover section-padding" data-stellar-background-ratio="0.5"
+        style="background-image: url('images/partner/partner-bg.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-intro">
+                        <h2 class="section-title">Global <span class="color">Partner</span></h2>
+                        <p>Our upcoming events is to help the helpless. assumenda delectus quaerat incidunt. Saepe, sed
+                            optio eum.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="partner-wrap owl-carousel">
+                        <div class="partner-name">
+                            <img src="images/partner/pt1.png" alt="Help Image">
+                        </div>
+                        <div class="partner-name">
+                            <img src="images/partner/pt2.png" alt="Help Image">
+                        </div>
+                        <div class="partner-name">
+                            <img src="images/partner/pt3.png" alt="Help Image">
+                        </div>
+                        <div class="partner-name">
+                            <img src="images/partner/pt4.png" alt="Help Image">
+                        </div>
+                        <div class="partner-name">
+                            <img src="images/partner/pt5.png" alt="Help Image">
+                        </div>
+                        <div class="partner-name">
+                            <img src="images/partner/pt6.png" alt="Help Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Partner Area End -->
 
+    <!-- Become Volunteer Area Start -->
+    <div class="volunteer-area bg-cover section-padding" data-stellar-background-ratio="0.4"
+        style="background-image: url('images/banner/volunteer.jpg');">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="volunteer-wrap text-center">
+                        <span>Become a Volunteer</span>
+                        <p>Join us to participate yourself for mankind</p>
+                        <a href="#" class="custom-btn">join now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Become Volunteer Area End -->
 
-	<!-- 팀소개 영역 Start -->
-	<section class="team-area section-padding"
-		data-stellar-background-ratio=".3">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="section-intro">
-						<h2 class="section-title">
-							홈페이지 <span class="color">담당자</span>
-						</h2>
-						<p>
-							KB큽스쿨을 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.
-						</p>
-					</div>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="team-wrap owl-carousel">
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/박소미.png"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">박소미</a>
-								</h4>
-								<small>팀장</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/최은숙.png"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">최은숙</a>
-								</h4>
-								<small>부팀장</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/이슬기.png"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">이슬기</a>
-								</h4>
-								<small>팀원</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-						<div class="team-member">
-							<figure class="team-thumb">
-								<img
-									src="${pageContext.request.contextPath}/resources/images/team/유세앙.png"
-									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
-							</figure>
-							<div class="member-name">
-								<h4>
-									<a href="volunteer-single.html">유세앙</a>
-								</h4>
-								<small>팀원</small>
-							</div>
-						</div>
-						<!-- Team Member End -->
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- 팀소개영역 End -->
-
-
-	<%@ include file="footer.jsp"%>
+    <!-- Footer Area Start -->
+    <footer class="footer-area">
+        <div class="footer-top">
+            <div class="newsletter">
+                <h4>SignUp Our Newsletter</h4>
+                <!-- Mailchimp From Start -->
+                <form class="mailchimp inputSubscribeDiv">
+                    <input type="email" name="subscribe" id="subscriber-email" placeholder="Your Mail"
+                        class="form-control">
+                    <button type="submit" id="subscribe-button"><i class="fa fa-paper-plane"></i></button>
+                    <div class="subscription-success"> </div>
+                    <div class="subscription-error"> </div>
+                    <label class="subscription-label" for="subscriber-email"></label>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="footer-widget footer-about">
+                        <div class="f-logo"><a href="#">
+                                <img src="images/components/f-logo.png" alt="Logo">
+                            </a></div>
+                        <p>Help us to save lifes during a natural disaster, get clean water running in the most remote
+                            areas, and much more.</p>
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                            <a href="#"><i class="fa-brands fa-pinterest"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 offset-lg-1 col-sm-5 offset-sm-1">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">about us</h3>
+                        <ul>
+                            <li><a href="#">About Employee</a></li>
+                            <li><a href="#">About Carrier</a></li>
+                            <li><a href="#">How it works</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-6">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Useful Links</h3>
+                        <ul>
+                            <li><a href="#">Project</a></li>
+                            <li><a href="#">Donner</a></li>
+                            <li><a href="#">Relief</a></li>
+                            <li><a href="#">Sanitaion</a></li>
+                            <li><a href="#">News</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-5 offset-sm-1 offset-lg-0">
+                    <div class="footer-widget">
+                        <h3 class="widget-title">Contact Us</h3>
+                        <ul class="footer-contact">
+                            <li><i class="fa fa-home"></i> <span>129, London Street, South London UK.</span></li>
+                            <li><i class="fa fa-phone"></i><span><a href="tel:+6494461709.7890">+00- 123.456.7890</a>
+                                    <br><a href="tel:+6494461709.7890">+00- 223.456.7890</a></span></li>
+                            <li><i class="fa fa-envelope"></i> <span><a
+                                        href="mailto:help@gmail.com">help@gmail.com</a></span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row copy-right g-0">
+                <div class="col-xl-6 col-md-7 order-2 order-md-1">
+                    <p>Copyright © 2024. All Rights Reserved by <a href="#">theme-village</a></p>
+                </div>
+                <div class="col-xl-6 col-md-5 order-1 order-md-2">
+                    <nav class="quick-link text-lg-end">
+                        <ul>
+                            <li><a href="#" class="nav-link">Terms & Conditions</a></li>
+                            <li><a href="#" class="nav-link">Privacy Policy</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Area Start -->
+    <!--
 	<!--
 Javascript
 ======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
+	 <script src="<c:url value="/resources/js/jquery.min.js"/>"></script> 
+     <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+	 <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script> 
+	 <script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-	<script
-		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/wow.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>

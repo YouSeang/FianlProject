@@ -65,7 +65,7 @@
                                         Your browser does not support the video tag.
                                     </video>             
                                     <canvas id="thumbnail-${video.id}" width="400" height="300" style="display:none;"></canvas>
-                                    <img id="img-thumbnail-${video.id}" class="thumbnail-img" src="" alt="Thumbnail">
+                                 
                                 </figure> 
                                 <div class="article-details">
                                     <h3 class="article-heading">
