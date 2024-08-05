@@ -41,5 +41,11 @@ public class HomeController {
 		System.out.println("index");
 		return "index";
 	}
+	
+	@RequestMapping("/home3")
+	public String home3(Model model) {
+		System.out.println("index");
+		return "home3";
+	}
 
 }

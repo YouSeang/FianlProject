@@ -34,11 +34,11 @@ public class IncidentController {
 		return "voice/recentIncidents";
 	}
 
-	@RequestMapping("/voice/smishing")
-	public String smishing(Model model) {
-
-		return "voice/smishing";
-	}
+	/*
+	 * @RequestMapping("/voice/smishing") public String smishing(Model model) {
+	 * 
+	 * return "voice/smishing"; }
+	 */
 
 	@RequestMapping("/voice/voicePhishing")
 	public String voicePhishing(Model model) {
