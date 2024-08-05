@@ -91,10 +91,9 @@
 										required>
 								</div>
 								<div class="mb-3">
-									<label for="description${scenario.adminText}"
-										class="form-label">발송문자내용</label>
-									<textarea class="form-control" id="description${scenario.id}"
-										name="description" rows="10" required>${scenario.adminText}</textarea>
+									<label for="adminText${scenario.id}" class="form-label">발송문자내용</label>
+									<textarea class="form-control" id="adminText${scenario.id}"
+										name="adminText" rows="10" required>${scenario.adminText}</textarea>
 								</div>
 								<div class="mb-3">
 									<label for="description${scenario.id}" class="form-label">설명</label>
@@ -120,16 +119,21 @@
 			<div id="addScenarioForm" style="display: none;">
 				<div class="card">
 					<div class="card-header">
-						<h5>새 시나리오 추가</h5>
+						<h5>스미싱 추가</h5>
 					</div>
 					<div class="card-body">
 						<form
 							action="${pageContext.request.contextPath}/admin/addSmisingCase"
 							method="post" enctype="multipart/form-data">
 							<div class="mb-3">
-								<label for="typeNew" class="form-label">시나리오 유형</label> <input
+								<label for="typeNew" class="form-label">스미싱 유형</label> <input
 									type="text" class="form-control" id="typeNew" name="type"
 									required>
+							</div>
+							<div class="mb-3">
+								<label for="typeNew" class="form-label">발송문자내용</label> <input
+									type="text" class="form-control" id="adminTextNew"
+									name="adminText" required>
 							</div>
 							<div class="mb-3">
 								<label for="descriptionNew" class="form-label">설명</label>
@@ -142,7 +146,7 @@
 									name="imageUrl" required>
 							</div>
 							<div class="text-end mb-3">
-								<button type="submit" class="btn btn-primary">시나리오 추가</button>
+								<button type="submit" class="btn btn-primary">스미싱 추가</button>
 							</div>
 						</form>
 					</div>
@@ -170,10 +174,11 @@
         function deleteScenario(scenarioId) {
             if (confirm("정말로 이 시나리오를 삭제하시겠습니까?")) {
                 $.ajax({
-                    url: '${pageContext.request.contextPath}/admin/deleteScenario',
+                    url: '${pageContext.request.contextPath}/admin/deleteSmishing',
                     type: 'POST',
                     data: { id: scenarioId },
                     success: function(response) {
+                    	 alert("시나리오를 삭제하였습니다");
                         location.reload();
                     },
                     error: function(xhr, status, error) {
