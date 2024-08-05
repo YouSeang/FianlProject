@@ -110,6 +110,7 @@
 .ftco-section {
 	margin-bottom: 50px;
 	margin-top: 50px;
+	font-family: 둘기마요_거친;
 }
 
 /* Add margin between checkbox section and header */
@@ -157,6 +158,11 @@
     border-top: 2px solid #ddd;
     margin: 20px 0;
 }
+
+.no-wrap {
+    white-space: nowrap;
+}
+
 </style>
 </head>
 
@@ -193,22 +199,29 @@
 	</section>
 	<!-- Promo Area End -->
 
-
-
+<!-- Upcoming Event Area Start -->
+    <section class="upcoming-events section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-intro">
+                        <h2 class="section-title">나의 <span> 정보 보안 온도</span></h2>
+                        				<div class="text-center">
+					<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을 체크하고,확인하기 버튼을 눌러보세요.</h4>
+				</div>
+                    </div>
+                </div>
+            </div>
 	<!-- Checkbox Section Start -->
 	<section class="ftco-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 text-center">
-					<h2 class="heading-section mb-5 pb-md-4">나의 정보 보안 점수</h2>
-				</div>
+
 			</div>
 			<div class="row justify-content-center">
 				<div class="col-md-6">
 					<div class="wrap w-100">
-						<div class="heading-title mb-4 text-center">
-							<h3>현재 실천하고 있는 것을 체크하세요.</h3>
-						</div>
+
 
 						<form action="${pageContext.request.contextPath}/submitChecklist"
 							method="post">
@@ -339,7 +352,7 @@
 									</li>
 								</ul>
 								<div class="text-center mt-4">
-									<button type="submit" class="submit-btn">점수 확인해보기</button>
+									<button type="submit" class="submit-btn">보안온도 확인하기</button>
 								</div>
 							</div>
 						</form>
@@ -350,6 +363,11 @@
 		</div>
 	</section>
 	<!-- Checkbox Section End -->
+        </div>
+    </section>
+    <!-- Upcoming Event Area End -->
+
+
 
 	<!-- Footer Area Start -->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>

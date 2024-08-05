@@ -66,7 +66,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-lg-0">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
-					src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
+					src="${pageContext.request.contextPath}/resources/images/components/logo5.png"
 					alt="Logo"></a>
 				<button class="navbar-toggler offcanvas-nav-btn" type="button">
 					<i class="fa fa-bars"></i>
