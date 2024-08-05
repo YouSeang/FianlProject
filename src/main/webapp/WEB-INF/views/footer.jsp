@@ -61,7 +61,7 @@
 					<div class="footer-widget footer-about">
 						<div class="f-logo">
 							<a href="#"> <img
-								src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+								src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
 								alt="Logo">
 							</a>
 						</div>

@@ -35,6 +35,6 @@ public class UserSignup implements UCommand {
         userDto.setPassword(encryptedPassword);
 
         UserDao userDao = sqlSession.getMapper(UserDao.class);
-        userDao.Join(userDto.getUser_id(), userDto.getName(), userDto.getEmail(), userDto.getPassword());
+        userDao.Join(userDto.getUser_id(), userDto.getName(), userDto.getEmail(),userDto.getPhone_number(), userDto.getPassword());
     }
 }

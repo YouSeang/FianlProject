@@ -91,8 +91,7 @@
 					<div class="bg-light donation-form rounded-3 shadow-sm">
 						<form class="donate-form" action="modifyAction" method="POST">
 							<div>
-								이름과 아이디는 수정할 수 없습니다. <br />
-								<br />
+								이름과 아이디는 수정할 수 없습니다. <br /> <br />
 							</div>
 							<div class="form-group">
 								<label for="name">이름</label> <input class="form-control"
@@ -109,10 +108,12 @@
 									type="email" id="email" name="email" required=""
 									value="${userInfo.email}">
 							</div>
-							<%-- <div class="form-group">
-								<label for="name">휴대폰 번호</label> <input class="form-control"
-									type="number" id="number" name="number" required="" value= "${userInfo.phone_number}">
-							</div> --%>
+							<div class="form-group">
+								<label for="phone_number">휴대폰번호</label> <input
+									class="form-control" type="text" id="phone_number"
+									name="phone_number" required=""
+									value="${userInfo.phone_number}">
+							</div>
 							<div class="form-group clearfix"></div>
 							<div style="text-align: center;">
 								<button class="custom-btn mt-4" type="submit">수정하기</button>

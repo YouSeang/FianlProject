@@ -66,7 +66,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-lg-0">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
-					src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+					src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
 					alt="Logo"></a>
 				<button class="navbar-toggler offcanvas-nav-btn" type="button">
 					<i class="fa fa-bars"></i>
@@ -74,7 +74,7 @@
 				<div class="offcanvas offcanvas-start offcanvas-nav">
 					<div class="offcanvas-header">
 						<a href="./index.html" class="text-inverse"><img
-							src="${pageContext.request.contextPath}/resources/images/components/logo.png"
+							src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
 							alt="Logo"></a>
 						<button type="button" class="btn-close"
 							data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -180,7 +180,8 @@
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
 									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/board/notice">공지사항</a></li>
+										href="${pageContext.request.contextPath}/board/guide">공지사항</a></li>
+
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
 								</ul></li>
@@ -224,6 +225,11 @@
 		</nav>
 	</header>
 	<!-- Header End -->
-
+	<!-- JavaScript Libraries
+    ======================================================== -->
+	<script
+		src="${pageContext.request.contextPath}/resources/js/jquery.min.js"></script>
+	<script
+		src="${pageContext.request.contextPath}/resources/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

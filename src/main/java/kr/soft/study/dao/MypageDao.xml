@@ -75,7 +75,8 @@
 
 	<!-- 해당 사용자의 현재 사용가능 포인트 구하기 -->
 	<select id="getUserTotalPoints" resultType="java.lang.Integer">
-		SELECT IFNULL(SUM(points_earned - points_used), 0) AS total_points
+		SELECT
+		IFNULL(SUM(points_earned - points_used), 0) AS total_points
 		FROM Points
 		WHERE user_id = #{user_id}
 	</select>
@@ -99,4 +100,6 @@
 		ORDER BY point_time
 		ASC
 	</select>
+
+
 </mapper>

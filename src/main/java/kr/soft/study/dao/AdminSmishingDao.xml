@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.soft.study.dao.AdminSmishingDao">
+
+
+	<!-- 모든 시나리오 가져오기 -->
+	<select id="getAllSmishings"
+		resultType="kr.soft.study.dto.SmishingDto">
+		SELECT * FROM smishing_case
+	</select>
+
+	<insert id="addSmishing">
+		INSERT INTO smishing_case (type, description,
+		adminText, imageUrl)
+		VALUES (#{type}, #{description}, #{adminText},
+		#{imageUrl})
+	</insert>
+
+	<update id="updateSmishing">
+		UPDATE smishing_case
+		SET type = #{type},
+		description =
+		#{description},
+		adminText = #{adminText},
+		imageUrl = #{imageUrl}
+		WHERE id
+		= #{id}
+	</update>
+
+	<delete id="deleteSmishing">
+		DELETE FROM smishing_case WHERE id = #{id}
+	</delete>
+
+	<!-- 해당 케이스의 정보 가져오기 -->
+	<select id="getSmishingByType" parameterType="String"
+		resultType="kr.soft.study.dto.SmishingDto">
+		SELECT * FROM smishing_case WHERE type = #{type}
+	</select>
+</mapper>

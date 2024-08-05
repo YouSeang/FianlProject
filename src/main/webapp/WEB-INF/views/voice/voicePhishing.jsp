@@ -79,7 +79,7 @@ function openVoicePhishingWindow() {
 
 
 		<!-- Promo Area Start -->
-		<section class="promo-area" data-stellar-background-ratio="0.5">
+		<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-12">

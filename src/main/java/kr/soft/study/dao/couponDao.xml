@@ -4,8 +4,14 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.soft.study.dao.CouponDao"> <!-- 인터페이스와 연결 -->
 
+	<!-- 쿠폰발송 시 쿠폰리스트 -->
 	<select id="getCoupon" resultType="kr.soft.study.dto.CouponDto">
 		SELECT * FROM coupons
 	</select>
 
+	<!-- 해당사용자의 쿠폰추가 -->
+	<insert id="insertUserCoupon">
+		INSERT INTO UserCoupons (user_id, coupon_id, issue_date)
+		VALUES (#{userId}, #{couponId}, NOW())
+	</insert>
 </mapper>
