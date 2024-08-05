@@ -83,6 +83,12 @@ public class loginController {
 	public String home(Model model) {
 		return "home";
 	}
+	
+	@RequestMapping("/test")
+	public String test(Model model) {
+		return "home2";
+	}
+
 
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {

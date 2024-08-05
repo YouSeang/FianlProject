@@ -66,7 +66,7 @@ public class QuizController {
     @RequestMapping(value = "/admin/quizDelete", method = RequestMethod.POST)
     public String deleteQuiz(@RequestParam("id") int id) {
         quizDao.deleteQuiz(id);
-        return "redirect:/admin/adminQuiz";
+        return "redirect:/admin/quiz";
     }
 
     @RequestMapping(value = "/game/quiz/category/{category}", method = RequestMethod.GET)

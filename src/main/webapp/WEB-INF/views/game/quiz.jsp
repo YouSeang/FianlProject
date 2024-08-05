@@ -11,20 +11,15 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
-<!-- Template Title
-    ==================================================================-->
+<!-- Template Title -->
 <title>KB스쿨</title>
 
-<!-- Favicon Icon
-    ==================================================-->
+<!-- Favicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-<!-- Style Libraries
-    ==================================================================-->
-    <!-- SweetAlert CSS -->
+<!-- Style Libraries -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.min.css">
-<!-- SweetAlert JS -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.7/dist/sweetalert2.all.min.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -41,21 +36,17 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 
-<!-- Style css
-    ==================================================================== -->
+<!-- Style css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
-<!-- 
-================================================================================ -->
 <!-- 비동기방식 추가 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
 </head>
 
 <body>
@@ -99,24 +90,24 @@
                 </div>
             </div>
             <div class="quiz-container card p-4">
-                <div class="mb-3">
-                    <label for="quizCategory" class="form-label">카테고리 선택</label>
-                    <select class="form-control" id="quizCategory" onchange="loadQuestions()">
-                        <option value="">카테고리 선택</option>
-                        <option value="금융">금융</option>
-                        <option value="사회">사회</option>
-                        <option value="생활지식">생활지식</option>
-                        <option value="기타">기타</option>
+                <!-- 카테고리 선택 섹션 -->
+                <div class="mb-3" style="display: none;">
+                    <label for="quizCategory" class="form-label">카테고리</label>
+                    <select class="form-control" id="quizCategory" disabled>
+                        <option value="금융" selected>금융</option>
                     </select>
                 </div>
+                <!-- 퀴즈 질문 섹션 -->
                 <div id="quiz-question" class="alert alert-info text-center" role="alert">
                    <h3> 퀴즈 질문이 여기에 표시됩니다. </h3>
                 </div>
+                <!-- 퀴즈 버튼 섹션 -->
                 <div class="quiz-buttons text-center">
                     <button id="btn-true" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('O')">O</button>
                     <button id="btn-false" class="btn custom-btn m-2" style="display:none" onclick="checkAnswer('X')">X</button>
                 </div>
                 
+                <!-- 다음 문제 및 다시 풀기 버튼 섹션 -->
                 <div class="text-center mt-3">
                     <button id="next-question" class="btn btn-primary m-2" style="display:none" onclick="loadNextQuestion()">다음 문제로</button>
                     <button id="retry-question" class="btn btn-secondary m-2" style="display:none" onclick="retryQuestion()">다시 풀기</button>
@@ -129,9 +120,7 @@
 
      <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
-    <!--
-Javascript
-======================================================== -->
+    <!-- Javascript -->
     <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
     <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
     <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
@@ -156,22 +145,20 @@ Javascript
     let userId = '<%= session.getAttribute("userId") %>'; // 로그인한 사용자 ID
 
     async function loadQuestions() {
-        const category = document.getElementById('quizCategory').value;
-        if (category) {
-            const response = await fetch('${pageContext.request.contextPath}/game/quiz/category/' + category);
-            questions = await response.json();
-            console.log('Fetched Questions: ', questions); // Fetch 결과를 로그로 출력
-            if (questions.length > 0) {
-                document.getElementById('btn-true').style.display = 'inline';
-                document.getElementById('btn-false').style.display = 'inline';
-                currentQuestionIndex = 0;
-                score = 0;
-                loadQuestion(currentQuestionIndex);
-            } else {
-                document.getElementById('quiz-question').innerText = '선택한 카테고리에 퀴즈가 없습니다.';
-                document.getElementById('btn-true').style.display = 'none';
-                document.getElementById('btn-false').style.display = 'none';
-            }
+        const category = '금융'; // 카테고리를 '금융'으로 고정
+        const response = await fetch('${pageContext.request.contextPath}/game/quiz/category/' + category);
+        questions = await response.json();
+        console.log('Fetched Questions: ', questions); // Fetch 결과를 로그로 출력
+        if (questions.length > 0) {
+            document.getElementById('btn-true').style.display = 'inline';
+            document.getElementById('btn-false').style.display = 'inline';
+            currentQuestionIndex = 0;
+            score = 0;
+            loadQuestion(currentQuestionIndex);
+        } else {
+            document.getElementById('quiz-question').innerText = '금융 카테고리에 퀴즈가 없습니다.';
+            document.getElementById('btn-true').style.display = 'none';
+            document.getElementById('btn-false').style.display = 'none';
         }
     }
 
@@ -261,8 +248,8 @@ Javascript
         console.log(result.message);
     }
 
-    // 초기 로드
-    loadQuestion(currentQuestionIndex);
+    // 초기 로드 시 금융 카테고리의 퀴즈를 로드합니다.
+    loadQuestions();
 </script>
 </body>
 

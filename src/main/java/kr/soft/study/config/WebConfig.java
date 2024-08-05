@@ -1,5 +1,7 @@
 package kr.soft.study.config;
 
+import java.io.File;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -15,7 +17,11 @@ public class WebConfig implements WebMvcConfigurer {
                 .allowedHeaders("*")
                 .allowCredentials(true);
     }
-    
+    @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+    	 registry.addResourceHandler("/uploads/**")
+         .addResourceLocations("file:./src/main/resources/static/uploads/");
+    }
     //스미싱 이미지 관련
 	/*
 	 * @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {

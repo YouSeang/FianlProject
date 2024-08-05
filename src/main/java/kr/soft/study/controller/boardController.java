@@ -48,11 +48,6 @@ public class boardController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	
-
-
-	UCommand command = null; // UCommand 인터페이스 타입의 참조변수를 선언
-
 	private SqlSession sqlSession;
 
 	@Autowired
@@ -70,7 +65,7 @@ public class boardController {
 
 	@RequestMapping("/board/share")
 	public String share(HttpServletRequest request, Model model) {
-		 System.out.println("사례공유");
+		 System.out.println("�궗濡�怨듭쑀");
 		 model.addAttribute("request", request);
 		 command = new ShareCommand();
 	     command.execute(model);
@@ -80,7 +75,7 @@ public class boardController {
 	
 	@RequestMapping("/board/shareWrite")
 	public String shareWrite(Model model) {
-		 System.out.println("사례공유작성");
+		 System.out.println("�궗濡�怨듭쑀�옉�꽦");
 		return "board/shareWrite";
 	}
 	
@@ -93,8 +88,8 @@ public class boardController {
                                Model model) {
 
 		
-		 // 디버깅 로그 출력
-	    System.out.println("로그인한 userId: " + userId);
+	
+	    System.out.println("Login userId: " + userId);
 	    
 	    
         ShareDto shareDto = new ShareDto();
@@ -106,31 +101,34 @@ public class boardController {
         Timestamp timestamp = Timestamp.from(now.toInstant());
         shareDto.setWritetime(timestamp);
         
-        // 이미지 업로드 처리
+        // �씠誘몄� �뾽濡쒕뱶 泥섎━
         if (image != null && !image.isEmpty()) {
-            String uploadDir = "uploads/";
+        	String uploadDir = new File("uploads").getAbsolutePath();
+        	System.out.println("업로드디렉토리: " + uploadDir);
+        
             String originalFilename = image.getOriginalFilename();
             String uniqueFilename = UUID.randomUUID().toString() + "_" + originalFilename;
-            String filePath = uploadDir + uniqueFilename;
-            
+            String filePath = uploadDir + File.separator + uniqueFilename;
+        	System.out.println("파일경로: " + filePath);
             try {
                 File uploadFile = new File(filePath);
                 image.transferTo(uploadFile);
-                shareDto.setImage(filePath);
+                // 웹에서 접근 가능한 경로로 설정
+                String webPath = "/uploads/" + uniqueFilename;
+                shareDto.setImage(webPath);
             } catch (IOException e) {
                 e.printStackTrace();
-            }
         }
-
+        }
         shareDao.writeShare(shareDto);
-        return "redirect:/board/share";  // 저장 후 리스트 페이지로 리다이렉트
+        return "redirect:/board/share";  // ���옣 �썑 由ъ뒪�듃 �럹�씠吏�濡� 由щ떎�씠�젆�듃
     }
     
     @GetMapping("/board/detail")
     public String detail(@RequestParam("id") int id, Model model) {
         ShareDto shareDto = shareDao.getCasebyId(id);
         model.addAttribute("share", shareDto);
-        return "board/shareDetail";  // 상세보기 페이지로 이동
+        return "board/shareDetail";  // �긽�꽭蹂닿린 �럹�씠吏�濡� �씠�룞
     }
 
 }
