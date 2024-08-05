@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -14,19 +13,14 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
-<!-- Template Title
-    ==================================================================-->
+<!-- Template Title -->
 <title>KB스쿨</title>
 
-<!-- Favicon Icon
-    ==================================================-->
+<!-- Favicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-<!-- Style Libraries
-    ==================================================================-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<!-- Style Libraries -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
 <link rel="stylesheet"
@@ -40,24 +34,68 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 
-<!-- Style css
-    ==================================================================== -->
+<!-- Style css -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<![endif]-->
+<style>
+.accordion-item {
+	border: 1px solid #ddd;
+	margin-bottom: 10px;
+	border-radius: 4px;
+}
+
+.accordion-header {
+	cursor: pointer;
+	padding: 10px;
+	background-color: #f5f5f5;
+	border-bottom: 1px solid #ddd;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.accordion-title {
+	flex-grow: 1;
+	text-align: left;
+	font-size: 0.8em;
+}
+
+.accordion-body {
+	display: none;
+	padding: 10px;
+	background-color: #fff;
+}
+
+.accordion-body.open {
+	display: block;
+}
+
+.accordion-toggle {
+	font-size: 1.2em;
+}
+
+.accordion-toggle.open:before {
+	content: "\2212"; /* minus sign */
+}
+
+.accordion-toggle:before {
+	content: "\002B"; /* plus sign */
+}
+</style>
 </head>
 
 <body>
 	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	<!-- <div id="preloader">
+        <div class="preloader">
+            <span></span> <span></span>
+        </div>
+    </div> -->
 	<%@ include file="/WEB-INF/views/header.jsp"%>
 
 	<!-- Promo Area Start -->
@@ -90,29 +128,23 @@
 				</div>
 				<!-- Collum Start -->
 				<div class="col-12">
-					<div class="accordion event-accordion" id="accordionExample">
+					<div id="accordionExample">
 						<c:forEach var="guide" items="${guidelists}">
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="heading${guide.id}">
-									<button class="accordion-button collapsed" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#collapse${guide.id}" aria-expanded="false"
-										aria-controls="collapse${guide.id}">
-										${guide.guideTitle}</button>
-								</h2>
-								<div id="collapse${guide.id}"
-									class="accordion-collapse collapse"
-									aria-labelledby="heading${guide.id}"
-									data-bs-parent="#accordionExample">
-									<div class="accordion-body">
-										${guide.guideContents}
-										<c:if test="${not empty guide.guideFiles}">
-											<p>
-												<strong>첨부파일:</strong> <a
-													href="${pageContext.request.contextPath}/path/to/save/files/${guide.guideFiles}">${guide.guideFiles}</a>
-											</p>
-										</c:if>
+									<div class="accordion-title">
+										<span class="num">${guide.id}</span> ${guide.guideTitle}
 									</div>
+									<span class="accordion-toggle"></span>
+								</h2>
+								<div id="collapse${guide.id}" class="accordion-body">
+									${guide.guideContents}
+									<c:if test="${not empty guide.guideFiles}">
+										<p>
+											<strong>첨부파일:</strong> <a
+												href="${pageContext.request.contextPath}/path/to/save/files/${guide.guideFiles}">${guide.guideFiles}</a>
+										</p>
+									</c:if>
 								</div>
 							</div>
 						</c:forEach>
@@ -124,31 +156,20 @@
 	</main>
 	<!-- 대처방법 END -->
 
-
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-	<!--
-Javascript
-======================================================== -->
-	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-	<script
-		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/wow.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/form.js"/>"></script>
-	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+	<!-- Javascript -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.accordion-header').click(function() {
+				var $body = $(this).next('.accordion-body');
+				var $toggle = $(this).find('.accordion-toggle');
 
-
+				$body.toggleClass('open');
+				$toggle.toggleClass('open');
+			});
+		});
+	</script>
 </body>
-
 </html>
