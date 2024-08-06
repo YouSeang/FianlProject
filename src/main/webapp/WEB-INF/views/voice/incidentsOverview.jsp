@@ -96,7 +96,7 @@
 									<img
 										src="${pageContext.request.contextPath}/resources/
 									images/incident/overView.png"
-										alt=""> <span>New</span>
+										alt="">
 								</div>
 							</div>
 							<div class="col-lg-7 col-sm-6">
@@ -121,10 +121,10 @@
 									</div>
 									<div class="s-cart d-flex">
 
-										<div class="cart-cta ms-3">
+						<!-- 				<div class="cart-cta ms-3">
 											<button class="custom-btn unfill me-2">버튼1</button>
 											<button class="custom-btn">버튼2</button>
-										</div>
+										</div> -->
 									</div>
 
 								</div>
@@ -135,9 +135,9 @@
 							<div class="col-lg-12">
 								<div class="product-tab shadow-sm">
 									<ul>
-										<li class="active" data-tab="description">선택1</li>
-										<li data-tab="extra-info" class="">선택2</li>
-										<li data-tab="review">선택3</li>
+										<li class="active" data-tab="description">연도별 피해액</li>
+										<li data-tab="extra-info" class="">유형별 규모</li>
+										<li data-tab="review">최근 통계</li>
 									</ul>
 									<div class="tab-content">
 										<div id="description">

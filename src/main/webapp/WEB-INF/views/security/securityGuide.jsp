@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 
 
 <!DOCTYPE html>
@@ -78,7 +77,8 @@
 
 
 
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -221,8 +221,8 @@
 											<div class="cart-cta ms-3">
 
 												<button class="custom-btn"
-									onclick="location.href='https://www.fss.or.kr/'">링크
-									연결</button>
+													onclick="location.href='https://www.fss.or.kr/'">링크
+													연결</button>
 											</div>
 										</div>
 
@@ -277,8 +277,8 @@
 																	<div class="cart-cta ms-3">
 
 																		<button class="custom-btn"
-									onclick="location.href='https://www.msafer.or.kr/service/introduction.do'">링크
-									연결</button>
+																			onclick="location.href='https://www.msafer.or.kr/service/introduction.do'">링크
+																			연결</button>
 																	</div>
 																</div>
 
@@ -341,8 +341,8 @@
 																							<div class="cart-cta ms-3">
 
 																								<button class="custom-btn"
-									onclick="location.href='https://www.privacy.go.kr/front/main/main.do'">링크
-									연결</button>
+																									onclick="location.href='https://www.privacy.go.kr/front/main/main.do'">링크
+																									연결</button>
 																							</div>
 																						</div>
 
@@ -394,8 +394,8 @@
 																													<div class="cart-cta ms-3">
 
 																														<button class="custom-btn"
-									onclick="location.href='https://kidc.eprivacy.go.kr/'">링크
-									연결</button>
+																															onclick="location.href='https://kidc.eprivacy.go.kr/'">링크
+																															연결</button>
 																													</div>
 																												</div>
 

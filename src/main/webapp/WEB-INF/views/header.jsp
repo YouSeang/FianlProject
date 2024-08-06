@@ -66,7 +66,7 @@
 		<nav class="navbar navbar-expand-lg">
 			<div class="container px-lg-0">
 				<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img
-					src="${pageContext.request.contextPath}/resources/images/components/logo2.png"
+					src="${pageContext.request.contextPath}/resources/images/components/logo5.png"
 					alt="Logo"></a>
 				<button class="navbar-toggler offcanvas-nav-btn" type="button">
 					<i class="fa fa-bars"></i>
@@ -180,8 +180,9 @@
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
 									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/board/guide">공지사항</a></li>
-
+										href="${pageContext.request.contextPath}/board/guide">예방요령</a></li>
+									<li><a class="dropdown-item"
+										href="${pageContext.request.contextPath}/phoneLookupForm">의심번호조회</a></li>
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
 								</ul></li>
