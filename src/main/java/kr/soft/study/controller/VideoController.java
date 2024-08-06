@@ -9,12 +9,14 @@ import javax.servlet.http.HttpServletRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.soft.study.command.AdminVideoCommand;
 import kr.soft.study.dao.VideoDao;
@@ -70,7 +72,18 @@ public class VideoController {
 		videoDao.deleteVideo(id);
 		return "redirect:/admin/adminVideo";
 	}
-
+	@RequestMapping(value = "/increaseViews", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<Integer> increaseViews(@RequestParam("videoId") int videoId) {
+	    VideoDto video = videoDao.getVideoById(videoId);
+	    if (video != null) {
+	        int updatedViews = video.getViews() + 1;
+	        video.setViews(updatedViews);
+	        videoDao.updateVideo(video); // Make sure this updates the database correctly
+	        return ResponseEntity.ok(updatedViews);
+	    }
+	    return ResponseEntity.badRequest().body(null);
+	}
 
 
 }

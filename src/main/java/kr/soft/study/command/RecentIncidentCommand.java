@@ -33,13 +33,18 @@ public class RecentIncidentCommand implements Command {
                 String link = element.select(".news_tit").attr("href");
                 String description = element.select(".dsc_wrap").text();
                 String info = element.select(".info").text();
-                String imageUrl = element.select(".dsc_thumb").attr("src");
-
+                String imageUrl = element.select(".dsc_thumb img").attr("data-lazysrc");
                 if (imageUrl == null || imageUrl.isEmpty()) {
-                    // 이미지 URL이 없는 경우 기본 이미지를 사용
+                    imageUrl = element.select(".dsc_thumb img").attr("data-src");
+                }
+                if (imageUrl == null || imageUrl.isEmpty()) {
+                    imageUrl = element.select(".dsc_thumb img").attr("src");
+                }
+                if (imageUrl == null || imageUrl.isEmpty() || imageUrl.contains("data:image/gif;base64")) {
                     imageUrl = "https://via.placeholder.com/150";
                 }
 
+                System.out.println("Scraped Image URL: " + imageUrl);
                 Map<String, String> news = new HashMap<>();
                 news.put("title", title);
                 news.put("link", link);
@@ -47,6 +52,7 @@ public class RecentIncidentCommand implements Command {
                 news.put("info", info);
                 news.put("imageUrl", imageUrl);
                 newsList.add(news);
+               
             });
 
         } catch (IOException e) {

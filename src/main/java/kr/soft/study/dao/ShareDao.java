@@ -15,4 +15,7 @@ public interface ShareDao {
 	public void writeShare(ShareDto share);
 	public void updateShare(ShareDto share);
 	public void deleteShare(int id);
-}
+	public  ArrayList<ShareDto> commentlist(int shareId);
+
+	}
+

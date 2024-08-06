@@ -22,7 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
     	 registry.addResourceHandler("/uploads/**")
-         .addResourceLocations("file:./src/main/resources/static/uploads/");
+         .addResourceLocations("file:./src/main/resources/images/uploads/");
     }
     //스미싱 이미지 관련
 	/*
@@ -32,9 +32,5 @@ public class WebConfig implements WebMvcConfigurer {
 	 * "classpath:/images/"); }
 	 */
     
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**")
-                .addResourceLocations("/resources/");
-    }
+   
 }
