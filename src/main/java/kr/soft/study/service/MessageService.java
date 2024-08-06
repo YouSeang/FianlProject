@@ -23,7 +23,7 @@ public class MessageService {
 
 	public MessageService() {
 		// 여기에 실제 API 키와 시크릿 키를 입력하세요
-		this.messageService = NurigoApp.INSTANCE.initialize("NCSCQBNH3DRTBVRV", "UH1DX4NDB5VNDU6UBQJTQI3TMGM8JBW1",
+		this.messageService = NurigoApp.INSTANCE.initialize("NCSDNQBMFSNRNH46", "YJRPJUPXCTOKDLHFO4DLR1V2YHL5QC2Q",
 				"https://api.coolsms.co.kr");
 	}
 
@@ -34,7 +34,7 @@ public class MessageService {
 		String fullMessage = text + "\n쿠폰:" + couponImageUrl;
 
 		Message message = new Message();
-		message.setFrom("01030669048"); // 계정에서 등록한 발신번호
+		message.setFrom("01098373995"); // 계정에서 등록한 발신번호
 		message.setTo(to); // 수신번호
 		message.setText(fullMessage); // 메시지 내용
 
@@ -63,14 +63,14 @@ public class MessageService {
 		String userName = user.getName(); // user가 null이 아닌 경우에만 호출됨
 		System.out.println(userName);
 
-		String fullMessage = "[KB국민은행]" + userName + "님이 발송한 쿠폰입니다" +"\n 보낸 메시지: "+ text;
+		String fullMessage = "[KB국민은행]" + userName + "님이 발송한 쿠폰입니다" + "\n 보낸 메시지: " + text;
 
 		// 파일 업로드를 통해 이미지 ID를 얻어옵니다
 		String imageId = this.messageService.uploadFile(file, StorageType.MMS, null);
 
 		// MMS 메시지 설정
 		Message message = new Message();
-		message.setFrom("01030669048");
+		message.setFrom("01098373995");
 		message.setTo(to);
 		message.setText(fullMessage);
 		message.setImageId(imageId);
@@ -88,7 +88,7 @@ public class MessageService {
 		String fullMessage = adminText + "\n" + couponImageUrl + "\n" + text;
 
 		Message message = new Message();
-		message.setFrom("01030669048"); // 계정에서 등록한 발신번호
+		message.setFrom("01098373995"); // 계정에서 등록한 발신번호
 		message.setTo(to); // 수신번호
 		message.setText(fullMessage); // 메시지 내용
 
