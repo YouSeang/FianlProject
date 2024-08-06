@@ -49,19 +49,55 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 
+
+<style>
+    .news-list {
+        list-style-type: none;
+        padding: 0;
+        
+    }
+
+    .news-list li {
+        display: flex;
+        margin-bottom: 40px;
+    }
+
+  .img-wrapper {
+        flex: 1;
+        max-width: 200px; /* 이미지의 최대 크기 설정 */
+        margin-right: 15px; /* 이미지와 텍스트 사이 간격 조정 */
+    }
+
+    .img-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .s-details {
+        flex: 2;
+    }
+
+    .s-details h3 {
+        margin-top: 0;
+    }
+</style>
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-            function searchKeyword(keyword) {
-                console.log('Searching for keyword:', keyword);
+    let currentKeyword = '금융사고'; // 기본 키워드 설정
+
+    function searchKeyword(keyword, page = 1) {
+        currentKeyword = keyword; // 현재 키워드를 저장
+        console.log('Searching for keyword:', keyword, 'on page:', page);
                 fetch('search', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ keyword: keyword })
+                    body: JSON.stringify({ keyword: keyword, page: page })
                 })
                 .then(response => {
                     console.log('Response status:', response.status);
@@ -93,6 +129,7 @@
                 
                 newsList.forEach(news => {
                     console.log('News item:', news);
+                    console.log('Image URL:', news.imageUrl); // Debugging line
 
                     const liElement = document.createElement('li');
 
@@ -135,6 +172,9 @@
 
                 newsContainer.appendChild(ulElement);
                 console.log('Final newsContainer innerHTML:', newsContainer.innerHTML);
+            }
+            window.onload = function() {
+                searchKeyword('금융사고');
             }
 
         </script>
@@ -187,29 +227,30 @@
     <a class="custom-btn" onclick="searchKeyword('스미싱')">#스미싱</a>
     <a class="custom-btn" onclick="searchKeyword('대출사기')">#대출사기</a><br><br>
 </div>
+
+                <div class="col-sm-12">
+                 
     <div id="news-container"></div>
       
-			   <div class="row">
-                <div class="col-sm-12">
-                    <div class="single-testimonial">
-                        <div class="s-thumb">
-                            <%-- <ul>
-                                <c:if test="${not empty newsList}">
-                                    <c:forEach var="news" items="${newsList}">
-                                        <li>
-                                            <img src="${news.imageUrl}" alt="News Image">
-                                            <div class="s-details">
-                                                <h3><a href="${news.link}" target="_blank">${news.title}</a></h3>
-                                                <span class="status">${news.info}</span>
-                                                <p>${news.description}</p>
-                                            </div>
-                                        </li>
-                                    </c:forEach>
-                                </c:if>
-                            </ul> --%>
+			   
+                       
+                             <ul>
+                             <%--  <c:forEach var="news" items="${newsList}">
+    <li>
+        <div class="img-wrapper">
+            <img src="${news.imageUrl}" alt="News Image">
+        </div>
+        <div class="s-details">
+            <h3><a href="${news.link}" target="_blank">${news.title}</a></h3>
+            <span class="status">${news.info}</span>
+            <p>${news.description}</p>
+        </div>
+    </li>
+</c:forEach> --%>
+                            </ul> 
                         </div>
                     </div>
-                </div>
+           
                 <div class="col-lg-12">
                     <div class="pager text-center">
                         <a href="#" class="next-btn"><i class="fa fa-angle-left"></i></a>
@@ -218,11 +259,11 @@
                         <a href="#">3</a>
                         <a href="#">4</a>
                         <a href="#">5</a>
-                        <a href="#" class="next-btn"><i class="fa fa-angle-right"></i></a>
+                        
                     </div>
                 </div>
-            </div>
-        </div>
+            
+        
     </main>
 
     

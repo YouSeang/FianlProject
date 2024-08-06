@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -56,27 +57,24 @@
         <section class="video-area section-padding">
             <div class="container">
                 <div class="row g-5">
-                   <c:forEach var="video" items="${videos}">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-article shadow bg-white">
-                                <figure class="article-thumb">
-                                    <video id="video-${video.id}" width="400" controls>
-                                        <source src="${video.link}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>             
-                                    <canvas id="thumbnail-${video.id}" width="400" height="300" style="display:none;"></canvas>
-                                 
-                                </figure> 
-                                <div class="article-details">
-                                    <h3 class="article-heading">
-                                         <a href="${video.link}" target="_blank">
-                                          <c:out value="${video.videoName}"/>
-                                         </a>
-                                    </h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
-                                        <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
-                                    </ul>
+                     <c:forEach var="video" items="${videos}">
+    <div class="col-lg-4 col-sm-6">
+        <div class="single-article shadow bg-white">
+            <figure class="article-thumb">
+                <a href="${video.link}" target="_blank">
+                    <img id="thumbnail-${video.id}" src="https://img.youtube.com/vi/${fn:substringAfter(video.link, 'embed/')}/0.jpg" width="400" height="300" alt="Video Thumbnail">
+                </a>           
+            </figure> 
+            <div class="article-details">
+                <h3 class="article-heading">
+                     <a href="${video.link}" target="_blank">
+                      <c:out value="${video.videoName}"/>
+                     </a>
+                </h3>
+                <ul class="article-meta">
+                    <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
+                    <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
+                </ul>
                                     <a href="${pageContext.request.contextPath}/admin/videoEdit?id=${video.id}" class="btn btn-warning btn-sm">Edit</a>
                                     <form action="${pageContext.request.contextPath}/admin/videoDelete" method="post" style="display:inline;">
                                         <input type="hidden" name="id" value="${video.id}">

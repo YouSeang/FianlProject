@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -29,18 +31,18 @@
                     <label for="videoName" class="form-label">비디오 이름</label>
                     <input type="text" class="form-control" id="videoName" name="videoName" value="${video.videoName}" required>
                 </div>
+                
                 <div class="mb-3">
-                    <label for="videoViews" class="form-label">조회수</label>
-                    <input type="number" class="form-control" id="videoViews" name="views" value="${video.views}" required>
-                </div>
-                <div class="mb-3">
-                    <label for="videoPoints" class="form-label">점수</label>
+                    <label for="videoPoints" class="form-label">포인트</label>
                     <input type="number" class="form-control" id="videoPoints" name="points" value="${video.points}" required>
                 </div>
                 <div class="mb-3">
-                    <label for="videoLink" class="form-label">링크</label>
-                    <input type="text" class="form-control" id="videoLink" name="link" value="${video.link}" required>
-                </div>
+    <label for="videoLink" class="form-label">링크</label>
+    <div class="input-group">
+        <span class="input-group-text" id="basic-addon3">https://www.youtube.com/embed/</span>
+        <input type="text" class="form-control" id="videoLink" name="link" value="${fn:substringAfter(video.link, 'https://www.youtube.com/embed/')}" required>
+    </div>
+</div>
                 <button type="submit" class="btn btn-primary">저장</button>
                 <a href="${pageContext.request.contextPath}/admin/adminVideo" class="btn btn-secondary">취소</a>
             </form>
