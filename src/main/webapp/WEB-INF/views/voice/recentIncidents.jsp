@@ -87,7 +87,7 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script>
-    let currentKeyword = '금융사고'; // 기본 키워드 설정gggg
+    let currentKeyword = '금융사고'; // 기본 키워드 설정
 
     function searchKeyword(keyword, page = 1) {
         currentKeyword = keyword; // 현재 키워드를 저장
