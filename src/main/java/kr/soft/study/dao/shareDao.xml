@@ -29,5 +29,10 @@
     DELETE FROM caseshare WHERE id = #{id}
 </delete>
 
+<select id="commentlist" resultType="kr.soft.study.dto.ShareDto">
+   SELECT * FROM caseshare 
+   WHERE post_type = 'comment' AND title = (SELECT title FROM caseshare WHERE id = #{shareId})
+   ORDER BY writetime DESC
+</select>
 
 </mapper>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -79,32 +79,30 @@
     <section class="video-area section-padding">
             <div class="container">
                 <div class="row g-5">
-                   <c:forEach var="video" items="${videos}">
-                        <div class="col-lg-4 col-sm-6">
-                            <div class="single-article shadow bg-white">
-                                <figure class="article-thumb">
-                                    <video id="video-${video.id}" width="400" controls>
-                                        <source src="${video.link}" type="video/mp4">
-                                        Your browser does not support the video tag.
-                                    </video>             
-                                    <canvas id="thumbnail-${video.id}" width="400" height="300" style="display:none;"></canvas>
-                                    
-                                </figure> 
-                                <div class="article-details">
-                                    <h3 class="article-heading">
-                                         <a href="${video.link}" target="_blank">
-                                          <c:out value="${video.videoName}"/>
-                                         </a>
-                                    </h3>
-                                    <ul class="article-meta">
-                                        <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
-                                        <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
-                                    </ul>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                    </c:forEach>
+                  <c:forEach var="video" items="${videos}">
+    <div class="col-lg-4 col-sm-6">
+        <div class="single-article shadow bg-white">
+            <figure class="article-thumb">
+                <a href="${video.link}" target="_blank" onclick="increaseViews(${video.id}, this)">
+                    <img id="thumbnail-${video.id}" src="https://img.youtube.com/vi/${fn:substringAfter(video.link, 'embed/')}/0.jpg" width="400" height="300" alt="Video Thumbnail">
+                </a>           
+            </figure> 
+            <div class="article-details">
+                <h3 class="article-heading">
+                     <a href="${video.link}" target="_blank" onclick="increaseViews(${video.id}, this)">
+                      <c:out value="${video.videoName}"/>
+                     </a>
+                </h3>
+                <ul class="article-meta">
+                    <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
+                    <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+</c:forEach>
+
               
                 
                 <!-- Single Blog Item End -->
@@ -189,6 +187,35 @@ Javascript
             captureThumbnail('video-${video.id}', 'thumbnail-${video.id}', 'img-thumbnail-${video.id}');
         </c:forEach>
     }
+    
+    function increaseViews(videoId, linkElement) {
+        // Open the link in a new tab/window
+        var newWindow = window.open(linkElement.href, '_blank');
+
+        // Send an AJAX request to the server to increase views
+        $.ajax({
+            type: 'POST',
+            url: '<c:url value="/increaseViews"/>',
+            data: { videoId: videoId },
+            success: function(response) {
+                // Update the view count on the page
+                document.getElementById('views-' + videoId).innerText = response;
+                
+                // Redirect the new window to the actual video link
+                if (newWindow) {
+                    newWindow.location.href = linkElement.href;
+                }
+            },
+            error: function(xhr, status, error) {
+                console.error('Failed to increase views:', status, error);
+                // Redirect the new window to the actual video link even if the request fails
+                if (newWindow) {
+                    newWindow.location.href = linkElement.href;
+                }
+            }
+        });
+    }
+
 </script>
 </body>
 
