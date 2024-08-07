@@ -154,7 +154,7 @@
 						<h2 class="section-title">
 							<span class="color">범죄자</span> 잡기
 						</h2>
-						<h3><strong>50점 이상 획득시 1점당 5포인트씩 적립됩니다.</strong></h3>
+						<h3><strong>1점당 5포인트씩 적립됩니다.</strong></h3>
 						<p>포인트는 하루에 한번만 적립됩니다. 시작을 누르면 게임이 시작됩니다.</p>
 					</div>
                 
