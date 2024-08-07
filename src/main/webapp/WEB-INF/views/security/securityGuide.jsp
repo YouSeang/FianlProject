@@ -54,6 +54,12 @@
 	border-top: 2px solid #ddd;
 	margin: 20px 0;
 }
+
+.card-margin {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+}
 </style>
 </head>
 
@@ -114,7 +120,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-lg-4 col-sm-4">
+					<div class="col-lg-4 col-sm-4 card-margin">
 						<div class="single-project rounded-2 shadow">
 							<figure class="project-thumb">
 								<img
@@ -136,7 +142,7 @@
 						<!-- Single Project End -->
 					</div>
 					<!-- Single Cause End -->
-					<div class="col-lg-4 col-sm-4">
+					<div class="col-lg-4 col-sm-4 card-margin">
 						<div class="single-project rounded-2 shadow">
 							<figure class="project-thumb">
 								<img
@@ -159,7 +165,7 @@
 						<!-- Single Project End -->
 					</div>
 					<!-- Single Cause End -->
-					<div class="col-lg-4 col-sm-4">
+					<div class="col-lg-4 col-sm-4 card-margin">
 						<div class="single-project rounded-2 shadow">
 							<figure class="project-thumb">
 								<img
