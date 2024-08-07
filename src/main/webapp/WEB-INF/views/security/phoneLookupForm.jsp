@@ -41,9 +41,9 @@
 	href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
 <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
 
 <style>
 .points-container {
@@ -51,6 +51,7 @@
 	border: 1px solid #dee2e6;
 	background-color: #fff;
 	margin-top: 20px;
+	border-radius: 8px;
 }
 
 .points-note {
@@ -66,15 +67,59 @@
 .points-note ul li {
 	margin-bottom: 5px;
 }
+
+.promo-area {
+	background:
+		url('${pageContext.request.contextPath}/resources/images/promo-bg.jpg')
+		no-repeat center center;
+	background-size: cover;
+	padding: 100px 0;
+	color: #fff;
+	text-align: center;
+}
+
+.promo-title {
+	font-size: 2.5em;
+	font-weight: bold;
+}
+
+.donation-form {
+	padding: 30px;
+}
+
+.form-group label {
+	font-weight: bold;
+}
+
+.form-group input {
+	border-radius: 4px;
+	padding: 10px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.form-group button {
+	width: 100%;
+	padding: 10px;
+	background-color: #FFB200;
+	border: none;
+	border-radius: 4px;
+	color: white;
+	font-size: 1.2em;
+}
+
+.form-group button:hover {
+	background-color: #031550;
+}
 </style>
+
 </head>
 <body>
 	<!-- header start -->
 	<%@ include file="/WEB-INF/views/header.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-position: 50% 0%;">
+	<section class="promo-area" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -83,7 +128,7 @@
 							<span>번호조회</span>
 						</h1>
 						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
+							<ol class="breadcrumb justify-content-center">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">메인</li>
 							</ol>
@@ -99,31 +144,38 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<div class="section-intro intro-full">
-						<h2 class="section-title">
-							번호 <span class="color">조회해보기</span>
-						</h2>
-						<p>잠깐! 피싱으로 생각되는 연락을 받았다면 조회 먼저 해보세요</p>
+					<div class="section-intro intro-full text-center">
+						<h3 class="section-title mb-4">
+							번호<span class="color">조회 </span>
+						</h3>
+						<p>잠깐! 피싱으로 생각되는 연락을 받았다면 유효한 번호여부를 조회 먼저 해보세요</p>
 					</div>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
 					<div class="bg-light donation-form rounded-3 shadow-sm">
-						<form id="lookupForm" method="get">
-							<label for="phoneNumber">조회할 번호:</label> <input type="text"
-								placeholder="8212345678" id="phoneNumber" name="phoneNumber"
-								required>
-							<button type="submit">찾기</button>
-						</form>
-						<br /> <br /> <br />
-
 						<div class="points-container">
 							<div class="points-note">
 								<p>※ +82 뒤에 조회하고자 하는 번호를 입력해주세요.</p>
+								<p>※ 사기 이력에 대한 조회는 불가하며 해당 번호가 개통된 국가와 통신사, 유형(모바일/유선 등)의
+									결과만 조회됩니다.</p>
 								<p>※ 해당 조회결과는 참고용으로만 사용해주세요.</p>
+								<p>
+									※ 사이버 사기피해 신고여부는 경찰청 홈페이지를 이용해주세요. <a
+										href="https://www.police.go.kr/www/security/cyber/cyber04.jsp"
+										target="_blank"> <br />경찰청 - 인터넷 사기 의심전화·계좌번호 조회 바로가기
+									</a>
+								</p>
 							</div>
 						</div>
+						<br />
+						<form id="lookupForm" method="get" class="form-group">
+							<label for="phoneNumber">조회할 번호:</label> <input type="text"
+								placeholder="+82012345678" id="phoneNumber" name="phoneNumber"
+								required>
+							<button type="submit">조회하기</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -227,8 +279,12 @@
 
 																	Swal
 																			.fire({
-																				title : '유효한 번호체계입니다. 아래 정보는 참고용으로 확인해주시고 이체 또는 정보를 제공 시 꼭 유의하세요!',
-																				html : '해당 번호가 개통된 국가이름: '
+																				title : '유효한 번호체계입니다.'
+																						+ '<br/>'
+																						+ '다만, 아래 정보는 참고용으로만 사용하시고'
+																						+ '<br/>'
+																						+ '거래 시에는 신중을 기하여주세요!',
+																				html : '개통국가: '
 																						+ countryName
 																						+ '<br>'
 																						+ '통신사: '
@@ -242,7 +298,7 @@
 																	Swal
 																			.fire({
 																				title : '유효하지 않은 번호체계입니다',
-																				text : '해당 번호는 주의깊게 확인하세요',
+																				text : '해당 번호는 주의깊게 확인하세요.',
 																				icon : 'error'
 																			});
 																}
