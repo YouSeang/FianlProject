@@ -42,7 +42,7 @@
     ==================================================================== -->
 <link rel="stylesheet"
     href="${pageContext.request.contextPath}/resources/css/style.css">
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <!-- Custom CSS for table styling -->
 <style>
     .table {
@@ -126,7 +126,7 @@
             <div class="col-lg-12">
                 <h2 class="text-center mb-4">피해사례 공유 게시판</h2>
                 <div class="text-end mb-3">
-                    <a href="${pageContext.request.contextPath}/board/shareWrite" class="btn btn-primary">사례공유 글 작성</a>
+                    <a href="${pageContext.request.contextPath}/board/shareWrite" class="btn btn-primary" onclick="checkLogin()">사례공유 글 작성</a>
                 </div>
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark">
@@ -178,7 +178,33 @@ Javascript
     <script src="<c:url value="/resources/js/form.js"/>"></script>
     <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
+    
+<script>
+    // Get the userId from the session (null if not logged in)
+   let userId = '<%= session.getAttribute("userId") != null ? session.getAttribute("userId") : "" %>';
 
+    function checkLogin() {
+        event.preventDefault(); // Prevent the default link behavior
+
+        if (userId) {
+            // Redirect to the shareWrite page if the user is logged in
+            window.location.href = "${pageContext.request.contextPath}/board/shareWrite";
+        } else {
+            // Show SweetAlert if the user is not logged in
+            Swal.fire({
+                icon: 'warning',
+                title: '로그인 필요',
+                text: '사례공유 글을 작성하려면 로그인이 필요합니다.',
+                confirmButtonText: '확인'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Redirect to the login page
+                    window.location.href = "${pageContext.request.contextPath}/loginView";
+                }
+            });
+        }
+    }
+</script>
 </body>
 
 </html>

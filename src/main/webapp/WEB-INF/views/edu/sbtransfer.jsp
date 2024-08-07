@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
 
 
 <!DOCTYPE html>
@@ -74,6 +73,30 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+/* Custom CSS for responsive design */
+@media ( max-width : 767.98px) {
+	.promo-wrap {
+		text-align: center;
+	}
+	.donation-form {
+		padding: 20px;
+		min-height: 80vh; /* 모바일에서 충분한 높이 확보 */
+	}
+	#content {
+		width: 100%;
+		max-width: 100%;
+	}
+	img#main-image {
+		width: 100%;
+		height: auto;
+	}
+	#display-area, #display-area1, #display-area2, #display-area3,
+		#display-area4, #display-area5, #display-area6 {
+		font-size: 14px;
+	}
+}
+</style>
 </head>
 
 <body>
@@ -122,21 +145,11 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-					<div
+					<!-- <div
 						class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center"
-						style="min-height: 100vh;">
-						<!-- <div class="header-container">
-							<a href="javascript:history.go(-1);" class="go-back"><span
-								class="ico ico-back ico-circle">뒤로</span></a> <a
-								href="/static/dbe/index.html"><h1 class="logo">
-									<span class="blind">KB큽스쿨</span>
-								</h1></a>
-						</div> -->
+						style="min-height: 100vh; max-width: 100%;"> -->
 						<%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp"%>
-
-					</div>
-
-
+					<!-- </div> -->
 				</div>
 			</div>
 		</div>
@@ -144,11 +157,6 @@
 	<!-- Team Area End -->
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
-
-
-	<!--
-Javascriptg
-======================================================== -->
 
 
 </body>

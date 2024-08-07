@@ -20,27 +20,15 @@
 	width: 100%;
 }
 
-#main-image {
-	width: 90%; /* 메인 이미지의 너비를 90%로 설정 */
-	max-width: 90%; /* 최대 너비를 90%로 설정 */
-	display: block;
-	margin: 0 auto; /* 가운데 정렬 */
-}
-
-.display-area {
+#display-area, #display-area1, #display-area2, #display-area3,
+	#display-area4, #display-area5, #display-area6, #keypad-area {
 	position: absolute;
 	border: 1px solid #000;
 	display: none;
 }
 
-.display-text {
-	font-size: 16px;
-}
-
-@media ( max-width : 767.98px) {
-	.display-text {
-		font-size: 12px;
-	}
+#keypad-area {
+	z-index: 10; /* `keypad-area`가 위에 보이도록 설정 */
 }
 </style>
 </head>
@@ -48,7 +36,7 @@
 	<div id="content">
 		<img id="main-image"
 			src="${pageContext.request.contextPath}/resources/images/transfer/transfer1.png"
-			alt="" usemap="#photo">
+			alt="" usemap="#photo" style="width: 100%;">
 		<map name="photo">
 			<area id="area-1" target="_self" alt="" title="" href="#"
 				coords="331,259,569,294" shape="rect">
@@ -59,38 +47,38 @@
 		</map>
 
 		<!-- 입력계좌번호를 표시할 영역 -->
-		<div id="display-area" class="display-area">
-			<span id="display-text" class="display-text"></span>
+		<div id="display-area">
+			<span id="display-text"></span>
 		</div>
 
 		<!-- 첫 번째 단계에서 입력한 계좌번호를 표시할 영역 -->
-		<div id="display-area1" class="display-area">
-			<span id="display-text1" class="display-text"></span>
+		<div id="display-area1">
+			<span id="display-text1"></span>
 		</div>
 
 		<!-- 이체금액 입력 시 표시할 영역 -->
-		<div id="display-area2" class="display-area">
-			<span id="display-text2" class="display-text"></span>
+		<div id="display-area2">
+			<span id="display-text2"></span>
 		</div>
 
 		<!-- 이체확인 페이지에서 받는 분 계좌 확인 영역 -->
-		<div id="display-area3" class="display-area">
-			<span id="display-text3" class="display-text"></span>
+		<div id="display-area3">
+			<span id="display-text3"></span>
 		</div>
 
 		<!-- 이체확인 페이지에서 보내는 금액 확인 영역 -->
-		<div id="display-area4" class="display-area">
-			<span id="display-text4" class="display-text"></span>
+		<div id="display-area4">
+			<span id="display-text4"></span>
 		</div>
 
 		<!-- 이체확인 상세페이지에서 보내는 금액 확인 영역 -->
-		<div id="display-area5" class="display-area">
-			<span id="display-text5" class="display-text"></span>
+		<div id="display-area5">
+			<span id="display-text5"></span>
 		</div>
 
-		<!-- 이체완료페이지에서 보낸 금액 확인 영역 -->
-		<div id="display-area6" class="display-area">
-			<span id="display-text6" class="display-text"></span>
+		<!--이체완료페이지에서 보낸 금액 확인 영역 -->
+		<div id="display-area6">
+			<span id="display-text6"></span>
 		</div>
 	</div>
 
