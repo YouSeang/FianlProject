@@ -6,7 +6,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>맞춤형 팁</title>
+<title>LocKB</title>
 </head>
 <body>
     <h2>맞춤형 보안 팁</h2>

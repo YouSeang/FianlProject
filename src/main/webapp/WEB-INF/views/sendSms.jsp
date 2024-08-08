@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Send SMS</title>
+<title>LocKB</title>
 </head>
 <body>
 	<h2>Send SMS</h2>

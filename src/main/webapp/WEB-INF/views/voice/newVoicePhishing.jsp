@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>LocKB</title>
 
 
 <!-- Template Title -->
-<title>HelpPlus Charity Template</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

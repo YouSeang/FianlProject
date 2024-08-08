@@ -11,7 +11,7 @@
 <meta name="author" content="Your Name">
 
 <!-- Template Title -->
-<title>스미싱 케이스 관리</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

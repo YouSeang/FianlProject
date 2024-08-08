@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>http://211.37.179/smishing</title>
+<title>LocKB</title>
 </head>
 <body>
 	<img

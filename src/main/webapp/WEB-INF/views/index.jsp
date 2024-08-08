@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Real-time Speech Recognition</title>
+    <title>LocKB</title>
     <script>
     function startRecording() {
         navigator.mediaDevices.getUserMedia({ audio: true })

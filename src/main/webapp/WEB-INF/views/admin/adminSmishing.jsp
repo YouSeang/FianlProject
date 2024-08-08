@@ -10,7 +10,7 @@
 <meta name="description" content="관리자 피싱 관리">
 <meta name="author" content="Your Name">
 
-<title>스미싱 관리</title>
+<title>LocKB</title>
 
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">

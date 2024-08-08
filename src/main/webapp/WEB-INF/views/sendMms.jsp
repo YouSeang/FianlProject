@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Send SMS</title>
+<title>LocKB</title>
 </head>
 <h2>Send MMS</h2>
 <form action="sendMms" method="post" enctype="multipart/form-data">

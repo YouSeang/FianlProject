@@ -15,7 +15,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>스미싱</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

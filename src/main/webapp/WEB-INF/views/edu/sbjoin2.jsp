@@ -10,7 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
     <meta charset="UTF-8">
-    <title>이미지맵 테스트</title>
+    <title>LocKB</title>
 </head>
 <body>
     <div id="content">
