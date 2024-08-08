@@ -185,7 +185,7 @@ body {
 <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/">
+            <a class="navbar-brand" style="margin-left: 100px;" href="${pageContext.request.contextPath}/">
                 <img src="${pageContext.request.contextPath}/resources/images/components/logo5.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" id="mobile-nav-toggle">
@@ -259,7 +259,7 @@ body {
                     <c:choose>
                         <c:when test="${not empty sessionScope.user}">
                             <a href="${pageContext.request.contextPath}/logout" class="custom-btn">로그아웃</a>
-                            <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
+                           <!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
                             <c:choose>
                                 <c:when test="${sessionScope.user.role eq 'admin'}">
                                     <a href="${pageContext.request.contextPath}/admin/admin" class="text-reset icon position-relative me-2"><i class="fa fa-user"></i></a>
@@ -271,8 +271,8 @@ body {
                         </c:when>
                         <c:otherwise>
                             <a href="${pageContext.request.contextPath}/loginView" class="custom-btn">로그인</a>
-                            <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a>
-                            <a href="${pageContext.request.contextPath}/loginView" class="text-reset icon position-relative me-2" onclick="alert('로그인이 필요합니다. \n로그인화면으로 이동합니다.');"><i class="fa fa-user"></i></a>
+                           <!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
+                            <a href="${pageContext.request.contextPath}/loginView" class="text-reset icon" style="margin-right: 100px;" onclick="alert('로그인이 필요합니다. \n로그인화면으로 이동합니다.');"><i class="fa fa-user"></i></a>
                         </c:otherwise>
                     </c:choose>
                 </div>
