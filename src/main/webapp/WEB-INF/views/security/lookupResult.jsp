@@ -58,7 +58,7 @@
 
 
 	<!-- header start -->
-	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
