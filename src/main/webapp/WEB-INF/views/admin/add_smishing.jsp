@@ -65,7 +65,7 @@
 	</div>
 
 	<!-- Header Start -->
-	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
 
 	<!-- Main Area Start -->
 	<h1>스미싱 케이스 관리</h1>

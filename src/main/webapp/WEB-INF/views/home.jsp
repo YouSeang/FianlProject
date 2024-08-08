@@ -14,7 +14,7 @@
 
 <!-- Template Title
     ==================================================================-->
-<title>KB큽스쿨</title>
+<title>LOCKB</title>
 
 <!-- Favicon Icon
     ==================================================-->
@@ -89,7 +89,7 @@ function openVoicePhishingWindow() {
 						<h1 class="banner-title text-white" style="color: white;">
 							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
-						<p>큽스쿨과 함께라면 뱅킹도 더이상 어렵지 않아요</p>
+						<p>LOCKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
 							<a href="/study/edu/sbjoin" class="custom-btn">체험하러가기</a>
 						</div>
@@ -105,7 +105,7 @@ function openVoicePhishingWindow() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<p>KB큽스쿨에서 할 수 있어요!</p>
+						<p>LOCKB에서 할 수 있어요!</p>
 					</div>
 				</div>
 			</div>
@@ -155,9 +155,9 @@ function openVoicePhishingWindow() {
 				<div class="col-lg-6 col-sm-6">
 					<div class="f-cause-txt">
 						<h2 class="section-title">
-							KB큽스쿨 <span>추천영상</span>
+							LOCKB <span>추천영상</span>
 						</h2>
-						<p>KB큽스쿨에서 웃음과 재미, 금융지식까지 선물해드려요.</p>
+						<p>LOCKB에서 웃음과 재미, 금융지식까지 선물해드려요.</p>
 						<a href="#" class="custom-btn">자세히보기 <i
 							class="fa fa-long-arrow-right"></i></a>
 					</div>
@@ -188,7 +188,7 @@ function openVoicePhishingWindow() {
 				<div class="col-lg-12">
 					<div class="section-intro">
 						<h2 class="section-title">
-							KB큽스쿨 <span class="color">알림마당</span>
+							LOCKB <span class="color">알림마당</span>
 						</h2>
 						<p>짧은 카드뉴스로 슬기로운 금융생활을!</p>
 					</div>
@@ -275,7 +275,7 @@ function openVoicePhishingWindow() {
 							홈페이지 <span class="color">담당자</span>
 						</h2>
 						<p>
-							KB큽스쿨을 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.
+							LOCKB를 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.
 						</p>
 					</div>
 				</div>
