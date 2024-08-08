@@ -18,7 +18,7 @@
 <title>KB</title>
 
 <!-- Favicon Icon
-    ==================================================--->
+    ==================================================----->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
