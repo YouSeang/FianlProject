@@ -117,7 +117,7 @@
         if (voiceType) {
             var audioPath = "";
             if (voiceType === "impersonation") {
-                audioPath = "voice001.mp3"; // 기관사칭 음성 파일 경로
+                audioPath = "impersonation1.m4a"; // 기관사칭 음성 파일 경로
             } else if (voiceType === "loan") {
                 audioPath = "loan1.mp3"; // 대출사기 음성 파일 경로
             }

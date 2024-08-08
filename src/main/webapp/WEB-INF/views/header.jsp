@@ -151,7 +151,7 @@
 											<li><a class="dropdown-item"
 												href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
-												href="${pageContext.request.contextPath}/game/findcrime">범죄자
+												href="${pageContext.request.contextPath}/game">범죄자
 													잡기</a></li>
 										</ul></li>
 									<li><a class="dropdown-item"
