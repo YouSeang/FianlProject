@@ -12,7 +12,7 @@
 <meta name="author" content="Your Name">
 
 <!-- Template Title -->
-<title>번호조회</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

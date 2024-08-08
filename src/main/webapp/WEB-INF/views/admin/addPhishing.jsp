@@ -9,7 +9,7 @@
     <meta name="author" content="Your Name">
 
     <!-- Template Title -->
-    <title>Admin Phishing Management</title>
+    <title>LocKB</title>
 
     <!-- Favicon Icon -->
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">

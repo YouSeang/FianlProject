@@ -15,7 +15,7 @@
 
 <!-- Template Title
     ==================================================================-->
-<title>KB큽스쿨</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon
     ==================================================-->
@@ -61,11 +61,11 @@
 					<div class="footer-widget footer-about">
 						<div class="f-logo">
 							<a href="#"> <img
-								src="${pageContext.request.contextPath}/resources/images/components/logo5.png"
+								src="${pageContext.request.contextPath}/resources/images/components/logo6.png"
 								alt="Logo">
 							</a>
 						</div>
-						<p>KB큽스쿨홈페이지입니다.</p>
+						<p>LocKB 홈페이지입니다.</p>
 						<div class="footer-social">
 							<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
 								href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i

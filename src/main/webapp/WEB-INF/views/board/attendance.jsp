@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="출석체크">
 <meta name="author" content="Your Name">
-<title>출석체크</title>
+<title>LocKB</title>
 <!-- Plugins CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
@@ -100,7 +100,7 @@
 				<div class="col-lg-12">
 					<div class="section-intro intro-full">
 						<h2 class="section-title">
-							KB큽스쿨 <span class="color">출석체크</span>
+							LocKB <span class="color">출석체크</span>
 						</h2>
 						<p>매일 출석체크하고 포인트도 챙겨보세요!</p>
 					</div>

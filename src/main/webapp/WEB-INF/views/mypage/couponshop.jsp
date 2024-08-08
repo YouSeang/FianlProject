@@ -13,7 +13,7 @@
 	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
 <meta name="author" content="Tariqul Islam">
 
-<title>쿠폰교환</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"
@@ -45,7 +45,7 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-<title>쿠폰교환</title>
+<title>LocKB</title>
 <style>
 .product-summery {
 	text-align: center; /* 중앙 정렬 */

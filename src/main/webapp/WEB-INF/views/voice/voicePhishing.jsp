@@ -18,7 +18,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>HelpPlus Charity Template</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

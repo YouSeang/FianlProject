@@ -12,7 +12,7 @@
 <meta name="description" content="">
 <meta name="author" content="KB스쿨 관리자">
 
-<title>KB스쿨 관리자 페이지</title>
+<title>LocKB</title>
 
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">

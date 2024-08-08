@@ -12,7 +12,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>KB큽스쿨</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
@@ -186,7 +186,7 @@ body {
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <a class="navbar-brand" style="margin-left: 100px;" href="${pageContext.request.contextPath}/">
-                <img src="${pageContext.request.contextPath}/resources/images/components/logo5.png" alt="Logo">
+                <img src="${pageContext.request.contextPath}/resources/images/components/logo6.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" id="mobile-nav-toggle">
                 <span class="fa fa-bars"></span>
@@ -197,7 +197,7 @@ body {
             
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="./about.html" class="nav-link" style="color: #333333;">LockB소개</a></li>
+                    <li class="nav-item"><a href="./about.html" class="nav-link" style="color: #333333;">LocKB소개</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/voice/incidentsOverview" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">사고예방</a>
                         <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
@@ -289,7 +289,7 @@ body {
         <span class="mobile-nav-close" id="mobile-nav-close">&times;</span>
     </div>
     <ul>
-        <li class="dept-1"><a href="./about.html">LockB소개</a></li>
+        <li class="dept-1"><a href="./about.html">LocKB소개</a></li>
         <li class="dept-1">
             <a href="#" class="dropdown-toggle">사고예방</a>
             <ul class="dropdown-menu">

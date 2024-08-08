@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Admin Quiz Management">
     <meta name="author" content="Your Name">
-    <title>Admin Quiz Management</title>
+    <title>LocKB</title>
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/css/favicon.ico">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">

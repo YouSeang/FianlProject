@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>adminUser</title>
+<title>LocKB</title>
 </head>
 <body>
 User 관리 화면입니다.
