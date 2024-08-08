@@ -48,7 +48,7 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header.jsp"%>
+	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
 
 	<!-- Admin 기능 영역 Start -->
 	<section class="admin-area section-padding">
