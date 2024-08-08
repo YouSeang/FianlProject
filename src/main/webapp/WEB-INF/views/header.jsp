@@ -113,7 +113,7 @@
 							<li class="nav-item dropdown"><a
 								class="nav-link dropdown-toggle" href="#" role="button"
 								data-bs-toggle="dropdown" aria-expanded="false"
-								style="color: #333333;">금융교육</a>
+								style="color: #333333;">금융탐방</a>
 								<ul class="dropdown-menu"
 									style="background-color: rgba(255, 255, 255, 0.9);">
 									<li class="dropdown-submenu dropend"><a
