@@ -233,7 +233,7 @@ body {
                                 <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
                                     <li class="dropdown-header">금융게임</li>
                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/game">범죄자 잡기</a></li>
+                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/game">범죄자 잡기</a></li>
                                 </ul>
                             </li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
