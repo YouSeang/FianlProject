@@ -42,7 +42,33 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+@font-face {
+	font-family: '나눔스퀘어라운드OTF';
+	src:
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDB.TTF')
+		format('TTF'),
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDL.TTF')
+		format('TTF');
+	font-weight: normal;
+	font-style: normal;
+}
 
+body, h1, h2, h3, p, a {
+	font-family: '나눔스퀘어라운드OTF' !important;
+}
+
+.fa, .flaticon {
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
+}
+
+.icon-class {
+	font-family: inherit !important;
+}
+</style>
 </head>
 <body>
 
@@ -67,10 +93,17 @@
 						<div class="banner-btn">
 							<!-- 시나리오에서 꺼내기 -->
 							<c:forEach var="scenario" items="${scenarios}">
-                                <a href="../voiceDetail?voice=${scenario.scenarioName}&scenarioName=${scenario.scenarioName}" class="custom-btn">${scenario.scenarioName}</a>
-                            </c:forEach>
-                            
-                            <!-- 원래 코드 -->
+								<a
+									href="../voiceDetail?voice=${scenario.scenarioName}&scenarioName=${scenario.scenarioName}"
+									class="custom-btn"> <c:choose>
+										<c:when test="${scenario.scenarioName == 'impersonation'}">기관사칭</c:when>
+										<c:when test="${scenario.scenarioName == 'loan'}">대출사기</c:when>
+										<c:otherwise>${scenario.scenarioName}</c:otherwise>
+									</c:choose>
+								</a>
+							</c:forEach>
+
+							<!-- 원래 코드 -->
 							<!-- <a href="../voiceDetail?voice=impersonation" class="custom-btn">기관사칭</a>
 							<a href="../voiceDetail?voice=loan" class="custom-btn">대출사기</a> -->
 						</div>

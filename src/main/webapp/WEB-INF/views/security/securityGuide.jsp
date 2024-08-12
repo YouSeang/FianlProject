@@ -55,11 +55,26 @@
 	margin: 20px 0;
 }
 
-.card-margin {
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;
+.row {
+    display: flex;
+    flex-wrap: wrap; /* 한 줄에 여러 개의 요소가 있을 경우 다음 줄로 넘어가게 하는 것을 방지 */
+    justify-content: space-between; /* 요소들 사이에 동일한 간격 추가 */
 }
+
+.card-margin {
+    margin: 10px 0; /* 세로 마진만 추가 */
+}
+
+.single-project {
+    flex: 0 0 calc(33.333% - 10px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
+    margin-bottom: 20px;
+    padding: 20px;
+    border: 1px solid #e0e0e0; /* 회색 테두리 추가 */
+    border-radius: 8px; /* 모서리를 둥글게 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+    background-color: #fff; /* 배경색을 흰색으로 설정 */
+}
+
 </style>
 </head>
 
@@ -129,10 +144,10 @@
 							</figure>
 							<div class="project-info p-lg-4 p-3">
 								<h3>
-									<a href="#">시티즌코난</a>
+									<a href="#">시티즌코난(안드로이드)</a>
 								</h3>
 								<p>한국형 자연어 분석 기반 전화금융 사기 탐지기로 시민들의 핸드폰에 설치된 악성앱을 탐지해내는 앱입니다.
-									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기(구 피시앙이즈 폴리스)로서 피싱아이즈와 함께 운영되며,
+									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기로서 피싱아이즈와 함께 운영되며,
 									안드로이드용으로 제공되며 아이폰은 피싱아이즈 다운로드를 권장합니다.</p>
 								<button class="custom-btn"
 									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.police.phishingeyes&pcampaignid=web_share'">링크

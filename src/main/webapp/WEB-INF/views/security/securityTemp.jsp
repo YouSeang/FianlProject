@@ -110,7 +110,7 @@
 .ftco-section {
 	margin-bottom: 50px;
 	margin-top: 50px;
-	font-family: 둘기마요_거친;
+	
 }
 
 /* Add margin between checkbox section and header */
@@ -163,6 +163,32 @@
     white-space: nowrap;
 }
 
+@font-face {
+	font-family: '나눔스퀘어라운드OTF';
+	src:
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDB.TTF')
+		format('TTF'),
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDL.TTF')
+		format('TTF');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, p, a {
+	font-family: '나눔스퀘어라운드OTF' !important;
+}
+
+.fa, .flaticon {
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
+}
+
+.icon-class {
+	font-family: inherit !important;
+}
+
 </style>
 </head>
 
@@ -207,7 +233,7 @@
                     <div class="section-intro">
                         <h2 class="section-title">나의 <span> 정보 보안 온도</span></h2>
                         				<div class="text-center">
-					<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을 체크하고,확인하기 버튼을 눌러보세요.</h4>
+					<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을 체크하고, 확인하기 버튼을 눌러보세요.</h4>
 				</div>
                     </div>
                 </div>
