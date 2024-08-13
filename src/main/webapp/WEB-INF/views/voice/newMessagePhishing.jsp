@@ -418,7 +418,7 @@ input:checked+.slider:before {
             }
 
             // Google TTS API 호출 대신 서버의 컨트롤러로 요청을 보냅니다.
-      function speakText(text, speaker) {
+   function speakText(text, speaker) {
     console.log('speakText 함수 호출됨');
     fetch('${pageContext.request.contextPath}/api/synthesize', {
         headers: {
@@ -434,20 +434,27 @@ input:checked+.slider:before {
     .then(result => {
         if (result.audioContent) {
             console.log('Audio content received:', result.audioContent.substring(0, 50) + '...');
-            
-            // 오디오 데이터를 직접 다운로드해볼 수 있는 링크 제공
-            const downloadLink = document.createElement("a");
-            downloadLink.href = `data:audio/mp3;base64,${result.audioContent}`;
-            downloadLink.download = "tts_output.mp3";
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            document.body.removeChild(downloadLink);
 
-            // 브라우저에서 재생 시도
+            // MP3 형식 지원 여부 확인
             const audioElement = document.getElementById("audioElement");
-            audioElement.src = `data:audio/mp3;base64,${result.audioContent}`;
-            audioElement.load();
-            audioElement.play().catch(error => console.error('Audio playback failed:', error));
+            const canPlayMp3 = audioElement.canPlayType('audio/mp3');
+
+            if (canPlayMp3) {
+                const audioData = result.audioContent;
+                const audioBlob = base64ToBlob(audioData, 'audio/mp3');
+                const audioUrl = URL.createObjectURL(audioBlob);
+
+                audioElement.src = audioUrl;
+                audioElement.play().catch(error => console.error('Audio playback failed:', error));
+            } else {
+                console.error('MP3 format is not supported by this browser.');
+                Swal.fire({
+                    title: '오디오 재생 실패',
+                    text: '이 브라우저는 MP3 형식을 지원하지 않습니다. 다른 브라우저를 사용해 보세요.',
+                    icon: 'error',
+                    confirmButtonText: '확인'
+                });
+            }
         } else {
             console.error('No audio content returned from the API');
         }
@@ -457,6 +464,15 @@ input:checked+.slider:before {
     });
 }
 
+function base64ToBlob(base64, mime) {
+    const byteChars = atob(base64);
+    const byteNumbers = new Array(byteChars.length);
+    for (let i = 0; i < byteChars.length; i++) {
+        byteNumbers[i] = byteChars.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: mime });
+}
 
             document.getElementById('toggleSwitch').addEventListener('change', function () {
                 isSpeakingEnabled = this.checked;

@@ -10,7 +10,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="Voice Detail">
 <meta name="author" content="Your Name">
-<title>Voice Detail</title>
+<title>LocKB</title>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -44,6 +44,32 @@
 
 #recordButton:hover {
 	border: 2px solid #ebc0b6; /* 호버 시 테두리 추가 */
+}
+
+@font-face {
+	font-family: '나눔스퀘어라운드OTF';
+	src:
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDB.TTF')
+		format('TTF'),
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDL.TTF')
+		format('TTF');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: '나눔스퀘어라운드OTF' !important;
+}
+
+.fa, .flaticon {
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
+}
+
+.icon-class {
+	font-family: inherit !important;
 }
 </style>
 </head>
@@ -102,13 +128,15 @@
         scenarioName = urlParams.get('scenarioName'); // 시나리오 이름 설정
         
         Swal.fire({
-            title: voiceType === 'impersonation' ? '기관사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
-            text: '확인 버튼을 누르면 보이스 피싱 범인과의 시뮬레이션 통화가 시작됩니다.',
+            title: voiceType === 'impersonation' ? '검찰 사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
+            	    text: voiceType === 'impersonation' 
+            	        ? '당신은 사기에 연루되었다며, 검찰로부터 전화를 받게 되었습니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.'
+            	        : '당신은 서민금융 대출 관련 문자를 받고, 대출을 신청한 상태입니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.',
             icon: 'info',
             confirmButtonText: '확인'
         }).then((result) => {
             if (result.isConfirmed) {
-                setTimeout(playAudio, 3000); // 3초 후에 음성 재생
+                setTimeout(playAudio, 2000); // 3초 후에 음성 재생
             }
         });
     });
@@ -117,9 +145,9 @@
         if (voiceType) {
             var audioPath = "";
             if (voiceType === "impersonation") {
-                audioPath = "impersonation1.m4a"; // 기관사칭 음성 파일 경로
+                audioPath = "impersonation1-1.mp3"; // 기관사칭 음성 파일 경로
             } else if (voiceType === "loan") {
-                audioPath = "loan1.mp3"; // 대출사기 음성 파일 경로
+                audioPath = "loan1-1.mp3"; // 대출사기 음성 파일 경로
             }
 
             if (audioPath) {
@@ -177,7 +205,7 @@
 
         document.getElementById("recordButton").innerText = "답변 종료";
         
-        socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
+        socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
 
         socket.onopen = function(event) {
@@ -221,96 +249,101 @@
 
     // scenarioName 추가
     function getVoiceData(id, scenarioName) {
-        console.log("Requesting voice data with id: " + id + " and scenario: " + scenarioName); // Debug message
-        $.ajax({
-            url: "${pageContext.request.contextPath}/getVoice",
-            method: "GET",
-            data: { id: id, scenarioName: scenarioName},
-            success: function(response) {
-                console.log("AJAX request successful. Response:", response);
+    console.log("Requesting voice data with id: " + id + " and scenario: " + scenarioName); // Debug message
+    $.ajax({
+        url: "${pageContext.request.contextPath}/getVoice",
+        method: "GET",
+        data: { id: id, scenarioName: scenarioName},
+        success: function(response) {
+            console.log("AJAX request successful. Response:", response);
 
-                var data;
-                try {
-                    data = JSON.parse(response);
-                    console.log("Parsed JSON:", data);
-                    console.log("Audio Path:", data.audioPath);
-                    console.log("Is Final:", data.isFinal);
-                    console.log("Voice Not Found:", data.voiceNotFound);
-                } catch (e) {
-                    console.error("Failed to parse JSON response: ", response);
-                    return;
+            var data;
+            try {
+                data = JSON.parse(response);
+                console.log("Parsed JSON:", data);
+                console.log("Audio Path:", data.audioPath);
+                console.log("Is Final:", data.isFinal);
+                console.log("Voice Not Found:", data.voiceNotFound);
+            } catch (e) {
+                console.error("Failed to parse JSON response: ", response);
+                return;
+            }
+            $("#voicePath").text("Audio Path: " + data.audioPath);
+            $("#isFinal").text("Is Final: " + data.isFinal);
+            $("#voiceNotFound").text("Voice Not Found: " + data.voiceNotFound);
+            
+            if (data.isFinal) {
+                let finalMessage = "";
+                if (scenarioName  === "impersonation") {
+                    finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
+                } else if (scenarioName  === "loan") {
+                    finalMessage = "범인은 대출 조건을 맞추기 위한 편법으로 타 대출을 일시적으로 실행하게끔 유도하여 상환 목적으로 자금을 갈취하는 경우가 많으니 주의 바랍니다.";
                 }
-                $("#voicePath").text("Audio Path: " + data.audioPath);
-                $("#isFinal").text("Is Final: " + data.isFinal);
-                $("#voiceNotFound").text("Voice Not Found: " + data.voiceNotFound);
+                $("#finalMessage").text(finalMessage);
                 
-                if (data.isFinal) {
-                    let finalMessage = "";
-                    if (scenarioName  === "impersonation") {
-                        finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
-                        showAlert(finalMessage);
-                    } else if (scenarioName  === "loan") {
-                        finalMessage = "범인은 대출 조건을 맞추기 위한 편법으로 타 대출을 일시적으로 실행하게끔 유도하여 상환 목적으로 자금을 갈취하는 경우가 많으니 주의 바랍니다.";
-                        showMultipleAlerts(finalMessage);
-                    }
-                    $("#finalMessage").text(finalMessage);
-                    
-                    // 12초 후에 SweetAlert2 알림 창 띄우기
-                    setTimeout(() => {
-                        Swal.fire({
-                            title: '체험 종료',
-                            text: finalMessage,
-                            icon: 'info',
-                            confirmButtonText: '닫기'
-                        });
-                    }, 12000); // 12초 후 실행
-
-                    // 포인트 업데이트 요청
-                    $.ajax({
-                        url: "${pageContext.request.contextPath}/updatePoints",
-                        method: "POST",
-                        data: { pointReason: '보이스피싱 체험완료' }, // 추가된 부분(소미추가)
-                        success: function(response) {
-                            console.log(response);
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                // 18초 후에 첫 번째 알림 창 띄우기
+                setTimeout(() => {
+                    Swal.fire({
+                        title: '체험 종료',
+                        text: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?',
+                        icon: 'info',
+                        confirmButtonText: '확인'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Swal.fire({
+                                title: '유의 사항',
+                                text: finalMessage,
+                                icon: 'info',
+                                confirmButtonText: '닫기'
+                            });
                         }
                     });
-                }
+                }, 18000); // 18초 후 실행
 
-                
-                if (data.audioPath && !data.voiceNotFound) {
-                    var audioPlayer = document.getElementById("audioPlayer");
-                    // 타임스탬프를 추가하여 캐시 방지
-                    var audioSrc = "${pageContext.request.contextPath}/resources/audio/" + data.audioPath + "?t=" + new Date().getTime();
-                    audioPlayer.src = audioSrc;
-                    audioPlayer.style.display = "block";
-                    
-                    console.log("Audio source set to: " + audioSrc); // Debug message
-
-                    // 음성이 로드되면 자동 재생
-                    audioPlayer.load();
-                    audioPlayer.play().then(() => {
-                        console.log("Audio is playing."); // Debug message
-                        visualizePlayback(audioPlayer);
-                    }).catch(error => {
-                        console.error("Failed to play audio automatically. Trying to play after user interaction.", error);
-                        document.getElementById("result").innerText += " Click to play.";
-                        document.getElementById("result").onclick = function() {
-                            audioPlayer.play();
-                            visualizePlayback(audioPlayer);
-                        };
-                    });
-                } else {
-                    $("#audioPlayer").hide();
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX request failed. Status:", status, "Error:", error);
+                // 포인트 업데이트 요청
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/updatePoints",
+                    method: "POST",
+                    data: { pointReason: '보이스피싱 체험완료' }, 
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                    }
+                });
             }
-        });
-    }
+
+            if (data.audioPath && !data.voiceNotFound) {
+                var audioPlayer = document.getElementById("audioPlayer");
+                var audioSrc = "${pageContext.request.contextPath}/resources/audio/" + data.audioPath + "?t=" + new Date().getTime();
+                audioPlayer.src = audioSrc;
+                audioPlayer.style.display = "block";
+                
+                console.log("Audio source set to: " + audioSrc); 
+
+                audioPlayer.load();
+                audioPlayer.play().then(() => {
+                    console.log("Audio is playing.");
+                    visualizePlayback(audioPlayer);
+                }).catch(error => {
+                    console.error("Failed to play audio automatically. Trying to play after user interaction.", error);
+                    document.getElementById("result").innerText += " Click to play.";
+                    document.getElementById("result").onclick = function() {
+                        audioPlayer.play();
+                        visualizePlayback(audioPlayer);
+                    };
+                });
+            } else {
+                $("#audioPlayer").hide();
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error("AJAX request failed. Status:", status, "Error:", error);
+        }
+    });
+}
+
 
     function showAlert(message) {
         Swal.fire({
@@ -336,7 +369,7 @@
                         icon: 'info',
                         confirmButtonText: '닫기'
                     });
-                }, 3000); // 3초 후 실행
+                }, 18000); // 
             }
         });
     }
