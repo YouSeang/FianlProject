@@ -15,7 +15,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>스미싱</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"
@@ -141,7 +141,7 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<jsp:include page="/WEB-INF/views/header.jsp" />
+	<jsp:include page="/WEB-INF/views/header0802.jsp" />
 
 	<!-- 배너영역 Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5">

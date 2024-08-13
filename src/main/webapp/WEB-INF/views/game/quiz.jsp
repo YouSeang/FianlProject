@@ -13,7 +13,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>KB스쿨</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"

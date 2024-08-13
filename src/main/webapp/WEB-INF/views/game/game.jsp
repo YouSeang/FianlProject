@@ -10,7 +10,7 @@
 <meta name="author" content="Tariqul Islam">
 
 <!-- Template Title -->
-<title>KB스쿨</title>
+<title>LocKB</title>
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
@@ -122,7 +122,7 @@
             <span></span> <span></span>
         </div>
     </div>
-    <jsp:include page="/WEB-INF/views/header.jsp"/>
+    <jsp:include page="/WEB-INF/views/header0802.jsp"/>
 
     <!-- Promo Area Start -->
     <section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
@@ -207,106 +207,130 @@
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
 
     <script>
-        const $$cells = document.querySelectorAll('.cell');
-        let gameInterval;
-        let gameStarted = false;
-        let timer = 10;
-        let score = 0;
+    const $$cells = document.querySelectorAll('.cell');
+    let gameInterval;
+    let gameStarted = false;
+    let timer = 10;
+    let score = 0;
 
-        function tick() {
-            if (timer <= 0) {
-                clearInterval(gameInterval);
-                gameStarted = false;
-                document.getElementById('startButton').disabled = false;
-                
-                // 게임 종료 시 총점 표시
-                Swal.fire({
-                    title: `게임 오버!`,
-                    text: '총점: ' + score + '점',
-                    confirmButtonText: '확인'
-                });
-                
-                return;
-            }
-
-            timer--;
-            document.getElementById('timer').innerText = timer;
-
-            // Hide all gophers and bombs before showing new ones
-            $$cells.forEach(($cell) => {
-                $cell.querySelector('.gopher').classList.add('hidden');
-                $cell.querySelector('.bomb').classList.add('hidden');
-            });
-
-            // Show new gophers and bombs
-            $$cells.forEach(($cell) => {
-                const randomValue = Math.random();
-                if (randomValue < 0.3) {
-                    const $gopher = $cell.querySelector('.gopher');
-                    $gopher.classList.remove('hidden');
-                    setTimeout(() => {
-                        $gopher.classList.add('hidden');
-                    }, 1000);
-                } else if (randomValue < 0.5) {
-                    const $bomb = $cell.querySelector('.bomb');
-                    $bomb.classList.remove('hidden');
-                    setTimeout(() => {
-                        $bomb.classList.add('hidden');
-                    }, 1000);
-                }
-            });
+    function tick() {
+        if (timer <= 0) {
+            endGame();  // 게임 종료 시 endGame 함수 호출
+            return;
         }
 
+        timer--;
+        document.getElementById('timer').innerText = timer;
+
+        // 모든 두더지와 폭탄을 숨긴 후 새로운 두더지와 폭탄을 표시
         $$cells.forEach(($cell) => {
-            $cell.querySelector('.gopher').addEventListener('click', (event) => {
-                const $gopher = event.target;
-                if (!$gopher.classList.contains('dead')) {
-                    score++;
-                    document.getElementById('score').innerText = score;
-                    $gopher.classList.add('dead');
-                    setTimeout(() => {
-                        $gopher.classList.remove('dead');
-                        $gopher.classList.add('hidden');
-                    }, 500);
-                }
-            });
-            $cell.querySelector('.bomb').addEventListener('click', (event) => {
-                const $bomb = event.target;
-                $bomb.classList.add('boom');
-                setTimeout(() => {
-                    $bomb.classList.remove('boom');
-                    $bomb.classList.add('hidden');
-                }, 500);
-            });
+            $cell.querySelector('.gopher').classList.add('hidden');
+            $cell.querySelector('.bomb').classList.add('hidden');
         });
 
-        document.getElementById('startButton').addEventListener('click', (event) => {
-            event.preventDefault();
-            if (!gameStarted) {
-                timer = 10;
-                score = 0;
-                document.getElementById('timer').innerText = timer;
-                document.getElementById('score').innerText = score;
-                document.getElementById('startButton').disabled = true;
-                gameStarted = true;
-                tick(); // Start the first tick immediately
-                gameInterval = setInterval(tick, 1000); // Then continue every second
+        // 새로운 두더지와 폭탄을 랜덤으로 표시
+        $$cells.forEach(($cell) => {
+            const randomValue = Math.random();
+            if (randomValue < 0.3) {
+                const $gopher = $cell.querySelector('.gopher');
+                $gopher.classList.remove('hidden');
+                setTimeout(() => {
+                    $gopher.classList.add('hidden');
+                }, 1000);
+            } else if (randomValue < 0.5) {
+                const $bomb = $cell.querySelector('.bomb');
+                $bomb.classList.remove('hidden');
+                setTimeout(() => {
+                    $bomb.classList.add('hidden');
+                }, 1000);
             }
         });
+    }
 
-        document.getElementById('resetButton').addEventListener('click', (event) => {
-            event.preventDefault();
-            document.getElementById('timer').innerText = '10';
-            document.getElementById('score').innerText = '0';
-            document.getElementById('startButton').disabled = false;
-            gameStarted = false;
-            clearInterval(gameInterval);
-            $$cells.forEach(($cell) => {
-                $cell.querySelector('.gopher').classList.add('hidden');
-                $cell.querySelector('.bomb').classList.add('hidden');
-            });
+    function endGame() {
+        clearInterval(gameInterval);
+        gameStarted = false;
+        document.getElementById('startButton').disabled = false;
+        
+        // 게임 종료 시 총점 표시 및 서버에 점수 전송
+        Swal.fire({
+            title: `게임 오버!`,
+            text: '총점: ' + score + '점',
+            confirmButtonText: '확인'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // 서버에 점수 전송
+                fetch('${pageContext.request.contextPath}/game/end', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ score: score })
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                    // 필요한 경우 추가 작업 수행
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
         });
-    </script>
+    }
+
+    // 나머지 기존 게임 로직 코드 유지
+    $$cells.forEach(($cell) => {
+        $cell.querySelector('.gopher').addEventListener('click', (event) => {
+            const $gopher = event.target;
+            if (!$gopher.classList.contains('dead')) {
+                score++;
+                document.getElementById('score').innerText = score;
+                $gopher.classList.add('dead');
+                setTimeout(() => {
+                    $gopher.classList.remove('dead');
+                    $gopher.classList.add('hidden');
+                }, 500);
+            }
+        });
+        $cell.querySelector('.bomb').addEventListener('click', (event) => {
+            const $bomb = event.target;
+            $bomb.classList.add('boom');
+            setTimeout(() => {
+                $bomb.classList.remove('boom');
+                $bomb.classList.add('hidden');
+            }, 500);
+        });
+    });
+
+    document.getElementById('startButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        if (!gameStarted) {
+            timer = 10;
+            score = 0;
+            document.getElementById('timer').innerText = timer;
+            document.getElementById('score').innerText = score;
+            document.getElementById('startButton').disabled = true;
+            gameStarted = true;
+            tick(); // 첫 번째 tick을 즉시 시작
+            gameInterval = setInterval(tick, 1000); // 그 후 매 초마다 tick 실행
+        }
+    });
+
+    document.getElementById('resetButton').addEventListener('click', (event) => {
+        event.preventDefault();
+        document.getElementById('timer').innerText = '10';
+        document.getElementById('score').innerText = '0';
+        document.getElementById('startButton').disabled = false;
+        gameStarted = false;
+        clearInterval(gameInterval);
+        $$cells.forEach(($cell) => {
+            $cell.querySelector('.gopher').classList.add('hidden');
+            $cell.querySelector('.bomb').classList.add('hidden');
+        });
+    });
+</script>
+
 </body>
 
 </html>

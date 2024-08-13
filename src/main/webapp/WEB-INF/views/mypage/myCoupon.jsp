@@ -11,7 +11,7 @@
 <meta name="description"
 	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
 <meta name="author" content="Tariqul Islam">
-<title>마이페이지</title>
+<title>LocKB</title>
 <!-- Favicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">

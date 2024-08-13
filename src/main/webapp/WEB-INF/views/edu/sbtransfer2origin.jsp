@@ -12,7 +12,7 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
 <script
 	src="https://cdnjs.cloudflare.com/ajax/libs/image-map-resizer/1.0.10/js/imageMapResizer.min.js"></script>
-<title>KB스타뱅킹 이체시뮬레이션</title>
+<title>LocKB</title>
 <style>
 #content {
 	position: relative;

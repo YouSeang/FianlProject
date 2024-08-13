@@ -14,7 +14,7 @@
     <meta name="author" content="Your Name">
 
     <!-- Template Title -->
-    <title>Voice Detail</title>
+    <title>LocKB</title>
 
     <!-- Plugins CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">

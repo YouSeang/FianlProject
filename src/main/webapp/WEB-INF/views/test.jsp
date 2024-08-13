@@ -7,7 +7,7 @@
 <meta id="viewport" name="viewport"
 	content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
 <meta name="format-detection" content="telephone=no">
-<title>KB금융공익재단</title>
+<title>LocKB</title>
 <meta name="description" content="KB금융공익재단">
 <meta name="keywords" content="KB, 금융공익재단, KB금융공익재단, KB 금융공익재단">
 

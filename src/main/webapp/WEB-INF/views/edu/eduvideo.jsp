@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="Tariqul Islam">
 
-    <title>KB스쿨</title>
+    <title>LocKB</title>
 
     <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 

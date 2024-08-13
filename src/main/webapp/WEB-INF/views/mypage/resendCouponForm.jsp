@@ -9,7 +9,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="쿠폰 재발송 폼">
 <meta name="author" content="Tariqul Islam">
-<title>쿠폰 재발송</title>
+<title>LocKB</title>
 <!-- Plugins CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">

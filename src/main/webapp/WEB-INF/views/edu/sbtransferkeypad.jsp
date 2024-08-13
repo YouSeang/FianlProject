@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
 
     <meta charset="UTF-8">
-    <title>KB스타뱅킹 이체시뮬레이션</title>
+    <title>LocKB</title>
     <style>
         #content {
             position: relative; /* 부모 div를 relative로 설정 */
