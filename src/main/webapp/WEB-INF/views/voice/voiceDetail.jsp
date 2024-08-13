@@ -58,7 +58,6 @@
 }
 
 
-
 body, h1, h2, h3, p, a  {
 	font-family: '나눔스퀘어라운드OTF' !important;
 }
@@ -207,7 +206,7 @@ body, h1, h2, h3, p, a  {
 
         document.getElementById("recordButton").innerText = "답변 종료";
         
-        socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
+        socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
 
         socket.onopen = function(event) {
