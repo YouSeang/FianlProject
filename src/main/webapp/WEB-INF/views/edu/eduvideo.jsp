@@ -6,112 +6,143 @@
 <html lang="ko">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="Tariqul Islam">
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="Tariqul Islam">
 
-    <title>LocKB</title>
+<title>LocKB</title>
 
-    <link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/animate.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+<script
+	src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+<style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+</style>
 
 </head>
 
 <body>
-    <div id="preloader">
-        <div class="preloader">
-            <span></span> <span></span>
-        </div>
-    </div>
+	<div id="preloader">
+		<div class="preloader">
+			<span></span> <span></span>
+		</div>
+	</div>
 
-    <%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
-    <section class="promo-area" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="promo-wrap">
-                        <h1 class="promo-title">금융영상</h1>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="promo-wrap">
+						<h1 class="promo-title">금융영상</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <section class="video-area section-padding">
-        <div class="container">
-            <div class="row g-5">
-                <c:forEach var="video" items="${videos}">
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="single-article shadow bg-white">
-                            <figure class="article-thumb">
-                                <a href="${video.link}" target="_blank" onclick="handleVideoClick(${video.id}, this, ${video.points})">
-                                    <img id="thumbnail-${video.id}" src="https://img.youtube.com/vi/${fn:substringAfter(video.link, 'embed/')}/0.jpg" width="400" height="300" alt="Video Thumbnail">
-                                </a>
-                            </figure>
-                            <div class="article-details">
-                                <h3 class="article-heading">
-                                    <a href="${video.link}" target="_blank" onclick="handleVideoClick(${video.id}, this, ${video.points})">
-                                        <c:out value="${video.videoName}"/>
-                                    </a>
-                                </h3>
-                                <ul class="article-meta">
-                                    <li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
-                                    <li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </c:forEach>
-            </div>
+	<section class="video-area section-padding">
+		<div class="container">
+			<div class="row g-5">
+				<c:forEach var="video" items="${videos}">
+					<div class="col-lg-4 col-sm-6">
+						<div class="single-article shadow bg-white">
+							<figure class="article-thumb">
+								<a href="${video.link}" target="_blank"
+									onclick="handleVideoClick(${video.id}, this, ${video.points})">
+									<img id="thumbnail-${video.id}"
+									src="https://img.youtube.com/vi/${fn:substringAfter(video.link, 'embed/')}/0.jpg"
+									width="400" height="300" alt="Video Thumbnail">
+								</a>
+							</figure>
+							<div class="article-details">
+								<h3 class="article-heading">
+									<a href="${video.link}" target="_blank"
+										onclick="handleVideoClick(${video.id}, this, ${video.points})">
+										<c:out value="${video.videoName}" />
+									</a>
+								</h3>
+								<ul class="article-meta">
+									<li><i class="fa fa-eye"></i> 조회수 ${video.views}</li>
+									<li><i class="fa fa-star"></i> 포인트 ${video.points}</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</c:forEach>
+			</div>
 
-            <div class="col-lg-12">
-                <div class="pager text-center">
-                    <a href="#" class="next-btn"> <i class="fa fa-angle-left"></i></a>
-                    <span>1</span>
-                    <a href="#">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#" class="next-btn"> <i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
-    </section>
+			<div class="col-lg-12">
+				<div class="pager text-center">
+					<a href="#" class="next-btn"> <i class="fa fa-angle-left"></i></a>
+					<span>1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a>
+					<a href="#">5</a> <a href="#" class="next-btn"> <i
+						class="fa fa-angle-right"></i></a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-    <%@ include file="/WEB-INF/views/footer.jsp" %>
-    
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-    <script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/wow.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/form.js"/>"></script>
-    <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
-    <script src="<c:url value="/resources/js/custom.js"/>"></script>
 
-    <script>
+	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.stellar.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.scrollUp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.easing.1.3.js"/>"></script>
+	<script
+		src="<c:url value="/resources/js/jquery.magnific-popup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.syotimer.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/wow.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.counterup.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.waypoints.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/isotope.pkgd.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.ajaxchimp.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/form.js"/>"></script>
+	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
+	<script src="<c:url value="/resources/js/custom.js"/>"></script>
+
+	<script>
     let userId = '<%=session.getAttribute("userId")%>';
     
     function handleVideoClick(videoId, element, points) {

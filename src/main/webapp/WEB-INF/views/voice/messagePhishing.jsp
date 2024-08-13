@@ -31,6 +31,13 @@
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 function openMessagePhishingWindow() {
@@ -42,9 +49,22 @@ function openMessagePhishingWindow() {
     window.open('${pageContext.request.contextPath}/voice/newMessagePhishing', '_blank', 'width=' + width + ',height=' + height + ',left=' + left + ',top=' + top + ',scrollbars=yes');
 }
 </script>
+
+<style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+</style>
+
 </head>
 <body>
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 	<section class="promo-area" data-stellar-background-ratio="0.5">
 		<div class="container">
 			<div class="row">
@@ -74,7 +94,8 @@ function openMessagePhishingWindow() {
 							메신저피싱<span class="color"> 시뮬레이션 </span>
 						</h3>
 						<h2>메신저피싱이란?</h2>
-						<p>주로 문자메시지나 카카오톡 등 모바일 메신저를 통해 이루어지는 범죄의 일종으로 피해자를 기망 또는 협박하여 개인정보 및 금융거래 정보를 요구하거나 피해자의 금전을 이체하도록 하는 수법입니다.</p>
+						<p>주로 문자메시지나 카카오톡 등 모바일 메신저를 통해 이루어지는 범죄의 일종으로 피해자를 기망 또는 협박하여
+							개인정보 및 금융거래 정보를 요구하거나 피해자의 금전을 이체하도록 하는 수법입니다.</p>
 						<ul>
 							<li>지인을 사칭한 메신저피싱에 유의하세요</li>
 							<li>로그인 후 체험하시면 포인트가 지급되며, 하루에 한 번만 지급됩니다.</li>

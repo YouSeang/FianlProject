@@ -37,7 +37,12 @@
 	href="${pageContext.request.contextPath}/resources/css/animate.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 <!-- Style css
     ==================================================================== -->
 <link rel="stylesheet"
@@ -47,6 +52,19 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+<style type="text/css">
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -93,8 +111,7 @@
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
 									<li><a class="dropdown-item"
-										href="${pageContext.request.contextPath}/voice/recentIncidents">최신피싱기법
-											및 사례</a></li>
+										href="${pageContext.request.contextPath}/voice/recentIncidents">최근 금융사고 뉴스</a></li>
 									<li class="dropdown-submenu dropend"><a
 										class="dropdown-item dropdown-toggle"
 										href="${pageContext.request.contextPath}/voice/smishing">금융사고예방
@@ -151,8 +168,7 @@
 											<li><a class="dropdown-item"
 												href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
 											<li><a class="dropdown-item"
-												href="${pageContext.request.contextPath}/game">범죄자
-													잡기</a></li>
+												href="${pageContext.request.contextPath}/game">범죄자 잡기</a></li>
 										</ul></li>
 									<li><a class="dropdown-item"
 										href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>

@@ -35,6 +35,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -55,6 +61,16 @@
 	}
 </script>
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .table {
 	width: 100%;
 	max-width: 100%;
@@ -124,6 +140,37 @@
 	justify-content: flex-end;
 	margin-top: 1rem;
 }
+
+/* 버튼 스타일 */
+.btn-primary, .btn-secondary {
+	padding: 5px;
+	border-radius: 10px;
+	font-size: 18px;
+	width: 130px;
+}
+
+.btn-primary {
+	background-color: #FFB200;
+	border: none;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-secondary {
+	background-color: #6c757d;
+	border: none;
+	color: white;
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	color: white;
+}
+
 </style>
 </head>
 
@@ -134,7 +181,7 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5">
@@ -195,13 +242,13 @@
 											<td class="width-30"><c:out value="${userInfo.email}" />
 											</td>
 											<th scope="row" class="width-20 bg-light-gray">휴대폰 번호</th>
-											<td class="width-30"><c:out value="${userInfo.phone_number}" />
-											</td>
+											<td class="width-30"><c:out
+													value="${userInfo.phone_number}" /></td>
 										</tr>
 									</tbody>
 								</table>
 								<div class="button-container">
-									<button class="btn btn-warning"
+									<button class="btn btn-primary"
 										onclick="location.href='${pageContext.request.contextPath}/modify'">정보수정</button>
 								</div>
 							</div>
@@ -215,7 +262,7 @@
 											<td class="width-25">
 												<div class="flex-container">
 													<span><c:out value="${totalPoints}" /></span>
-													<button class="btn btn-warning"
+													<button class="btn btn-primary"
 														onclick="location.href='${pageContext.request.contextPath}/mypoint'">상세내역</button>
 												</div>
 											</td>
@@ -223,11 +270,11 @@
 											<td class="width-25">
 												<div class="flex-container">
 													<span><c:out value="${coupon.unused_coupons}" />장</span>
-													<button class="btn btn-warning"
+													<button class="btn btn-primary"
 														onclick="location.href='${pageContext.request.contextPath}/myCoupon'">상세내역</button>
 												</div>
 											</td>
-										</tr>
+											</tr>
 									</tbody>
 								</table>
 							</div>

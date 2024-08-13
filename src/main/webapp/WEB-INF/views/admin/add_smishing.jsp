@@ -32,6 +32,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -42,6 +48,16 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .nav-tabs .nav-link.active {
 	color: black;
 }
@@ -65,7 +81,7 @@
 	</div>
 
 	<!-- Header Start -->
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Main Area Start -->
 	<h1>스미싱 케이스 관리</h1>
