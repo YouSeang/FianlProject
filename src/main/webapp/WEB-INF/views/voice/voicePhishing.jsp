@@ -40,6 +40,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -52,19 +58,15 @@
 
 <style>
 @font-face {
-	font-family: '나눔스퀘어라운드OTF';
-	src:
-		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDB.TTF')
-		format('TTF'),
-		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDL.TTF')
-		format('TTF');
+	font-family: 'Goorm Sans';
 	font-weight: normal;
 	font-style: normal;
 }
 
 body, h1, h2, h3, p, a {
-	font-family: '나눔스퀘어라운드OTF' !important;
+	font-family: 'Goorm Sans' !important;
 }
+
 
 .fa, .flaticon {
 	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
@@ -140,7 +142,7 @@ function openVoicePhishingWindow() {
 						<h3 class="section-title mb-4">
 							보이스 피싱<span class="color"> 시뮬레이션 </span>
 						</h3>
-						<p>실제 보이스피싱 범인과의 통화를 각색한 시뮬레이션입니다. 음성인식을 통해 가상의 피해자 입장이 되어
+						<p>실제 보이스피싱 범인과의 통화를 각색한 시뮬레이션입니다. 음성인식을 통해 가상의 피해자가 되어
 							대답하면서, 보이스피싱 범죄의 주요 시나리오 흐름에 대해 습득하는 시간을 가져보세요.</p>
 						<ul>
 							<li>가상의 피해자가 되어 범인의 심리와 시나리오를 파악해 봅시다.</li>

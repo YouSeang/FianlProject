@@ -38,6 +38,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -50,31 +56,40 @@
 
 
 <style type="text/css">
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .separator {
 	border-top: 2px solid #ddd;
 	margin: 20px 0;
 }
 
 .row {
-    display: flex;
-    flex-wrap: wrap; /* 한 줄에 여러 개의 요소가 있을 경우 다음 줄로 넘어가게 하는 것을 방지 */
-    justify-content: space-between; /* 요소들 사이에 동일한 간격 추가 */
+	display: flex;
+	flex-wrap: wrap; /* 한 줄에 여러 개의 요소가 있을 경우 다음 줄로 넘어가게 하는 것을 방지 */
+	justify-content: space-between; /* 요소들 사이에 동일한 간격 추가 */
 }
 
 .card-margin {
-    margin: 10px 0; /* 세로 마진만 추가 */
+	margin: 10px 0; /* 세로 마진만 추가 */
 }
 
 .single-project {
-    flex: 0 0 calc(33.333% - 10px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #e0e0e0; /* 회색 테두리 추가 */
-    border-radius: 8px; /* 모서리를 둥글게 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
-    background-color: #fff; /* 배경색을 흰색으로 설정 */
+	flex: 0 0 calc(33.333% - 10px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid #e0e0e0; /* 회색 테두리 추가 */
+	border-radius: 8px; /* 모서리를 둥글게 */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+	background-color: #fff; /* 배경색을 흰색으로 설정 */
 }
-
 </style>
 </head>
 
@@ -88,7 +103,7 @@
 
 
 	<!-- header start -->
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
 
@@ -104,7 +119,7 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title">보안 강화 방법</h1>
+						<h1 class="promo-title">보안 강화 어플/사이트</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
@@ -147,8 +162,8 @@
 									<a href="#">시티즌코난(안드로이드)</a>
 								</h3>
 								<p>한국형 자연어 분석 기반 전화금융 사기 탐지기로 시민들의 핸드폰에 설치된 악성앱을 탐지해내는 앱입니다.
-									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기로서 피싱아이즈와 함께 운영되며,
-									안드로이드용으로 제공되며 아이폰은 피싱아이즈 다운로드를 권장합니다.</p>
+									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기로서 피싱아이즈와 함께 운영되며, 안드로이드용으로 제공되며
+									아이폰은 피싱아이즈 다운로드를 권장합니다.</p>
 								<button class="custom-btn"
 									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.police.phishingeyes&pcampaignid=web_share'">링크
 									연결</button>
@@ -206,6 +221,12 @@
 			</div>
 		</section>
 		<!-- Our Project Area End -->
+		<div class="section-intro" style="margin-top: 50px;">
+			<h2 class="section-title">
+				유용한<span class="color">보안 사이트</span>
+			</h2>
+			<p>다양한 위험으로부터 우리의 정보와 재산을 지켜주는데 도움 되는 사이트들을 소개합니다. 지금 바로 접속하세요!</p>
+		</div>
 		<main class="main-content">
 			<div class="container">
 				<div class="row">

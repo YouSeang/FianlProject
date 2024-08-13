@@ -39,7 +39,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 <!-- Theme CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
@@ -48,6 +53,19 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+
+<style type="text/css">
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+</style>
 </head>
 
 <body>
@@ -57,14 +75,15 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-		<!-- header start -->
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<!-- header start -->
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Promo Area Start -->
 
 
 
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -73,7 +92,8 @@
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">금융 사고 현황</li>
+								<li class="breadcrumb-item active" aria-current="page">금융
+									사고 현황</li>
 							</ol>
 						</nav>
 					</div>
@@ -121,7 +141,7 @@
 									</div>
 									<div class="s-cart d-flex">
 
-						<!-- 				<div class="cart-cta ms-3">
+										<!-- 				<div class="cart-cta ms-3">
 											<button class="custom-btn unfill me-2">버튼1</button>
 											<button class="custom-btn">버튼2</button>
 										</div> -->
@@ -279,17 +299,17 @@
 											<ol>
 												<li>
 													<article class="single-comment">
-													<h3 class="name">최근 기사</h3>
+														<h3 class="name">최근 기사</h3>
 														<div class="comment-thumb">
 															<img
 																src="${pageContext.request.contextPath}/resources/
 															images/incident/phone.jpg"
 																alt="Comment" style="width: 700px; height: auto;">
 														</div>
-														<div >
-															
-															<span class="date"><strong>작년 보이스피싱 피해자 1인당 1,700만원 피해, 전년比
-																1.5배↑ - 2023년 보이스피싱 피해현황 분석 -</strong></span>
+														<div>
+
+															<span class="date"><strong>작년 보이스피싱 피해자
+																	1인당 1,700만원 피해, 전년比 1.5배↑ - 2023년 보이스피싱 피해현황 분석 -</strong></span>
 															<p>□(피해규모)’23년 보이스피싱 피해액은 1,965억원으로 전년(1,451억원)보다
 																514억원(35.4%) 증가 ◦피해자 수는 감소(10.2%↓)하였으나, 1천만원 이상 고액 피해사례가
 																증가 □(피해구제)｢통합신고대응센터(☎112)｣ 개소에 따른 보이스피싱 구제절차 일원화 등으로 신속한
@@ -299,7 +319,7 @@
 																정부기관 사칭형 및 대출빙자형 피해 증가 □(연령별)20대 이하(+139억원) 및
 																30대(+135억원) 피해 크게 증가 □(권역별)사기이용계좌 중 인터넷전문은행 비중은 감소한 반면,
 																상호금융조합 등 중소서민금융권 비중이 증가하는 등 풍선효과를 보임</p>
-															
+
 														</div>
 													</article>
 												</li>
@@ -310,15 +330,13 @@
 								</div>
 							</div>
 						</div>
-						<div class="row mb-5 pb-4">
-							
-									</div>
-								</div>
-							</div>
-						</div>
+						<div class="row mb-5 pb-4"></div>
 					</div>
 				</div>
 			</div>
+		</div>
+		</div>
+		</div>
 		</div>
 	</main>
 	<!-- Main Area End -->

@@ -197,12 +197,12 @@ body {
             
             <div class="collapse navbar-collapse">
                 <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="./about.html" class="nav-link" style="color: #333333;">LocKB소개</a></li>
+                    <li class="nav-item"><a href="${pageContext.request.contextPath}/aboutLocKB" class="nav-link" style="color: #333333;">LocKB소개</a></li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/voice/incidentsOverview" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">사고예방</a>
                         <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/recentIncidents">최신피싱기법 및 사례</a></li>
+                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/recentIncidents">최근 금융사고 뉴스</a></li>
                             <li><a class="dropdown-item" href="${pageContext.request.contextPath}/phoneLookupForm">발신번호 조회</a></li>
                             <li class="dropdown-submenu dropend">
                                 <a class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/voice/smishing">금융사고예방 시뮬레이션</a>
@@ -294,7 +294,7 @@ body {
             <a href="#" class="dropdown-toggle">사고예방</a>
             <ul class="dropdown-menu">
                 <li class="dept-2"><a href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/voice/recentIncidents">최신피싱기법 및 사례</a></li>
+                <li class="dept-2"><a href="${pageContext.request.contextPath}/voice/recentIncidents">최근 금융사고 뉴스</a></li>
                 <li class="dept-2"><a href="${pageContext.request.contextPath}/phoneLookupForm">발신번호 조회</a></li>
                 <li class="dept-2 dropdown-submenu">
                     <a href="#" class="dropdown-toggle">금융사고예방 시뮬레이션</a>

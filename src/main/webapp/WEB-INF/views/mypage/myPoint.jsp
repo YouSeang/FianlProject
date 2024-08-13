@@ -36,6 +36,12 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Theme CSS -->
 <link rel="stylesheet"
@@ -47,6 +53,16 @@
     <![endif]-->
 
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .points-container {
 	padding: 20px;
 	border: 1px solid #dee2e6;
@@ -115,6 +131,29 @@
 
 .points-note ul li {
 	margin-bottom: 5px;
+}
+
+/* 버튼 스타일 */
+.btn-primary, .btn-warning {
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 19px;
+	width: 170px;
+	color: white;
+	border: none;
+}
+
+.btn-primary {
+	background-color: #FFB200;
+}
+
+.btn-primary:hover, .btn-warning:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-warning {
+	background-color: #FFB200;
 }
 </style>
 </head>
@@ -217,7 +256,6 @@
 						</div>
 					</div>
 
-
 					<div class="button-container">
 						<button class="btn btn-warning"
 							onclick="location.href='${pageContext.request.contextPath}/couponshop'">쿠폰으로
@@ -232,15 +270,6 @@
 						</div>
 					</div>
 				</div>
-
-
-
-
-
-
-
-
-
 
 			</div>
 		</div>
@@ -268,7 +297,6 @@
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-
 
 </body>
 </html>
