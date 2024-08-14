@@ -131,7 +131,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 포인트현황</span>
+							KB큽스쿨 <span> 쿠폰현황</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -160,6 +160,7 @@ body, h1, h2, h3, p, a {
 			</div>
 			<div class="checkout-billingform bg-light rounded p-lg-5 p-3 mt-5">
 				<div class="woocommerce-cart-wrapper py-5">
+				<h3>쿠폰 현황</h3>
 					<div class="points-summary">
 						<table class="table">
 							<thead>
@@ -197,10 +198,9 @@ body, h1, h2, h3, p, a {
 					<div class="points-note">
 						<ul>
 							<li>쿠폰 발행 및 사용 현황을 확인하실 수 있습니다.</li>
-							<li>쿠폰의 사용기간 연장은 불가합니다.</li>
-							<li>유효기간이 지난 쿠폰은 자동으로 사용처리 됩니다.</li>
 							<li>미사용 쿠폰은 재발송이 가능합니다.</li>
-							<li>기타 등등~~</li>
+							<li>미사용 쿠폰은 재발송이 가능합니다.</li>
+							<li>기타 문의는 고객센터(1588-9999)로 연락해주세요.</li>
 						</ul>
 					</div>
 				</div>

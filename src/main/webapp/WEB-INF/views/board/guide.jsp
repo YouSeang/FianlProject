@@ -153,7 +153,7 @@ body, h1, h2, h3, p, a {
 									</div>
 									<span class="accordion-toggle"></span>
 								</h2>
-								<div id="collapse${guide.id}" class="accordion-body">
+								<%-- <div id="collapse${guide.id}" class="accordion-body">
 									${guide.guideContents}
 									<c:if test="${not empty guide.guideFiles}">
 										<p>
@@ -161,7 +161,7 @@ body, h1, h2, h3, p, a {
 												href="${pageContext.request.contextPath}/path/to/save/files/${guide.guideFiles}">${guide.guideFiles}</a>
 										</p>
 									</c:if>
-								</div>
+								</div> --%>
 							</div>
 						</c:forEach>
 					</div>

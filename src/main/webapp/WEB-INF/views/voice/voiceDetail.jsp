@@ -187,46 +187,55 @@ body, h1, h2, h3, p, a {
     }
 
     function startRecording() {
-    	var urlParams = new URLSearchParams(window.location.search); // URL 파라미터 가져오기
+        // URL 파라미터 가져오기
+        var urlParams = new URLSearchParams(window.location.search);
+        voiceType = urlParams.get('voice');
+        scenarioName = urlParams.get('scenarioName');
         navigator.mediaDevices.getUserMedia({ audio: true })
             .then(function(stream) {
-                mediaRecorder = new MediaRecorder(stream, { mimeType: 'audio/webm', timeSlice: 1000 });
-                mediaRecorder.ondataavailable = function(event) {
-                    if (event.data.size > 0) {
-                        sendData(event.data);
-                    }
-                };
-                mediaRecorder.start();
-                visualize(stream);
-                console.log("Recording started.");
-                document.getElementById("recordButton").style.backgroundColor = "#ffb200"; // 답변 시작 시 배경색 변경
-                
+                let options = {};
+                // Safari 호환성을 위해 audio/mp4 형식 먼저 확인
+                if (MediaRecorder.isTypeSupported('audio/mp4')) {
+                    options.mimeType = 'audio/mp4';
+                } else if (MediaRecorder.isTypeSupported('audio/webm')) {
+                    options.mimeType = 'audio/webm';
+                } else if (MediaRecorder.isTypeSupported('audio/aac')) {
+                    options.mimeType = 'audio/aac';
+                }
+                try {
+                    mediaRecorder = new MediaRecorder(stream, options);
+                    mediaRecorder.ondataavailable = function(event) {
+                        if (event.data.size > 0) {
+                            sendData(event.data);
+                        }
+                    };
+                    mediaRecorder.start();
+                    visualize(stream);
+                    console.log("Recording started.");
+                    document.getElementById("recordButton").style.backgroundColor = "#FFB200"; // 답변 시작 시 배경색 변경
+                } catch (e) {
+                    console.error("MediaRecorder creation failed:", e);
+                    alert("MediaRecorder를 초기화하는 데 문제가 발생했습니다. 이 기기에서는 지원되지 않을 수 있습니다.");
+                }
             })
             .catch(function(error) {
                 console.error("Error accessing media devices.", error);
+                alert("마이크 접근 권한을 허용해야 합니다. 설정에서 확인해 주세요.");
             });
-
         document.getElementById("recordButton").innerText = "답변 종료";
-        
         socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
-
         socket.onopen = function(event) {
             console.log("WebSocket connection opened.");
         };
-
         socket.onmessage = function(event) {
             console.log("Received from server: ", event.data);
             document.getElementById("result").innerText = event.data;
             getVoiceData(event.data, scenarioName);
         };
-
-        socket.onclose = function(event) { 
-        	console.log("WebSocket connection closed."); 
-        console.log("Close event code:", event.code); 
-        console.log("Close event reason:", event.reason); 
+        socket.onclose = function(event) {
+            console.log("WebSocket connection closed.");
         };
-
         socket.onerror = function(error) {
             console.error("WebSocket error: ", error);
         };

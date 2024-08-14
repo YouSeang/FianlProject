@@ -20,7 +20,8 @@ public class ModifyActionCommand implements UCommand {
 
 		Map<String, Object> map = model.asMap();
 		HttpServletRequest request = (HttpServletRequest) map.get("request");
-		String Email = request.getParameter("email");
+		String Email = request.getParameter("email"); 
+		String phone_number = request.getParameter("phone_number"); 
 
 		String userId = (String) model.getAttribute("userId");
 		System.out.println(userId);
@@ -29,7 +30,7 @@ public class ModifyActionCommand implements UCommand {
 		SqlSession sqlSession = Constant.sqlSession;
 		UserDao userdao = sqlSession.getMapper(UserDao.class);
 
-		Map<String, Object> params = Map.of("user_id", userId, "email", Email);
+		Map<String, Object> params = Map.of("user_id", userId, "email", Email, "phone_number", phone_number);
 
 		UserDto userModify = userdao.getUserById(userId);
 

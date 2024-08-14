@@ -2,13 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@ page import="java.text.SimpleDateFormat"%>
-<%@ page import="java.util.Date"%>
-<%@ page import="java.util.Calendar"%>
-<%@ page import="java.util.ArrayList"%>
-<%@ page import="java.util.List"%>
-<%@ page import="kr.soft.study.dto.MypageDto"%>
-
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -162,56 +155,7 @@ body, h1, h2, h3, p, a {
 .btn-warning {
 	background-color: #FFB200;
 }
-
-.month-navigation {
-	text-align: center; /* 가운데 정렬 */
-	margin: 20px 0; /* 위아래 여백 추가 */
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
-.month-navigation button {
-	background-color: #FFB200; /* 버튼 배경색 */
-	border: none; /* 테두리 제거 */
-	color: white; /* 글자색 */
-	padding: 10px 15px; /* 버튼 내부 여백 */
-	font-size: 18px; /* 글자 크기 */
-	border-radius: 50%; /* 동그란 버튼 */
-	cursor: pointer; /* 마우스 커서 변경 */
-	margin: 0 15px; /* 좌우 간격 */
-	transition: background-color 0.3s ease; /* 호버 애니메이션 */
-}
-
-.month-navigation button:hover {
-	background-color: #031550; /* 호버 시 배경색 변경 */
-}
-
-.month-navigation #selectedMonth {
-	font-size: 24px; /* 날짜 글자 크기 */
-	font-weight: bold; /* 날짜 글자 굵기 */
-	color: #333; /* 날짜 글자색 */
-	margin: 0 20px; /* 좌우 간격 */
-}
 </style>
-
-<script>
-	function navigateMonth(offset) {
-		const selectedMonthElement = document.getElementById("selectedMonth");
-		let selectedMonth = new Date(selectedMonthElement.innerText + "-01");
-
-		selectedMonth.setMonth(selectedMonth.getMonth() + offset);
-
-		const year = selectedMonth.getFullYear();
-		const month = ("0" + (selectedMonth.getMonth() + 1)).slice(-2);
-
-		const newDate = year + "-" + month;
-
-		// 새로운 날짜로 페이지를 리로드
-		window.location.href = "${pageContext.request.contextPath}/mypoint?selectedDate="
-				+ newDate;
-	}
-</script>
 </head>
 
 <body>
@@ -221,7 +165,7 @@ body, h1, h2, h3, p, a {
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header0802.jsp"%>
+	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5">
@@ -244,27 +188,27 @@ body, h1, h2, h3, p, a {
 	<!-- 배너영역 End -->
 
 	<!-- 내포인트영역 start -->
+
 	<main class="main-content checkout-content">
+
 		<div class="container">
+
 			<div class="row g-5 mb-4">
 				<div class="col-lg-6"></div>
 				<div class="col-lg-5 offset-lg-1">
 					<div class="checkout-info">
 						<div class="lead" style="margin-left: 250px;">
-							<strong style="font-weight: 900;"><c:out
-									value="${userInfo.name}" /></strong>님의 포인트현황
+							<strong style="font-weight: 900;"><c:out value="${userInfo.name}"/></strong>님의 포인트현황
 						</div>
 					</div>
 				</div>
 			</div>
+			<!-- 내정보역역 Start -->
 			<div class="checkout-billingform bg-light rounded p-lg-5 p-3 mt-5">
+				<!-- 노란배경역역 -->
 				<div class="woocommerce-cart-wrapper py-5">
+
 					<h3>포인트 적립 및 사용현황</h3>
-					<div class="month-navigation">
-						<button onclick="navigateMonth(-1)">&lt;</button>
-						<span id="selectedMonth">${selectedDate}</span>
-						<button onclick="navigateMonth(1)">&gt;</button>
-					</div>
 					<div class="points-note">
 						<div class="points-summary">
 							<table class="table">
@@ -277,49 +221,60 @@ body, h1, h2, h3, p, a {
 									</tr>
 								</thead>
 								<tbody>
+									<c:set var="accumulatedPoints" value="0" />
 									<c:forEach var="point" items="${pointList}">
 										<tr>
 											<td style="text-align: center;"><fmt:formatDate
-													value="${point.point_time}" pattern="yyyy-MM-dd HH:mm:ss" />
-											</td>
+													value="${point.point_time}" pattern="yyyy-MM-dd HH:mm:ss" /></td>
 											<td class="points-earned"><c:choose>
 													<c:when test="${point.points_earned != 0}">
-                        +<c:out value="${point.points_earned}" />
+                                                        +<c:out
+															value="${point.points_earned}" />
 														<c:out value="(${point.point_reason})" />
 													</c:when>
-													<c:otherwise>&nbsp;</c:otherwise>
+													<c:otherwise>
+                                                        &nbsp;
+                                                    </c:otherwise>
 												</c:choose></td>
 											<td class="points-used"><c:choose>
 													<c:when test="${point.points_used != 0}">
-                        -<c:out value="${point.points_used}" />
+                                                        -<c:out
+															value="${point.points_used}" />
 														<c:out value="(${point.usage_type})" />
 													</c:when>
-													<c:otherwise>&nbsp;</c:otherwise>
+													<c:otherwise>
+                                                        &nbsp;
+                                                    </c:otherwise>
 												</c:choose></td>
-											<td class="total-points"><c:out
-													value="${point.total_points}" /></td>
+											<td class="total-points"><c:set var="accumulatedPoints"
+													value="${accumulatedPoints + point.points_earned - point.points_used}" />
+												<c:out value="${accumulatedPoints}" /></td>
 										</tr>
 									</c:forEach>
 								</tbody>
 							</table>
 						</div>
 					</div>
+
 					<div class="button-container">
 						<button class="btn btn-warning"
 							onclick="location.href='${pageContext.request.contextPath}/couponshop'">쿠폰으로
 							교환</button>
 					</div>
+
 					<div class="points-container">
 						<div class="points-note">
-							<p>※ 사고예방 체험, 교육 시뮬레이션 등을 통해 획득한 포인트 내역 및 포인트 사용 내역을 확인할 수
-								있습니다.</p>
+							<p>※ 사고예방 체험, 교육 시뮬레이션 등을 통해 획득한 포인트 내용을 확인할 수 있습니다.</p>
 							<p>※ 기타 문의는 고객센터(1588-9999)로 연락해주세요.</p>
+							<p>※ 포인트 적립 및 사용현황은 최대 6개월 내역 조회 가능합니다.</p>
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
 	</main>
+
 	<!-- 내포인트영역 end -->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
