@@ -81,7 +81,7 @@ body, h1, h2, h3, p, a {
 
 .table th, .table td {
 	padding: 0.75rem;
-	vertical-align: top;
+	vertical-align: middle; /* 수직 중앙 정렬 */
 	border-top: 1px solid #dee2e6;
 }
 
@@ -259,7 +259,7 @@ body, h1, h2, h3, p, a {
 									<tbody>
 										<tr>
 											<th scope="row" class="width-20 bg-light-gray">보유포인트</th>
-											<td class="width-25">
+											<td class="width-30">
 												<div class="flex-container">
 													<span><c:out value="${totalPoints}" /></span>
 													<button class="btn btn-primary"
@@ -267,7 +267,7 @@ body, h1, h2, h3, p, a {
 												</div>
 											</td>
 											<th scope="row" class="width-20 bg-light-gray">보유쿠폰</th>
-											<td class="width-25">
+											<td class="width-30">
 												<div class="flex-container">
 													<span><c:out value="${coupon.unused_coupons}" />장</span>
 													<button class="btn btn-primary"

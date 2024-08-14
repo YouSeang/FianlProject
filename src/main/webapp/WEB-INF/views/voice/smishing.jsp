@@ -42,7 +42,6 @@
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 <link rel="stylesheet"
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
-ㄴ
 <!-- Theme CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">

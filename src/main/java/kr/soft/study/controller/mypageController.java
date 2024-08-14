@@ -1,5 +1,9 @@
 package kr.soft.study.controller;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,7 +11,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -103,23 +106,26 @@ public class mypageController {
 	}
 
 	@RequestMapping("/mypoint")
-	public String mypoint(HttpSession session, Model model) {
-		UserDto user = (UserDto) session.getAttribute("user");
-		if (user == null) {
-			// 사용자 정보가 세션에 저장되어 있지 않은 경우 처리
-			return "redirect:/login";
-		}
+	public String mypoint(@RequestParam(value = "selectedDate", required = false) String selectedDate, HttpSession session, Model model) {
+	    UserDto user = (UserDto) session.getAttribute("user");
+	    if (user == null) {
+	        return "redirect:/login";
+	    }
 
-		String userId = user.getUser_id(); // user가 null이 아닌 경우에만 호출됨
-		System.out.println("User ID: " + userId);
+	    String userId = user.getUser_id();
+	    model.addAttribute("userId", userId);
 
-		// 사용자 ID를 모델에 추가
-		model.addAttribute("userId", userId);
+	    if (selectedDate == null) {
+	        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM");
+	        selectedDate = dateFormat.format(new Date()); // 현재 날짜를 yyyy-MM 형식의 String으로 변환
+	    }
 
-		command = new MyPointCommand();
-		command.execute(model);
+	    model.addAttribute("selectedDate", selectedDate); // String으로 모델에 추가
 
-		return "mypage/myPoint";
+	    command = new MyPointCommand();
+	    command.execute(model);
+
+	    return "mypage/myPoint";
 	}
 
 	@RequestMapping("/myCoupon")
@@ -144,5 +150,4 @@ public class mypageController {
 		return "mypage/myCoupon";
 	}
 
-	
 }

@@ -31,6 +31,7 @@
 		total_points)
 		VALUES (#{userId}, NOW(), #{usageType}, #{pointsUsed}, #{totalPoints})
 	</insert>
+	
 
 </mapper>
 

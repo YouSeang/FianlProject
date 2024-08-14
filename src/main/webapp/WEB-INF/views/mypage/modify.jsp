@@ -128,7 +128,7 @@ body, h1, h2, h3, p, a {
 							<div class="form-group">
 								<label for="phone_number">휴대폰번호</label> <input
 									class="form-control" type="text" id="phone_number"
-									name="phone_number" required=""
+									name="phone_number" required=""  placeholder="010-1234-5678"
 									value="${userInfo.phone_number}">
 							</div>
 							<div class="form-group clearfix"></div>
