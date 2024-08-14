@@ -221,8 +221,10 @@ body, h1, h2, h3, p, a {
             getVoiceData(event.data, scenarioName);
         };
 
-        socket.onclose = function(event) {
-            console.log("WebSocket connection closed.");
+        socket.onclose = function(event) { 
+        	console.log("WebSocket connection closed."); 
+        console.log("Close event code:", event.code); 
+        console.log("Close event reason:", event.reason); 
         };
 
         socket.onerror = function(error) {

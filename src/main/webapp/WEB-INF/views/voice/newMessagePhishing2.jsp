@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,264 +7,264 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport"
-    content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description"
-    content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
+	content="Charity, Non Profit and NGO Website created with Bootstrap and Sass">
 <meta name="author" content="Tariqul Islam">
 <title>LocKB</title>
 
 <link rel="shortcut icon"
-    href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/animate.css">
+	href="${pageContext.request.contextPath}/resources/css/animate.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
 <link rel="stylesheet"
-    href="${pageContext.request.contextPath}/resources/css/style.css">
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <style>
 /* 스타일 설정 */
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-    padding: 20px;
-    box-sizing: border-box;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f0f0f0;
+	padding: 20px;
+	box-sizing: border-box;
 }
 
 .wrapper {
-    width: 100%;
-    max-width: 900px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-sizing: border-box;
+	width: 100%;
+	max-width: 900px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	box-sizing: border-box;
 }
 
 .header {
-    width: 100%;
-    padding: 10px;
-    background-color: #ffb200;
-    color: white;
-    text-align: center;
-    font-size: 1.2em;
-    font-weight: bold;
-    box-sizing: border-box;
+	width: 100%;
+	padding: 10px;
+	background-color: #ffb200;
+	color: white;
+	text-align: center;
+	font-size: 1.2em;
+	font-weight: bold;
+	box-sizing: border-box;
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 900px;
-    height: auto;
-    margin-top: 10px;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 900px;
+	height: auto;
+	margin-top: 10px;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
 }
 
 .mobile-frame {
-    width: 100%;
-    max-width: 390px;
-    height: 667px;
-    border: 16px solid #000;
-    border-radius: 36px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    background-color: #fff;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
-    box-sizing: border-box;
+	width: 100%;
+	max-width: 390px;
+	height: 667px;
+	border: 16px solid #000;
+	border-radius: 36px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	background-color: #fff;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 20px;
+	box-sizing: border-box;
 }
 
 .mobile-content {
-    width: 100%;
-    height: 100%;
-    overflow-y: auto;
-    padding: 10px;
-    box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+	padding: 10px;
+	box-sizing: border-box;
 }
 
 .message {
-    display: flex;
-    margin-bottom: 10px;
+	display: flex;
+	margin-bottom: 10px;
 }
 
 .message.sent {
-    justify-content: flex-end;
+	justify-content: flex-end;
 }
 
 .message.received {
-    justify-content: flex-start;
+	justify-content: flex-start;
 }
 
 .message .bubble {
-    max-width: 70%;
-    padding: 10px;
-    border-radius: 20px;
-    background-color: #f1f0f0;
-    position: relative;
+	max-width: 70%;
+	padding: 10px;
+	border-radius: 20px;
+	background-color: #f1f0f0;
+	position: relative;
 }
 
 .message.sent .bubble {
-    background-color: #007aff;
-    color: white;
+	background-color: #007aff;
+	color: white;
 }
 
 .sidebar {
-    width: 100%;
-    max-width: 390px;
-    height: auto;
-    background-color: transparent;
-    padding: 10px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+	width: 100%;
+	max-width: 390px;
+	height: auto;
+	background-color: transparent;
+	padding: 10px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 
 .sidebar img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+	width: 100%;
+	height: auto;
+	border-radius: 8px;
 }
 
 button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
-    border: none;
-    border-radius: 5px;
-    background-color: #ffb200;
-    color: white;
-    cursor: pointer;
+	width: 100%;
+	padding: 10px;
+	margin: 5px 0;
+	border: none;
+	border-radius: 5px;
+	background-color: #ffb200;
+	color: white;
+	cursor: pointer;
 }
 
 button:hover {
-    background-color: #005bb5;
+	background-color: #005bb5;
 }
 
 @media ( min-width : 768px) {
-    .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .mobile-frame {
-        margin-right: 20px;
-        margin-bottom: 0;
-    }
-    .sidebar {
-        align-items: flex-start;
-    }
+	.container {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+	.mobile-frame {
+		margin-right: 20px;
+		margin-bottom: 0;
+	}
+	.sidebar {
+		align-items: flex-start;
+	}
 }
 
 .switch-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 10px;
 }
 
 .switch {
-    position: relative;
-    display: inline-block;
-    width: 60px;
-    height: 34px;
+	position: relative;
+	display: inline-block;
+	width: 60px;
+	height: 34px;
 }
 
 .switch input {
-    display: none;
+	display: none;
 }
 
 .slider {
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #ccc;
-    transition: .4s;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #ccc;
+	transition: .4s;
 }
 
 .slider:before {
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    transition: .4s;
+	position: absolute;
+	content: "";
+	height: 26px;
+	width: 26px;
+	left: 4px;
+	bottom: 4px;
+	background-color: white;
+	transition: .4s;
 }
 
 input:checked+.slider {
-    background-color: #ffb200;
+	background-color: #ffb200;
 }
 
 input:checked+.slider:before {
-    transform: translateX(26px);
+	transform: translateX(26px);
 }
 
 .slider.round {
-    border-radius: 34px;
+	border-radius: 34px;
 }
 
 .slider.round:before {
-    border-radius: 50%;
+	border-radius: 50%;
 }
 </style>
 </head>
 
 <body>
 
-    <div class="wrapper">
-        <div class="header">메신저피싱 모의 체험</div>
-        <div class="container">
-            <!-- 오디오 재생을 위한 요소 제거 -->
+	<div class="wrapper">
+		<div class="header">메신저피싱 모의 체험</div>
+		<div class="container">
+			<!-- 오디오 재생을 위한 요소 추가 -->
 
-            <div class="mobile-frame">
-                <div class="mobile-content" id="mobile-content">
-                    <!-- 메시지가 이곳에 동적으로 추가됩니다 -->
-                </div>
-            </div>
-            <div class="sidebar">
-                <div class="switch-container">
-                    <label class="switch"> <input type="checkbox"
-                        id="toggleSwitch"> <span class="slider round"></span>
-                    </label> <span style="margin-left: 1px;">음성재생</span> 
-                </div>
-                <div id="sidebar-content">
-                    <!-- 버튼이 동적으로 추가됩니다 -->
-                </div>
-            </div>
-        </div>
-    </div>
+			<div class="mobile-frame">
+				<div class="mobile-content" id="mobile-content">
+					<!-- 메시지가 이곳에 동적으로 추가됩니다 -->
+				</div>
+			</div>
+			<div class="sidebar">
+				<div class="switch-container">
+					<label class="switch"> <input type="checkbox"
+						id="toggleSwitch"> <span class="slider round"></span>
+					</label> <span style="margin-left: 1px;">음성재생</span> 
+					<audio id="audioElement" controls></audio>
+				</div>
+				<div id="sidebar-content">
+					<!-- 버튼이 동적으로 추가됩니다 -->
+				</div>
+			</div>
+		</div>
+	</div>
 
-    <script>
+	<script>
         var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
     </script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-    <script>
+	<script>
         var isSpeakingEnabled = false;
-        var audio = new Audio();  // 새로운 오디오 객체 생성
 
         document.addEventListener('DOMContentLoaded', function () {
             function addMessagesSequentially(messages, type, delay, callback) {
@@ -310,7 +310,7 @@ input:checked+.slider:before {
                             addMessagesSequentially([
                                 '계속 목소리가 끊겨서 통화는 어려울 것 같아...',
                                 '임시폰이라 그런가봐',
-                                '일단 중고거래로 휴대폰을 사려고 하는데 이체가 안돼서 아빠가 먼저 돈 좀 보내줄 수 있어?'
+                                '일단 중고거래로 휴대폰을 사려고 하는데 이체가 안돼서 아빠/엄마가 먼저 돈 좀 보내줄 수 있어?'
                             ], 'received', 1000, function () {
                                 updateSidebar('그럼 어떻게 해주면 돼?', '아무리 급해도 알아보고 하는게 좋을 것 같아. 이따가 집에가서 같이 이야기해보자');
                             });
@@ -440,17 +440,18 @@ input:checked+.slider:before {
                             console.log('Audio content received:', result.audioContent.substring(0, 50) + '...');
 
                             // MP3 형식 지원 여부 확인
-                            const canPlayMp3 = audio.canPlayType('audio/mp3');
+                            const audioElement = document.getElementById("audioElement");
+                            const canPlayMp3 = audioElement.canPlayType('audio/mp3');
 
                             if (canPlayMp3) {
                                 const audioData = result.audioContent;
                                 const audioBlob = base64ToBlob(audioData, 'audio/mp3');
                                 const audioUrl = URL.createObjectURL(audioBlob);
 
-                                audio.src = audioUrl;
-                                audio.play().catch(error => console.error('Audio playback failed:', error));
+                                audioElement.src = audioUrl;
+                                audioElement.play().catch(error => console.error('Audio playback failed:', error));
 
-                                audio.onended = function () {
+                                audioElement.onended = function () {
                                     if (callback) callback();
                                 };
 
@@ -488,7 +489,7 @@ input:checked+.slider:before {
                     var content = document.getElementById('mobile-content').innerText;
                     speakText(content, 'mijin'); // 전체 내용을 범죄자 목소리로 재생
                 } else {
-                    audio.pause();  // 음성 재생 중지
+                    window.speechSynthesis.cancel();
                 }
             });
 
@@ -501,7 +502,7 @@ input:checked+.slider:before {
             }).then((result) => {
                 if (result.isConfirmed) {
                     addMessagesSequentially([
-                        '아빠!! 지금 바빠??',
+                        '아빠/엄마!! 지금 바빠??',
                         '나 핸드폰 물에 빠뜨려서 고장났어....지금 임시폰으로 연락하고 있어',
                         '지금 좀 급한데 도와줄 수 있어?'
                     ], 'received', 1000, function () {
