@@ -57,21 +57,20 @@
 	font-style: normal;
 }
 
-
-body, h1, h2, h3, p, a  {
+body, h1, h2, h3, p, a {
 	font-family: '나눔스퀘어라운드OTF' !important;
 }
 
 .fa, .flaticon {
-    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
-    font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
-    font-style: normal !important;
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
 }
 
 .icon-class {
 	font-family: inherit !important;
 }
-
 </style>
 </head>
 <body>
@@ -219,8 +218,10 @@ body, h1, h2, h3, p, a  {
             getVoiceData(event.data, scenarioName);
         };
 
-        socket.onclose = function(event) {
-            console.log("WebSocket connection closed.");
+        socket.onclose = function(event) { 
+        	console.log("WebSocket connection closed."); 
+        console.log("Close event code:", event.code); 
+        console.log("Close event reason:", event.reason); 
         };
 
         socket.onerror = function(error) {

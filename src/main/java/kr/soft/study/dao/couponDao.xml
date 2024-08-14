@@ -6,7 +6,7 @@
 
 	<!-- 쿠폰발송 시 쿠폰리스트 -->
 	<select id="getCoupon" resultType="kr.soft.study.dto.CouponDto">
-		SELECT * FROM coupons
+		SELECT * FROM Coupons
 	</select>
 
 	<!-- 해당사용자의 쿠폰추가 -->

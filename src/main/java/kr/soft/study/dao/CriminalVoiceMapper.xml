@@ -12,7 +12,7 @@
     </select>
     
     <select id="getPromptByScenarioName" parameterType="String" resultType="String">
-        SELECT scenario_prompt FROM scenarios WHERE scenario_name = #{scenarioName}
+        SELECT scenario_prompt FROM Scenarios WHERE scenario_name = #{scenarioName}
     </select>
 
 </mapper>
