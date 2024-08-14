@@ -70,15 +70,26 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
             }
 
             // OpenAI API를 호출하여 답변을 생성
-            String chatbotResponse = openAIService.getChatbotResponse(transcript, scenarioName); // 4. OpenAI API 호출
-            session.sendMessage(new TextMessage(chatbotResponse)); // 4. OpenAI API 결과 전송
+            try {
+                String chatbotResponse = openAIService.getChatbotResponse(transcript, scenarioName); // 4. OpenAI API 호출
+                session.sendMessage(new TextMessage(chatbotResponse)); // 4. OpenAI API 결과 전송
+            } catch (Exception e) {
+                e.printStackTrace();
+                session.sendMessage(new TextMessage("OpenAI API 호출 중 오류 발생: " + e.getMessage()));
+                return; // 예외 발생 시 더 이상의 처리를 중단
+            }
 
             // CriminalVoiceCommand를 호출하여 데이터베이스 조회
-            Map<String, Object> model = new HashMap<>();
-            model.put("id", transcript); // OpenAI 응답을 ID로 사용
-            model.put("scenarioName", scenarioName);
-            String voiceData = criminalVoiceCommand.execute(model); // 5. CriminalVoiceCommand 실행
-            session.sendMessage(new TextMessage(voiceData)); // 5. CriminalVoiceCommand 결과 전송
+            try {
+                Map<String, Object> model = new HashMap<>();
+                model.put("id", transcript); // OpenAI 응답을 ID로 사용
+                model.put("scenarioName", scenarioName);
+                String voiceData = criminalVoiceCommand.execute(model); // 5. CriminalVoiceCommand 실행
+                session.sendMessage(new TextMessage(voiceData)); // 5. CriminalVoiceCommand 결과 전송
+            } catch (Exception e) {
+                e.printStackTrace();
+                session.sendMessage(new TextMessage("DB 조회 중 오류 발생: " + e.getMessage()));
+            }
             
         } catch (IOException e) {
             e.printStackTrace();
