@@ -45,6 +45,14 @@
     </style>
 </head>
 <body>
+<div id="step-indicator">
+		<img id="back-button" src="/resources/images/transfer/back-button.png"
+			alt="뒤로가기"> <span id="step-text">1단계 / 7단계</span>
+		<div id="progress-bar">
+			<div id="progress-bar-fill"></div>
+		</div>
+	</div>
+	
     <div id="content">
         <img id="main-image" src="${pageContext.request.contextPath}/resources/images/sb/sbsavings1.png" alt="" usemap="#photo" class="img-fluid">
         <map name="photo">
