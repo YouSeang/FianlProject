@@ -57,9 +57,25 @@
 	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <style>
 /* Custom Styles */
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .ks-cboxtags li {
 	margin-bottom: 10px;
 	list-style: none;
@@ -110,7 +126,6 @@
 .ftco-section {
 	margin-bottom: 50px;
 	margin-top: 50px;
-	font-family: 둘기마요_거친;
 }
 
 /* Add margin between checkbox section and header */
@@ -119,12 +134,12 @@
 }
 
 .donation-form {
-    background-color: #f8f9fa; /* 연한 회색 배경 */
-    padding: 20px; /* 내부 여백 조정 */
-    border-radius: 8px;
-    width: 120%; /* 폭을 100%로 설정 */
-    max-width: 1200px; /* 최대 폭 설정 (필요 시 조정 가능) */
-    margin: 0 auto; /* 가운데 정렬 */
+	background-color: #f8f9fa; /* 연한 회색 배경 */
+	padding: 20px; /* 내부 여백 조정 */
+	border-radius: 8px;
+	width: 120%; /* 폭을 100%로 설정 */
+	max-width: 1200px; /* 최대 폭 설정 (필요 시 조정 가능) */
+	margin: 0 auto; /* 가운데 정렬 */
 }
 
 .card {
@@ -155,14 +170,39 @@
 }
 
 .separator {
-    border-top: 2px solid #ddd;
-    margin: 20px 0;
+	border-top: 2px solid #ddd;
+	margin: 20px 0;
 }
 
 .no-wrap {
-    white-space: nowrap;
+	white-space: nowrap;
 }
 
+@font-face {
+	font-family: '나눔스퀘어라운드OTF';
+	src:
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDB.TTF')
+		format('TTF'),
+		url('${pageContext.request.contextPath}/resources/fonts/NANUMSQUAREROUNDL.TTF')
+		format('TTF');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, h4, h5, p, a {
+	font-family: '나눔스퀘어라운드OTF' !important;
+}
+
+.fa, .flaticon {
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
+}
+
+.icon-class {
+	font-family: inherit !important;
+}
 </style>
 </head>
 
@@ -173,12 +213,13 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
 
 	<!-- Promo Area Start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -199,173 +240,195 @@
 	</section>
 	<!-- Promo Area End -->
 
-<!-- Upcoming Event Area Start -->
-    <section class="upcoming-events section-padding">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-intro">
-                        <h2 class="section-title">나의 <span> 정보 보안 온도</span></h2>
-                        				<div class="text-center">
-					<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을 체크하고,확인하기 버튼을 눌러보세요.</h4>
-				</div>
-                    </div>
-                </div>
-            </div>
-	<!-- Checkbox Section Start -->
-	<section class="ftco-section">
+	<!-- Upcoming Event Area Start -->
+	<section class="upcoming-events section-padding">
 		<div class="container">
 			<div class="row">
-
-			</div>
-			<div class="row justify-content-center">
-				<div class="col-md-6">
-					<div class="wrap w-100">
-
-
-						<form action="${pageContext.request.contextPath}/submitChecklist"
-							method="post">
-							<div class="donation-form p-3 p-xl-4 rounded-6">
-								<ul class="ks-cboxtags p-0 m-0">
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category1-1" name="category1[]"
-													value="1"> <label for="category1-1" class="mb-0">스마트폰에 암호/패턴을 설정해 놓았다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category1-2" name="category1[]"
-													value="1"> <label for="category1-2" class="mb-0">스미싱 문자 유포에 유의해 스미싱 차단 앱을 설치하였다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category1-3" name="category1[]"
-													value="1"> <label for="category1-3" class="mb-0">스팸메세지 차단기능을 설정해 놓았다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category1-4" name="category1[]"
-													value="1"> <label for="category1-4" class="mb-0">스마트폰 앱의 권한은 필요한 것만 허용을 해두었다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category1-5" name="category1[]"
-													value="1"> <label for="category1-5" class="mb-0">소프트웨어를 항상 최신 버전으로 업데이트 해둔다.</label>
-											</div>
-										</div>
-									</li>
-									 <div class="separator"></div> <!-- 구분선 추가 -->
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category2-1" name="category2[]"
-													value="1"> <label for="category2-1" class="mb-0">은행 어플에서 제공하는 입출금 알림서비스를 등록해 놓았다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category2-2" name="category2[]"
-													value="1"> <label for="category2-2" class="mb-0">보안카드 번호 및 중요 개인정보가 휴대폰 사진첩에 저장 되어 있지 않다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category2-3" name="category2[]"
-													value="1"> <label for="category2-3" class="mb-0">금융사 어플 비밀번호 혹은 패턴을 주기적으로 변경하고 있다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category2-4" name="category2[]"
-													value="1"> <label for="category2-4" class="mb-0">계좌 비밀번호를 주기적으로 변경하고 있다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category2-5" name="category2[]"
-													value="1"> <label for="category2-5" class="mb-0">택배 송장 정보는 떼어내고 폐기한다.</label>
-											</div>
-										</div>
-									</li>
-									
-									<div class="separator"></div> <!-- 구분선 추가 -->
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category3-1" name="category3[]"
-													value="1"> <label for="category3-1" class="mb-0">웹사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category3-2" name="category3[]"
-													value="1"> <label for="category3-2" class="mb-0">공용 컴퓨터 등에서 업무 처리 후 계정 로그아웃을 생활화 한다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category3-3" name="category3[]"
-													value="1"> <label for="category3-3" class="mb-0">기관에서 전송된 문자의 링크를 확인하지 않고는 클릭하지 않는다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category3-4" name="category3[]"
-													value="1"> <label for="category3-4" class="mb-0">사용하고 있는 이메일 계정에 스팸 방지 기능을 설정해 두었다.</label>
-											</div>
-										</div>
-									</li>
-									<li>
-										<div class="card">
-											<div class="card-body">
-												<input type="checkbox" id="category3-5" name="category3[]"
-													value="1"> <label for="category3-5" class="mb-0">웹 사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
-											</div>
-										</div>
-									</li>
-								</ul>
-								<div class="text-center mt-4">
-									<button type="submit" class="submit-btn">보안온도 확인하기</button>
-								</div>
-							</div>
-						</form>
-
+				<div class="col-lg-12">
+					<div class="section-intro">
+						<h2 class="section-title">
+							나의 <span> 정보 보안 온도</span>
+						</h2>
+						<div class="text-center">
+							<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을
+								체크하고, 확인하기 버튼을 눌러보세요.</h4>
+						</div>
 					</div>
 				</div>
 			</div>
+			<!-- Checkbox Section Start -->
+			<section class="ftco-section">
+				<div class="container">
+					<div class="row"></div>
+					<div class="row justify-content-center">
+						<div class="col-md-6">
+							<div class="wrap w-100">
+
+
+								<form
+									action="${pageContext.request.contextPath}/submitChecklist"
+									method="post">
+									<div class="donation-form p-3 p-xl-4 rounded-6">
+									  <h3 class="section-title">보안 관련 기능</h3>
+										<ul class="ks-cboxtags p-0 m-0">
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category1-1" name="category1[]"
+															value="1"> <label for="category1-1" class="mb-0">스마트폰에
+															암호/패턴을 설정해 놓았다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category1-2" name="category1[]"
+															value="1"> <label for="category1-2" class="mb-0">스미싱
+															문자 유포에 유의해 스미싱 차단 앱을 설치하였다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category1-3" name="category1[]"
+															value="1"> <label for="category1-3" class="mb-0">스팸메세지
+															차단기능을 설정해 놓았다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category1-4" name="category1[]"
+															value="1"> <label for="category1-4" class="mb-0">스마트폰
+															앱의 권한은 필요한 것만 허용을 해두었다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category1-5" name="category1[]"
+															value="1"> <label for="category1-5" class="mb-0">소프트웨어를
+															항상 최신 버전으로 업데이트 해둔다.</label>
+													</div>
+												</div>
+											</li>
+											<div class="separator"></div>
+											  <h3 class="section-title">금융 보안 관련</h3>
+											<!-- 구분선 추가 -->
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category2-1" name="category2[]"
+															value="1"> <label for="category2-1" class="mb-0">은행
+															어플에서 제공하는 입출금 알림서비스를 등록해 놓았다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category2-2" name="category2[]"
+															value="1"> <label for="category2-2" class="mb-0">보안카드
+															번호 및 중요 개인정보가 휴대폰 사진첩에 저장 되어 있지 않다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category2-3" name="category2[]"
+															value="1"> <label for="category2-3" class="mb-0">금융사
+															어플 비밀번호 혹은 패턴을 주기적으로 변경하고 있다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category2-4" name="category2[]"
+															value="1"> <label for="category2-4" class="mb-0">계좌
+															비밀번호를 주기적으로 변경하고 있다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category2-5" name="category2[]"
+															value="1"> <label for="category2-5" class="mb-0">택배
+															송장 정보는 떼어내고 폐기한다.</label>
+													</div>
+												</div>
+											</li>
+
+											<div class="separator"></div>
+											<!-- 구분선 추가 -->
+											  <h3 class="section-title">모바일 사용 습관 관련</h3>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category3-1" name="category3[]"
+															value="1"> <label for="category3-1" class="mb-0">웹사이트
+															등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category3-2" name="category3[]"
+															value="1"> <label for="category3-2" class="mb-0">공용
+															컴퓨터 등에서 업무 처리 후 계정 로그아웃을 생활화 한다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category3-3" name="category3[]"
+															value="1"> <label for="category3-3" class="mb-0">기관에서
+															전송된 문자의 링크를 확인하지 않고는 클릭하지 않는다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category3-4" name="category3[]"
+															value="1"> <label for="category3-4" class="mb-0">사용하고
+															있는 이메일 계정에 스팸 방지 기능을 설정해 두었다.</label>
+													</div>
+												</div>
+											</li>
+											<li>
+												<div class="card">
+													<div class="card-body">
+														<input type="checkbox" id="category3-5" name="category3[]"
+															value="1"> <label for="category3-5" class="mb-0">웹
+															사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
+													</div>
+												</div>
+											</li>
+										</ul>
+										<div class="text-center mt-4">
+											<button type="submit" class="submit-btn">보안온도 확인하기</button>
+										</div>
+									</div>
+								</form>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- Checkbox Section End -->
 		</div>
 	</section>
-	<!-- Checkbox Section End -->
-        </div>
-    </section>
-    <!-- Upcoming Event Area End -->
+	<!-- Upcoming Event Area End -->
 
 
 

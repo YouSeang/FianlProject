@@ -39,6 +39,13 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
 
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+
 <!-- Theme CSS -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
@@ -47,6 +54,18 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+<style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -58,9 +77,9 @@
 	</div>
 
 	<!-- header start -->
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
-	
+
 
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5">
@@ -96,12 +115,14 @@
 
 						<form action="./login" method="post">
 							<div class="form-group">
-								<label for="user_id">Id <span class="required">*</span></label> <input
-									class="form-control" type="text" id="user_id" name="user_id">
+								<label for="user_id">Id <span class="required">*</span></label>
+								<input class="form-control" type="text" id="user_id"
+									name="user_id">
 							</div>
 							<div class="form-group">
 								<label for="password">Password <span class="required">*</span></label>
-								<input class="form-control" type="password" id="password" name="password">
+								<input class="form-control" type="password" id="password"
+									name="password">
 							</div>
 							<label class="remember" for="remember"> <input
 								type="checkbox" id="remember" value="Remember"> 자동 로그인
@@ -120,8 +141,8 @@
 		</div>
 	</main>
 	<!-- Main Area End -->
-	
-	
+
+
 
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>

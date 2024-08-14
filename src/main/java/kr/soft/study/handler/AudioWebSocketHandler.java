@@ -1,5 +1,4 @@
 package kr.soft.study.handler;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
@@ -7,10 +6,8 @@ import org.springframework.web.socket.BinaryMessage;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.BinaryWebSocketHandler;
-
 import kr.soft.study.command.CriminalVoiceCommand;
 import kr.soft.study.service.OpenAIService;
-
 import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URI;
@@ -20,31 +17,23 @@ import java.nio.file.Files;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
-
 @Component
 public class AudioWebSocketHandler extends BinaryWebSocketHandler {
-
     @Autowired
     private OpenAIService openAIService;
-    
     @Autowired
     private CriminalVoiceCommand criminalVoiceCommand;
-
     @Autowired
     private ApplicationContext context;
-
     @Override
     protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         File audioFile = new File("audio.webm");
         String scenarioName = null;
-
         try (FileOutputStream fos = new FileOutputStream(audioFile)) {
             fos.write(message.getPayload().array()); // 2. 오디오 파일 저장
             String transcript = callClovaCSR(audioFile); // 3. Clova CSR 호출
-
             // 변환된 텍스트를 클라이언트에 전송
             session.sendMessage(new TextMessage(transcript)); // 3. Clova CSR 결과 전송
-            
             // 시나리오 이름 추출
             try {
                 URI uri = session.getUri();
@@ -63,12 +52,10 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
             if (scenarioName == null) {
                 session.sendMessage(new TextMessage("Scenario name is missing."));
                 return;
             }
-
             // OpenAI API를 호출하여 답변을 생성
             try {
                 String chatbotResponse = openAIService.getChatbotResponse(transcript, scenarioName); // 4. OpenAI API 호출
@@ -78,7 +65,10 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
                 session.sendMessage(new TextMessage("OpenAI API 호출 중 오류 발생: " + e.getMessage()));
                 return; // 예외 발생 시 더 이상의 처리를 중단
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> refs/heads/main
             // CriminalVoiceCommand를 호출하여 데이터베이스 조회
             try {
                 Map<String, Object> model = new HashMap<>();
@@ -90,7 +80,10 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
                 e.printStackTrace();
                 session.sendMessage(new TextMessage("DB 조회 중 오류 발생: " + e.getMessage()));
             }
+<<<<<<< HEAD
             
+=======
+>>>>>>> refs/heads/main
         } catch (IOException e) {
             e.printStackTrace();
             try {
@@ -105,26 +98,21 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
             }
         }
     }
-
     private String callClovaCSR(File audioFile) throws IOException {
         String apiURL = "https://naveropenapi.apigw.ntruss.com/recog/v1/stt";
         String secretKey = "GJEzAf0iJ0vpYv6uHEx7dUYitK3W1mE1SIJXyqyw";
         String clientId = "4feer17ghj";
         String lang = "Kor"; // 언어 설정
-        
         apiURL += "?lang=" + lang;
-
         HttpURLConnection connection = (HttpURLConnection) new URL(apiURL).openConnection();
         connection.setRequestMethod("POST");
         connection.setRequestProperty("Content-Type", "application/octet-stream");
         connection.setRequestProperty("X-NCP-APIGW-API-KEY-ID", clientId);
         connection.setRequestProperty("X-NCP-APIGW-API-KEY", secretKey);
         connection.setDoOutput(true);
-
         try (OutputStream os = connection.getOutputStream()) {
             Files.copy(audioFile.toPath(), os);
         }
-
         int responseCode = connection.getResponseCode();
         if (responseCode == 200) {
             try (InputStream is = connection.getInputStream();
