@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.soft.study.dao.RentSettingsDAO">
+
+	<select id="getSettingsByPropertyType" parameterType="String"
+		resultType="kr.soft.study.dto.RentSettingsDTO">
+		SELECT * FROM RentSettings WHERE propertyType = #{propertyType}
+	</select>
+
+
+	<update id="updateSettings"
+		parameterType="kr.soft.study.dto.RentSettingsDTO">
+		UPDATE RentSettings
+		SET percentage = #{percentage},
+		housePriceTerm = #{housePriceTerm},
+		mortgageAmountTerm = #{mortgageAmountTerm},
+		totalOtherDepositTerm = #{totalOtherDepositTerm},
+		rentPriceTerm = #{rentPriceTerm}
+		WHERE propertyType = #{propertyType}
+	</update>
+
+</mapper>
