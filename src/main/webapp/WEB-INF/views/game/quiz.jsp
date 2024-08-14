@@ -38,6 +38,12 @@
 	href="${pageContext.request.contextPath}/resources/css/animate.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="preconnect" href="https://statics.goorm.io"
+	crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Style css -->
 <link rel="stylesheet"
@@ -53,6 +59,16 @@
 <![endif]-->
 
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 .quiz_area {
 	background-color: #fef6c2; /* 원하는 배경색으로 변경 */
 }
@@ -62,8 +78,6 @@
 	font-size: 90px; /* 텍스트 크기 조정 */
 	border-radius: 15px; /* 모서리 둥글게 조정 */
 }
-
-
 
 #quiz-question {
 	font-size: 50px; /* 글자 크기 조정 */
@@ -83,7 +97,7 @@
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
 
@@ -129,7 +143,9 @@
 											<h2 class="section-title">
 												<span class="color">금융 </span>OX 퀴즈
 											</h2>
-											<h3><strong>퀴즈를 풀고 금융지식을 올려요</strong></h3>
+											<h3>
+												<strong>퀴즈를 풀고 금융지식을 올려요</strong>
+											</h3>
 											<p>포인트는 하루에 한번만 적립됩니다.</p>
 										</div>
 									</div>
@@ -143,20 +159,20 @@
                     </select>
                 </div> -->
 
-								
+
 									<!-- 퀴즈 질문 섹션 -->
 									<div id="quiz-question" class="alert alert-info text-center"
 										role="alert">
 										<h3>퀴즈 질문이 여기에 표시됩니다.</h3>
 									</div>
-									
-										<!-- 처음부터 다시풀기 버튼 추가 -->
+
+									<!-- 처음부터 다시풀기 버튼 추가 -->
 									<div class="text-center mb-3">
 										<button id="restart-quiz" class="custom-btn btn-warning m-2"
 											onclick="restartQuiz()">처음부터 다시풀기</button>
 									</div>
-									
-									
+
+
 									<!-- 퀴즈 버튼 섹션 -->
 									<div class="quiz-buttons text-center">
 										<button id="btn-true" class="btn custom-btn m-2"

@@ -105,46 +105,51 @@
                 const targetId = $(this).attr('id');
                 event.preventDefault();
 
-                if (targetId === 'goto-sbsavings2') {
+                if (targetId === 'goto-sbsavings1-1') {
+                    var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings1-1.png";
+                    var newMap = `
+                        <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
+         
+                    `;
+                    changeImage(newSrc, newMap);
+                } else if (targetId === 'goto-sbsavings2') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2.png";
                     var newMap = `
                         <area target="_self" alt="" title="" href="#" coords="408,733,636,794" shape="rect" id="goto-sbsavings3">
                         <area target="_self" alt="" title="" href="#" coords="251,25,648,28,638,716,399,723,396,798,259,798" shape="poly" id="goto-sbsavings2-1">
                     `;
                     changeImage(newSrc, newMap);
-                } else if (targetId === 'goto-sbsavings1-1') {
-                    var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings1-1.png";
+                } else if (targetId === 'goto-sbsavings2-1') {
+                    var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2-1.png";
                     var newMap = `
-                        <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
-                        <area target="_self" alt="" title="" href="#" coords="255,40,635,39,645,376,387,378,388,444,648,449,638,779,260,793" shape="poly" id="goto-sbsavings1-1">
+                        <area target="_self" alt="" title="" href="#" coords="408,733,636,794" shape="rect" id="goto-sbsavings3">
+       
                     `;
                     changeImage(newSrc, newMap);
                 } else if (targetId === 'goto-sbsavings3') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings3.png";
                     var newMap = `
-                        <area target="_self" alt="" title="" href="#" coords="334,453,271,349" shape="rect" id="goto-sbsavings4">
-                        <area target="_self" alt="" title="" href="#" coords="249,26,638,20,643,340,643,347,644,412,639,421,635,770,262,784,360,456,337,341,260,348,257,349,247,297,254,446,259,290,260,767,248,351,258,762,259,774,255,510,246,460,439,427,264,768" shape="poly" id="goto-sbsavings3-1">
+                        <area target="_self" alt="" title="" href="#" coords="264,341,331,714" shape="rect" id="goto-sbsavings4">
+                        <area target="_self" alt="" title="" href="#" coords="260,34,254,326,353,327,354,724,245,732,255,797,623,790,633,42" shape="poly" id="goto-sbsavings3-1">
                     `;
                     changeImage(newSrc, newMap);
-                } else if (targetId === 'goto-sbsavings2-1') {
-                    var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2-1.png";
+                } else if (targetId === 'goto-sbsavings3-1') {
+                    var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings3-1.png";
                     var newMap = `
-                        <area target="_self" alt="" title="" href="#" coords="408,733,636,794" shape="rect" id="goto-sbsavings3">
-                        <area target="_self" alt="" title="" href="#" coords="251,25,648,28,638,716,399,723,396,798,259,798" shape="poly" id="goto-sbsavings2-1">
-                    `;
+                        <area target="_self" alt="" title="" href="#" coords="264,341,331,714" shape="rect" id="goto-sbsavings4">
+                                        `;
                     changeImage(newSrc, newMap);
                 } else if (targetId === 'goto-sbsavings4') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings4.png";
                     var newMap = `
                         <area target="_self" alt="" title="" href="#" coords="244,728,631,793" shape="rect" id="goto-sbsavings5">
-                        <area target="_self" alt="" title="" href="#" coords="244,728,637,40" shape="poly" id="goto-sbsavings4-1">
+                       <area target="_self" alt="" title="" href="#" coords="244,728,637,40" shape="poly" id="goto-sbsavings4-1">
                     `;
                     changeImage(newSrc, newMap);
                 } else if (targetId === 'goto-sbsavings4-1') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings4-1.png";
                     var newMap = `
                         <area target="_self" alt="" title="" href="#" coords="244,728,631,793" shape="rect" id="goto-sbsavings5">
-                        <area target="_self" alt="" title="" href="#" coords="244,728,637,40" shape="poly" id="goto-sbsavings4-1">
                     `;
                     changeImage(newSrc, newMap);
                 } else if (targetId === 'goto-sbsavings5') {
@@ -157,11 +162,7 @@
                 } else if (targetId === 'goto-sbsavings6') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings6.png";
                     var newMap = `
-                    	<area target="" alt="month" title="month" href="" coords="287,356,461,403" shape="rect">
-                        <area target="" alt="36" title="36" href="javascript:void(0);" coords="288,431,362,463" shape="rect">
-                        <area target="" alt="confirm" title="confirm" href="" coords="257,733,633,794" shape="rect" id="goto-sbsavings7">
-                        /* 
-                    <area target="" alt="1" title="1" href="" coords="377,538,268,476" shape="rect">
+                        <area target="" alt="1" title="1" href="" coords="377,538,268,476" shape="rect">
                         <area target="" alt="2" title="2" href="" coords="395,479,497,538" shape="rect">
                         <area target="" alt="3" title="3" href="" coords="512,474,624,538" shape="rect">
                         <area target="" alt="4" title="4" href="" coords="269,547,382,600" shape="rect">
@@ -177,8 +178,8 @@
                         <area target="" alt="12" title="12" href="" coords="449,430,523,463" shape="rect">
                         <area target="" alt="6" title="6" href="" coords="531,429,609,464" shape="rect">
                         <area target="" alt="intxt" title="intxt" href="" coords="285,351,493,402" shape="rect">
-                        <area target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings7"> 
-                  */   `;
+                        <area target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings7">
+                    `;
                     changeImage(newSrc, newMap);
                 } else if (targetId === 'goto-sbsavings7') {
                     var newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings7.png";

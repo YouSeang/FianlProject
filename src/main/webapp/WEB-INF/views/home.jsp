@@ -43,21 +43,22 @@
 <link rel="stylesheet"
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
-
 <style>
 @font-face {
 	font-family: 'Goorm Sans';
 	font-weight: normal;
 	font-style: normal;
 }
+
 body, h1, h2, h3, p, a {
 	font-family: 'Goorm Sans' !important;
 }
 
 .fa, .flaticon {
-    font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands', 'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
-    font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
-    font-style: normal !important;
+	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
+		'Font Awesome 5 Solid', 'Font Awesome 5 Regular' !important;
+	font-weight: 400; /* 기본적으로 normal 대신 400을 사용 */
+	font-style: normal !important;
 }
 
 .icon-class {
@@ -65,31 +66,28 @@ body, h1, h2, h3, p, a {
 }
 
 .row {
-    display: flex;
-    justify-content: space-between; /* 요소들 사이에 동일한 간격 추가 */
+	display: flex;
+	justify-content: space-between; /* 요소들 사이에 동일한 간격 추가 */
 }
 
 .single-inspiration {
-    flex: 0 0 calc(33.333% - 10px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px;
-    padding: 20px;
-    border: 1px solid #e0e0e0; /* 회색 테두리 추가 */
-    border-radius: 8px; /* 모서리를 둥글게 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
-    background-color: #fff; /* 배경색을 흰색으로 설정 */
+	flex: 0 0 calc(33.333% - 10px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: 20px;
+	border: 1px solid #e0e0e0; /* 회색 테두리 추가 */
+	border-radius: 8px; /* 모서리를 둥글게 */
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 약간의 그림자 추가 */
+	background-color: #fff; /* 배경색을 흰색으로 설정 */
 }
 
 .single-project {
-    flex: 0 0 calc(33.333% - 20px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 20px; /* 각 카드 아래에 20px의 여백 추가 */
+	flex: 0 0 calc(33.333% - 20px); /* 요소의 너비를 조정하여 3개가 딱 맞게 배치되도록 함 */
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px; /* 각 카드 아래에 20px의 여백 추가 */
 }
-
-
-
 </style>
 
 <!-- Style css
@@ -137,8 +135,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							시뮬레이션으로<br>
-							<span>금융사고를 </span><br />예방해보세요
+							시뮬레이션으로<br> <span>금융사고를 </span><br />예방해보세요
 						</h1>
 						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
 						<div class="banner-btn">
@@ -172,7 +169,11 @@ function openVoicePhishingWindow() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<p><h1><strong>LocKB에서 할 수 있어요!</strong></h1></p>
+						<p>
+						<h1>
+							<strong>LocKB에서 할 수 있어요!</strong>
+						</h1>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -183,7 +184,9 @@ function openVoicePhishingWindow() {
 							src="${pageContext.request.contextPath}/resources/images/components/mis1.png"
 							alt=""></span>
 						<h3>사고예방 시뮬레이션</h3>
-						<p>메신저피싱, 보이스피싱을 예방하기 위해<br> 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요</p>
+						<p>
+							메신저피싱, 보이스피싱을 예방하기 위해<br> 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요
+						</p>
 						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -194,7 +197,9 @@ function openVoicePhishingWindow() {
 							src="${pageContext.request.contextPath}/resources/images/components/mis2.png"
 							alt=""></span>
 						<h3>디지털금융 교육</h3>
-						<p>어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 <br>다양한 거래를 체험해볼 수 있어요.</p>
+						<p>
+							어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 <br>다양한 거래를 체험해볼 수 있어요.
+						</p>
 						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -205,7 +210,9 @@ function openVoicePhishingWindow() {
 							src="${pageContext.request.contextPath}/resources/images/components/mis3.png"
 							alt=""></span>
 						<h3>나의 보안점수</h3>
-						<p>보안을 강화할 수 있는 방법을 확인하고 <br>적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!</p>
+						<p>
+							보안을 강화할 수 있는 방법을 확인하고 <br>적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!
+						</p>
 						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -221,10 +228,13 @@ function openVoicePhishingWindow() {
 			<div class="row">
 				<div class="col-lg-6 col-sm-6">
 					<div class="f-cause-txt">
-						<h2 class="section-title"><strong>
-							LocKB <span>추천영상</span>
-						</strong></h2>
-						<p><strong>LocKB에서 웃음과 재미, 금융지식까지 선물해드려요.</strong></p>
+						<h2 class="section-title">
+							<strong> LocKB <span>추천영상</span>
+							</strong>
+						</h2>
+						<p>
+							<strong>LocKB에서 웃음과 재미, 금융지식까지 선물해드려요.</strong>
+						</p>
 						<a href="#" class="custom-btn">자세히보기 <i
 							class="fa fa-long-arrow-right"></i></a>
 					</div>
@@ -254,10 +264,13 @@ function openVoicePhishingWindow() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<h2 class="section-title"><strong>
-							LocKB <span class="color">알림마당</span>
-						</strong></h2>
-						<p><strong>짧은 카드뉴스로 슬기로운 금융생활을!</strong></p>
+						<h2 class="section-title">
+							<strong> LocKB <span class="color">알림마당</span>
+							</strong>
+						</h2>
+						<p>
+							<strong>짧은 카드뉴스로 슬기로운 금융생활을!</strong>
+						</p>
 					</div>
 				</div>
 			</div>
@@ -338,12 +351,15 @@ function openVoicePhishingWindow() {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="section-intro">
-						<h2 class="section-title"><strong>
-							홈페이지 <span class="color">담당자</span>
-						</strong></h2>
-						<p><strong>
-							LocKB를 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱 노력하겠습니다.
-						</strong></p>
+						<h2 class="section-title">
+							<strong> 홈페이지 <span class="color">담당자</span>
+							</strong>
+						</h2>
+						<p>
+							<strong> LocKB를 만들어가고 있습니다. <br />고객님들의 안전한 금융생활을 위해 더욱
+								노력하겠습니다.
+							</strong>
+						</p>
 					</div>
 				</div>
 			</div>

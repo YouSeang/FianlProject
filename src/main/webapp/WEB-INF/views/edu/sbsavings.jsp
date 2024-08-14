@@ -115,9 +115,9 @@
             </div>
             <div class="row">
                 <div class="col-lg-10 offset-lg-1">
-                    <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+                  <!--   <div class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center" style="min-height: 100vh;">
             
-                    <div class="justify-content-center align-items-center">
+                    <div class="justify-content-center align-items-center"> -->
                      
   <%@ include file="/WEB-INF/views/edu/sbsavings2.jsp" %> 
 
@@ -126,7 +126,7 @@
 
                 </div>
             </div>
-        </div>
+       
     </section>
     <!-- Team Area End -->
 

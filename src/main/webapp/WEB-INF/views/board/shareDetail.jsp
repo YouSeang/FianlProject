@@ -13,36 +13,26 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
-<!-- Template Title
-    ==================================================================-->
+<!-- Template Title -->
 <title>LocKB</title>
 
-<!-- Favicon Icon
-    ==================================================-->
-<link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+<!-- Favicon Icon -->
+<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-<!-- Style Libraries
-    ==================================================================-->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/animate.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<!-- Style Libraries -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="preconnect" href="https://statics.goorm.io" crossorigin="anonymous" />
+<link rel="preload" as="style" crossorigin href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
-<!-- Style css
-    ==================================================================== -->
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/style.css">
+<!-- Style css -->
+<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -50,6 +40,16 @@
     <![endif]-->
 
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 /* 스타일 전반적인 배경 및 텍스트 색상 설정 */
 body {
     background-color: #f8f9fa; /* 부드러운 배경 색상 */
@@ -68,7 +68,6 @@ body {
 /* 카드 헤더 스타일 */
 .card-header {
     background-color: #F3EDE1; /* 블루 배경 */
-    /* color: #fff;  *//* 화이트 텍스트 */
     padding: 20px;
     font-weight: bold;
     font-size: 1.5rem;
@@ -91,19 +90,6 @@ body {
 .card-footer {
     background-color: #f1f1f1; /* 약간 어두운 배경 */
     padding: 15px;
-}
-
-/* 버튼 스타일 */
-/* .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: #fff;
-    transition: background-color 0.3s ease;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-    border-color: #545b62; */
 }
 
 /* 이미지 스타일 */
@@ -147,6 +133,51 @@ body {
     text-decoration: underline;
 }
 
+/* 버튼 스타일 */
+.btn-primary, .btn-secondary {
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 18px;
+	width: 180px;
+}
+
+.btn-primary {
+	background-color: #FFB200;
+	border: none;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-secondary {
+	background-color: #6c757d;
+	border: none;
+	color: white;
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	color: white;
+}
+
+/* 입력 텍스트 스타일 */
+.form-control {
+	padding: 15px;
+	border: 2px solid #FFB200;
+	border-radius: 5px;
+	font-size: 18px;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+	outline: none;
+	border-color: #031550;
+	box-shadow: 0 0 8px rgba(3, 21, 80, 0.5);
+}
+
 </style>
 
 </head>
@@ -162,7 +193,7 @@ body {
   <%@ include file="/WEB-INF/views/header0802.jsp" %> 
 	
    <!-- Promo Area Start -->
-    <section class="promo-area" data-stellar-background-ratio="0.5">
+    <section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
@@ -182,7 +213,7 @@ body {
     <!-- Promo Area End -->
 
     <!-- case share board -->
-      <!-- Case Share Board Start -->
+    <!-- Case Share Board Start -->
     <div class="container py-5">
         <div class="row">
             <div class="col-lg-12">
@@ -192,7 +223,7 @@ body {
                         <h3>${share.title}</h3><br>
                        <p class="text-muted text-end" style="font-size:1rem;">작성자: ${share.userId}<br>작성일시:   
                        <fmt:formatDate value="${share.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC"/></p>
-                                          </div>
+                    </div>
                     <div class="card-body">
                         <p>${share.contents}</p>
                         <c:if test="${not empty share.image}">
@@ -204,38 +235,36 @@ body {
                     </div>
                 </div>
                 
-              <!-- 댓글 입력 폼 -->
-<div class="card mt-4">
-    
-    <div class="card-body">
-        <form id="commentForm" action="${pageContext.request.contextPath}/board/addComment" method="post">
-            <input type="hidden" name="shareId" value="${share.id}">
-            <input type="hidden" name="shareTitle" value="${share.title}">
-            <input type="hidden" name="userId" value="${sessionScope.userId}">
-            <div class="mb-3">
-                <label for="commentContent" class="form-label">댓글 내용</label>
-                <textarea class="form-control" id="commentContent" name="commentContent" rows="3" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">댓글 달기</button>
-        </form>
-    </div>
-</div>
+                <!-- 댓글 입력 폼 -->
+                <div class="card mt-4">
+                    <div class="card-body">
+                        <form id="commentForm" action="${pageContext.request.contextPath}/board/addComment" method="post">
+                            <input type="hidden" name="shareId" value="${share.id}">
+                            <input type="hidden" name="shareTitle" value="${share.title}">
+                            <input type="hidden" name="userId" value="${sessionScope.userId}">
+                            <div class="mb-3">
+                                <label for="commentContent" class="form-label">댓글 내용</label>
+                                <textarea class="form-control" id="commentContent" name="commentContent" rows="3" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">댓글 달기</button>
+                        </form>
+                    </div>
+                </div>
 
-            <!-- 댓글 리스트 -->
-<div id="commentlist" style="margin-top: 20px;">
-    <c:forEach var="comment" items="${commentlist}">
-        <div class="card" style="margin-top: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-            <div class="card-body" style="padding: 15px;">
-                <p style="margin-bottom: 5px; font-size: 1rem;">${comment.contents}</p>
-               <p style="margin: 0; color: #6c757d; text-align: right; font-size: 1rem;">
-                    작성자: ${comment.userId} | 작성일시: 
-                    <fmt:formatDate value="${comment.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC"/>
-                </p>
-            </div>
-        </div>
-    </c:forEach>
-</div>
-
+                <!-- 댓글 리스트 -->
+                <div id="commentlist" style="margin-top: 20px;">
+                    <c:forEach var="comment" items="${commentlist}">
+                        <div class="card" style="margin-top: 10px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
+                            <div class="card-body" style="padding: 15px;">
+                                <p style="margin-bottom: 5px; font-size: 1rem;">${comment.contents}</p>
+                               <p style="margin: 0; color: #6c757d; text-align: right; font-size: 1rem;">
+                                    작성자: ${comment.userId} | 작성일시: 
+                                    <fmt:formatDate value="${comment.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC"/>
+                                </p>
+                            </div>
+                        </div>
+                    </c:forEach>
+                </div>
 
             </div>
         </div>
@@ -244,7 +273,7 @@ body {
     
     <!-- FAQ AREA END -->
 
-     <%@ include file="/WEB-INF/views/footer.jsp" %> 
+    <%@ include file="/WEB-INF/views/footer.jsp" %> 
 
     <!--
 Javascript
@@ -265,7 +294,6 @@ Javascript
     <script src="<c:url value="/resources/js/form.js"/>"></script>
     <script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
     <script src="<c:url value="/resources/js/custom.js"/>"></script>
-
 
 </body>
 
