@@ -65,10 +65,6 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
                 session.sendMessage(new TextMessage("OpenAI API 호출 중 오류 발생: " + e.getMessage()));
                 return; // 예외 발생 시 더 이상의 처리를 중단
             }
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/heads/main
             // CriminalVoiceCommand를 호출하여 데이터베이스 조회
             try {
                 Map<String, Object> model = new HashMap<>();
@@ -80,10 +76,6 @@ public class AudioWebSocketHandler extends BinaryWebSocketHandler {
                 e.printStackTrace();
                 session.sendMessage(new TextMessage("DB 조회 중 오류 발생: " + e.getMessage()));
             }
-<<<<<<< HEAD
-            
-=======
->>>>>>> refs/heads/main
         } catch (IOException e) {
             e.printStackTrace();
             try {
