@@ -39,17 +39,31 @@
 		SELECT
 		u.user_id,
 		u.name,
-		COALESCE(SUM(p.points_earned) -
-		SUM(p.points_used), 0) AS total_points,
-		COALESCE(COUNT(DISTINCT CASE
-		WHEN uc.is_used = FALSE THEN uc.coupon_id END), 0) AS
-		unused_coupons
-		FROM Users u
-		LEFT JOIN Points p ON u.user_id = p.user_id
+		COALESCE(SUM(p.points_earned) - SUM(p.points_used), 0) AS total_points,
+		COALESCE(uc.unused_coupons, 0) AS unused_coupons
+		FROM
+		Users u
 		LEFT JOIN
-		UserCoupons uc ON u.user_id = uc.user_id
-		WHERE u.user_id = #{user_id}
-		GROUP BY u.user_id, u.name
+		(SELECT
+		uc.user_id,
+		COUNT(uc.coupon_id) AS unused_coupons
+		FROM
+		UserCoupons uc
+		JOIN
+		Coupons c ON uc.coupon_id = c.id
+		WHERE
+		uc.user_id = #{user_id}
+		AND uc.is_used = 0
+		AND uc.issue_date >= DATE_SUB(CURDATE(), INTERVAL 30 DAY) -- 유효기간 조건 추가
+		GROUP BY
+		uc.user_id
+		) uc ON u.user_id = uc.user_id
+		LEFT JOIN
+		Points p ON u.user_id = p.user_id
+		WHERE
+		u.user_id = #{user_id}
+		GROUP BY
+		u.user_id, u.name, uc.unused_coupons;
 	</select>
 
 	<!-- 해당 사용자의 쿠폰 상세내용 -->
@@ -70,7 +84,9 @@
 		Coupons c ON uc.coupon_id = c.id
 		WHERE
 		uc.user_id
-		= #{user_id};
+		= #{user_id}
+		ORDER BY
+		uc.issue_date ASC;
 	</select>
 
 	<!-- 해당 사용자의 현재 사용가능 포인트 구하기 -->

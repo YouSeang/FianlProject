@@ -97,6 +97,29 @@ body, h1, h2, h3, p, a {
 	border-radius: 5px; /* 테두리 둥글게 */
 	background-color: #f9f9f9; /* 배경색 */
 }
+
+/* 버튼 스타일 */
+.btn-primary, .btn-warning {
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 19px;
+	width: 170px;
+	color: white;
+	border: none;
+}
+
+.btn-primary {
+	background-color: #FFB200;
+}
+
+.btn-primary:hover, .btn-warning:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-warning {
+	background-color: #FFB200;
+}
 </style>
 </head>
 <body>
@@ -165,18 +188,24 @@ body, h1, h2, h3, p, a {
 					</div>
 				</c:forEach>
 				<br />
-				<form id="couponForm" method="post">
-					<label for="to">전송받을 휴대폰번호: </label> <input type="text" id="to"
-						name="to" required> <br> <label for="text">함께
-						보낼 메시지: </label>
-					<textarea id="text" name="text" required></textarea>
-					<br> <br> <br />
-					<div class="coupon-info">
-						ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br /> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는
-						소멸됩니다. <br /> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
+				<form id="couponForm" method="post"
+					class="p-4 bg-light rounded shadow-sm">
+					<div class="mb-3">
+						<label for="to" class="form-label">전송받을 휴대폰번호:</label> <input
+							type="text" id="to" name="to" class="form-control"
+							placeholder="01012345678" required>
 					</div>
-					<div class="button-container">
-						<button type="button" class="btn btn-warning"
+					<div class="mb-3">
+						<label for="text" class="form-label">함께 보낼 메시지:</label>
+						<textarea id="text" name="text" class="form-control" rows="4"
+							placeholder="받는 분께 보낼 메시지를 입력해주세요" required></textarea>
+					</div>
+					<div class="coupon-info mb-4">
+						ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는
+						소멸됩니다. <br> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
+					</div>
+					<div class="button-container text-center">
+						<button type="button" class="btn btn-warning btn-lg"
 							onclick="exchangeCoupon()">쿠폰교환</button>
 					</div>
 					<input type="hidden" id="selectedCouponId" name="selectedCouponId"
