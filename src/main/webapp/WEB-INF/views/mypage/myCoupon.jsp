@@ -223,5 +223,6 @@ body, h1, h2, h3, p, a {
 			window.open(url, "resendCouponWindow", "width=600,height=400");
 		}
 	</script>
+	      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 </html>

@@ -38,16 +38,13 @@
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 <link rel="preconnect" href="https://statics.goorm.io"
 	crossorigin="anonymous" />
-<!-- <link rel="preload" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" as="style" crossorigin="anonymous" />
+<link rel="preload" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" as="style" crossorigin="anonymous" />
 
 <link rel="preload" as="style" crossorigin
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" /> 
 <link rel="stylesheet"
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
- -->
- 
- <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" crossorigin="anonymous" />
- 
+
 <style>
 @font-face {
 	font-family: 'Goorm Sans';
@@ -494,8 +491,8 @@ function openVoicePhishingWindow() {
 		src="${pageContext.request.contextPath}/resources/js/jquery.nice-select.min.js"></script>
 	<script src="${pageContext.request.contextPath}/resources/js/custom.js"></script>
 
-  	<%@ include file="chatbot.jsp"%>      
 
+        
 
 
 </body>

@@ -263,5 +263,6 @@ body, h1, h2, h3, p, a {
 			searchKeyword('금융사고');
 		}
 	</script>
+	      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 </html>

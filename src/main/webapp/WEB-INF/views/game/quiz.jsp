@@ -354,6 +354,7 @@ body, h1, h2, h3, p, a {
     // 초기 로드 시 금융 카테고리의 퀴즈를 로드합니다.
     loadQuestions();
 </script>
+      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 
 </html>
