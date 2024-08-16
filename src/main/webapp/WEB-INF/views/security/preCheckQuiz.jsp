@@ -77,9 +77,9 @@ body, h1, h2, h3, p, a {
 }
 
 .btn.custom-btn {
-	padding: 130px 98px; /* 버튼 크기 조정 */
+	padding: 100px 100px; /* 버튼 크기 조정 */
 	font-size: 90px; /* 텍스트 크기 조정 */
-	border-radius: 15px; /* 모서리 둥글게 조정 */
+	border-radius: 30px; /* 모서리 둥글게 조정 */
 }
 
 #quiz-question {
@@ -88,6 +88,21 @@ body, h1, h2, h3, p, a {
 	text-align: center; /* 중간 정렬 */
 	margin-bottom: 30px; /* 아래 내용과 마진 */
 	font-family: 둘기마요_거친;
+}
+
+/* 기존 스타일 유지 */
+.btn.custom-btn {
+    padding: 70px 70px; /* 버튼 크기 조정 */
+    font-size: 90px; /* 텍스트 크기 조정 */
+    border-radius: 100px; /* 모서리 둥글게 조정 */
+    background-color: #689dc9; /* 파란색 배경 */
+    color: white; /* 텍스트 색상 흰색 */
+    border: none; /* 테두리 제거 */
+}
+
+/* 마우스 오버 시 버튼 색상을 조금 더 진하게 */
+.btn.custom-btn:hover {
+    background-color: #1c81ce;
 }
 </style>
 
@@ -144,9 +159,9 @@ body, h1, h2, h3, p, a {
 										<c:when test="${not empty quiz.imageUrl}">
 										  <c:out value="${quiz.imageUrl}" /> <!-- 여기에 이미지 경로가 제대로 출력되는지 확인 -->
 											<img id="quiz-image"
-												src="${pageContext.request.contextPath}/resources/images/secure/${quiz.imageUrl}"
+												src="/resources/images/secure/${quiz.imageUrl}"
 												alt="Quiz Image"
-												style="width: 150%; height: auto; max-width: 1500px; margin-top: 10px; display: block;">
+												style="width: 200%; height: auto; max-width: 1500px; margin-top: 10px; display: block;">
 										</c:when>
 										<c:otherwise>
 											<img id="quiz-image" style="display: none;">
@@ -235,7 +250,7 @@ body, h1, h2, h3, p, a {
                     } else {
                         Swal.fire({
                             icon: 'success',
-                            html: '<strong>적정합니다!<br>다음 단계를 확인하세요.<strong>',
+                            html: '<strong>적정합니다!<br>다음 단계를 확인하세요.</strong>',
                             confirmButtonText: '다음 질문으로'
                         }).then((result) => {
                             if (result.isConfirmed) {
@@ -247,7 +262,7 @@ body, h1, h2, h3, p, a {
                 } else {
                     Swal.fire({
                         icon: 'error',
-                        title: '앗! 전세계약 전 다시한번 확인하세요.',
+                        html: '<strong>앗! 전세계약 전 다시한번 확인하세요.</strong>',
                         confirmButtonText: '다시 풀기'
                     });
                 }

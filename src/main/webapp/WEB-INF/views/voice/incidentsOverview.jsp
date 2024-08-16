@@ -65,6 +65,29 @@
 body, h1, h2, h3, p, a {
 	font-family: 'Goorm Sans' !important;
 }
+
+/* 기본 이미지 스타일 */
+img.responsive {
+	width: 100%;
+	height: auto;
+	max-width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+/* 모바일 기기 (최대 너비 767px)에서 이미지 크기 조정 */
+@media ( max-width : 767px) {
+	img.responsive {
+		width: 100%; /* 이미지가 부모 요소의 너비를 100% 차지하도록 설정 */
+		height: auto; /* 이미지의 종횡비를 유지 */
+		max-width: 100%;
+	}
+
+	/* 텍스트와 이미지가 모바일에서 잘 배치되도록 설정 */
+	.desc-txt {
+		margin-top: 20px; /* 이미지와 텍스트 사이의 여백 추가 */
+	}
+}
 </style>
 </head>
 
@@ -129,7 +152,7 @@ body, h1, h2, h3, p, a {
 										대표적이다. 그 외에도 아들·딸 등 지인을 사칭하는 방법이 계속 유행하고 있으며, 그 당시의 사회적 이슈를
 										이용하는 새로운 수법이 계속 생겨나고 있다. 예 를 들면, 최근에는 ‘재난지원금’, ‘대환대출’ 등을 받기
 										위해서는 개인정보를 입력하고 관련 비용 을 먼저 납부해야 한다는 ‘선비용 수법(advance payment)’이
-										활용되고 있다. ‘기관사칭형’과 ‘대 출사기형’은 보통 1:3의 비율로, ‘대출사기형’이 더 많이 발생하고
+										활용되고 있다. ‘기관사칭형’과 ‘대출사기형’은 보통 1:3의 비율로, ‘대출사기형’이 더 많이 발생하고
 										있다. 즉, 코로나19 감염병 사 태로 인해 경제적 어려움을 겪고 있는 서민층들 에게 낮은 이자로 대출을 해줄
 										것처럼 속이는 수 법이 검찰 등을 사칭하는 수법보다 3배 이상 더 많이 발생하고 있는 것이다(그림 X-19).</p>
 									<p>소수에 불과하던 ‘대면편취’ 방식이 2020년 1만 5,686건으로 ‘비대면 편취’ 방식과 거의
@@ -161,7 +184,7 @@ body, h1, h2, h3, p, a {
 									</ul>
 									<div class="tab-content">
 										<div id="description">
-											<div class="d-flex">
+											<div class="d-flex flex-wrap">
 												<div class="desc-txt pe-5 me-4">
 													<h3>보이스피싱 피해액</h3>
 													<p>보이스피싱 피해액을 연도별로 살펴보면, 2006년에는 106억 원, 2009년에는 621억
@@ -181,10 +204,9 @@ body, h1, h2, h3, p, a {
 														2021년 1,265억 원으로 크게 늘어났다. 2021년 기준 메신저피싱 1건당 피해금액은 709만
 														원이다
 												</div>
-												<img
-													src="${pageContext.request.contextPath}/resources/
-												images/incident/overView2.png"
-													alt="">
+												<img class="responsive order-1 order-md-2"
+													src="${pageContext.request.contextPath}/resources/images/incident/overView2.png"
+													alt="Incident Overview">
 											</div>
 										</div>
 										<div id="extra-info">
@@ -366,7 +388,7 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 
 </html>
