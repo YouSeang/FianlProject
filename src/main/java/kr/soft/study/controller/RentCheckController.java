@@ -81,7 +81,10 @@ public class RentCheckController {
         Map<String, Object> response = new HashMap<>();
         
         if (index < quizzes.size()) {
-            response.put("question", quizzes.get(index).getQuestion());
+            PreQuizDto quiz = quizzes.get(index);
+            System.out.println("Image URL: " + quiz.getImageUrl());  // 이미지 URL 로그 출력
+            response.put("question", quiz.getQuestion());
+            response.put("imageUrl", quiz.getImageUrl()); // 이미지 URL 추가
             response.put("totalQuestions", quizzes.size()); // 총 퀴즈 개수 반환
         } else {
             response = null; // 더 이상 질문이 없을 경우
