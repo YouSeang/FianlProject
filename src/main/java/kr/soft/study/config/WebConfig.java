@@ -20,7 +20,7 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 
 	 public WebConfig() {
-	        uploadPath = "/absolute/path/to/uploads/"; // 운영 환경 경로
+	        uploadPath = "/resources/images/uploads/"; // 운영 환경 경로
 	 }
 	        
 	 @Override

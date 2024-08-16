@@ -212,7 +212,7 @@ h2 {
 
 	        var formData = $(this).serialize();
 	        var propertyType = $('#propertyType').val();
-	        var url = propertyType === "apartment" ? '/study/calculate/apartment' : '/study/calculate/villa';
+	        var url = propertyType === "apartment" ? '/calculate/apartment' : '/calculate/villa';
 	        
 	        $.post(url, formData, function(data) {
 	            Swal.fire({
