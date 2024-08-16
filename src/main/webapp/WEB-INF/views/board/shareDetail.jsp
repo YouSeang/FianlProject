@@ -227,7 +227,7 @@ body {
                     <div class="card-body">
                         <p>${share.contents}</p>
                         <c:if test="${not empty share.image}">
-                            <img src="${pageContext.request.contextPath}/${share.image}" class="img-fluid" alt="관련 이미지">
+                            <img src="${share.image}" class="img-fluid" alt="관련 이미지">
                         </c:if>
                     </div>
                     <div class="card-footer text-end">
