@@ -33,10 +33,6 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 <style>
 @font-face {
 	font-family: 'Goorm Sans';
@@ -46,6 +42,61 @@
 
 body, h1, h2, h3, p, a {
 	font-family: 'Goorm Sans' !important;
+}
+
+.form-control {
+	padding: 15px;
+	border: 2px solid #FFB200;
+	border-radius: 20px;
+	font-size: 18px;
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	width: 50%; /* input 필드 너비 설정 */
+	margin: 0 auto; /* 가운데 정렬 */
+}
+
+.form-control:hover {
+	border-color: #031550;
+	box-shadow: 0 0 8px rgba(3, 21, 80, 0.5);
+}
+
+.form-control:focus {
+	outline: none;
+	border-color: #031550;
+	box-shadow: 0 0 8px rgba(3, 21, 80, 0.5);
+}
+
+.btn-primary, .btn-secondary {
+	padding: 15px;
+	border-radius: 10px;
+	font-size: 30px;
+	width: 150px;
+}
+
+.btn-primary {
+	background-color: #FFB200;
+	border: none;
+	color: white;
+}
+
+.btn-primary:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-secondary {
+	background-color: #6c757d;
+	border: none;
+	color: white;
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	color: white;
+}
+
+h2 {
+    text-align: center; /* 제목 가운데 정렬 */
+    margin-bottom: 50px; /* 제목 하단 마진 추가 */
 }
 </style>
 
@@ -78,7 +129,7 @@ body, h1, h2, h3, p, a {
 	<!-- 배너영역 end -->
 
 	<div class="container mt-5">
-		<h2>전세 가격 계산기</h2>
+		<h2 style="font-size: 30px;">전세 가격 계산기</h2>
 
 		<form id="calculatorForm" method="POST">
 			<div class="form-group">
@@ -92,11 +143,11 @@ body, h1, h2, h3, p, a {
 
 			<div id="apartmentFields" style="display: none;">
 				<div class="form-group">
-					<label for="housePrice">주택 가격:</label>
+					<label for="housePrice">주택 시세:</label>
 					<input type="number" id="housePrice" name="housePrice" class="form-control" required>
 				</div>
 				<div class="form-group">
-					<label for="mortgageAmount">담보 대출금:</label>
+					<label for="mortgageAmount">근저당권 설정액(소유주 총 대출 금액):</label>
 					<input type="number" id="mortgageAmount" name="mortgageAmount" class="form-control" required>
 				</div>
 				<div class="form-group">
@@ -106,26 +157,27 @@ body, h1, h2, h3, p, a {
 			</div>
 
 			<div id="villaFields" style="display: none;">
-    <div class="form-group">
-        <label for="housePrice">구매 가격:</label>
-        <input type="number" id="housePrice" name="housePrice" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="mortgageAmount">담보 대출금:</label>
-        <input type="number" id="mortgageAmount" name="mortgageAmount" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="totalOtherDepositAmount">총 기타 보증금:</label>
-        <input type="number" id="totalOtherDepositAmount" name="totalOtherDepositAmount" class="form-control" required>
-    </div>
-    <div class="form-group">
-        <label for="rentPrice">임대 가격:</label>
-        <input type="number" id="rentPrice" name="rentPrice" class="form-control" required>
-    </div>
-</div>
+				<div class="form-group">
+					<label for="housePrice">주택 시세(실 거래가):</label>
+					<input type="number" id="housePrice" name="housePrice" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="mortgageAmount">근저당권 설정액(소유주 총 대출 금액):</label>
+					<input type="number" id="mortgageAmount" name="mortgageAmount" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="totalOtherDepositAmount">타 거주자 총 보증금:</label>
+					<input type="number" id="totalOtherDepositAmount" name="totalOtherDepositAmount" class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label for="rentPrice">임대 가격:</label>
+					<input type="number" id="rentPrice" name="rentPrice" class="form-control" required>
+				</div>
+			</div>
 
-
-			<button type="submit" class="btn btn-primary mt-3">계산</button>
+			<div class="text-end">
+				<button type="submit" class="btn btn-primary mt-3">계산</button>
+			</div>
 		</form>
 
 		<div id="result" class="mt-3"></div>
@@ -165,7 +217,7 @@ body, h1, h2, h3, p, a {
 	        $.post(url, formData, function(data) {
 	            Swal.fire({
 	                title: '계산 결과',
-	                text: data.result,
+	                html: data.result,  // 'text' 대신 'html'을 사용해야 합니다.
 	                icon: 'info',
 	                confirmButtonText: '확인'
 	            });
@@ -177,20 +229,15 @@ body, h1, h2, h3, p, a {
 	                confirmButtonText: '확인'
 	            });
 	        });
+
 	    });
-
-
-
 	});
-
-    </script>
+	</script>
 
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-	<!--
-Javascript
-======================================================== -->
+	<!-- Javascript -->
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
@@ -207,6 +254,5 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-
 </body>
 </html>

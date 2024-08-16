@@ -6,8 +6,10 @@ public class PreQuizDto {
     private String question;
     private boolean answer;
     private String explanation;
+    private String imageUrl;  // 이미지 URL 필드 추가
 
-    // Getters and setters
+
+	// Getters and setters
     public int getId() {
         return id;
     }
@@ -38,4 +40,10 @@ public class PreQuizDto {
     public void setExplanation(String explanation) {
         this.explanation = explanation;
     }
+    public String getImageUrl() {
+		return imageUrl;
+	}
+	public void setImageUrl(String imageUrl) {
+		this.imageUrl = imageUrl;
+	}
 }

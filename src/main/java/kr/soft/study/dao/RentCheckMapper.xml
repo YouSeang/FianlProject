@@ -5,25 +5,25 @@
 <mapper namespace="kr.soft.study.dao.RentCheckDao">
 
     <select id="getPreQuizs" resultType="kr.soft.study.dto.PreQuizDto">
-        SELECT * FROM PreQuizzes
+        SELECT id, category, question, answer, explanation, image_url AS imageUrl FROM PreQuizzes
     </select>
 
     <select id="getPreQuizById" parameterType="int" resultType="kr.soft.study.dto.PreQuizDto">
-        SELECT * FROM PreQuizzes WHERE id = #{id}
+        SELECT id, category, question, answer, explanation, image_url AS imageUrl FROM PreQuizzes WHERE id = #{id}
     </select>
 
     <select id="getPreQuizzesByCategory" parameterType="string" resultType="kr.soft.study.dto.PreQuizDto">
-        SELECT * FROM PreQuizzes WHERE category = #{category}
+        SELECT id, category, question, answer, explanation, image_url AS imageUrl FROM PreQuizzes WHERE category = #{category}
     </select>
 
     <insert id="addPreQuiz">
-        INSERT INTO PreQuizzes (category, question, answer, explanation)
-        VALUES (#{category}, #{question}, #{answer}, #{explanation})
+        INSERT INTO PreQuizzes (category, question, answer, explanation, image_url)
+        VALUES (#{category}, #{question}, #{answer}, #{explanation}, #{imageUrl})
     </insert>
 
     <update id="updatePreQuiz">
         UPDATE PreQuizzes
-        SET category = #{category}, question = #{question}, answer = #{answer}, explanation = #{explanation}
+        SET category = #{category}, question = #{question}, answer = #{answer}, explanation = #{explanation}, image_url = #{imageUrl}
         WHERE id = #{id}
     </update>
 
