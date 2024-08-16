@@ -51,7 +51,6 @@
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
-
 @font-face {
 	font-family: 'Goorm Sans';
 	font-weight: normal;
@@ -160,7 +159,8 @@ body, h1, h2, h3, p, a {
 	<jsp:include page="/WEB-INF/views/header0802.jsp" />
 
 	<!-- 배너영역 Start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -200,18 +200,19 @@ body, h1, h2, h3, p, a {
 							<li>스미싱을 체험하고자 하는 휴대폰 번호 및 함께 전송하고 싶은 메시지가 있다면 입력 후
 								'체험하기'버튼을 클릭하세요<br /> ex) '어머니, 이런 문자를 받으시면 링크를 절대 클릭하시면 안돼요!'
 							</li>
-							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요</li>
+							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요.</li>
 							<li>스미싱 시뮬레이션은 로그인 후 하루에 한 번만 가능합니다.</li>
 						</ul>
 						<div class="form-container">
 							<h2>스미싱 시뮬레이션</h2>
 							<div class="form-group">
 								<label for="to">전송받을 휴대폰 번호: </label> <input type="text" id="to"
-									name="to" required>
+									name="to" placeholder="01012345678" required>
 							</div>
 							<div class="form-group">
 								<label for="text">받는 분께 전할 메시지:</label>
-								<textarea id="text" name="text" required></textarea>
+								<textarea id="text" name="text"
+									placeholder="받는 분께 보낼 메시지를 입력해주세요" required></textarea>
 							</div>
 
 

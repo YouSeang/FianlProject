@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.soft.study.command.CouponCommand;
-import kr.soft.study.command.ModifyCommand;
 import kr.soft.study.command.UCommand;
 import kr.soft.study.dto.UserDto;
 import kr.soft.study.util.Constant;

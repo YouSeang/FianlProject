@@ -18,8 +18,10 @@ public class MypageDto {
 	private String coupon_type;
 	private Timestamp issue_date;
 	private Timestamp use_date;
-	private Boolean is_used;
+	private int is_used;
 	private Integer unused_coupons;
+
+	private boolean expired;
 
 	public MypageDto() {
 		super();
@@ -27,7 +29,7 @@ public class MypageDto {
 
 	public MypageDto(String user_id, Timestamp point_time, String point_reason, int points_earned, String points_used,
 			Timestamp usage_time, String usage_type, int total_points, int coupon_id, String coupon_type,
-			Timestamp issue_date, Timestamp use_date, Boolean is_used, Integer unused_coupons) {
+			Timestamp issue_date, Timestamp use_date, int is_used, Integer unused_coupons, boolean expired) {
 		super();
 		this.user_id = user_id;
 		this.point_time = point_time;
@@ -43,6 +45,7 @@ public class MypageDto {
 		this.use_date = use_date;
 		this.is_used = is_used;
 		this.unused_coupons = unused_coupons;
+		this.expired = expired;
 	}
 
 	public String getUser_id() {
@@ -141,11 +144,11 @@ public class MypageDto {
 		this.use_date = use_date;
 	}
 
-	public Boolean getIs_used() {
+	public int getIs_used() {
 		return is_used;
 	}
 
-	public void setIs_used(Boolean isUsed) {
+	public void setIs_used(int is_used) {
 		this.is_used = is_used;
 	}
 
@@ -155,6 +158,14 @@ public class MypageDto {
 
 	public void setUnused_coupons(Integer unused_coupons) {
 		this.unused_coupons = unused_coupons;
+	}
+
+	public boolean isExpired() {
+		return expired;
+	}
+
+	public void setExpired(boolean expired) {
+		this.expired = expired;
 	}
 
 }
