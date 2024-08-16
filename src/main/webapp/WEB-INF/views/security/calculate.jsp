@@ -107,7 +107,7 @@ h2 {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background-position: 50% 0%;">
+	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
