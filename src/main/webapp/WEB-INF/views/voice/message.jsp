@@ -162,7 +162,7 @@ body, h1, h2, h3, p, a {
 	<!-- Team Area End -->
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
-
+      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 
 	<!--
 Javascriptg

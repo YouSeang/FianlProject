@@ -166,6 +166,6 @@ body, h1, h2, h3, p, a {
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
 
-
+      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 </html>

@@ -158,7 +158,7 @@
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-
+      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 
 </html>

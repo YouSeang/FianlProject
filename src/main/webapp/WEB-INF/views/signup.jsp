@@ -156,119 +156,11 @@ body, h1, h2, h3, p, a {
 	</main>
 	<!-- Main Area End -->
 
-	<!-- Become Volunteer Area Start -->
-	<div class="volunteer-area bg-cover section-padding"
-		data-stellar-background-ratio="0.4"
-		style="background-image: url('images/banner/volunteer.jpg');">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="volunteer-wrap text-center">
-						<span>Become a Volunteer</span>
-						<p>Join us to participate yourself for mankind</p>
-						<a href="#" class="custom-btn">join now</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Become Volunteer Area End -->
+	<!-- Footer start-->
+	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-	<!-- Footer Area Start -->
-	<footer class="footer-area">
-		<div class="footer-top">
-			<div class="newsletter">
-				<h4>SignUp Our Newsletter</h4>
-				<!-- Mailchimp From Start -->
-				<form class="mailchimp inputSubscribeDiv">
-					<input type="email" name="subscribe" id="subscriber-email"
-						placeholder="Your Mail" class="form-control">
-					<button type="submit" id="subscribe-button">
-						<i class="fa fa-paper-plane"></i>
-					</button>
-					<div class="subscription-success"></div>
-					<div class="subscription-error"></div>
-					<label class="subscription-label" for="subscriber-email"></label>
-				</form>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4 col-sm-6">
-					<div class="footer-widget footer-about">
-						<div class="f-logo">
-							<a href="#"> <img src="images/components/f-logo.png"
-								alt="Logo">
-							</a>
-						</div>
-						<p>Help us to save lifes during a natural disaster, get clean
-							water running in the most remote areas, and much more.</p>
-						<div class="footer-social">
-							<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-								href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-								class="fa-brands fa-youtube"></i></a> <a href="#"><i
-								class="fa-brands fa-pinterest"></i></a> <a href="#"><i
-								class="fa-brands fa-instagram"></i></a>
-						</div>
-					</div>
-				</div>
-				<div class="col-lg-2 offset-lg-1 col-sm-5 offset-sm-1">
-					<div class="footer-widget">
-						<h3 class="widget-title">about us</h3>
-						<ul>
-							<li><a href="#">About Employee</a></li>
-							<li><a href="#">About Carrier</a></li>
-							<li><a href="#">How it works</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Contact</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-2 col-sm-6">
-					<div class="footer-widget">
-						<h3 class="widget-title">Useful Links</h3>
-						<ul>
-							<li><a href="#">Project</a></li>
-							<li><a href="#">Donner</a></li>
-							<li><a href="#">Relief</a></li>
-							<li><a href="#">Sanitaion</a></li>
-							<li><a href="#">News</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-3 col-sm-5 offset-sm-1 offset-lg-0">
-					<div class="footer-widget">
-						<h3 class="widget-title">Contact Us</h3>
-						<ul class="footer-contact">
-							<li><i class="fa fa-home"></i> <span>129, London
-									Street, South London UK.</span></li>
-							<li><i class="fa fa-phone"></i><span><a
-									href="tel:+6494461709.7890">+00- 123.456.7890</a> <br> <a
-									href="tel:+6494461709.7890">+00- 223.456.7890</a></span></li>
-							<li><i class="fa fa-envelope"></i> <span><a
-									href="mailto:help@gmail.com">help@gmail.com</a></span></li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			<div class="row copy-right g-0">
-				<div class="col-xl-6 col-md-7 order-2 order-md-1">
-					<p>
-						Copyright © 2024. All Rights Reserved by <a href="#">theme-village</a>
-					</p>
-				</div>
-				<div class="col-xl-6 col-md-5 order-1 order-md-2">
-					<nav class="quick-link text-lg-end">
-						<ul>
-							<li><a href="#" class="nav-link">Terms & Conditions</a></li>
-							<li><a href="#" class="nav-link">Privacy Policy</a></li>
-						</ul>
-					</nav>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Footer Area Start -->
+
+
 
 	<!--
 Javascript
@@ -290,8 +182,7 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-
-
+      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 
 </html>
