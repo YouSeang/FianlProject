@@ -98,4 +98,14 @@ public class AdminController {
 
 		return "admin/adminCoupon";
 	}
+
+	 // 쿠폰 추가 처리
+    @PostMapping("/admin/addCoupon")
+    public String addCoupon(@RequestParam("couponType") String couponType,
+                            @RequestParam("couponImage") String couponImage,
+                            Model model) {
+        CouponDao dao = sqlSession.getMapper(CouponDao.class);
+        dao.addCoupon(couponType, couponImage);
+        return "redirect:/admin/adminCoupon";
+    }
 }
