@@ -45,7 +45,7 @@
 	href="${pageContext.request.contextPath}/resources/css/style.css">
 <body>
         
-<div id="frogue-container" class="position-right-bottom"
+<div id="frogue-container" class="position-right-bottom" style="bottom: 130px;"
 data-chatbot="356efa41-08e2-45a9-905c-75ede6cb677b"
 data-service-type=""
 data-user="사용자ID"
