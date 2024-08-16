@@ -195,10 +195,10 @@ body, h1, h2, h3, p, a {
             .then(function(stream) {
                 let options = {};
                 // Safari 호환성을 위해 audio/mp4 형식 먼저 확인
-                if (MediaRecorder.isTypeSupported('audio/mp4')) {
-                    options.mimeType = 'audio/mp4';
-                } else if (MediaRecorder.isTypeSupported('audio/webm')) {
+                if (MediaRecorder.isTypeSupported('audio/webm')) {
                     options.mimeType = 'audio/webm';
+                } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+                    options.mimeType = 'audio/mp4';
                 } else if (MediaRecorder.isTypeSupported('audio/aac')) {
                     options.mimeType = 'audio/aac';
                 }

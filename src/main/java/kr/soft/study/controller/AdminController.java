@@ -99,13 +99,31 @@ public class AdminController {
 		return "admin/adminCoupon";
 	}
 
-	 // 쿠폰 추가 처리
-    @PostMapping("/admin/addCoupon")
-    public String addCoupon(@RequestParam("couponType") String couponType,
-                            @RequestParam("couponImage") String couponImage,
-                            Model model) {
-        CouponDao dao = sqlSession.getMapper(CouponDao.class);
-        dao.addCoupon(couponType, couponImage);
-        return "redirect:/admin/adminCoupon";
-    }
+	// 쿠폰 추가 처리
+	@PostMapping("/admin/addCoupon")
+	public String addCoupon(@RequestParam("coupon_type") String coupon_type,
+			@RequestParam("coupon_image") String coupon_image, Model model) {
+		CouponDao dao = sqlSession.getMapper(CouponDao.class);
+		dao.addCoupon(coupon_type, coupon_image);
+		return "redirect:/admin/adminCoupon";
+	}
+
+	// 쿠폰 수정 처리
+	@PostMapping("/admin/updateCoupon")
+	public String updateCoupon(@RequestParam("couponId") int couponId, @RequestParam("coupon_type") String coupon_type,
+			@RequestParam("coupon_image") String coupon_image, // 이미지 경로를 직접 입력받는 경우
+			Model model) {
+		CouponDao dao = sqlSession.getMapper(CouponDao.class);
+		dao.updateCoupon(couponId, coupon_type, coupon_image);
+		return "redirect:/admin/adminCoupon";
+	}
+
+	// 쿠폰 삭제 처리
+	@PostMapping("/admin/deleteCoupon")
+	public String deleteCoupon(@RequestParam("couponId") int couponId) {
+		CouponDao dao = sqlSession.getMapper(CouponDao.class);
+		dao.deleteCoupon(couponId);
+		return "redirect:/admin/adminCoupon";
+	}
+
 }
