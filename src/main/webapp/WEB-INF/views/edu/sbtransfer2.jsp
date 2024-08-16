@@ -117,7 +117,7 @@
 
 
 	<div id="step-indicator">
-		<img id="back-button" src="/resources/images/transfer/back-button.png"
+		<img id="back-button" src="{pageContext.request.contextPath}/resources/images/transfer/back-button.png"
 			alt="뒤로가기"> <span id="step-text">1단계 / 7단계</span>
 		<div id="progress-bar">
 			<div id="progress-bar-fill"></div>
@@ -445,7 +445,7 @@
 
             // 현재 이미지에 따라 숫자 처리 구분
             var currentSrc = $("#main-image").attr("src");
-            var isAccountInput = currentSrc.includes("transfer2-1.png") || currentSrc.includes("transfer3error.png");
+            var isAccountInput = currentSrc.includes("transfer2-1.png") || currentSrc.includes("transfer2-2error.png");
 
             // 클릭한 영역의 ID에 따라 값을 설정
             if (areaId === 'keypad-1') value = '1';
@@ -514,7 +514,7 @@
             
             if (inputaccountNum === "") {
                 // 계좌번호가 입력되지 않은 경우 오류 이미지 표시
-                var errorSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer3error.png"; // 오류 이미지 경로
+                var errorSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2-2error.png"; // 오류 이미지 경로
                 var errorMap = `
                     <area id="keypad-1" target="" alt="" title="" href="#" coords="293,124,589,160" shape="rect">
                     <area id="keypad-2" target="" alt="" title="" href="#" coords="258,487,637,733" shape="rect">

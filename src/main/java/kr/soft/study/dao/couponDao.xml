@@ -19,6 +19,19 @@
 	<insert id="addCoupon">
 		INSERT INTO Coupons (coupon_type, coupon_image,
 		coupon_points)
-		VALUES (#{couponType}, #{couponImage}, 5000)
+		VALUES (#{coupon_type}, #{coupon_image}, 5000)
 	</insert>
+
+	<!-- 쿠폰 수정하기 -->
+	<update id="updateCoupon">
+		UPDATE Coupons
+		SET coupon_type = #{coupon_type},
+		coupon_image = #{coupon_image}
+		WHERE id = #{couponId}
+	</update>
+
+	<!-- 쿠폰 삭제하기 -->
+	<delete id="deleteCoupon">
+		DELETE FROM Coupons WHERE id = #{couponId}
+	</delete>
 </mapper>
