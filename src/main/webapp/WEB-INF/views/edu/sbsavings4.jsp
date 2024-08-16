@@ -392,31 +392,31 @@
             const targetId = $(this).attr('id');
 
             switch(targetId) {
-                case 'goto-sbsavings2':
+                case 'goto-sbsavings1-1':
                     changeStep(2);
                     break;
-                case 'goto-sbsavings3':
+                case 'goto-sbsavings2':
                     changeStep(3);
                     break;
-                case 'goto-sbsavings4':
+                case 'goto-sbsavings2-1':
                     changeStep(4);
                     break;
-                case 'goto-sbsavings5':
+                case 'goto-sbsavings3':
                     changeStep(5);
                     break;
-                case 'goto-sbsavings6':
+                case 'goto-sbsavings3-1':
                     changeStep(6);
                     break;
-                case 'goto-sbsavings7':
+                case 'goto-sbsavings4':
                     changeStep(7);
                     break;
-                case 'goto-sbsavings8':
+                case 'goto-sbsavings4-1':
                     changeStep(8);
                     break;
-                case 'goto-sbsavings9':
+                case 'goto-sbsavings5':
                     changeStep(9);
                     break;
-                case 'goto-sbsavings10':
+                case 'goto-sbsavings6':
                     changeStep(10);
                     break;
                 case 'finish':
