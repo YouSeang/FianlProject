@@ -102,14 +102,15 @@ body, h1, h2, h3, p, a {
 						method="post">
 						<div class="mb-3">
 							<label for="typeNew" class="form-label">쿠폰 타입</label> <input
-								type="text" class="form-control" id="typeNew" name="type"
+								type="text" class="form-control" id="typeNew" name="couponType"
 								required>
 						</div>
 						<div class="mb-3">
-							<label for="typeNew" class="form-label">이미지 경로</label> <input
-								type="text" class="form-control" id="adminTextNew"
-								name="adminText" required>
+							<label for="imageNew" class="form-label">이미지 경로</label> <input
+								type="text" class="form-control" id="imageNew"
+								name="couponImage" required>
 						</div>
+						<button type="submit" class="btn btn-primary">저장</button>
 					</form>
 				</div>
 			</div>
