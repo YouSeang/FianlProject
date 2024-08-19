@@ -88,14 +88,25 @@
 }
 
 .display-area {
-	position: absolute;
-	border: 1px solid #000;
-	display: none;
+    position: absolute;
+    display: flex;
+    align-items: center; /* 수직 가운데 정렬 */
+    border: none; /* 테두리 제거 */
 }
 
 .display-text {
-	font-size: 16px;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: normal; /* 텍스트가 display-area의 중앙에 위치하도록 함 */
 }
+
+/* /* display-text2에만 수평 및 수직 가운데 정렬 적용 */
+#display-text2, #display-text4, #display-text5,#display-text6 {
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center; /* 수평 가운데 정렬 */
+    text-align: center; /* 텍스트 중앙 정렬 */
+    width: 100%; /* 부모 요소에서 가운데 정렬되도록 너비 설정 */
+} */
 
 @media ( max-width : 767.98px) {
 	.display-text {
@@ -331,83 +342,108 @@
 
        // 단계 변경 함수
        function changeStep(step) {
-           var newSrc;
-           var newMap;
-           var displayAreaCoords = null;
-           var displayAreaCoords1 = null;
-           var displayAreaCoords2 = null;
-           var displayAreaCoords3 = null;
-           var displayAreaCoords4 = null;
-           var displayAreaCoords5 = null;
-           var displayAreaCoords6 = null;
-           var keypadAreaCoords = null;
+    var newSrc;
+    var newMap;
+    var displayAreaCoords = null;
+    var displayAreaCoords1 = null;
+    var displayAreaCoords2 = null;
+    var displayAreaCoords3 = null;
+    var displayAreaCoords4 = null;
+    var displayAreaCoords5 = null;
+    var displayAreaCoords6 = null;
+    var keypadAreaCoords = null;
 
-           switch (step) {
-               case 1:
-                   newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer1.png";
-                   newMap = `
-                       <area id="area-1" target="_self" alt="" title="" href="#" coords="331,259,569,294" shape="rect">
-                       <area id="area-2" target="_self" alt="" title="" href="#" coords="262,33,637,256" shape="rect">
-                       <area id="area-3" target="_self" alt="" title="" href="#" coords="258,298,639,779" shape="rect">
-                   `;
-                   break;
-               case 2:
-                   newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2.png";
-                   newMap = `
-                       <area id="area-4" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
-                       <area id="area-5" target="" alt="" title="" href="#" coords="257,31,641,94" shape="rect">
-                       <area id="area-6" target="" alt="" title="" href="#" coords="259,173,638,786" shape="rect">
-                   `;
-                   break;
-               case 3:
-                   newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2-1.png";
-                   newMap = `
-                       <area id="keypad-1" target="" alt="" title="" href="#" coords="266,495,375,550" shape="rect">
-                       <area id="keypad-2" target="" alt="" title="" href="#" coords="387,496,500,550" shape="rect">
-                       <area id="keypad-3" target="" alt="" title="" href="#" coords="513,498,620,550" shape="rect">
-                       <area id="keypad-4" target="" alt="" title="" href="#" coords="265,555,375,604" shape="rect">
-                       <area id="keypad-5" target="" alt="" title="" href="#" coords="387,554,500,603" shape="rect">
-                       <area id="keypad-6" target="" alt="" title="" href="#" coords="513,554,619,603" shape="rect">
-                       <area id="keypad-7" target="" alt="" title="" href="#" coords="267,610,373,657" shape="rect">
-                       <area id="keypad-8" target="" alt="" title="" href="#" coords="386,610,499,656" shape="rect">
-                       <area id="keypad-9" target="" alt="" title="" href="#" coords="512,612,617,655" shape="rect">
-                       <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
-                       <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
-                       <area id="keypad-check" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
-                   `;
-                   displayAreaCoords = "298,130,595,162";
-                   keypadAreaCoords = "281,124,612,163";
-                   break;
-               case 4:
-                   newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer3.png";
-                   newMap = `
-                       <area id="keypad-1" target="" alt="" title="" href="#" coords="266,495,375,550" shape="rect">
-                       <area id="keypad-2" target="" alt="" title="" href="#" coords="387,496,500,550" shape="rect">
-                       <area id="keypad-3" target="" alt="" title="" href="#" coords="513,498,620,550" shape="rect">
-                       <area id="keypad-4" target="" alt="" title="" href="#" coords="265,555,375,604" shape="rect">
-                       <area id="keypad-5" target="" alt="" title="" href="#" coords="387,554,500,603" shape="rect">
-                       <area id="keypad-6" target="" alt="" title="" href="#" coords="513,554,619,603" shape="rect">
-                       <area id="keypad-7" target="" alt="" title="" href="#" coords="267,610,373,657" shape="rect">
-                       <area id="keypad-8" target="" alt="" title="" href="#" coords="386,610,499,656" shape="rect">
-                       <area id="keypad-9" target="" alt="" title="" href="#" coords="512,612,617,655" shape="rect">
-                       <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
-                       <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
-                       <area id="keypad-00" target="" alt="" title="" href="#" coords="276,665,369,710" shape="rect">
-                       <area id="keypad-total" target="" alt="" title="" href="#" coords="283,452,344,482" shape="rect">
-                       <area id="keypad-100man" target="" alt="" title="" href="#" coords="348,453,412,482" shape="rect">
-                       <area id="keypad-10man" target="" alt="" title="" href="#" coords="415,453,477,483" shape="rect">
-                       <area id="keypad-5man" target="" alt="" title="" href="#" coords="482,452,542,482" shape="rect">
-                       <area id="keypad-1man" target="" alt="" title="" href="#" coords="549,452,611,483" shape="rect">
-                       <area id="keypad-next" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
-                   `;
-                   displayAreaCoords1 = "342,110,527,128";
-                   displayAreaCoords2 = "374,186,463,210";
-                   break;
-               // 필요한 경우 다른 단계도 추가 가능
-           }
+    switch (step) {
+        case 1:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer1.png";
+            newMap = `
+                <area id="area-1" target="_self" alt="" title="" href="#" coords="331,259,569,294" shape="rect">
+                <area id="area-2" target="_self" alt="" title="" href="#" coords="262,33,637,256" shape="rect">
+                <area id="area-3" target="_self" alt="" title="" href="#" coords="258,298,639,779" shape="rect">
+            `;
+            break;
+        case 2:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2.png";
+            newMap = `
+                <area id="area-4" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
+                <area id="area-5" target="" alt="" title="" href="#" coords="257,31,641,94" shape="rect">
+                <area id="area-6" target="" alt="" title="" href="#" coords="259,173,638,786" shape="rect">
+            `;
+            break;
+        case 3:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2-1.png";
+            newMap = `
+                <area id="keypad-1" target="" alt="" title="" href="#" coords="266,495,375,550" shape="rect">
+                <area id="keypad-2" target="" alt="" title="" href="#" coords="387,496,500,550" shape="rect">
+                <area id="keypad-3" target="" alt="" title="" href="#" coords="513,498,620,550" shape="rect">
+                <area id="keypad-4" target="" alt="" title="" href="#" coords="265,555,375,604" shape="rect">
+                <area id="keypad-5" target="" alt="" title="" href="#" coords="387,554,500,603" shape="rect">
+                <area id="keypad-6" target="" alt="" title="" href="#" coords="513,554,619,603" shape="rect">
+                <area id="keypad-7" target="" alt="" title="" href="#" coords="267,610,373,657" shape="rect">
+                <area id="keypad-8" target="" alt="" title="" href="#" coords="386,610,499,656" shape="rect">
+                <area id="keypad-9" target="" alt="" title="" href="#" coords="512,612,617,655" shape="rect">
+                <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
+                <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
+                <area id="keypad-check" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
+            `;
+            displayAreaCoords = "298,130,595,162"; // 계좌번호 입력 영역 위치
+            keypadAreaCoords = "281,124,612,163"; // 키패드 영역 위치
+            break;
+        case 4:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer3.png";
+            newMap = `
+                <area id="keypad-1" target="" alt="" title="" href="#" coords="266,495,375,550" shape="rect">
+                <area id="keypad-2" target="" alt="" title="" href="#" coords="387,496,500,550" shape="rect">
+                <area id="keypad-3" target="" alt="" title="" href="#" coords="513,498,620,550" shape="rect">
+                <area id="keypad-4" target="" alt="" title="" href="#" coords="265,555,375,604" shape="rect">
+                <area id="keypad-5" target="" alt="" title="" href="#" coords="387,554,500,603" shape="rect">
+                <area id="keypad-6" target="" alt="" title="" href="#" coords="513,554,619,603" shape="rect">
+                <area id="keypad-7" target="" alt="" title="" href="#" coords="267,610,373,657" shape="rect">
+                <area id="keypad-8" target="" alt="" title="" href="#" coords="386,610,499,656" shape="rect">
+                <area id="keypad-9" target="" alt="" title="" href="#" coords="512,612,617,655" shape="rect">
+                <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
+                <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
+                <area id="keypad-00" target="" alt="" title="" href="#" coords="276,665,369,710" shape="rect">
+                <area id="keypad-total" target="" alt="" title="" href="#" coords="283,452,344,482" shape="rect">
+                <area id="keypad-100man" target="" alt="" title="" href="#" coords="348,453,412,482" shape="rect">
+                <area id="keypad-10man" target="" alt="" title="" href="#" coords="415,453,477,483" shape="rect">
+                <area id="keypad-5man" target="" alt="" title="" href="#" coords="482,452,542,482" shape="rect">
+                <area id="keypad-1man" target="" alt="" title="" href="#" coords="549,452,611,483" shape="rect">
+                <area id="keypad-next" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
+            `;
+            displayAreaCoords1 = "352,109,534,127"; // 입력된 계좌번호 표시 영역 위치
+            displayAreaCoords2 = "383,187,463,208"; // 입력된 금액 표시 영역 위치
+            break;
+        case 5:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer4.png";
+            newMap = `
+                <area id="area-7" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
+            `;
+            displayAreaCoords3 = "352,171,516,193"; // 받는 분 계좌 표시 영역 위치
+            displayAreaCoords4 = "363,271,473,298"; // 보내는 금액 표시 영역 위치
+            break;
+        case 6:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer5.png";
+            newMap = `
+                <area id="area-8" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
+            `;
+            displayAreaCoords3 = "352,171,516,193"; // 받는 분 계좌 표시 영역 위치
+            displayAreaCoords4 = "378,268,473,299"; // 보내는 금액 표시 영역 위치
+            displayAreaCoords5 = "316,582,404,604"; // 이체금액 확인 표시 영역 위치
+            break;
+        case 7:
+            newSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer6.png";
+            newMap = `
+                <area id="area-9" target="" alt="" title="" href="#" coords="258,119,637,164" shape="rect">
+            `;
+            displayAreaCoords6 = "347,266,467,289"; // 이체완료 금액 표시 영역 위치
+            break;
+        default:
+            return; // 알 수 없는 단계인 경우, 아무 작업도 하지 않음
+    }
 
-           changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, displayAreaCoords6, keypadAreaCoords);
-       }
+    changeImage(newSrc, newMap, displayAreaCoords, displayAreaCoords1, displayAreaCoords2, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, displayAreaCoords6, keypadAreaCoords);
+}
 
        // 페이지 로드 시 초기 상태 설정 및 단계 업데이트
        $(document).ready(function() {
@@ -541,7 +577,7 @@
             }
 
             if (!inputpay) {
-                $("#display-text2").text("0");
+                $("#display-text2").text("");
             }
         });
 
@@ -595,8 +631,8 @@
                     <area id="keypad-1man" target="" alt="" title="" href="#" coords="549,452,611,483" shape="rect">
                     <area id="keypad-next" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
                 `;
-                var displayAreaCoords1 = "342,110,527,128"; // display-area1의 위치와 크기를 설정
-                var displayAreaCoords2 = "374,186,463,210"; // display-area2의 위치와 크기를 설정
+                var displayAreaCoords1 = "352,109,534,127"; // display-area1의 위치와 크기를 설정
+                var displayAreaCoords2 = "383,187,463,208"; // display-area2의 위치와 크기를 설정
                 var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
                 
                 changeImage(newSrc, newMap, null, displayAreaCoords1, displayAreaCoords2, null, null, null, null, keypadAreaCoords);
@@ -636,8 +672,8 @@
                     <area id="keypad-1man" target="" alt="" title="" href="#" coords="549,452,611,483" shape="rect">
                     <area id="keypad-next" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
                 `;
-                var displayAreaCoords1 = "342,110,527,128"; // display-area1의 위치와 크기를 설정
-                var displayAreaCoords2 = "374,186,463,210"; // display-area2의 위치와 크기를 설정
+                var displayAreaCoords1 = "352,109,534,127"; // display-area1의 위치와 크기를 설정
+                var displayAreaCoords2 = "378,268,473,299"; // display-area2의 위치와 크기를 설정
                 var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
                 
                 changeImage(errorSrc, errorMap, null, displayAreaCoords1, displayAreaCoords2, null, null, null, null, keypadAreaCoords);
@@ -650,8 +686,8 @@
                 var newMap = `
                     <area id="area-7" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
                 `;
-                var displayAreaCoords3 = "343,172,533,193"; // display-area3의 위치와 크기를 설정
-                var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
+                var displayAreaCoords3 = "352,171,516,193"; // display-area3의 위치와 크기를 설정
+                var displayAreaCoords4 = "363,271,473,298"; // display-area4의 위치와 크기를 설정
                 var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
 
                 changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, null, null, keypadAreaCoords);
@@ -674,8 +710,8 @@
             var newMap = `
                 <area id="area-8" target="" alt="" title="" href="#" coords="257,728,635,784" shape="rect">
             `;
-            var displayAreaCoords3 = "343,172,533,193"; // display-area3의 위치와 크기를 설정
-            var displayAreaCoords4 = "352,269,478,299"; // display-area4의 위치와 크기를 설정
+            var displayAreaCoords3 = "352,171,516,193"; // display-area3의 위치와 크기를 설정
+            var displayAreaCoords4 = "363,271,473,298"; // display-area4의 위치와 크기를 설정
             var displayAreaCoords5 = "316,582,404,604"; // display-area5의 위치와 크기를 설정
             var keypadAreaCoords = ""; // keypad-area의 위치와 크기를 설정
             changeImage(newSrc, newMap, null, null, null, displayAreaCoords3, displayAreaCoords4, displayAreaCoords5, null, keypadAreaCoords);
@@ -683,11 +719,7 @@
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
             
-         // 6단계가 완료되면 포인트 업데이트 함수 호출
-            if (isLoggedIn) {
-                updatePoints();
-            }
-        });
+         
         
         // 여섯 번째 이미지 전환 이벤트 (상세 이체정보 확인 후 '다음' 버튼 클릭 시)
         $(document).on('click', '#area-8', function(event) {
@@ -706,7 +738,11 @@
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
             
-            
+         // 7단계가 완료되면 포인트 업데이트 함수 호출
+            if (isLoggedIn) {
+                updatePoints();
+            }
+        });
         });
 
         // 창 크기 변경 시 이미지 맵 크기 조정

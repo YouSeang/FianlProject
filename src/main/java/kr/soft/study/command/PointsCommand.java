@@ -52,7 +52,7 @@ public class PointsCommand implements PCommand {
 			pointsDto.setTotalPoints(updatedTotalPoints);
 			pointsDAO.addPoints(pointsDto);
 
-			return "Points added successfully.";
+			return "포인트가 업데이트 되었습니다!";
 		} else {
 			System.out.println("Points already added today for userId: " + userId + ", pointReason: " + pointReason);
 			return "오늘은 이미 체험을 통한 포인트 지급이 완료되었습니다.";
