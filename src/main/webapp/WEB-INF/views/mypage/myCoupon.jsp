@@ -64,7 +64,19 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 	margin-top: 10px;
 }
 
-.points-note {
+.coupon-info {
+	font-size: 1.2rem; /* 글씨 크기 조정 */
+	line-height: 1.5; /* 줄 간격 조정 */
+	color: #333; /* 글씨 색상 */
+	margin-top: 10px; /* 상단 여백 */
+	margin-bottom: 10px; /* 하단 여백 */
+	padding: 10px; /* 안쪽 여백 */
+	border: 1px solid #ddd; /* 테두리 */
+	border-radius: 5px; /* 테두리 둥글게 */
+	background-color: #f9f9f9; /* 배경색 */
+}
+
+/* .points-note {
 	font-size: 0.9em;
 	color: #555;
 }
@@ -76,7 +88,7 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 
 .points-note ul li {
 	margin-bottom: 5px;
-}
+} */
 
 .tab-menu {
 	display: flex;
@@ -131,8 +143,8 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-	
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -284,14 +296,22 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 				</div>
 
 
-				<div class="points-container">
+				<div class="coupon-info mb-4">
+					ㅇ쿠폰 발행 및 사용 현황을 확인하실 수 있습니다.<br/>
+					ㅇ미사용 쿠폰은 재발송이 가능합니다. <br/>
+					ㅇ쿠폰의 유효기간은 발행일로부터 1개월입니다.<br/>
+					ㅇ기타 문의는 고객센터(1588-9999)로 연락해주세요.
+				</div>
+
+
+				<!-- <div class="points-container">
 					<div class="points-note">
 						<p>※ 쿠폰 발행 및 사용 현황을 확인하실 수 있습니다.</p>
 						<p>※ 미사용 쿠폰은 재발송이 가능합니다.</p>
 						<p>※ 쿠폰의 유효기간은 발행일로부터 1개월입니다.</p>
 						<p>※ 기타 문의는 고객센터(1588-9999)로 연락해주세요.</p>
 					</div>
-				</div>
+				</div> -->
 
 
 
@@ -333,6 +353,6 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 			}
 		}
 	</script>
-	      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 </html>
