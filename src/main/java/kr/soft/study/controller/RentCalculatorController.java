@@ -41,7 +41,7 @@ public class RentCalculatorController {
         if (threshold < rentPrice) {
             response.put("result", String.format("%s 유의하세요. 깡통전세의 위험이 있습니다.", settings.getRentPriceTerm()));
         } else {
-            response.put("result", String.format("%s 적절한 전세가입니다.<br>HUG안심전세포털에서 다른 조건도 점검해보세요.<br><a href=\"https://www.khug.or.kr/\" target=\"_blank\">여기</a>를 클릭하세요.", settings.getRentPriceTerm()));
+            response.put("result", String.format("%s 적절한 전세가입니다.<br>HUG안심전세포털에서 다른 조건도 점검해보세요.<br><a href=\"https://www.khug.or.kr/jeonse/index.jsp\" target=\"_blank\">여기</a>를 클릭하세요.", settings.getRentPriceTerm()));
         }
         return response;
     }
