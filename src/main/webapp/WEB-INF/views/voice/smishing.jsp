@@ -126,13 +126,13 @@ body, h1, h2, h3, p, a {
                         denyButtonText: '체험 다시하기'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            Swal.fire({
+                            /* Swal.fire({
                                 title: '포인트 업데이트 완료!',
                                 text: response.pointUpdateResult,
                                 icon: 'success'
-                            }).then(() => {
+                            }).then(() => { */
                                 window.location.href = contextPath + "/voice/smishing";
-                            });
+                            //});
                         } else if (result.isDenied) {
                             location.reload();
                         }
