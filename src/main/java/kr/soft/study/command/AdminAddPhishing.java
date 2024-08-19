@@ -32,7 +32,7 @@ public class AdminAddPhishing {
 
         // Handle audio files
         if (audioFiles != null) {
-            int fileId = 1;
+            int fileId = 0;
             for (MultipartFile file : audioFiles) {
                 if (!file.isEmpty()) {
                     String fileName = saveFile(file);

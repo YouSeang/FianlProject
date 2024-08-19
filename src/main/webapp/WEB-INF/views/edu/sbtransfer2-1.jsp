@@ -19,7 +19,7 @@
 
 <!-- isLoggedIn 변수를 설정 -->
 <script>
-        var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" /> === "true";
+        var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
     </script>
 
 <title>LocKB</title>
@@ -117,7 +117,7 @@
 
 
 	<div id="step-indicator">
-		<img id="back-button" src="/resources/images/transfer/back-button.png"
+		<img id="back-button" src="z/resources/images/transfer/back-button.png"
 			alt="뒤로가기"> <span id="step-text">1단계 / 7단계</span>
 		<div id="progress-bar">
 			<div id="progress-bar-fill"></div>
@@ -614,6 +614,11 @@
 
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
+            
+         // 6단계가 완료되면 포인트 업데이트 함수 호출
+            if (isLoggedIn) {
+                updatePoints();
+            }
         });
         
         // 여섯 번째 이미지 전환 이벤트 (상세 이체정보 확인 후 '다음' 버튼 클릭 시)
@@ -632,6 +637,8 @@
 
             // 클릭 가능한 영역 숨기기
             $("#display-area").hide();
+            
+            
         });
 
         // 창 크기 변경 시 이미지 맵 크기 조정

@@ -47,6 +47,72 @@
 body, h1, h2, h3, p, a {
 	font-family: 'Goorm Sans' !important;
 }
+
+/* 테이블 스타일 */
+.table-bordered {
+	border: 1px solid #dee2e6;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	overflow: hidden;
+}
+
+.table-bordered th, .table-bordered td {
+	padding: 12px;
+	text-align: center;
+	vertical-align: middle;
+	border: 1px solid #dee2e6;
+	background-color: #f9f9f9;
+}
+
+.table-bordered th {
+	background-color: #f1f1f1;
+	font-weight: bold;
+	color: #333;
+}
+
+/* 이미지 스타일 */
+.table img {
+	width: 80px;
+	height: auto;
+	border-radius: 5px;
+}
+
+/* 버튼 스타일 */
+.btn {
+	border-radius: 20px;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+
+.btn-warning, .btn-danger {
+	margin-left: 5px;
+}
+
+/* 쿠폰 추가 폼 스타일 */
+#addCoupon {
+	max-width: 400px;
+	margin: 0 auto;
+	display: none;
+}
+
+#addCoupon .card {
+	border-radius: 10px;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+#addCoupon .card-header {
+	background-color: #f1f1f1;
+	text-align: center;
+	font-weight: bold;
+}
+
+#addCoupon .card-body {
+	padding: 20px;
+}
+
+#addCoupon .form-control {
+	border-radius: 10px;
+}
 </style>
 </head>
 <body>
@@ -76,7 +142,7 @@ body, h1, h2, h3, p, a {
 							<td>${coupon.coupon_type}</td>
 							<td><img
 								src="${pageContext.request.contextPath}${coupon.coupon_image}"
-								alt="Coupon Image" style="width: 100px;"></td>
+								alt="Coupon Image"></td>
 							<td><a
 								href="${pageContext.request.contextPath}/admin/updateCouponForm?couponId=${coupon.id}"
 								class="btn btn-warning">수정</a>
@@ -92,7 +158,7 @@ body, h1, h2, h3, p, a {
 			</table>
 		</div>
 
-		<div id="addCoupon" style="display: none;">
+		<div id="addCoupon">
 			<div class="card">
 				<div class="card-header">
 					<h5>쿠폰 추가</h5>
@@ -102,14 +168,15 @@ body, h1, h2, h3, p, a {
 						method="post">
 						<div class="mb-3">
 							<label for="typeNew" class="form-label">쿠폰 타입</label> <input
-								type="text" class="form-control" id="typeNew" name="type"
+								type="text" class="form-control" id="typeNew" name="coupon_type"
 								required>
 						</div>
 						<div class="mb-3">
-							<label for="typeNew" class="form-label">이미지 경로</label> <input
-								type="text" class="form-control" id="adminTextNew"
-								name="adminText" required>
+							<label for="imageNew" class="form-label">이미지 경로</label> <input
+								type="text" class="form-control" id="imageNew"
+								name="coupon_image" required>
 						</div>
+						<button type="submit" class="btn btn-primary">저장</button>
 					</form>
 				</div>
 			</div>

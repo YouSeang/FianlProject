@@ -11,7 +11,27 @@
 
 	<!-- 해당사용자의 쿠폰추가 -->
 	<insert id="insertUserCoupon">
-		INSERT INTO UserCoupons (user_id, coupon_id, issue_date)
+		INSERT INTO UserCoupons (user_id, coupon_id,
+		issue_date)
 		VALUES (#{userId}, #{couponId}, NOW())
 	</insert>
+
+	<insert id="addCoupon">
+		INSERT INTO Coupons (coupon_type, coupon_image,
+		coupon_points)
+		VALUES (#{coupon_type}, #{coupon_image}, 5000)
+	</insert>
+
+	<!-- 쿠폰 수정하기 -->
+	<update id="updateCoupon">
+		UPDATE Coupons
+		SET coupon_type = #{coupon_type},
+		coupon_image = #{coupon_image}
+		WHERE id = #{couponId}
+	</update>
+
+	<!-- 쿠폰 삭제하기 -->
+	<delete id="deleteCoupon">
+		DELETE FROM Coupons WHERE id = #{couponId}
+	</delete>
 </mapper>
