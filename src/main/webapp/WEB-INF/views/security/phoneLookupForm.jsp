@@ -83,20 +83,7 @@ body, h1, h2, h3, p, a {
 	margin-bottom: 5px;
 }
 
-.promo-area {
-	background:
-		url('${pageContext.request.contextPath}/resources/images/promo-bg.jpg')
-		no-repeat center center;
-	background-size: cover;
-	padding: 100px 0;
-	color: #fff;
-	text-align: center;
-}
 
-.promo-title {
-	font-size: 2.5em;
-	font-weight: bold;
-}
 
 .donation-form {
 	padding: 30px;
@@ -153,7 +140,8 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -162,7 +150,7 @@ body, h1, h2, h3, p, a {
 							<span>발신번호 조회</span>
 						</h1>
 						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb justify-content-center">
+							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="#">Home</a></li>
 								<li class="breadcrumb-item active" aria-current="page">메인</li>
 							</ol>
@@ -197,7 +185,7 @@ body, h1, h2, h3, p, a {
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-					<div class="bg-light donation-form rounded-3 shadow-sm">
+			
 						<div class="points-container" style="margin-top: 5px !important;">
 							<div class="points-note "
 								style="font-weight: bold; font-size: 17px;">
@@ -222,7 +210,7 @@ body, h1, h2, h3, p, a {
 							<button type="submit"
 								style="margin-top: 15px; border-radius: 10px; font-size: 25px;">조회하기</button>
 						</form>
-					</div>
+				
 				</div>
 			</div>
 		</div>
@@ -361,6 +349,6 @@ body, h1, h2, h3, p, a {
 											});
 						});
 	</script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+
 </body>
 </html>
