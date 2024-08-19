@@ -65,7 +65,9 @@ body, h1, h2, h3, p, a {
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
-	<section class="promo-area" data-stellar-background-ratio="0.5">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+	
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

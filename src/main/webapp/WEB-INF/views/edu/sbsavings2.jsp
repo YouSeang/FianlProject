@@ -13,6 +13,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-rwdImageMaps/1.6/jquery.rwdImageMaps.min.js"></script>
 
 <meta charset="UTF-8">
+<!-- isLoggedIn 변수를 설정 -->
+<script>
+        var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
+    </script>
 <title>적금가입</title>
 <style>
     #step-indicator {
@@ -76,12 +80,13 @@
 
     .display-area {
         position: absolute;
-        border: 1px solid #000;
+        border: none;
         display: none;
     }
 
     .display-text {
-        font-size: 16px;
+        font-size: 22px;
+        font-weight: bold;
     }
 
     @media (max-width: 767.98px) {
@@ -93,7 +98,7 @@
 </head>
 <body>
 <div id="step-indicator">
-    <img id="back-button" src="/resources/images/transfer/back-button.png" alt="뒤로가기">
+    <img id="back-button" src="${pageContext.request.contextPath}/resources/images/transfer/back-button.png" alt="뒤로가기">
     <span id="step-text">1단계 / 10단계</span>
     <div id="progress-bar">
         <div id="progress-bar-fill"></div>
@@ -131,6 +136,9 @@
 </div>
 
 <script>
+let userId = '<%=session.getAttribute("userId") != null ? session.getAttribute("userId") : ""%>';
+
+
 $(document).ready(function() {
     var currentStep = 1;
     var inputdate = ""; // 입력된 가입기간 저장 변수
@@ -231,7 +239,8 @@ $(document).ready(function() {
         $('#progress-bar-fill').css('width', progress + '%');
     }
 
-    function updatePoints() {
+    
+     function updatePoints() {
         $.ajax({
             url: "${pageContext.request.contextPath}/updatePoints",
             method: "POST",
@@ -256,7 +265,7 @@ $(document).ready(function() {
                 });
             }
         });
-    }
+    } 
 
     function changeStep(step) {
         currentStep = step; // 단계 값을 갱신
@@ -310,7 +319,7 @@ $(document).ready(function() {
                     <area id="3" target="" alt="3" title="3" href="" coords="512,474,624,538" shape="rect">
                     <area id="4" target="" alt="4" title="4" href="" coords="269,547,382,600" shape="rect">
                     <area id="5" target="" alt="5" title="5" href="" coords="391,545,506,604" shape="rect">
-                    <area id="6" target="" alt="6" title="6" href="" coords="514,548,627,604" shape="rect">
+                    <area id="6" target="" alt="6" title="6" href="" coords="524,542,628,593" shape="rect">
                     <area id="7" target="" alt="7" title="7" href="" coords="266,606,382,668" shape="rect">
                     <area id="8" target="" alt="8" title="8" href="" coords="389,610,511,661" shape="rect">
                     <area id="9" target="" alt="9" title="9" href="" coords="518,611,632,665" shape="rect">
@@ -319,16 +328,17 @@ $(document).ready(function() {
                     <area id="36" target="" alt="36" title="36" href="" coords="283,430,359,458" shape="rect">
                     <area id="24" target="" alt="24" title="24" href="" coords="441,459,368,429" shape="rect">
                     <area id="12" target="" alt="12" title="12" href="" coords="449,430,523,463" shape="rect">
+                    <area id="6" target="" alt="6" title="6" href="" coords="532,432,606,460" shape="rect">
                     <area id="keypad-check" target="" alt="button" title="button" href="" coords="254,733,633,794" shape="rect" id="goto-sbsavings7">
                 `;
-                displayAreaCoords = "287,342,607,405";
+                displayAreaCoords = "306,359,366,406" //359,396,289,354
                 break;
             case 7:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings7.png";
                 newMap = `
                     <area target="" alt="" title="" href="#" coords="291,627,611,691" shape="rect" id="goto-sbsavings8">
                 `;
-                displayAreaCoords3 = "423,552,567,599";
+                displayAreaCoords3 = "521,563,571,600";
                 break;
             case 8:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings8.png";
@@ -352,14 +362,15 @@ $(document).ready(function() {
                     <area id="back" target="" alt="button" title="button" href="" coords="521,663,627,721" shape="rect">
                     <area id="keypad-check2" target="" alt="button" title="button" href="" coords="261,729,629,792" shape="rect" id="goto-sbsavings9">
                 `;
-                displayAreaCoords4 = "287,342,607,405";
+                displayAreaCoords4 = "311,333,426,379";
                 break;
             case 9:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings9.png";
                 newMap = `
                     <area target="" alt="" title="" href="#" coords="251,734,632,794" shape="rect" id="goto-sbsavings10">
                 `;
-                displayAreaCoords3 = "422,313,460,342";
+                displayAreaCoords3 = "425,305,459,336";
+                displayAreaCoords4 = "416,364,495,399";
                 break;
             case 10:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings10.png";
@@ -379,6 +390,17 @@ $(document).ready(function() {
         }
     });
 
+    function formatPay(input) {
+        return input.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    
+
+    function clearError(selector) {
+        $(selector).css("color", "");
+    }
+    
+    
     $(document).on('click', 'area', function(event) {
         event.preventDefault();
         const targetId = $(this).attr('id');
@@ -412,7 +434,7 @@ $(document).ready(function() {
                 changeStep(10);
                 break;
             case 'finish':
-                sbSavingsClick();
+            	updatePoints();
                 break;
         }
     });
@@ -431,7 +453,7 @@ $(document).ready(function() {
                 $("#display-text").text(inputdate);
             } else if (currentSrc.includes("sbsavings8.png")) {
                 inputpay = inputpay.slice(0, -1);
-                $("#display-text3").text(inputpay);
+                $("#display-text4").text(inputpay);
             } else {
                 inputpay = inputpay.slice(0, -1);
                 $("#display-text4").text(inputpay);
@@ -444,7 +466,7 @@ $(document).ready(function() {
             $("#display-text").text(inputdate);
         } else if (currentSrc.includes("sbsavings8.png")) {
             inputpay += value;
-            $("#display-text3").text(inputpay);
+            $("#display-text4").text(inputpay);
         } else {
             inputpay += value;
             $("#display-text4").text(inputpay);
@@ -464,19 +486,28 @@ $(document).ready(function() {
     $(window).resize(resizeImageMap);
 });
 
+/* 
 function sbSavingsClick() {
     var pointReason = "상품가입 시뮬레이션 완료";
     var userId = "${sessionScope.userId}";
 
+    console.log("Sending data: ", {
+        userId: userId,
+        pointReason: pointReason
+    });
+
+
+    
+    
     $.ajax({
-        url: "${pageContext.request.contextPath}/edu/sbsavings/updatePoints",
+        url: "${pageContext.request.contextPath}/updatePoints",
         type: "POST",
         data: JSON.stringify({
             userId: userId,
             pointsEarned: 500,
             pointReason: pointReason
-        }),
-        contentType: "application/json; charset=UTF-8",
+                   }),
+               contentType: "application/json; charset=UTF-8",
         success: function(response) {
             console.log("포인트 적립 성공: ", response);
             if (response.status === "success") {
@@ -495,8 +526,9 @@ function sbSavingsClick() {
                 });
             }
         },
-        error: function(error) {
-            console.log("포인트 적립 실패: ", error);
+        error: function(xhr, status, error) {
+            console.error("포인트 적립 실패: ", error);
+            console.error("Response Text: " + xhr.responseText); // 서버 응답 내용 확인
             Swal.fire({
                 title: '포인트 적립 실패',
                 text: '포인트 적립에 실패했습니다. 다시 시도해 주세요.',
@@ -505,7 +537,7 @@ function sbSavingsClick() {
             });
         }
     });
-}
+} */
 </script>
 </body>
 </html>
