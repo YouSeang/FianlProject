@@ -126,13 +126,13 @@ body, h1, h2, h3, p, a {
                         denyButtonText: '체험 다시하기'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            /* Swal.fire({
+                            Swal.fire({
                                 title: '포인트 업데이트 완료!',
                                 text: response.pointUpdateResult,
                                 icon: 'success'
-                            }).then(() => { */
+                            }).then(() => {
                                 window.location.href = contextPath + "/voice/smishing";
-                            //});
+                            });
                         } else if (result.isDenied) {
                             location.reload();
                         }
@@ -160,8 +160,7 @@ body, h1, h2, h3, p, a {
 
 	<!-- 배너영역 Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

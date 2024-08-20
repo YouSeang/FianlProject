@@ -118,9 +118,8 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Promo Area Start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" 
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/boardbgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-	<div class="container">
+	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
@@ -142,7 +141,7 @@ body, h1, h2, h3, p, a {
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-lg-12">
-				<hs1 class="text-center mb-4">피해사례 공유 게시판</h1>
+				<h1 class="text-center mb-4">피해사례 공유 게시판</h1>
 				<div class="text-end mb-3">
 					<a href="${pageContext.request.contextPath}/board/shareWrite"
 						class="btn btn-primary" onclick="checkLogin()">사례공유 글 작성</a>

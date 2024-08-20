@@ -98,8 +98,7 @@ body, h1, h2, h3, p, a {
 								<a
 									href="../voiceDetail?voice=${scenario.scenarioName}&scenarioName=${scenario.scenarioName}"
 									class="custom-btn"> <c:choose>
-										<c:when test="${scenario.scenarioName == 'impersonation'}">기관사칭</c:when>
-										<c:when test="${scenario.scenarioName == 'loan'}">대출사기</c:when>
+										<c:when test="${scenario.scenarioName}"></c:when>
 										<c:otherwise>${scenario.scenarioName}</c:otherwise>
 									</c:choose>
 								</a>

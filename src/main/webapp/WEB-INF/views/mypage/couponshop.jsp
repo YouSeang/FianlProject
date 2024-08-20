@@ -132,8 +132,7 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-
+		style="background-position: 50% 0%;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -203,8 +202,7 @@ body, h1, h2, h3, p, a {
 					</div>
 					<div class="coupon-info mb-4">
 						ㅇ모든 쿠폰은 포인트 5000점과 교환됩니다. <br> ㅇ쿠폰으로 교환 후에는 취소가 불가하며 포인트는
-						소멸됩니다. <br> ㅇ쿠폰은 발행일로부터 1개월간 사용가능합니다. <br>
-						ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
+						소멸됩니다. <br> ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
 					</div>
 					<div class="button-container text-center">
 						<button type="button" class="btn btn-warning btn-lg"
@@ -302,6 +300,6 @@ body, h1, h2, h3, p, a {
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
+	      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
 </body>
 </html>
