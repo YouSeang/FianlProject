@@ -70,4 +70,31 @@ public class GuideController {
 		return "redirect:/admin/adminGuide"; // 관리자 목록 페이지로 리디렉션
 	}
 
+	@PostMapping("/admin/deleteGuide")
+	public String deleteGuide(@RequestParam("guideId") int guideId) {
+		guideService.deleteGuide(guideId);
+		return "redirect:/admin/adminGuide"; // 삭제 후 관리자 목록 페이지로 리디렉션
+	}
+
+	@PostMapping("/admin/updateGuide")
+	public String updateGuide(@RequestParam("guideId") int guideId, @RequestParam("guideTitle") String guideTitle,
+			@RequestParam("guideContents") String guideContents,
+			@RequestParam(value = "guideFile", required = false) MultipartFile guideFile) {
+
+		String filePath = null;
+		if (guideFile != null && !guideFile.isEmpty()) {
+			String fileName = guideFile.getOriginalFilename();
+			filePath = "path/to/save/files/" + fileName;
+			try {
+				guideFile.transferTo(new File(filePath));
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+
+		GuideDto guide = new GuideDto(guideId, guideTitle, guideContents, filePath);
+		guideService.updateGuide(guide);
+
+		return "redirect:/admin/adminGuide"; // 수정 후 관리자 목록 페이지로 리디렉션
+	}
 }
