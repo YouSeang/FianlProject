@@ -22,8 +22,36 @@
 	<!-- 업데이트 쿼리 -->
 	<update id="update">
 		UPDATE Users
-		SET email = #{email}, phone_number = #{phone_number}
+		SET email = #{email}, phone_number =
+		#{phone_number}
 		WHERE user_id = #{user_id}
 	</update>
+
+	<!-- 이메일로 사용자 조회 -->
+	<select id="findUserByEmail"
+		resultType="kr.soft.study.dto.UserDto">
+		SELECT * FROM Users WHERE email = #{email}
+	</select>
+
+	<!-- 비밀번호 재설정 토큰 저장 -->
+	<insert id="savePasswordResetToken">
+		INSERT INTO password_reset_tokens (user_id, token, expiry_date)
+		VALUES (#{user_id}, #{token}, DATE_ADD(NOW(), INTERVAL 1 HOUR))
+	</insert>
+
+	<!-- 토큰을 통해 사용자 조회 -->
+	<select id="findUserByResetToken"
+		resultType="kr.soft.study.dto.UserDto">
+		SELECT u.* FROM Users u
+		JOIN password_reset_tokens prt ON u.user_id = prt.user_id
+		WHERE prt.token = #{token} AND prt.expiry_date > NOW()
+	</select>
+
+	<!-- 비밀번호 업데이트 -->
+	<update id="updatePassword">
+		UPDATE Users SET password = #{password} WHERE user_id = #{user_id}
+	</update>
+
+
 
 </mapper>
