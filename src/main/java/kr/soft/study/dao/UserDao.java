@@ -1,30 +1,37 @@
 package kr.soft.study.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import kr.soft.study.dto.UserDto;
 
 public interface UserDao {
 
-	// È¸¿ø°¡ÀÔ
+	// íšŒì›ê°€ì…
 	public void Join(String user_id, String name, String email, String phone_number, String password);
 
-	// ·Î±×ÀÎ
+	// ë¡œê·¸ì¸
 	public UserDto getUserById(String user_id);
 
-	// Á¤º¸ ¼öÁ¤
+	// ì •ë³´ ìˆ˜ì •
 	public void update(Map<String, Object> params);
 
-	// ÀÌ¸ŞÀÏ·Î »ç¿ëÀÚ Á¶È¸
+
+	// ëª¨ë“  ì‚¬ìš©ì ê°€ì ¸ì˜¤ê¸°
+    public List<UserDto> getAllUsers();
+   
+
+	// ì´ë©”ì¼ë¡œ ì‚¬ìš©ì ì¡°íšŒ
 	UserDto findUserByEmail(String email);
 
-	// ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ÅäÅ« ÀúÀå
+	// ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • í† í° ì €ì¥
 	void savePasswordResetToken(Map<String, Object> params);
 
-	// ÅäÅ«À» ÅëÇØ »ç¿ëÀÚ Á¶È¸
+	// í† í°ì„ í†µí•´ ì‚¬ìš©ì ì¡°íšŒ
 	UserDto findUserByResetToken(String token);
 
-	// ºñ¹Ğ¹øÈ£ ¾÷µ¥ÀÌÆ®
+	// ë¹„ë°€ë²ˆí˜¸ ì—…ë°ì´íŠ¸
 	void updatePassword(Map<String, Object> params);
+
 
 }

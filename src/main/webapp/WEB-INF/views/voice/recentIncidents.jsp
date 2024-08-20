@@ -143,10 +143,10 @@ body, h1, h2, h3, p, a {
 		</div>
 
 		<div class="col-lg-12">
-			<div class="pager text-center">
+			<!-- <div class="pager text-center">
 				<a href="#" class="next-btn"><i class="fa fa-angle-left"></i></a> <span>1</span>
 				<a href="#">2</a> <a href="#">3</a> <a href="#">4</a> <a href="#">5</a>
-			</div>
+			</div> -->
 		</div>
 	</main>
 

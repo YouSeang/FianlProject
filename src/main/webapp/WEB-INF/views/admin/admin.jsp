@@ -77,7 +77,7 @@ body, h1, h2, h3, p, a {
 						<h2 class="section-title">
 							관리자 <span class="color">기능</span>
 						</h2>
-						<p>여기서 시스템을 관리할 수 있습니다..</p>
+						<p>LocKB 홈페이지를 관리할 수 있습니다.</p>
 					</div>
 				</div>
 			</div>
@@ -104,17 +104,7 @@ body, h1, h2, h3, p, a {
 							class="custom-btn">관리하기</a>
 					</div>
 				</div>
-				<div class="col-lg-4 col-sm-6">
-					<div class="single-admin-feature">
-						<span><img
-							src="${pageContext.request.contextPath}/resources/images/components/admin3.png"
-							alt=""></span>
-						<h3>시스템 로그</h3>
-						<p>시스템의 로그를 확인하고 관리할 수 있습니다.</p>
-						<a href="${pageContext.request.contextPath}/admin/logs"
-							class="custom-btn">관리하기</a>
-					</div>
-				</div>
+				
 				<div class="col-lg-4 col-sm-6">
 					<div class="single-admin-feature">
 						<span><img

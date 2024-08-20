@@ -26,6 +26,12 @@
 		#{phone_number}
 		WHERE user_id = #{user_id}
 	</update>
+	
+	<!-- 모든 사용자 가져오기 -->
+<select id="getAllUsers" resultType="kr.soft.study.dto.UserDto">
+    select user_id, name, email, phone_number from Users
+</select>
+
 
 	<!-- 이메일로 사용자 조회 -->
 	<select id="findUserByEmail"

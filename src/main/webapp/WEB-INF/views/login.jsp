@@ -69,12 +69,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	
 
 	<!-- header start -->
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
@@ -90,13 +85,10 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span>로그인</span>
+							LocKB <span> 로그인</span>
 						</h1>
 						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">로그인</li>
-							</ol>
+							
 						</nav>
 					</div>
 				</div>
@@ -112,7 +104,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-7 mx-auto">
 					<div class="login-wrap bg-light">
 						<h2 class="fw-normal mb-5 h6">
-							KB큽스쿨<span class="fw-bold tex-primary d-block display-5 ">로그인</span>
+							LocKB<span class="fw-bold tex-primary d-block display-5 ">로그인</span>
 						</h2>
 
 						<form action="./login" method="post">
@@ -126,9 +118,7 @@ body, h1, h2, h3, p, a {
 								<input class="form-control" type="password" id="password"
 									name="password">
 							</div>
-							<label class="remember" for="remember"> <input
-								type="checkbox" id="remember" value="Remember"> 자동 로그인
-							</label>
+							
 							<div class="d-flex  align-items-center mb-3">
 								<button class="custom-btn">로그인</button>
 								<a href="./signupView" class="custom-btn unfill ms-4">회원가입</a>
@@ -150,12 +140,44 @@ body, h1, h2, h3, p, a {
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
+  <script src="<c:url value='/resources/js/sweetalert2.all.min.js'/>"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
-
+    <c:if test="${not empty loginError}"> 
+        <script>
+            <c:choose>
+                <c:when test="${loginError == 'invalidId'}">
+                    Swal.fire({
+                        icon: 'error',
+                        title: '로그인 실패',
+                        text: 'ID를 확인해주세요.',
+                        confirmButtonText: '확인'
+                    });
+                </c:when>
+                <c:when test="${loginError == 'invalidPassword'}">
+                    Swal.fire({
+                        icon: 'error',
+                        title: '로그인 실패',
+                        text: '비밀번호를 확인해주세요.',
+                        confirmButtonText: '확인'
+                    });
+                </c:when>
+                <c:when test="${loginError == 'unknownError'}">
+                    Swal.fire({
+                        icon: 'error',
+                        title: '로그인 실패',
+                        text: '알 수 없는 오류가 발생했습니다. 다시 시도해주세요.',
+                        confirmButtonText: '확인'
+                    });
+                </c:when>
+            </c:choose>
+        </script>
+    </c:if>
 	<!--
 Javascript
 ======================================================== -->
+
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>

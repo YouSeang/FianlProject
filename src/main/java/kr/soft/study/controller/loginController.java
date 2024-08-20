@@ -25,104 +25,111 @@ import kr.soft.study.service.UserService;
 @Controller
 public class loginController {
 
-	@Autowired
-	private SqlSession sqlSession;
 
-	@Autowired
-	private BCryptPasswordEncoder passwordEncoder;
+    @Autowired
+    private SqlSession sqlSession;
 
-	@Autowired
-	private UserLogin userLogin;
+    @Autowired
+    private BCryptPasswordEncoder passwordEncoder;
 
-	@Autowired
-	private UserSignup userSignup;
+    @Autowired
+    private UserLogin userLogin;
 
-	@Autowired
-	private UserService userService;
+    @Autowired
+    private UserSignup userSignup;
 
-	@Autowired
-	private EmailService emailService;
+    @RequestMapping("/loginView")
+    public String loginView(Model model) {
+        model.addAttribute("userDto", new UserDto());
+        return "login";
+    }
 
-	@RequestMapping("/loginView")
-	public String loginView(Model model) {
-		model.addAttribute("userDto", new UserDto());
-		return "login";
-	}
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result,
+                        HttpSession session, Model model, HttpServletRequest request) {
+        UserValidator validator = new UserValidator();
+        validator.validate(userDto, result);
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result,
-			HttpSession session, Model model, HttpServletRequest request) {
-		UserValidator validator = new UserValidator();
-		validator.validate(userDto, result);
+        if (result.hasErrors()) {
+            session.setAttribute("isLoggedIn", false); // ë¡œê·¸ì¸ ì‹¤íŒ¨ ì‹œ
+            model.addAttribute("loginError", "invalidId");
+            return "login";
+        }
 
-		if (result.hasErrors()) {
-			session.setAttribute("isLoggedIn", false); // ·Î±×ÀÎ ½ÇÆĞ ½Ã
-			return "login";
-		}
+        model.addAttribute("request", request);
+        userLogin.execute(model);
 
-		model.addAttribute("request", request);
-		userLogin.execute(model);
+        String loginResult = (String) session.getAttribute("loginResult");
+        if ("success".equals(loginResult)) {
+            session.setAttribute("isLoggedIn", true); // ë¡œê·¸ì¸ ì„±ê³µ ì‹œ ì„¸ì…˜ì— trueê°’ ë‹´ìŒ
+            UserDto user = (UserDto) session.getAttribute("user");
+            session.setAttribute("userId", user.getUser_id());
+            System.out.println("User logged in: " + user.getUser_id());
+            System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
 
-		String loginResult = (String) session.getAttribute("loginResult");
-		if ("success".equals(loginResult)) {
-			session.setAttribute("isLoggedIn", true); // ·Î±×ÀÎ ¼º°ø ½Ã ¼¼¼Ç¿¡ true°ª ´ãÀ½
-			UserDto user = (UserDto) session.getAttribute("user");
-			session.setAttribute("userId", user.getUser_id());
-			System.out.println("User logged in: " + user.getUser_id());
-			System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
+            String userRole = (String) session.getAttribute("userRole");
+            if ("admin".equals(userRole)) {
+                System.out.println("admin login");
+                return "redirect:admin/admin";
+            } else {
+                return "redirect:/home";
+            }
+        } else {
+            session.setAttribute("isLoggedIn", false); // ë¡œê·¸ì¸ ì‹¤íŒ¨ ì‹œ
 
-			String userRole = (String) session.getAttribute("userRole");
-			if ("admin".equals(userRole)) {
-				System.out.println("admin login");
-				return "redirect:admin/admin";
-			} else {
-				return "redirect:/home";
-			}
-		} else {
-			session.setAttribute("isLoggedIn", false); // ·Î±×ÀÎ ½ÇÆĞ ½Ã
-			model.addAttribute("loginError", "Invalid username or password.");
-			System.out.println("admin error");
-			return "login";
-		}
-	}
+            // ì‹¤íŒ¨ ì´ìœ ì— ë”°ë¼ SweetAlert ë©”ì‹œì§€ë¥¼ ì „ë‹¬í•©ë‹ˆë‹¤.
+            if ("invalidId".equals(loginResult)) {
+                model.addAttribute("loginError", "invalidId");
+            } else if ("invalidPassword".equals(loginResult)) {
+                model.addAttribute("loginError", "invalidPassword");
+            } else {
+                model.addAttribute("loginError", "unknownError");
+            }
 
-	// ·Î±×ÀÎ ÈÄ home À¸·Î ÀÌµ¿
-	@RequestMapping("/home")
-	public String home(Model model) {
-		return "home";
-	}
+            System.out.println("Login error: " + loginResult);
+            return "login";
+        }
+    }
 
-	@RequestMapping("/test")
-	public String test(Model model) {
-		return "home2";
-	}
+    // ë¡œê·¸ì¸ í›„ homeìœ¼ë¡œ ì´ë™
+    @RequestMapping("/home")
+    public String home(Model model) {
+        return "home";
+    }
 
-	@RequestMapping("/logout")
-	public String logout(HttpSession session) {
-		session.invalidate(); // ¼¼¼Ç ¹«È¿È­
-		return "home";
-	}
+    @RequestMapping("/test")
+    public String test(Model model) {
+        return "home2";
+    }
 
-	@RequestMapping("/signupView")
-	public String signupView(Model model) {
-		model.addAttribute("userDto", new UserDto());
-		return "signup";
-	}
+    @RequestMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // ì„¸ì…˜ ë¬´íš¨í™”
+        return "home";
+    }
 
-	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model,
-			HttpServletRequest request) {
-		UserValidator validator = new UserValidator();
-		validator.validate(userDto, result);
+    @RequestMapping("/signupView")
+    public String signupView(Model model) {
+        model.addAttribute("userDto", new UserDto());
+        return "signup";
+    }
 
-		if (result.hasErrors()) {
-			return "signup";
-		}
+    @RequestMapping(value = "/signup", method = RequestMethod.POST)
+    public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model,
+                         HttpServletRequest request) {
+        UserValidator validator = new UserValidator();
+        validator.validate(userDto, result);
 
-		model.addAttribute("request", request);
-		userSignup.execute(model);
-		return "home";
-	}
+        if (result.hasErrors()) {
+            return "signup";
+        }
+
+        model.addAttribute("request", request);
+        userSignup.execute(model);
+        return "home";
+    }
+}
+
 
 	@RequestMapping("/findpw")
 	public String findpw(Model model) {
@@ -133,30 +140,30 @@ public class loginController {
 	public String findPassword(@RequestParam("email") String email, Model model) {
 		UserDto user = userService.findUserByEmail(email);
 		if (user == null) {
-			model.addAttribute("error", "ÇØ´ç ÀÌ¸ŞÀÏ·Î µî·ÏµÈ »ç¿ëÀÚ°¡ ¾ø½À´Ï´Ù.");
-			return "findpw"; // ºñ¹Ğ¹øÈ£ Ã£±â ÆäÀÌÁö·Î ´Ù½Ã ÀÌµ¿
+			model.addAttribute("error", "í•´ë‹¹ ì´ë©”ì¼ë¡œ ë“±ë¡ëœ ì‚¬ìš©ìê°€ ì—†ìŠµë‹ˆë‹¤.");
+			return "findpw"; // ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° í˜ì´ì§€ë¡œ ë‹¤ì‹œ ì´ë™
 		}
 
-		// ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ¸µÅ© »ı¼º (ÀÓÀÇÀÇ ÅäÅ« »ı¼º)
+		// ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • ë§í¬ ìƒì„± (ì„ì˜ì˜ í† í° ìƒì„±)
 		String resetToken = userService.createPasswordResetToken(user.getUser_id());
 
-		// ÀÌ¸ŞÀÏ·Î ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ¸µÅ© Àü¼Û
+		// ì´ë©”ì¼ë¡œ ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • ë§í¬ ì „ì†¡
 		String resetLink = "http://localhost:8080/resetPassword?token=" + resetToken;
 		emailService.sendResetPasswordEmail(user.getEmail(), resetLink);
 
-		model.addAttribute("message", "ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ¸µÅ©°¡ ÀÌ¸ŞÀÏ·Î Àü¼ÛµÇ¾ú½À´Ï´Ù.");
-		return "findpw"; // ¼º°ø ¸Ş½ÃÁö¿Í ÇÔ²² ºñ¹Ğ¹øÈ£ Ã£±â ÆäÀÌÁö·Î ´Ù½Ã ÀÌµ¿
+		model.addAttribute("message", "ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • ë§í¬ê°€ ì´ë©”ì¼ë¡œ ì „ì†¡ë˜ì—ˆìŠµë‹ˆë‹¤.");
+		return "findpw"; // ì„±ê³µ ë©”ì‹œì§€ì™€ í•¨ê»˜ ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° í˜ì´ì§€ë¡œ ë‹¤ì‹œ ì´ë™
 	}
 
 	@RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
 	public String resetPasswordForm(@RequestParam("token") String token, Model model) {
 		UserDto user = userService.validatePasswordResetToken(token);
 		if (user == null) {
-			model.addAttribute("error", "À¯È¿ÇÏÁö ¾ÊÀº ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ¿äÃ»ÀÔ´Ï´Ù.");
-			return "resetPasswordError"; // ¿À·ù ÆäÀÌÁö·Î ÀÌµ¿
+			model.addAttribute("error", "ìœ íš¨í•˜ì§€ ì•Šì€ ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • ìš”ì²­ì…ë‹ˆë‹¤.");
+			return "resetPasswordError"; // ì˜¤ë¥˜ í˜ì´ì§€ë¡œ ì´ë™
 		}
 		model.addAttribute("token", token);
-		return "resetPasswordForm"; // ºñ¹Ğ¹øÈ£ Àç¼³Á¤ Æû ÆäÀÌÁö·Î ÀÌµ¿
+		return "resetPasswordForm"; // ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • í¼ í˜ì´ì§€ë¡œ ì´ë™
 	}
 
 	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
@@ -164,14 +171,14 @@ public class loginController {
 			Model model) {
 		UserDto user = userService.validatePasswordResetToken(token);
 		if (user == null) {
-			model.addAttribute("error", "À¯È¿ÇÏÁö ¾ÊÀº ºñ¹Ğ¹øÈ£ Àç¼³Á¤ ¿äÃ»ÀÔ´Ï´Ù.");
+			model.addAttribute("error", "ìœ íš¨í•˜ì§€ ì•Šì€ ë¹„ë°€ë²ˆí˜¸ ì¬ì„¤ì • ìš”ì²­ì…ë‹ˆë‹¤.");
 			return "resetPassword";
 		}
 
 		String encodedPassword = passwordEncoder.encode(password);
 		userService.updatePassword(user.getUser_id(), encodedPassword);
 
-		model.addAttribute("message", "ºñ¹Ğ¹øÈ£°¡ ¼º°øÀûÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.");
+		model.addAttribute("message", "ë¹„ë°€ë²ˆí˜¸ê°€ ì„±ê³µì ìœ¼ë¡œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤.");
 		return "login";
 	}
 }
