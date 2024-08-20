@@ -259,6 +259,29 @@
 		</dependency>
 		<!-- 번호조회 end -->
 
+		<!-- 이메일발송 start -->
+		<!-- JavaMailSender를 위한 spring-context-support 의존성 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>5.3.29</version> <!-- 현재 사용 중인 Spring Framework의 버전에 맞게 수정 -->
+		</dependency>
+
+		<!-- JavaMail API -->
+		<dependency>
+			<groupId>javax.mail</groupId>
+			<artifactId>javax.mail-api</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+
+		<!-- JavaMail 구현체 -->
+		<dependency>
+			<groupId>com.sun.mail</groupId>
+			<artifactId>javax.mail</artifactId>
+			<version>1.6.2</version>
+		</dependency>
+		<!-- 이메일발송 end -->
+
 	</dependencies>
 	<build>
 		<plugins>

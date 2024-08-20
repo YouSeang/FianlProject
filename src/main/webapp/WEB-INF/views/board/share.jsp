@@ -141,7 +141,7 @@ body, h1, h2, h3, p, a {
 	<div class="container py-5">
 		<div class="row">
 			<div class="col-lg-12">
-				<hs1 class="text-center mb-4">피해사례 공유 게시판</h1>
+				<h1 class="text-center mb-4">피해사례 공유 게시판</h1>
 				<div class="text-end mb-3">
 					<a href="${pageContext.request.contextPath}/board/shareWrite"
 						class="btn btn-primary" onclick="checkLogin()">사례공유 글 작성</a>
