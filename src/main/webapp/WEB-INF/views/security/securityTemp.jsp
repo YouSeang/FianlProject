@@ -72,7 +72,7 @@
 	font-style: normal;
 }
 
-body, h1, h2, h3, p, a {
+body, h1, h2, h3, h4, h5, p, a {
 	font-family: 'Goorm Sans' !important;
 }
 
@@ -154,19 +154,23 @@ body, h1, h2, h3, p, a {
 
 .submit-btn {
 	background-color: #ffb200;
-	border: 2px solid black;
-	color: black;
+	
+	color: white;
 	font-size: 22px;
 	font-weight: bold;
 	padding: 10px 20px;
-	border-radius: 8px;
+	border-radius: 12px;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
+	 border: none;
+	     outline: none;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3); /* 그림자 추가 */
 }
 
 .submit-btn:hover {
 	background-color: #ff9900;
+	 box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.4); /* Hover 시 더 진한 그림자 */
 }
 
 .separator {
@@ -189,9 +193,7 @@ body, h1, h2, h3, p, a {
 	font-style: normal;
 }
 
-body, h1, h2, h3, h4, h5, p, a {
-	font-family: '나눔스퀘어라운드OTF' !important;
-}
+
 
 .fa, .flaticon {
 	font-family: 'Font Awesome 5 Free', 'Font Awesome 5 Brands',
@@ -251,8 +253,8 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 							나의 <span> 정보 보안 온도</span>
 						</h2>
 						<div class="text-center">
-							<h4 class="no-wrap justify-content-center">현재 실천하고 있는 것을
-								체크하고, 확인하기 버튼을 눌러보세요.</h4>
+							<h4 class="justify-content-center">현재 실천하고 있는 것을
+								체크하고,<br> 확인하기 버튼을 눌러보세요.</h4><h5 class="justify-content-center" style="color: #ffb200;">하루에 한 번, 보안수준 점검하고 이벤트 당첨을 확인하세요! </h5>
 						</div>
 					</div>
 				</div>
@@ -269,8 +271,8 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 								<form
 									action="${pageContext.request.contextPath}/submitChecklist"
 									method="post">
-									<div class="donation-form p-3 p-xl-4 rounded-6">
-									  <h3 class="section-title">보안 관련 기능</h3>
+								
+									  <h3 class="section-title">보안 관련 기능 분야</h3>
 										<ul class="ks-cboxtags p-0 m-0">
 											<li>
 												<div class="card">
@@ -318,7 +320,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 												</div>
 											</li>
 											<div class="separator"></div>
-											  <h3 class="section-title">금융 보안 관련</h3>
+											  <h3 class="section-title">금융 보안 분야</h3>
 											<!-- 구분선 추가 -->
 											<li>
 												<div class="card">
@@ -368,7 +370,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 
 											<div class="separator"></div>
 											<!-- 구분선 추가 -->
-											  <h3 class="section-title">모바일 사용 습관 관련</h3>
+											  <h3 class="section-title">모바일 사용 습관 분야</h3>
 											<li>
 												<div class="card">
 													<div class="card-body">
@@ -410,7 +412,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 													<div class="card-body">
 														<input type="checkbox" id="category3-5" name="category3[]"
 															value="1"> <label for="category3-5" class="mb-0">웹
-															사이트 등에서 다운로드 받는 각종 프로그램의 출처 등 관련 정보를 확인한다.</label>
+															사이트 등에서 다운로드받는 프로그램들의 출처 등 관련 정보를 확인한다.</label>
 													</div>
 												</div>
 											</li>
@@ -418,7 +420,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 										<div class="text-center mt-4">
 											<button type="submit" class="submit-btn">보안온도 확인하기</button>
 										</div>
-									</div>
+								
 								</form>
 
 							</div>
