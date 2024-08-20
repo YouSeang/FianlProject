@@ -195,10 +195,10 @@ body, h1, h2, h3, p, a {
             .then(function(stream) {
                 let options = {};
                 // Safari 호환성을 위해 audio/mp4 형식 먼저 확인
-                if (MediaRecorder.isTypeSupported('audio/mp4')) {
-                    options.mimeType = 'audio/mp4';
-                } else if (MediaRecorder.isTypeSupported('audio/webm')) {
+                if (MediaRecorder.isTypeSupported('audio/webm')) {
                     options.mimeType = 'audio/webm';
+                } else if (MediaRecorder.isTypeSupported('audio/mp4')) {
+                    options.mimeType = 'audio/mp4';
                 } else if (MediaRecorder.isTypeSupported('audio/aac')) {
                     options.mimeType = 'audio/aac';
                 }
@@ -223,7 +223,7 @@ body, h1, h2, h3, p, a {
                 alert("마이크 접근 권한을 허용해야 합니다. 설정에서 확인해 주세요.");
             });
         document.getElementById("recordButton").innerText = "답변 종료";
-        socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
+        socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
         socket.onopen = function(event) {
             console.log("WebSocket connection opened.");
