@@ -15,4 +15,16 @@ public interface UserDao {
 	// 정보 수정
 	public void update(Map<String, Object> params);
 
+	// 이메일로 사용자 조회
+	UserDto findUserByEmail(String email);
+
+	// 비밀번호 재설정 토큰 저장
+	void savePasswordResetToken(Map<String, Object> params);
+
+	// 토큰을 통해 사용자 조회
+	UserDto findUserByResetToken(String token);
+
+	// 비밀번호 업데이트
+	void updatePassword(Map<String, Object> params);
+
 }

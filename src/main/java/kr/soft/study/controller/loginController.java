@@ -13,12 +13,14 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.soft.study.command.UCommand;
 import kr.soft.study.command.UserLogin;
 import kr.soft.study.command.UserSignup;
 import kr.soft.study.command.UserValidator;
 import kr.soft.study.dto.UserDto;
+import kr.soft.study.service.EmailService;
+import kr.soft.study.service.UserService;
 
 @Controller
 public class loginController {
@@ -34,6 +36,12 @@ public class loginController {
 
 	@Autowired
 	private UserSignup userSignup;
+
+	@Autowired
+	private UserService userService;
+
+	@Autowired
+	private EmailService emailService;
 
 	@RequestMapping("/loginView")
 	public String loginView(Model model) {
@@ -83,12 +91,11 @@ public class loginController {
 	public String home(Model model) {
 		return "home";
 	}
-	
+
 	@RequestMapping("/test")
 	public String test(Model model) {
 		return "home2";
 	}
-
 
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
@@ -115,5 +122,56 @@ public class loginController {
 		model.addAttribute("request", request);
 		userSignup.execute(model);
 		return "home";
+	}
+
+	@RequestMapping("/findpw")
+	public String findpw(Model model) {
+		return "findpw";
+	}
+
+	@RequestMapping(value = "/findPassword", method = RequestMethod.POST)
+	public String findPassword(@RequestParam("email") String email, Model model) {
+		UserDto user = userService.findUserByEmail(email);
+		if (user == null) {
+			model.addAttribute("error", "해당 이메일로 등록된 사용자가 없습니다.");
+			return "findpw"; // 비밀번호 찾기 페이지로 다시 이동
+		}
+
+		// 비밀번호 재설정 링크 생성 (임의의 토큰 생성)
+		String resetToken = userService.createPasswordResetToken(user.getUser_id());
+
+		// 이메일로 비밀번호 재설정 링크 전송
+		String resetLink = "http://localhost:8080/resetPassword?token=" + resetToken;
+		emailService.sendResetPasswordEmail(user.getEmail(), resetLink);
+
+		model.addAttribute("message", "비밀번호 재설정 링크가 이메일로 전송되었습니다.");
+		return "findpw"; // 성공 메시지와 함께 비밀번호 찾기 페이지로 다시 이동
+	}
+
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
+	public String resetPasswordForm(@RequestParam("token") String token, Model model) {
+		UserDto user = userService.validatePasswordResetToken(token);
+		if (user == null) {
+			model.addAttribute("error", "유효하지 않은 비밀번호 재설정 요청입니다.");
+			return "resetPasswordError"; // 오류 페이지로 이동
+		}
+		model.addAttribute("token", token);
+		return "resetPasswordForm"; // 비밀번호 재설정 폼 페이지로 이동
+	}
+
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
+	public String resetPassword(@RequestParam("token") String token, @RequestParam("password") String password,
+			Model model) {
+		UserDto user = userService.validatePasswordResetToken(token);
+		if (user == null) {
+			model.addAttribute("error", "유효하지 않은 비밀번호 재설정 요청입니다.");
+			return "resetPassword";
+		}
+
+		String encodedPassword = passwordEncoder.encode(password);
+		userService.updatePassword(user.getUser_id(), encodedPassword);
+
+		model.addAttribute("message", "비밀번호가 성공적으로 변경되었습니다.");
+		return "login";
 	}
 }

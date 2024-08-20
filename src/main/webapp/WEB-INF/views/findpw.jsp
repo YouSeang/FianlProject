@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="false"%>
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
 <!-- Meta Tags -->
@@ -20,10 +21,10 @@
 
 <!-- Favicon Icon -->
 <link rel="shortcut icon"
-	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+	href="${pageContext.request.contextPath}/resources/${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
-
-<!-- Plugins CSS -->
+<!-- Style Libraries
+    ==================================================================-->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
 <link rel="stylesheet"
@@ -33,12 +34,11 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
 <link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/animate.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-
 <link rel="preconnect" href="https://statics.goorm.io"
 	crossorigin="anonymous" />
 <link rel="preload" as="style" crossorigin
@@ -46,9 +46,11 @@
 <link rel="stylesheet"
 	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
-<!-- Theme CSS -->
+<!-- Style css
+    ==================================================================== -->
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+
 
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -80,7 +82,6 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
-
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/aboutbgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
@@ -90,12 +91,13 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span>로그인</span>
+							KB큽스쿨 <span> 비밀번호 찾기</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">로그인</li>
+								<li class="breadcrumb-item active" aria-current="page">비밀번호
+									찾기</li>
 							</ol>
 						</nav>
 					</div>
@@ -111,51 +113,34 @@ body, h1, h2, h3, p, a {
 			<div class="row">
 				<div class="col-lg-7 mx-auto">
 					<div class="login-wrap bg-light">
-						<h2 class="fw-normal mb-5 h6">
-							KB큽스쿨<span class="fw-bold tex-primary d-block display-5 ">로그인</span>
+						<h2 class="h6 fw-normal mb-5">
+							<span class="fw-bold tex-primary d-block display-5"> 비밀번호
+								찾기</span>
 						</h2>
-
-						<form action="./login" method="post">
+						<form role="form" action="./findPassword" method="post">
 							<div class="form-group">
-								<label for="user_id">Id <span class="required">*</span></label>
-								<input class="form-control" type="text" id="user_id"
-									name="user_id">
+								<label for="email">이메일 :</label> <input class="form-control"
+									type="email" id="email" name="email" placeholder="test@kb.com">
 							</div>
-							<div class="form-group">
-								<label for="password">Password <span class="required">*</span></label>
-								<input class="form-control" type="password" id="password"
-									name="password">
+							<button class="custom-btn mt-3" type="submit">비밀번호 재설정
+								링크 보내기</button>
+							<div class="login-bottom mt-4">
+								<label><i class="fa fa-user me-2"></i> 계정이 있으시다면 <a
+									href="signin.html">로그인</a> 해주세요</label>
 							</div>
-							<label class="remember" for="remember"> <input
-								type="checkbox" id="remember" value="Remember"> 자동 로그인
-							</label>
-							<div class="d-flex  align-items-center mb-3">
-								<button class="custom-btn">로그인</button>
-								<a href="./signupView" class="custom-btn unfill ms-4">회원가입</a>
-							</div>
-							<p>
-								<a href="${pageContext.request.contextPath}/findpw">비밀번호
-									찾기</a>
-							</p>
 						</form>
 					</div>
 				</div>
 			</div>
+			<!-- LOGING AREA END -->
 		</div>
 	</main>
 	<!-- Main Area End -->
 
-
-
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-
-
-
-	<!--
-Javascript
-======================================================== -->
+	<!-- Javascript -->
 	<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/bootstrap.bundle.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/owl.carousel.min.js"/>"></script>
