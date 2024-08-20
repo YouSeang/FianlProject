@@ -13,15 +13,18 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import kr.soft.study.command.UCommand;
 import kr.soft.study.command.UserLogin;
 import kr.soft.study.command.UserSignup;
 import kr.soft.study.command.UserValidator;
 import kr.soft.study.dto.UserDto;
+import kr.soft.study.service.EmailService;
+import kr.soft.study.service.UserService;
 
 @Controller
 public class loginController {
+
 
     @Autowired
     private SqlSession sqlSession;
@@ -48,7 +51,7 @@ public class loginController {
         validator.validate(userDto, result);
 
         if (result.hasErrors()) {
-            session.setAttribute("isLoggedIn", false); // �α��� ���� ��
+            session.setAttribute("isLoggedIn", false); // 로그인 실패 시
             model.addAttribute("loginError", "invalidId");
             return "login";
         }
@@ -58,7 +61,7 @@ public class loginController {
 
         String loginResult = (String) session.getAttribute("loginResult");
         if ("success".equals(loginResult)) {
-            session.setAttribute("isLoggedIn", true); // �α��� ���� �� ���ǿ� true�� ����
+            session.setAttribute("isLoggedIn", true); // 로그인 성공 시 세션에 true값 담음
             UserDto user = (UserDto) session.getAttribute("user");
             session.setAttribute("userId", user.getUser_id());
             System.out.println("User logged in: " + user.getUser_id());
@@ -72,9 +75,9 @@ public class loginController {
                 return "redirect:/home";
             }
         } else {
-            session.setAttribute("isLoggedIn", false); // �α��� ���� ��
+            session.setAttribute("isLoggedIn", false); // 로그인 실패 시
 
-            // ���� ������ ���� SweetAlert �޽����� �����մϴ�.
+            // 실패 이유에 따라 SweetAlert 메시지를 전달합니다.
             if ("invalidId".equals(loginResult)) {
                 model.addAttribute("loginError", "invalidId");
             } else if ("invalidPassword".equals(loginResult)) {
@@ -88,7 +91,7 @@ public class loginController {
         }
     }
 
-    // �α��� �� home���� �̵�
+    // 로그인 후 home으로 이동
     @RequestMapping("/home")
     public String home(Model model) {
         return "home";
@@ -101,7 +104,7 @@ public class loginController {
 
     @RequestMapping("/logout")
     public String logout(HttpSession session) {
-        session.invalidate(); // ���� ��ȿȭ
+        session.invalidate(); // 세션 무효화
         return "home";
     }
 
@@ -125,4 +128,57 @@ public class loginController {
         userSignup.execute(model);
         return "home";
     }
+}
+
+
+	@RequestMapping("/findpw")
+	public String findpw(Model model) {
+		return "findpw";
+	}
+
+	@RequestMapping(value = "/findPassword", method = RequestMethod.POST)
+	public String findPassword(@RequestParam("email") String email, Model model) {
+		UserDto user = userService.findUserByEmail(email);
+		if (user == null) {
+			model.addAttribute("error", "해당 이메일로 등록된 사용자가 없습니다.");
+			return "findpw"; // 비밀번호 찾기 페이지로 다시 이동
+		}
+
+		// 비밀번호 재설정 링크 생성 (임의의 토큰 생성)
+		String resetToken = userService.createPasswordResetToken(user.getUser_id());
+
+		// 이메일로 비밀번호 재설정 링크 전송
+		String resetLink = "http://localhost:8080/resetPassword?token=" + resetToken;
+		emailService.sendResetPasswordEmail(user.getEmail(), resetLink);
+
+		model.addAttribute("message", "비밀번호 재설정 링크가 이메일로 전송되었습니다.");
+		return "findpw"; // 성공 메시지와 함께 비밀번호 찾기 페이지로 다시 이동
+	}
+
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.GET)
+	public String resetPasswordForm(@RequestParam("token") String token, Model model) {
+		UserDto user = userService.validatePasswordResetToken(token);
+		if (user == null) {
+			model.addAttribute("error", "유효하지 않은 비밀번호 재설정 요청입니다.");
+			return "resetPasswordError"; // 오류 페이지로 이동
+		}
+		model.addAttribute("token", token);
+		return "resetPasswordForm"; // 비밀번호 재설정 폼 페이지로 이동
+	}
+
+	@RequestMapping(value = "/resetPassword", method = RequestMethod.POST)
+	public String resetPassword(@RequestParam("token") String token, @RequestParam("password") String password,
+			Model model) {
+		UserDto user = userService.validatePasswordResetToken(token);
+		if (user == null) {
+			model.addAttribute("error", "유효하지 않은 비밀번호 재설정 요청입니다.");
+			return "resetPassword";
+		}
+
+		String encodedPassword = passwordEncoder.encode(password);
+		userService.updatePassword(user.getUser_id(), encodedPassword);
+
+		model.addAttribute("message", "비밀번호가 성공적으로 변경되었습니다.");
+		return "login";
+	}
 }

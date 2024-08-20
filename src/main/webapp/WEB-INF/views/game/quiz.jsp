@@ -74,7 +74,7 @@ body, h1, h2, h3, p, a {
 }
 
 .btn.custom-btn {
-	padding: 130px 98px; /* 버튼 크기 조정 */
+	padding: 98px 98px; /* 버튼 크기 조정 */
 	font-size: 90px; /* 텍스트 크기 조정 */
 	border-radius: 15px; /* 모서리 둥글게 조정 */
 }
@@ -104,8 +104,7 @@ body, h1, h2, h3, p, a {
 
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/financebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-	
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -285,7 +284,7 @@ body, h1, h2, h3, p, a {
                 Swal.fire({
                     icon: 'success',
                     title: '정답입니다!',
-                    text: '누적 포인트: ' + score,
+                    text: '누적 포인트: ' + score,  //누적포인트
                     confirmButtonText: '다음 문제로'
                 }).then((result) => {
                     if (result.isConfirmed) {

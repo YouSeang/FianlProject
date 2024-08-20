@@ -78,8 +78,8 @@ body, h1, h2, h3, p, a {
 
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/aboutbgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-	
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/aboutbgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -124,7 +124,8 @@ body, h1, h2, h3, p, a {
 								<a href="./signupView" class="custom-btn unfill ms-4">회원가입</a>
 							</div>
 							<p>
-								<a href="#">비밀번호 찾기</a>
+								<a href="${pageContext.request.contextPath}/findpw">비밀번호
+									찾기</a>
 							</p>
 						</form>
 					</div>
@@ -194,7 +195,7 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 
 </html>

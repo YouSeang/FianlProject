@@ -76,31 +76,64 @@ public class QuizController {
         System.out.println("Fetched Quizzes: " + quizzs); // 로그 추가
         return quizzs;
     }
-   
 
     @RequestMapping(value = "/game/quiz/points/update", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> updateGamePoints(HttpSession session, @RequestBody Map<String, Object> pointsData) {
-        UserDto user = (UserDto) session.getAttribute("user");
-        if (user == null || user.getUser_id() == null) {
-            System.out.println("세션에 아이디 없음");
-            Map<String, String> response = new HashMap<>();
-            response.put("message", "User is not logged in.");
-            return response;
-        }
-
-        String userId = user.getUser_id();
-        int pointsEarned = ((Double) pointsData.get("pointsEarned")).intValue(); // Double to Integer
-        String pointReason = (String) pointsData.get("pointReason");
-        int quizId = ((Double) pointsData.get("quizId")).intValue(); // Double to Integer
-        String fullPointReason = "퀴즈 ID:" + quizId + " " + pointReason;
-        System.out.println("Updating points for userId: " + userId + ", quizId: " + quizId + ", pointsEarned: " + pointsEarned + ", pointReason: " + fullPointReason);
-        pointsCommand.updatePoints(userId, pointsEarned, fullPointReason, quizId);
         Map<String, String> response = new HashMap<>();
-        response.put("message", "포인트가 업데이트되었습니다.");
+        try {
+            System.out.println("updateGamePoints 메서드 호출됨");
+            UserDto user = (UserDto) session.getAttribute("user");
+            if (user == null || user.getUser_id() == null) {
+                System.out.println("세션에 아이디 없음");
+                response.put("message", "User is not logged in.");
+                return response;
+            }
+
+            String userId = user.getUser_id();
+
+            // pointsEarned 값 안전하게 변환하기
+            Integer pointsEarned = 0;
+            Object pointsEarnedObj = pointsData.get("pointsEarned");
+            if (pointsEarnedObj instanceof Number) {
+                pointsEarned = ((Number) pointsEarnedObj).intValue();
+            } else if (pointsEarnedObj != null) {
+                try {
+                    pointsEarned = Integer.parseInt(pointsEarnedObj.toString());
+                } catch (NumberFormatException e) {
+                    System.out.println("Failed to parse pointsEarned: " + pointsEarnedObj);
+                }
+            }
+
+            // quizId 값 안전하게 변환하기
+            Integer quizId = 0;
+            Object quizIdObj = pointsData.get("quizId");
+            if (quizIdObj instanceof Number) {
+                quizId = ((Number) quizIdObj).intValue();
+            } else if (quizIdObj != null) {
+                try {
+                    quizId = Integer.parseInt(quizIdObj.toString());
+                } catch (NumberFormatException e) {
+                    System.out.println("Failed to parse quizId: " + quizIdObj);
+                }
+            }
+
+            String pointReason = (String) pointsData.get("pointReason");
+            String fullPointReason = "퀴즈 ID:" + quizId + " " + pointReason;
+
+            System.out.println("Updating points for userId: " + userId + ", quizId: " + quizId + ", pointsEarned: " + pointsEarned + ", pointReason: " + fullPointReason);
+            pointsCommand.updatePoints(userId, pointsEarned, fullPointReason, quizId);
+
+            response.put("message", "포인트가 업데이트되었습니다.");
+        } catch (Exception e) {
+            e.printStackTrace(); // 예외의 스택 트레이스를 콘솔에 출력
+            response.put("message", "Error occurred while updating points.");
+        }
         return response;
     }
-    
+}
+
+
 	/*
 	 * @RequestMapping(value = "/game/quiz/points/update", method =
 	 * RequestMethod.POST)
@@ -113,4 +146,4 @@ public class QuizController {
 	 * pointsCommand.execute(params); Map<String, String> response = new
 	 * HashMap<>(); response.put("message", resultMessage); return response; }
 	 */
-}
+
