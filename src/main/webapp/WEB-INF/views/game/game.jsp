@@ -170,8 +170,7 @@ body, h1, h2, h3, p, a {
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">금융게임</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
 							</ol>
 						</nav>
 					</div>

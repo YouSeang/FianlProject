@@ -1415,7 +1415,7 @@ opacity
 
 .banner-area .banner-2 .single-banner .banner-info {
 	left: auto;
-	top: 60%;
+	<!-- top: 60%; -->
 	transform: translateY(-50%);
 	max-width: 550px;
 	min-width: auto;

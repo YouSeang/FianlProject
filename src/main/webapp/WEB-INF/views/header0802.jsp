@@ -223,7 +223,6 @@ body {
                                 <a class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/sbjoin">KB스타뱅킹 체험</a>
                                 <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
                                     <li class="dropdown-header">KB스타뱅킹 체험</li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
                                     <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
                                 </ul>
