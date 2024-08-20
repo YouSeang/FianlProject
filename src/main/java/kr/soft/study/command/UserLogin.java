@@ -41,15 +41,20 @@ public class UserLogin implements UCommand {
 		UserDao userDao = sqlSession.getMapper(UserDao.class);
 		UserDto user = userDao.getUserById(user_id);
 		
-		if (user != null && passwordEncoder.matches(password, user.getPassword())) {
-			System.out.println("matches succese");
+		if (user == null) {
+			// 사용자 ID가 존재하지 않는 경우
+			System.out.println("Invalid ID");
+			session.setAttribute("loginResult", "invalidId");
+		} else if (!passwordEncoder.matches(password, user.getPassword())) {
+			// 비밀번호가 일치하지 않는 경우
+			System.out.println("Invalid Password");
+			session.setAttribute("loginResult", "invalidPassword");
+		} else {
+			// 로그인 성공
+			System.out.println("Login successful");
 			session.setAttribute("user", user);
 			session.setAttribute("loginResult", "success");
 			session.setAttribute("userRole", user.getRole());
-		} else {
-			System.out.println("matches fail");
-			session.setAttribute("loginResult", "fail");
 		}
-		
 	}
 }

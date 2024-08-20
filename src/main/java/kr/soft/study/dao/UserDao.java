@@ -1,5 +1,6 @@
 package kr.soft.study.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import kr.soft.study.dto.UserDto;
@@ -15,4 +16,8 @@ public interface UserDao {
 	// 정보 수정
 	public void update(Map<String, Object> params);
 
+	// 모든 사용자 가져오기
+    public List<UserDto> getAllUsers();
+   
+    
 }
