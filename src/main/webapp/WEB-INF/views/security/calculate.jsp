@@ -107,11 +107,8 @@ h2 {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-
-	<section class="promo-area" data-stellar-background-ratio="0.5" 
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
-	<div class="container">
-
+	<section class="promo-area" data-stellar-background-ratio="0.5" style="background-position: 50% 0%;">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
@@ -215,7 +212,7 @@ h2 {
 
 	        var formData = $(this).serialize();
 	        var propertyType = $('#propertyType').val();
-	        var url = propertyType === "apartment" ? '/calculate/apartment' : '/calculate/villa';
+	        var url = propertyType === "apartment" ? '/study/calculate/apartment' : '/study/calculate/villa';
 	        
 	        $.post(url, formData, function(data) {
 	            Swal.fire({
