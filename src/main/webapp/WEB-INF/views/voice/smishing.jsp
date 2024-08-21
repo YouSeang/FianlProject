@@ -97,6 +97,16 @@ body, h1, h2, h3, p, a {
 	resize: vertical;
 	min-height: 100px;
 }
+
+.custom-btn {
+	margin-bottom: 10px; /* 버튼들 사이에 아래쪽 여백을 추가합니다. 값은 필요에 따라 조정하세요. */
+}
+
+.form-group {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px; /* 버튼들이 줄바꿈될 때 버튼들 사이의 간격을 설정합니다. */
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
@@ -159,8 +169,8 @@ body, h1, h2, h3, p, a {
 	<jsp:include page="/WEB-INF/views/header0802.jsp" />
 
 	<!-- 배너영역 Start -->
-<section class="promo-area" data-stellar-background-ratio="0.5"
-			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -273,7 +283,7 @@ body, h1, h2, h3, p, a {
 	<script src="<c:url value='/resources/js/form.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
 	<script src="<c:url value='/resources/js/custom.js' />"></script>
-	
+
 </body>
 
 </html>
