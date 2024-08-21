@@ -113,14 +113,14 @@ public class AttendanceController {
 	        AttendanceDao dao = sqlSession.getMapper(AttendanceDao.class);
 
 	        // 출석체크 여부 확인
-	        AttendanceDto existingAttendance = dao.findByUserIdAndDate(userId, tomorrow);
+	        AttendanceDto existingAttendance = dao.findByUserIdAndDate(userId, today);
 	        if (existingAttendance != null) {
 	            System.out.println("이미 출석체크가 완료된 날짜: " + existingAttendance.getCheck_in_date());
 	            return ResponseEntity.status(HttpStatus.CONFLICT).body("Already checked in today");
 	        }
 
 	        // 출석체크 기록 추가
-	        dao.insertAttendance(userId, tomorrow);
+	        dao.insertAttendance(userId, today);
 	        System.out.println("Attendance checked successfully");
 	        return ResponseEntity.ok("Attendance checked successfully");
 	    } catch (Exception e) {

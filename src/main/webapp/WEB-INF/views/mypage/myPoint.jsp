@@ -126,18 +126,24 @@ body, h1, h2, h3, p, a {
 	margin-top: 10px;
 }
 
-.points-note {
+/* .points-note {
 	font-size: 0.9em;
 	color: #555;
 }
 
-.points-note ul {
-	list-style-type: disc;
-	padding-left: 20px;
-}
-
 .points-note ul li {
 	margin-bottom: 5px;
+} */
+.coupon-info {
+	font-size: 1.2rem; /* 글씨 크기 조정 */
+	line-height: 1.5; /* 줄 간격 조정 */
+	color: #333; /* 글씨 색상 */
+	margin-top: 10px; /* 상단 여백 */
+	margin-bottom: 10px; /* 하단 여백 */
+	padding: 10px; /* 안쪽 여백 */
+	border: 1px solid #ddd; /* 테두리 */
+	border-radius: 5px; /* 테두리 둥글게 */
+	background-color: #f9f9f9; /* 배경색 */
 }
 
 /* 버튼 스타일 */
@@ -224,7 +230,8 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -309,13 +316,17 @@ body, h1, h2, h3, p, a {
 							onclick="location.href='${pageContext.request.contextPath}/couponshop'">쿠폰으로
 							교환</button>
 					</div>
-					<div class="points-container">
-						<div class="points-note">
+					<div class="coupon-info mb-4">
+						ㅇ사고예방 체험, 교육 시뮬레이션 등을 통해 획득한 포인트 내역 및 포인트 사용 내역을 확인할 수 있습니다.<br>
+						ㅇ기타 상세 문의사항이 있으신 경우에는 고객센터(1588-9999)로 문의해주세요.
+					</div>
+
+
+					<!-- <div class="points-note">
 							<p>※ 사고예방 체험, 교육 시뮬레이션 등을 통해 획득한 포인트 내역 및 포인트 사용 내역을 확인할 수
 								있습니다.</p>
 							<p>※ 기타 문의는 고객센터(1588-9999)로 연락해주세요.</p>
-						</div>
-					</div>
+						</div> -->
 				</div>
 			</div>
 		</div>
@@ -342,6 +353,6 @@ body, h1, h2, h3, p, a {
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 </html>

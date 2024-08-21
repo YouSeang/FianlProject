@@ -29,7 +29,7 @@ public class PointsController {
 		this.couponCommand = couponCommand;
 	}
 
-	@RequestMapping(value = "/updatePoints", method = RequestMethod.POST)
+	@RequestMapping(value = "/updatePoints", method = RequestMethod.POST, produces = "text/plain; charset=UTF-8")
 	@ResponseBody
 	public String updatePoints(HttpSession session, @RequestParam("pointReason") String pointReason) {
 		System.out.println("여기까지는 오나?");
@@ -42,7 +42,7 @@ public class PointsController {
 			return pointsCommand.execute(map);
 		} else {
 			System.out.println("세션에 아이디 없음");
-			return "User is not logged in.";
+			return "이미 포인트가 지급되었습니다."; //이 문구 추후 수정필요할수도
 		}
 	}
 
