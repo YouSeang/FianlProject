@@ -256,9 +256,9 @@ input:checked+.slider:before {
         </div>
     </div>
 
-    <script>
+   <!--  <script>
         var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
-    </script>
+    </script> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -345,21 +345,7 @@ input:checked+.slider:before {
                             break;
                         case '아무리 급해도 알아보고 하는게 좋을 것 같아. 이따가 집에가서 같이 이야기해보자':
                         case '아무리 급해도 엄마/아빠랑도 이야기해보는게 맞을 것 같다. 확인해보고 다시 연락해줄게':
-                            Swal.fire({
-                                title: '예방성공!',
-                                text: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요',
-                                icon: 'success',
-                                showCloseButton: true,
-                                showDenyButton: true,
-                                confirmButtonText: '확인',
-                                denyButtonText: '체험 다시하기'
-                            }).then((result) => {
-                                if (result.isConfirmed && isLoggedIn === true) {
-                                    updatePoints();  // 로그인 상태에서만 포인트 업데이트
-                                } else if (result.isDenied) {
-                                    location.reload(); // 사용자가 다시 시도하기를 원할 경우 페이지를 리로드
-                                }
-                            });
+                            handlePreventionSuccess(); // 로그인 상태에 따른 포인트 업데이트 및 알림 표시
                             break;
                         default:
                             console.error('Unhandled choice:', choice);
@@ -367,33 +353,70 @@ input:checked+.slider:before {
                 });
             }
 
-            function updatePoints() {
+            function handlePreventionSuccess() {
+                // AJAX 요청을 무조건 실행
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/updatePoints",
+                    url: "${pageContext.request.contextPath}/resultMessagePhishing",
                     method: "POST",
+                    dataType: "json",  // 응답을 JSON으로 처리
                     data: { pointReason: '메신저피싱 체험완료' },
                     success: function (response) {
-                        Swal.fire({
-                            title: '포인트 업데이트 완료!',
-                            text: response,
-                            icon: 'success'
-                        }).then(() => {
-                            window.close();
-                        });
+                        console.log(response);  // 응답을 콘솔에 출력
+                        if (response && response.pointUpdateResult) {
+                            Swal.fire({
+                                title: '예방성공!',
+                                html: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요.<br>' + response.pointUpdateResult,
+                                icon: 'success',
+                                showCloseButton: true,
+                                showDenyButton: true,
+                                confirmButtonText: '확인',
+                                denyButtonText: '체험 다시하기'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.close();
+                                } else if (result.isDenied) {
+                                    location.reload();
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                title: '예방성공!',
+                                html:  '포인트 업데이트에 실패했습니다.' + response.pointUpdateResult,
+                                icon: 'warning',
+                                showCloseButton: true,
+                                showDenyButton: true,
+                                confirmButtonText: '확인',
+                                denyButtonText: '체험 다시하기'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.close();
+                                } else if (result.isDenied) {
+                                    location.reload();
+                                }
+                            });
+                        }
                     },
                     error: function (xhr, status, error) {
-                        console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                        console.error("AJAX error:", error);
                         Swal.fire({
-                            title: '포인트 업데이트 실패',
-                            text: `상태: ${status}, 오류: ${error}`,
-                            icon: 'error'
-                        }).then(() => {
-                            window.close();
+                            title: '예방성공!',
+                            text: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요.',
+                            icon: 'warning',
+                            showCloseButton: true,
+                            showDenyButton: true,
+                            confirmButtonText: '확인',
+                            denyButtonText: '체험 다시하기'
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                window.close();
+                            } else if (result.isDenied) {
+                                location.reload();
+                            }
                         });
                     }
                 });
             }
-
+            
             function updateSidebar(optionA, optionB) {
                 var sidebarContent = document.getElementById('sidebar-content');
                 sidebarContent.innerHTML = ''; // Clear previous content

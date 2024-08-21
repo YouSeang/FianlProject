@@ -118,13 +118,15 @@ body, h1, h2, h3, p, a {
 						</h2>
 						<form role="form" action="./findPassword" method="post">
 							<div class="form-group">
-								<label for="email">이메일 :</label> <input class="form-control"
+								<label for="email">회원 이메일 :</label> <input class="form-control"
 									type="email" id="email" name="email" placeholder="test@kb.com">
 							</div>
 							<button class="custom-btn mt-3" type="submit">비밀번호 재설정
-								링크 보내기</button>
+								링크 발송</button>
 							<div class="login-bottom mt-4">
-								<label><i class="fa fa-user me-2"></i> 계정이 있으시다면 <a
+							<label>ㅇ가입 당시 입력하셨던 이메일로 발송되는 링크를 통해 비밀번호 재설정이 가능합니다.</label>
+							<label>ㅇ이메일이 기억이 안나시는 경우에는 고객센터(1588-9999)로 문의해주세요.</label>
+								<br><br><label><i class="fa fa-user me-2"></i> 계정이 있으시다면 <a
 									href="signin.html">로그인</a> 해주세요</label>
 							</div>
 						</form>

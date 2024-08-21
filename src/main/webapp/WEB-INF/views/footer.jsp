@@ -76,23 +76,15 @@ body, h1, h2, h3, p, a {
 								alt="Logo">
 							</a>
 						</div>
-						<p>LocKB 홈페이지입니다.</p>
-						<div class="footer-social">
-							<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-								href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-								class="fa-brands fa-youtube"></i></a> <a href="#"><i
-								class="fa-brands fa-pinterest"></i></a> <a href="#"><i
-								class="fa-brands fa-instagram"></i></a>
-						</div>
 					</div>
 				</div>
 				<div class="col-lg-2 offset-lg-1 col-sm-5 offset-sm-1">
 					<div class="footer-widget">
 						<h3 class="widget-title">패밀리 사이트</h3>
 						<ul>
-							<li><a href="#">KB국민은행</a></li>
-							<li><a href="#">KB국민카드</a></li>
-							<li><a href="#">KB손해보험</a></li>
+							<li><a href="https://www.kbstar.com/">KB국민은행</a></li>
+							<li><a href="https://card.kbcard.com/">KB국민카드</a></li>
+							<li><a href="https://direct.kbinsure.co.kr/">KB손해보험</a></li>
 						</ul>
 					</div>
 				</div>
@@ -100,8 +92,8 @@ body, h1, h2, h3, p, a {
 					<div class="footer-widget">
 						<h3 class="widget-title">관련 사이트</h3>
 						<ul>
-							<li><a href="#">금융감독원</a></li>
-							<li><a href="#">경찰청</a></li>
+							<li><a href="https://www.fss.or.kr/">금융감독원</a></li>
+							<li><a href="https://www.police.go.kr/">경찰청</a></li>
 						</ul>
 					</div>
 				</div>
@@ -110,8 +102,7 @@ body, h1, h2, h3, p, a {
 						<h3 class="widget-title">문의</h3>
 						<ul class="footer-contact">
 							<li><i class="fa fa-home"></i> <span>비트빌 3층</span></li>
-							<li><i class="fa fa-phone"></i><span><a
-									href="tel:+6494461709.7890">1588-9999</a> <br> </span></li>
+							<li><i class="fa fa-phone"></i><span><a>1588-9999</a> <br> </span></li>
 							<li><i class="fa fa-envelope"></i> <span><a
 									href="mailto:help@gmail.com">ringdingding.gmail.com</a></span></li>
 						</ul>
@@ -121,7 +112,7 @@ body, h1, h2, h3, p, a {
 			<div class="row copy-right g-0">
 				<div class="col-xl-6 col-md-7 order-2 order-md-1">
 					<p>
-						Copyright © 2024. All Rights Reserved by <a href="#">It's ok.
+						Copyright © 2024. All Rights Reserved by <a>It's ok.
 							ringdingding</a>
 					</p>
 				</div>

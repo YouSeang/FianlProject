@@ -69,7 +69,7 @@ public class GameController {
         Map<String, String> response = new HashMap<>();
 
         if (user == null || user.getUser_id() == null) {
-            response.put("message", "User is not logged in.");
+            response.put("message", "로그인해야 포인트가 적립됩니다.");
             return response;
         }
 
@@ -78,9 +78,16 @@ public class GameController {
         int pointsEarned = gameScore * 5; // 1점당 5포인트
         String pointReason = "범죄자 잡기 게임";
 
-        pointsCommand.updatePoints(userId, pointsEarned, pointReason, 0); // 0은 quizId 대신 사용
+        // 포인트 적립 처리
+        Map<String, Object> pointParams = new HashMap<>();
+        pointParams.put("userId", userId);
+        pointParams.put("pointReason", pointReason);
+        pointParams.put("gameScore", gameScore); // gameScore 추가
 
-        response.put("message", "Game ended. Points updated.");
+        String pointUpdateMessage = pointsCommand.execute(pointParams);
+
+        // 응답 메시지 설정
+        response.put("message", pointUpdateMessage);
         return response;
     }
 }
