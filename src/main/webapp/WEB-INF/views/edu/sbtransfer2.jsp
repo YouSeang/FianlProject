@@ -24,6 +24,16 @@
 
 <title>LocKB</title>
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
+
 /* 단계 표시 스타일 */
 #step-indicator {
 	display: flex;
@@ -514,7 +524,7 @@
 
             // 현재 이미지에 따라 숫자 처리 구분
             var currentSrc = $("#main-image").attr("src");
-            var isAccountInput = currentSrc.includes("transfer2-1.png") || currentSrc.includes("transfer3error.png");
+            var isAccountInput = currentSrc.includes("transfer2-1.png") || currentSrc.includes("transfer2-2error.png");
 
             // 클릭한 영역의 ID에 따라 값을 설정
             if (areaId === 'keypad-1') value = '1';
@@ -583,20 +593,20 @@
             
             if (inputaccountNum === "") {
                 // 계좌번호가 입력되지 않은 경우 오류 이미지 표시
-                var errorSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer3error.png"; // 오류 이미지 경로
+                var errorSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer2-2error.png"; // 오류 이미지 경로
                 var errorMap = `
-                    <area id="keypad-1" target="" alt="" title="" href="#" coords="293,124,589,160" shape="rect">
-                    <area id="keypad-2" target="" alt="" title="" href="#" coords="258,487,637,733" shape="rect">
-                    <area id="keypad-3" target="" alt="" title="" href="#" coords="369,548,272,503" shape="rect">
-                    <area id="keypad-4" target="" alt="" title="" href="#" coords="265,555,375,604" shape="rect">
-                    <area id="keypad-5" target="" alt="" title="" href="#" coords="387,554,500,603" shape="rect">
-                    <area id="keypad-6" target="" alt="" title="" href="#" coords="513,554,619,603" shape="rect">
-                    <area id="keypad-7" target="" alt="" title="" href="#" coords="267,610,373,657" shape="rect">
-                    <area id="keypad-8" target="" alt="" title="" href="#" coords="386,610,499,656" shape="rect">
-                    <area id="keypad-9" target="" alt="" title="" href="#" coords="512,612,617,655" shape="rect">
-                    <area id="keypad-0" target="" alt="" title="" href="#" coords="386,664,498,708" shape="rect">
-                    <area id="keypad-10" target="" alt="" title="" href="#" coords="527,665,619,709" shape="rect">
-                    <area id="keypad-check" target="" alt="" title="" href="#" coords="259,728,635,784" shape="rect">
+                    <area id="keypad-1" target="" alt="" title="" href="#" coords="271,503,364,544" shape="rect">
+                    <area id="keypad-2" target="" alt="" title="" href="#" coords="397,502,498,545" shape="rect">
+                    <area id="keypad-3" target="" alt="" title="" href="#" coords="524,502,621,545" shape="rect">
+                    <area id="keypad-4" target="" alt="" title="" href="#" coords="274,560,365,600" shape="rect">
+                    <area id="keypad-5" target="" alt="" title="" href="#" coords="398,563,494,600" shape="rect">
+                    <area id="keypad-6" target="" alt="" title="" href="#" coords="528,562,616,600" shape="rect">
+                    <area id="keypad-7" target="" alt="" title="" href="#" coords="276,619,364,657" shape="rect">
+                    <area id="keypad-8" target="" alt="" title="" href="#" coords="398,621,494,657" shape="rect">
+                    <area id="keypad-9" target="" alt="" title="" href="#" coords="527,617,614,658" shape="rect">
+                    <area id="keypad-0" target="" alt="" title="" href="#" coords="401,672,492,706" shape="rect">
+                    <area id="keypad-10" target="" alt="" title="" href="#" coords="526,674,614,707" shape="rect">
+                    <area id="keypad-check" target="" alt="" title="" href="#" coords="255,734,632,788" shape="rect">
                 `; // 오류 화면에서도 키패드 영역 활성화
                 var displayAreaCoords = "293,124,589,160"; // display-area1의 위치와 크기를 설정
                 var keypadAreaCoords = "254,487,633,733"; // keypad-area의 위치와 크기를 설정
@@ -635,14 +645,47 @@
         
      // 네 번째 이미지 전환 이벤트 (금액 입력 후 '확인'버튼 클릭')
         $(document).on('click', '#keypad-next', function(event) {
-        	  event.preventDefault();
-              currentStep = 5; // 현재 단계를 5로 설정
-              updateStepIndicator(); // 단계 표시 업데이트
+            event.preventDefault();
 
             var maxAmount = 5760803; // 출금 가능 최대 금액
             var currentAmount = parseInt(inputpay.replace(/,/g, '')) || 0;
 
-            if (currentAmount > maxAmount) {
+            if (currentAmount === 0) {
+                // 금액이 입력되지 않은 경우 오류 이미지로 전환
+                var errorSrc = "${pageContext.request.contextPath}/resources/images/transfer/transfer33error.png"; // 오류 이미지 경로
+                var errorMap = `
+                	 <area id="keypad-1" target="" alt="" title="" href="#" coords="276,510,369,553" shape="rect">
+                    <area id="keypad-2" target="" alt="" title="" href="#" coords="395,509,491,550" shape="rect">
+                    <area id="keypad-3" target="" alt="" title="" href="#" coords="519,509,620,550" shape="rect">
+                    <area id="keypad-4" target="" alt="" title="" href="#" coords="277,566,369,610" shape="rect">
+                    <area id="keypad-5" target="" alt="" title="" href="#" coords="396,566,493,609" shape="rect">
+                    <area id="keypad-6" target="" alt="" title="" href="#" coords="520,566,622,608" shape="rect">
+                    <area id="keypad-7" target="" alt="" title="" href="#" coords="278,622,368,663" shape="rect">
+                    <area id="keypad-8" target="" alt="" title="" href="#" coords="396,624,493,662" shape="rect">
+                    <area id="keypad-9" target="" alt="" title="" href="#" coords="517,623,621,664" shape="rect">
+                    <area id="keypad-0" target="" alt="" title="" href="#" coords="277,678,370,713" shape="rect">
+                    <area id="keypad-10" target="" alt="" title="" href="#" coords="395,680,494,713" shape="rect">
+                    <area id="keypad-00" target="" alt="" title="" href="#" coords="518,679,618,714" shape="rect">
+                    <area id="keypad-total" target="" alt="" title="" href="#" coords="280,457,340,488" shape="rect">
+                    <area id="keypad-100man" target="" alt="" title="" href="#" coords="346,458,407,487" shape="rect">
+                    <area id="keypad-10man" target="" alt="" title="" href="#" coords="412,461,474,488" shape="rect">
+                    <area id="keypad-5man" target="" alt="" title="" href="#" coords="481,459,541,485" shape="rect">
+                    <area id="keypad-1man" target="" alt="" title="" href="#" coords="547,459,609,488" shape="rect">
+                    <area id="keypad-next" target="" alt="" title="" href="#" coords="253,730,632,787" shape="rect">
+                `;
+
+                 var displayAreaCoords1 = "353,107,504,130"; // display-area1의 위치와 크기를 설정
+                var displayAreaCoords2 = "354,186,459,214,"; // display-area2의 위치와 크기를 설정
+                var keypadAreaCoords = "281,124,612,163"; // keypad-area의 위치와 크기를 설정
+                
+                changeImage(errorSrc, errorMap, null, displayAreaCoords1, displayAreaCoords2, null, null, null, null, keypadAreaCoords);
+
+             // 이미지가 완전히 로드된 후에 좌표 재설정
+                $("#main-image").on('load', function() {
+                    resizeImageMap();
+                });
+             
+            } else if (currentAmount > maxAmount) {
                 // 금액이 초과되었을 때 경고 문구 표시
                 $("#warning-text").text("[잔액이 부족합니다]").show();
             } else {
@@ -664,7 +707,6 @@
                 $("#warning-text").hide();
             }
         });
-        
         // 다섯 번째 이미지 전환 이벤트 (이체정보 확인 후 '다음' 버튼 클릭 시)
         $(document).on('click', '#area-7', function(event) {
         	 event.preventDefault();

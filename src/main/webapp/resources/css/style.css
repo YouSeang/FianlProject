@@ -1417,7 +1417,7 @@ opacity
 	left: auto;
 	top: 60%;
 	transform: translateY(-50%);
-	max-width: 550px;
+	max-width: 800px;
 	min-width: auto;
 }
 
@@ -3281,11 +3281,11 @@ opacity
 	{
 	z-index: auto;
 	border-radius: 50%;
-	opacity: 0;
+	opacity: 0 !important;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
 	filter: alpha(opacity = 0);
 	background: #000000;
-	transform: scale(0.3);
+	transform: scale(1) !important;
 	-webkit-transition: all 0.4s ease;
 	-moz-transition: all 0.4s ease;
 	-o-transition: all 0.4s ease;
