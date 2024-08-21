@@ -7,7 +7,8 @@
 
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
@@ -15,19 +16,28 @@
 <title>LocKB</title>
 
 <!-- Favicon Icon -->
-<link rel="shortcut icon" href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
+<link rel="shortcut icon"
+	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
 <!-- Style Libraries -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/nice-select.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/animate.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/font/flaticon.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/owl.carousel.min.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/nice-select.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/animate.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
 
 <!-- Style css -->
-<link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/style.css">
 
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -38,149 +48,228 @@
 <style>
 /* 기본 스타일 유지 */
 body {
-    overflow-x: hidden;
+	overflow-x: hidden;
 }
 
 .mobile-nav {
-    position: fixed;
-    top: 0;
-    left: -300px; /* 사이드바 폭을 300px로 조정 */
-    width: 300px;
-    height: 100%;
-    background-color: #fff;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
-    z-index: 2000;
-    transition: left 0.3s ease;
-    overflow-y: auto;
+	position: fixed;
+	top: 0;
+	left: -300px; /* 사이드바 폭을 300px로 조정 */
+	width: 300px;
+	height: 100%;
+	background-color: #fff;
+	box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+	z-index: 2000;
+	transition: left 0.3s ease;
+	overflow-y: auto;
 }
 
 .mobile-nav.active {
-    left: 0;
+	left: 0;
 }
 
 .mobile-nav-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem;
-    border-bottom: 1px solid #eaeaea;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-bottom: 1px solid #eaeaea;
 }
 
 .mobile-nav-close {
-    font-size: 1.5rem;
-    cursor: pointer;
+	font-size: 1.5rem;
+	cursor: pointer;
 }
 
 .mobile-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 }
 
 .mobile-nav ul li {
-    border-bottom: 1px solid #eaeaea;
+	border-bottom: 1px solid #eaeaea;
 }
 
 .mobile-nav ul li a {
-    display: block;
-    padding: 1rem;
-    text-decoration: none;
-    color: #333;
+	display: block;
+	padding: 1rem;
+	text-decoration: none;
+	color: #333;
 }
 
 .mobile-nav ul li a:hover {
-    background-color: #f5f5f5;
+	background-color: #f5f5f5;
 }
 
 .mobile-nav ul li .dropdown-menu {
-    display: none;
-    position: relative;
-    z-index: 3000; /* 드롭다운 메뉴의 z-index를 높게 설정 */
+	display: none;
+	position: relative;
+	z-index: 3000; /* 드롭다운 메뉴의 z-index를 높게 설정 */
 }
 
 .mobile-nav ul li.active .dropdown-menu {
-    display: block;
+	display: block;
 }
 
 .mobile-nav-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 1000;
-    display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+	display: none;
 }
 
 .mobile-nav-backdrop.active {
-    display: block;
+	display: block;
 }
 
 /* 추가적인 CSS 수정 */
 .dropdown-submenu .dropdown-menu {
-    position: relative;
-    left: 20px; /* 적절한 위치로 조정 */
-    top: 0;
-    z-index: 3000; /* 드롭다운 메뉴의 z-index를 높게 설정 */
+	position: relative;
+	left: 20px; /* 적절한 위치로 조정 */
+	top: 0;
+	z-index: 3000; /* 드롭다운 메뉴의 z-index를 높게 설정 */
 }
 
 /* Dept 구분을 위한 CSS */
-.dept-1 > a {
-    font-weight: bold;
-    background-color: #e9ecef;
+.dept-1>a {
+	font-weight: bold;
+	background-color: #e9ecef;
 }
 
-.dept-2 > a {
-    padding-left: 2rem;
-    background-color: #f8f9fa;
+.dept-2>a {
+	padding-left: 2rem;
+	background-color: #f8f9fa;
 }
 
-.dept-3 > a {
-    padding-left: 3rem;
-    background-color: #e9ecef;
+.dept-3>a {
+	padding-left: 3rem;
+	background-color: #e9ecef;
 }
 
 /* 모바일 네비게이션 버튼 스타일 */
 .navbar-toggler {
-    display: block;
-    border: none;
-    background: none;
-    font-size: 1.5rem;
-    cursor: pointer;
+	display: block;
+	border: none;
+	background: none;
+	font-size: 1.5rem;
+	cursor: pointer;
 }
 
 .navbar-toggler-icon {
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    display: block;
-    position: relative;
+	width: 30px;
+	height: 3px;
+	background-color: #333;
+	display: block;
+	position: relative;
 }
 
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-    content: '';
-    width: 30px;
-    height: 3px;
-    background-color: #333;
-    position: absolute;
-    left: 0;
-    transition: all 0.3s;
+.navbar-toggler-icon::before, .navbar-toggler-icon::after {
+	content: '';
+	width: 30px;
+	height: 3px;
+	background-color: #333;
+	position: absolute;
+	left: 0;
+	transition: all 0.3s;
 }
 
 .navbar-toggler-icon::before {
-    top: -10px;
+	top: -10px;
 }
 
 .navbar-toggler-icon::after {
-    bottom: -10px;
+	bottom: -10px;
+}
+
+.mobile-nav-header {
+	display: flex;
+	align-items: center;
+	padding: 1rem;
+	border-bottom: 1px solid #eaeaea;
+}
+
+.mobile-nav-actions {
+	display: flex;
+	align-items: center;
+}
+
+.mobile-login-btn {
+	font-size: 0.9rem;
+	color: #ffffff;
+	background-color: #ffb200;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 5px; /* 닫기 버튼과의 간격 */
+	display: inline-block;
+	border: 1px solid #ffb200;
+	transition: background-color 0.3s ease;
+}
+
+.mobile-login-btn:hover {
+	background-color: #505050;
+	border-color: #505050;
+	color: #ffffff;
+}
+
+.mobile-nav-close {
+	font-size: 1.5rem;
+	cursor: pointer;
+	margin-left: 0; /* 필요에 따라 조정 가능 */
+}
+
+.mobile-mypage-btn {
+	font-size: 0.9rem;
+	color: #ffffff;
+	background-color: #ffb200;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 5px; /* 닫기 버튼과의 간격 */
+	display: inline-block;
+	border: 1px solid #ffb200;
+	transition: background-color 0.3s ease;
+}
+
+.mobile-mypage-btn:hover {
+	background-color: #505050;
+	border-color: #505050;
+	color: #ffffff;
+}
+
+.mobile-admin-btn {
+	font-size: 0.9rem;
+	color: #ffffff;
+	background-color: #ffb200;
+	padding: 5px 10px;
+	border-radius: 5px;
+	text-decoration: none;
+	margin-right: 5px; /* 닫기 버튼과의 간격 */
+	display: inline-block;
+	border: 1px solid #ffb200;
+	transition: background-color 0.3s ease;
+}
+
+.mobile-admin-btn:hover {
+	background-color: #505050;
+	border-color: #505050;
+	color: #ffffff;
 }
 </style>
 
 </head>
 
 <body>
+
+
+
+
+
 <!-- Header Start -->
 <header class="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -282,73 +371,112 @@ body {
 </header>
 <!-- Header End -->
 
-<!-- Mobile Navigation -->
-<div class="mobile-nav" id="mobile-nav">
-    <div class="mobile-nav-header">
-        <h5 class="mb-0">메뉴</h5>
-        <span class="mobile-nav-close" id="mobile-nav-close">&times;</span>
-    </div>
-    <ul>
-        <li class="dept-1"><a href="./about.html">LocKB소개</a></li>
-        <li class="dept-1">
-            <a href="#" class="dropdown-toggle">사고예방</a>
-            <ul class="dropdown-menu">
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/voice/recentIncidents">최근 금융사고 뉴스</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/phoneLookupForm">발신번호 조회</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/preCheckQuiz">전세사기 예방하기</a></li>
-                <li class="dept-2 dropdown-submenu">
-                    <a href="#" class="dropdown-toggle">금융사고예방 시뮬레이션</a>
-                    <ul class="dropdown-menu">
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/voice/smishing">스미싱</a></li>
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/voice/messagePhishing">메신저피싱</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </li>
-        <li class="dept-1">
-            <a href="#" class="dropdown-toggle">금융교육</a>
-            <ul class="dropdown-menu">
-                <li class="dept-2 dropdown-submenu">
-                    <a href="#" class="dropdown-toggle">KB스타뱅킹 체험</a>
-                    <ul class="dropdown-menu">
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
-                    </ul>
-                </li>
-                
-                <li class="dept-2 dropdown-submenu">
-                    <a href="#" class="dropdown-toggle">금융게임</a>
-                    <ul class="dropdown-menu">
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
-                        <li class="dept-3"><a href="${pageContext.request.contextPath}/game/findcrime">범죄자 잡기</a></li>
-                    </ul>
-                </li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
-            </ul>
-        </li>
-        <li class="dept-1">
-            <a href="#" class="dropdown-toggle">나의보안</a>
-            <ul class="dropdown-menu">
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/security/securityTemp">나의 보안점수</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/security/securityGuide">보안 강화 어플/사이트</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
-            </ul>
-        </li>
+	<!-- Mobile Navigation -->
+	<div class="mobile-nav" id="mobile-nav">
+		<div class="mobile-nav-header">
+			<h5 class="mb-0">메뉴</h5>
+			<div class="mobile-nav-actions">
+				<c:choose>
+					<c:when test="${not empty sessionScope.user}">
+						<!-- Admin 사용자일 경우 -->
+						<c:choose>
+							<c:when test="${sessionScope.user.role eq 'admin'}">
+								<a href="${pageContext.request.contextPath}/admin/admin"
+									class="mobile-admin-btn"> 관리자메뉴 </a>
+							</c:when>
+							<c:otherwise>
+								<a href="${pageContext.request.contextPath}/mypage"
+									class="mobile-mypage-btn"> 마이페이지 </a>
+							</c:otherwise>
+						</c:choose>
+						<a href="${pageContext.request.contextPath}/logout"
+							class="mobile-login-btn">로그아웃</a>
+					</c:when>
+					<c:otherwise>
+						<a href="${pageContext.request.contextPath}/loginView"
+							class="mobile-login-btn">로그인</a>
+					</c:otherwise>
+				</c:choose>
+				<span class="mobile-nav-close" id="mobile-nav-close">&times;</span>
+			</div>
+		</div>
 
-        <li class="dept-1">
-            <a href="#" class="dropdown-toggle">소통창구</a>
-            <ul class="dropdown-menu">
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
-                <li class="dept-2"><a href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
+		<ul>
 
+
+
+			<li class="dept-1"><a href="./about.html">LocKB소개</a></li>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">사고예방</a>
+				<ul class="dropdown-menu">
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/voice/recentIncidents">최근
+							금융사고 뉴스</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/phoneLookupForm">발신번호
+							조회</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/preCheckQuiz">전세사기
+							예방하기</a></li>
+					<li class="dept-2 dropdown-submenu"><a href="#"
+						class="dropdown-toggle">금융사고예방 시뮬레이션</a>
+						<ul class="dropdown-menu">
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/voice/smishing">스미싱</a></li>
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/voice/messagePhishing">메신저피싱</a></li>
+						</ul></li>
+				</ul></li>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">금융교육</a>
+				<ul class="dropdown-menu">
+					<li class="dept-2 dropdown-submenu"><a href="#"
+						class="dropdown-toggle">KB스타뱅킹 체험</a>
+						<ul class="dropdown-menu">
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
+						</ul></li>
+
+					<li class="dept-2 dropdown-submenu"><a href="#"
+						class="dropdown-toggle">금융게임</a>
+						<ul class="dropdown-menu">
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
+							<li class="dept-3"><a
+								href="${pageContext.request.contextPath}/game/findcrime">범죄자
+									잡기</a></li>
+						</ul></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
+				</ul></li>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">나의보안</a>
+				<ul class="dropdown-menu">
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/security/securityTemp">나의
+							보안점수</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/security/securityGuide">보안
+							강화 어플/사이트</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
+				</ul></li>
+
+			<li class="dept-1"><a href="#" class="dropdown-toggle">소통창구</a>
+				<ul class="dropdown-menu">
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
+				</ul></li>
+		</ul>
+	</div>
+	<div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
 <!-- Scripts -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -391,6 +519,7 @@ $(document).ready(function () {
     });
 });
 </script>
+
 
 </body>
 </html>
