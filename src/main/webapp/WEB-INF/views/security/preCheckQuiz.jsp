@@ -92,29 +92,24 @@ body, h1, h2, h3, p, a {
 
 /* 기존 스타일 유지 */
 .btn.custom-btn {
-    padding: 70px 70px; /* 버튼 크기 조정 */
-    font-size: 90px; /* 텍스트 크기 조정 */
-    border-radius: 100px; /* 모서리 둥글게 조정 */
-    background-color: #689dc9; /* 파란색 배경 */
-    color: white; /* 텍스트 색상 흰색 */
-    border: none; /* 테두리 제거 */
+	padding: 70px 70px; /* 버튼 크기 조정 */
+	font-size: 90px; /* 텍스트 크기 조정 */
+	border-radius: 100px; /* 모서리 둥글게 조정 */
+	background-color: #689dc9; /* 파란색 배경 */
+	color: white; /* 텍스트 색상 흰색 */
+	border: none; /* 테두리 제거 */
 }
 
 /* 마우스 오버 시 버튼 색상을 조금 더 진하게 */
 .btn.custom-btn:hover {
-    background-color: #1c81ce;
+	background-color: #1c81ce;
 }
 </style>
 
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
@@ -122,7 +117,7 @@ body, h1, h2, h3, p, a {
 
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-				style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 
 		<div class="container">
 			<div class="row">
@@ -133,9 +128,8 @@ body, h1, h2, h3, p, a {
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">적정
-									전세가 확인</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -158,7 +152,8 @@ body, h1, h2, h3, p, a {
 									role="alert">
 									<c:choose>
 										<c:when test="${not empty quiz.imageUrl}">
-										  <c:out value="${quiz.imageUrl}" /> <!-- 여기에 이미지 경로가 제대로 출력되는지 확인 -->
+											<c:out value="${quiz.imageUrl}" />
+											<!-- 여기에 이미지 경로가 제대로 출력되는지 확인 -->
 											<img id="quiz-image"
 												src="/resources/images/secure/${quiz.imageUrl}"
 												alt="Quiz Image"
@@ -240,8 +235,8 @@ body, h1, h2, h3, p, a {
                     if (correctAnswers >= totalQuestions) { // 조건 확인
                         Swal.fire({
                             icon: 'success',
-                            title: '정답은 1번입니다!',
-                            html: '<span style="font-size: larger;">사전 체크가 완료됐어요.<br>이제 내 전세가가 적정한 전세가격인지<br> 확인해보러 갈까요?</span><br><span style="font-size: smaller;">주택A의 임대인은, 대출금 2억 원과 보증금 2억 원을 통해 집값의 80%를 마련했어요. 대표적인 깡통주택 유형이죠. 반면에, 주택B의 임대인은 대출금 5천만원과 보증금 2억 원을 다 합쳐서 집값의 50%만이 타인의 돈으로 구성된 집을 갖고 있어요.</span>',
+                            title: '네. 정답은 1번입니다!',
+                            html: '<span style="font-size: larger;">사전 체크가 완료됐어요.<br>이제 내 전세가가 적정한 전세가격인지<br> 확인해보러 갈까요?</span><br>',
                             confirmButtonText: '확인'
                         }).then((result) => {
                             if (result.isConfirmed) {
@@ -261,11 +256,20 @@ body, h1, h2, h3, p, a {
                         });
                     }
                 } else {
-                    Swal.fire({
-                        icon: 'error',
-                        html: '<strong>앗! 전세계약 전 다시한번 확인하세요.</strong>',
-                        confirmButtonText: '다시 풀기'
-                    });
+                    if (currentQuestionIndex >= totalQuestions - 1) { // 마지막 질문이고, 틀린 경우
+                        Swal.fire({
+                            icon: 'error',
+                            title: '아닙니다. 다시풀어보세요!',
+                            html: '주택A의 임대인은, 대출금 2억 원과 보증금 2억 원을 통해 집값의 80%를 마련했어요. 대표적인 깡통주택 유형이죠. 반면에, 주택B의 임대인은 대출금 5천만원과 보증금 2억 원을 합쳐서 집값의 50%만이 타인의 돈으로 구성된 집을 갖고 있어요.',
+                            confirmButtonText: '다시 풀기'
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            html: '<strong>앗! 전세계약 전 다시한번 확인하세요.</strong>',
+                            confirmButtonText: '다시 풀기'
+                        });
+                    }
                 }
             }
         });

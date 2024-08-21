@@ -83,21 +83,6 @@ body, h1, h2, h3, p, a {
 	margin-bottom: 5px;
 }
 
-.promo-area {
-	background:
-		url('${pageContext.request.contextPath}/resources/images/promo-bg.jpg')
-		no-repeat center center;
-	background-size: cover;
-	padding: 100px 0;
-	color: #fff;
-	text-align: center;
-}
-
-.promo-title {
-	font-size: 2.5em;
-	font-weight: bold;
-}
-
 .donation-form {
 	padding: 30px;
 }
@@ -153,8 +138,11 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
-		<div class="container">
+
+<section class="promo-area" data-stellar-background-ratio="0.5" 
+			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+	<div class="container">
+
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
@@ -162,9 +150,9 @@ body, h1, h2, h3, p, a {
 							<span>발신번호 조회</span>
 						</h1>
 						<nav aria-label="breadcrumb">
-							<ol class="breadcrumb justify-content-center">
-								<li class="breadcrumb-item"><a href="#">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">메인</li>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -197,32 +185,32 @@ body, h1, h2, h3, p, a {
 			</div>
 			<div class="row">
 				<div class="col-lg-10 offset-lg-1">
-					<div class="bg-light donation-form rounded-3 shadow-sm">
-						<div class="points-container" style="margin-top: 5px !important;">
-							<div class="points-note "
-								style="font-weight: bold; font-size: 17px;">
-								<p style="color: red;">※ +82 뒤에 조회하고자 하는 번호를 입력해주세요.</p>
-								<p>※ 사기 이력에 대한 조회는 불가하며 해당 번호가 개통된 국가와 유형(모바일/유선 등)의 결과만
-									조회됩니다.</p>
-								<p>※ 해당 조회결과는 참고용으로만 사용해주세요.</p>
-								<p>
-									※ 사이버 사기피해 신고여부는 경찰청 홈페이지를 이용해주세요. <a
-										href="https://www.police.go.kr/www/security/cyber/cyber04.jsp"
-										target="_blank"> <br />경찰청 - 인터넷 사기 의심전화·계좌번호 조회 바로가기
-									</a>
-								</p>
-							</div>
+
+					<div class="points-container" style="margin-top: 5px !important;">
+						<div class="points-note "
+							style="font-weight: bold; font-size: 17px;">
+							<p style="color: red;">※ +82 뒤에 조회하고자 하는 번호를 입력해주세요.</p>
+							<p>※ 사기 이력에 대한 조회는 불가하며 해당 번호가 개통된 국가와 유형(모바일/유선 등)의 결과만
+								조회됩니다.</p>
+							<p>※ 해당 조회결과는 참고용으로만 사용해주세요.</p>
+							<p>
+								※ 사이버 사기피해 신고여부는 경찰청 홈페이지를 이용해주세요. <a
+									href="https://www.police.go.kr/www/security/cyber/cyber04.jsp"
+									target="_blank"> <br />경찰청 - 인터넷 사기 의심전화·계좌번호 조회 바로가기
+								</a>
+							</p>
 						</div>
-						<br />
-						<form id="lookupForm" method="get" class="form-group">
-							<label for="phoneNumber"> ▼ 조회할 번호 ▼</label> <input type="text"
-								placeholder="+82012345678" id="phoneNumber" name="phoneNumber"
-								required
-								style="margin-bottom: 10px; padding: 15px; border: 2px solid #FFB200; border-radius: 20px; font-size: 18px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
-							<button type="submit"
-								style="margin-top: 15px; border-radius: 10px; font-size: 25px;">조회하기</button>
-						</form>
 					</div>
+					<br />
+					<form id="lookupForm" method="get" class="form-group">
+						<label for="phoneNumber"> ▼ 조회할 번호 ▼</label> <input type="text"
+							placeholder="+82012345678" id="phoneNumber" name="phoneNumber"
+							required
+							style="margin-bottom: 10px; padding: 15px; border: 2px solid #FFB200; border-radius: 20px; font-size: 18px; transition: border-color 0.3s ease, box-shadow 0.3s ease;">
+						<button type="submit"
+							style="margin-top: 15px; border-radius: 10px; font-size: 25px;">조회하기</button>
+					</form>
+
 				</div>
 			</div>
 		</div>
@@ -361,6 +349,6 @@ body, h1, h2, h3, p, a {
 											});
 						});
 	</script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+
 </body>
 </html>
