@@ -63,6 +63,10 @@
 	href="${pageContext.request.contextPath}/resources/css/animate.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
 <!-- Style css
     ==================================================================== -->
@@ -74,6 +78,15 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 <style>
+@font-face {
+	font-family: 'Goorm Sans';
+	font-weight: normal;
+	font-style: normal;
+}
+
+body, h1, h2, h3, p, a {
+	font-family: 'Goorm Sans' !important;
+}
 /* Custom CSS for responsive design */
 @media ( max-width : 767.98px) {
 	.promo-wrap {
@@ -101,26 +114,28 @@
 
 <body>
 	<!-- Preloader -->
-	<div id="preloader">
+<!-- 	<div id="preloader">
 		<div class="preloader">
 			<span></span> <span></span>
 		</div>
-	</div>
-	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
+	</div> -->
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Promo Area Start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5">
+<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/financebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB스타뱅킹 <span> 이체</span>
+							<span>KB스타뱅킹</span> 체험
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">체험하기</li>
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -148,7 +163,7 @@
 					<!-- <div
 						class="bg-light donation-form rounded-3 shadow-sm d-flex justify-content-center align-items-center"
 						style="min-height: 100vh; max-width: 100%;"> -->
-						<%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp"%>
+					<%@ include file="/WEB-INF/views/edu/sbtransfer2.jsp"%>
 					<!-- </div> -->
 				</div>
 			</div>
@@ -158,7 +173,7 @@
 
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 
 </html>

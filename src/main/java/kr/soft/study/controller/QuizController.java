@@ -82,55 +82,31 @@ public class QuizController {
     public Map<String, String> updateGamePoints(HttpSession session, @RequestBody Map<String, Object> pointsData) {
         Map<String, String> response = new HashMap<>();
         try {
-            System.out.println("updateGamePoints 메서드 호출됨");
             UserDto user = (UserDto) session.getAttribute("user");
             if (user == null || user.getUser_id() == null) {
-                System.out.println("세션에 아이디 없음");
-                response.put("message", "User is not logged in.");
+                response.put("message", "로그인하시면 포인트가 적립됩니다.");
                 return response;
             }
 
             String userId = user.getUser_id();
+            Integer pointsEarned = ((Number) pointsData.get("pointsEarned")).intValue();
+            Integer quizId = ((Number) pointsData.get("quizId")).intValue();
+            String pointReason = "퀴즈 ID:" + quizId + " " + (String) pointsData.get("pointReason");
 
-            // pointsEarned 값 안전하게 변환하기
-            Integer pointsEarned = 0;
-            Object pointsEarnedObj = pointsData.get("pointsEarned");
-            if (pointsEarnedObj instanceof Number) {
-                pointsEarned = ((Number) pointsEarnedObj).intValue();
-            } else if (pointsEarnedObj != null) {
-                try {
-                    pointsEarned = Integer.parseInt(pointsEarnedObj.toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Failed to parse pointsEarned: " + pointsEarnedObj);
-                }
+            boolean isPointAdded = pointsCommand.updatevideoPoints(userId, pointsEarned, pointReason, quizId);
+
+            if (isPointAdded) {
+                response.put("message", "포인트가 업데이트되었습니다.");
+            } else {
+                response.put("message", "포인트가 이미 지급되었습니다.");
             }
-
-            // quizId 값 안전하게 변환하기
-            Integer quizId = 0;
-            Object quizIdObj = pointsData.get("quizId");
-            if (quizIdObj instanceof Number) {
-                quizId = ((Number) quizIdObj).intValue();
-            } else if (quizIdObj != null) {
-                try {
-                    quizId = Integer.parseInt(quizIdObj.toString());
-                } catch (NumberFormatException e) {
-                    System.out.println("Failed to parse quizId: " + quizIdObj);
-                }
-            }
-
-            String pointReason = (String) pointsData.get("pointReason");
-            String fullPointReason = "퀴즈 ID:" + quizId + " " + pointReason;
-
-            System.out.println("Updating points for userId: " + userId + ", quizId: " + quizId + ", pointsEarned: " + pointsEarned + ", pointReason: " + fullPointReason);
-            pointsCommand.updatePoints(userId, pointsEarned, fullPointReason, quizId);
-
-            response.put("message", "포인트가 업데이트되었습니다.");
         } catch (Exception e) {
-            e.printStackTrace(); // 예외의 스택 트레이스를 콘솔에 출력
+            e.printStackTrace();
             response.put("message", "Error occurred while updating points.");
         }
         return response;
     }
+
 }
 
 

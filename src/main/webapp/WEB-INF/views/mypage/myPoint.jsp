@@ -147,28 +147,34 @@ body, h1, h2, h3, p, a {
 }
 
 /* 버튼 스타일 */
-.btn-primary, .btn-warning {
-	padding: 15px;
+.btn-primary, .btn-secondary {
+	padding: 5px;
 	border-radius: 10px;
-	font-size: 19px;
-	width: 170px;
-	color: white;
-	border: none;
+	font-size: 18px;
+	width: 130px;
 }
 
 .btn-primary {
 	background-color: #FFB200;
+	border: none;
+	color: white;
 }
 
-.btn-primary:hover, .btn-warning:hover {
+.btn-primary:hover {
 	background-color: #031550;
 	color: white;
 }
 
-.btn-warning {
-	background-color: #FFB200;
+.btn-secondary {
+	background-color: #6c757d;
+	border: none;
+	color: white;
 }
 
+.btn-secondary:hover {
+	background-color: #5a6268;
+	color: white;
+}
 .month-navigation {
 	text-align: center; /* 가운데 정렬 */
 	margin: 20px 0; /* 위아래 여백 추가 */
@@ -231,16 +237,19 @@ body, h1, h2, h3, p, a {
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 포인트현황</span>
+							<span>LocKB</span> 포인트
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -312,7 +321,7 @@ body, h1, h2, h3, p, a {
 						</div>
 					</div>
 					<div class="button-container">
-						<button class="btn btn-warning"
+							<button class="btn btn-primary"
 							onclick="location.href='${pageContext.request.contextPath}/couponshop'">쿠폰으로
 							교환</button>
 					</div>

@@ -16,7 +16,7 @@
 
 <title>LocKB</title>
 
-<!-- Favicon Icon -->
+<!-- gFavicon Icon -->
 <link rel="shortcut icon"
 	href="${pageContext.request.contextPath}/resources/images/components/favicon.ico">
 
@@ -75,7 +75,7 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-position: 50% 0%;">
+style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

@@ -94,12 +94,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+
 
 
 	<!-- header start -->
@@ -114,7 +109,7 @@ body, h1, h2, h3, p, a {
 
 
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background: none; background-position: initial;">
+	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -122,9 +117,8 @@ body, h1, h2, h3, p, a {
 						<h1 class="promo-title">보안 강화 어플/사이트</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">보안
-									강화 방법</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -144,8 +138,10 @@ body, h1, h2, h3, p, a {
 							<h2 class="section-title">
 								유용한<span class="color">보안 어플</span>
 							</h2>
-							<p>다양한 위험으로부터 우리의 정보와 재산을 지켜주는데 도움 되는 어플리케이션들을 소개합니다. 지금 바로
-								다운로드 받으세요!</p>
+							<p>
+								다양한 위험으로부터 우리의 정보와 재산을 지키는 데 도움이 되는<br> 어플리케이션들을 소개합니다. 지금
+								바로 다운로드 받으세요!
+							</p>
 						</div>
 					</div>
 				</div>
@@ -154,7 +150,7 @@ body, h1, h2, h3, p, a {
 						<div class="single-project rounded-2 shadow">
 							<figure class="project-thumb">
 								<img
-									src="${pageContext.request.contextPath}/resources/images/secure/시티즌코난1.png"
+									src="${pageContext.request.contextPath}/resources/images/secure/시티즌코난2.png"
 									alt="">
 							</figure>
 							<div class="project-info p-lg-4 p-3">
@@ -165,7 +161,7 @@ body, h1, h2, h3, p, a {
 									일선 경찰관을 위한 보이스피싱 악성 앱 순간 탐지기로서 피싱아이즈와 함께 운영되며, 안드로이드용으로 제공되며
 									아이폰은 피싱아이즈 다운로드를 권장합니다.</p>
 								<button class="custom-btn"
-									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.police.phishingeyes&pcampaignid=web_share'">링크
+									onclick="window.open('https://play.google.com/store/apps/details?id=com.infinigru.police.phishingeyes&pcampaignid=web_share')">링크
 									연결</button>
 							</div>
 						</div>
@@ -187,7 +183,7 @@ body, h1, h2, h3, p, a {
 									현혹 행위(악성 앱, 원격제어 앱, 문자, 카카오톡)와 5대 갈취 채널(APP, WEB, ARS, ATM,
 									창구)로부터 보이스피싱을 예방하는 "보이스피싱 민관 공동 대응망 서비스" 입니다.</p>
 								<button class="custom-btn"
-									onclick="location.href='https://play.google.com/store/apps/details?id=com.infinigru.lite.phishingeyes&pcampaignid=web_share'">링크
+									onclick="window.open('https://play.google.com/store/apps/details?id=com.infinigru.lite.phishingeyes&pcampaignid=web_share')">링크
 									연결</button>
 							</div>
 
@@ -208,9 +204,9 @@ body, h1, h2, h3, p, a {
 								</h3>
 								<p>폰가디언이 제공하는 서비스입니다. ・암호화 VPN 기술로 인터넷 통신 보호 ・글로벌 개인정보 유출 및
 									해킹방지 ・VPN 보안으로 간단하고 정확하게 해킹 차단 ・손 쉬운 온 오프(On-Off) 기능 ・공공 와이파이
-									해킹, 개인정보 유출 위험을 VPN 보안으로 간단하게 방지</p>
+									해킹, 개인정보 유출 위험을 VPN 보안으로 간단하게 방지합니다.</p>
 								<button class="custom-btn"
-									onclick="location.href='https://play.google.com/store/apps/details?id=com.distimo.phoneguardian&pcampaignid=web_share'">링크
+									onclick="window.open('https://play.google.com/store/apps/details?id=com.distimo.phoneguardian&pcampaignid=web_share')">링크
 									연결</button>
 							</div>
 						</div>
@@ -225,7 +221,10 @@ body, h1, h2, h3, p, a {
 			<h2 class="section-title">
 				유용한<span class="color">보안 사이트</span>
 			</h2>
-			<p>다양한 위험으로부터 우리의 정보와 재산을 지켜주는데 도움 되는 사이트들을 소개합니다. 지금 바로 접속하세요!</p>
+			<p>
+				다양한 위험으로부터 우리의 정보와 재산을 지키는 데 도움이 되는 <br>사이트들을 소개합니다. 지금 바로
+				접속하세요!
+			</p>
 		</div>
 		<main class="main-content">
 			<div class="container">
@@ -245,9 +244,7 @@ body, h1, h2, h3, p, a {
 										<h2>금융감독원</h2>
 
 
-										<div class="item-rating d-flex align-items-center">
-											<a href="#">09 Reviews</a>
-										</div>
+
 										<p>
 										<div>
 											<strong>의심하고, 끊고, 확인하세요! 예방만이 최선의 대책입니다.</strong>
@@ -263,7 +260,7 @@ body, h1, h2, h3, p, a {
 											<div class="cart-cta ms-3">
 
 												<button class="custom-btn"
-													onclick="location.href='https://www.fss.or.kr/'">링크
+													onclick="window.open('https://www.fss.or.kr/')">링크
 													연결</button>
 											</div>
 										</div>
@@ -284,15 +281,19 @@ body, h1, h2, h3, p, a {
 											<div class="col-lg-12">
 												<div class="single-product">
 													<div class="row mb-5">
-
+														<div class="col-lg-5 col-sm-6">
+															<div class="sp-thumb">
+																<img
+																	src="${pageContext.request.contextPath}/resources/images/secure/2사이트.png"
+																	alt="">
+															</div>
+														</div>
 														<div class="col-lg-7 col-sm-6">
 															<div class="sp-details">
 																<h2>명의도용방지서비스</h2>
 
 
-																<div class="item-rating d-flex align-items-center">
-																	<a href="#">09 Reviews</a>
-																</div>
+
 																<p>
 																<div>
 																	<strong>명의도용방지서비스란?</strong>
@@ -319,20 +320,14 @@ body, h1, h2, h3, p, a {
 																	<div class="cart-cta ms-3">
 
 																		<button class="custom-btn"
-																			onclick="location.href='https://www.msafer.or.kr/service/introduction.do'">링크
+																			onclick="window.open('https://www.msafer.or.kr/service/introduction.do')">링크
 																			연결</button>
 																	</div>
 																</div>
 
 															</div>
 														</div>
-														<div class="col-lg-5 col-sm-6">
-															<div class="sp-thumb">
-																<img
-																	src="${pageContext.request.contextPath}/resources/images/secure/2사이트.png"
-																	alt="">
-															</div>
-														</div>
+
 													</div>
 													<div class="row mb-5">
 
@@ -360,9 +355,7 @@ body, h1, h2, h3, p, a {
 																						<h2>개인정보 포털</h2>
 
 
-																						<div class="item-rating d-flex align-items-center">
-																							<a href="#">09 Reviews</a>
-																						</div>
+
 																						<p>
 																						<div>
 																							<strong> 개인정보 분쟁조정 제도의 의의</strong>
@@ -383,7 +376,7 @@ body, h1, h2, h3, p, a {
 																							<div class="cart-cta ms-3">
 
 																								<button class="custom-btn"
-																									onclick="location.href='https://www.privacy.go.kr/front/main/main.do'">링크
+																									onclick="window.open('https://www.privacy.go.kr/front/main/main.do')">링크
 																									연결</button>
 																							</div>
 																						</div>
@@ -409,21 +402,24 @@ body, h1, h2, h3, p, a {
 																							<div class="col-lg-12">
 																								<div class="single-product">
 																									<div class="row mb-5">
-
+																										<div class="col-lg-5 col-sm-6">
+																											<div class="sp-thumb">
+																												<img
+																													src="${pageContext.request.contextPath}/resources/images/secure/4사이트.png"
+																													alt="">
+																											</div>
+																										</div>
 																										<div class="col-lg-7 col-sm-6">
 																											<div class="sp-details">
 																												<h2>털린 내 정보 찾기 서비스</h2>
 
-																												<div
-																													class="item-rating d-flex align-items-center">
-																													<a href="#">09 Reviews</a>
-																												</div>
+
 																												<p>
 																												<div>
 																													<strong>털린 내 정보 찾기 서비스란?</strong>
 																												</div>
 																												개인의 계정정보(아이디, 패스워드)가 명의도용・보이스피싱 등 각종 범죄에
-																												악용되고 있어, 다크웹★등 음성화 사이트에서 내 계정정보가 유통되고 있는지
+																												악용되고 있어, 다크웹 등 음성화 사이트에서 내 계정정보가 유통되고 있는지
 																												확인을 통해 2차 피해를 방지하기 위한 서비스입니다. 본 서비스는 사용자가
 																												입력한 계정정보(아이디, 패스워드)를 암호화하여 단순 비교만을 수행하며, 평문
 																												데이터를 저장 또는 보관하지 않습니다.
@@ -436,20 +432,14 @@ body, h1, h2, h3, p, a {
 																													<div class="cart-cta ms-3">
 
 																														<button class="custom-btn"
-																															onclick="location.href='https://kidc.eprivacy.go.kr/'">링크
+																															onclick="window.open('https://kidc.eprivacy.go.kr/')">링크
 																															연결</button>
 																													</div>
 																												</div>
 
 																											</div>
 																										</div>
-																										<div class="col-lg-5 col-sm-6">
-																											<div class="sp-thumb">
-																												<img
-																													src="${pageContext.request.contextPath}/resources/images/secure/4사이트.png"
-																													alt="">
-																											</div>
-																										</div>
+
 																									</div>
 	</section>
 
@@ -538,7 +528,7 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 
 </html>

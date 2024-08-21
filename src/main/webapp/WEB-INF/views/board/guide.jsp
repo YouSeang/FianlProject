@@ -13,7 +13,7 @@
 <meta name="description" content="">
 <meta name="author" content="Tariqul Islam">
 
-<!-- Template Title -->
+<!-- Template Title gg-->
 <title>LocKB</title>
 
 <!-- Favicon Icon -->
@@ -116,7 +116,7 @@ body, h1, h2, h3, p, a {
 
 	<!-- Promo Area Start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mysecurebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+	 style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mysecurebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 	<div class="container">
 			<div class="row">
 				<div class="col-lg-12">

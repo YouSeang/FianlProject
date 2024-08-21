@@ -299,7 +299,7 @@ body, h1, h2, h3, p, a {
                 setTimeout(() => {
                     Swal.fire({
                         title: '체험 종료',
-                        text: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?',
+                        html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br>',
                         icon: 'info',
                         confirmButtonText: '확인'
                     }).then((result) => {
