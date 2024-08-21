@@ -88,7 +88,7 @@ body, h1, h2, h3, h4, h5, p, a {
     position: relative;
     flex-shrink: 0; /* 추가: 체크박스의 크기를 고정 */
     display: inline-block; /* 추가: 체크박스가 인라인 블록 요소로 처리되도록 설정 */
-    vertical-align: middle; /* 추가: 텍스트와의 수직 정렬 */
+    vertical-align: middle; /* 추가: 텍스트와의 수직 정렬 .. */
 }
 
 .ks-cboxtags input[type="checkbox"]::before {
