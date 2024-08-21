@@ -132,15 +132,21 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-position: 50% 0%;">
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span>쿠폰교환</span>
+							<span>LocKB</span> 쿠폰교환
 						</h1>
-						<nav aria-label="breadcrumb"></nav>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+							</ol>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -167,10 +173,10 @@ body, h1, h2, h3, p, a {
 						<div class="product-entry">
 							<div class="product-media position-relative"
 								style="margin-right: 20px;">
-								<a href="single-product.html"> <img class="img-fluid"
+								<img class="img-fluid"
 									src="${pageContext.request.contextPath}${coupon.coupon_image}"
 									alt="product" style="height: 500px">
-								</a>
+								
 							</div>
 							<div class="product-summery p-3" style="margin-right: 20px;">
 								<h3 class="product-title">

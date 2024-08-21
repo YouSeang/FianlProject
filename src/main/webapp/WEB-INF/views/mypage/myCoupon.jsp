@@ -22,6 +22,10 @@
 	href="${pageContext.request.contextPath}/resources/css/fontawesome/all.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/style.css">
+<link rel="preload" as="style" crossorigin
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
+<link rel="stylesheet"
+	href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 <style>
 @font-face {
 	font-family: 'Goorm Sans';
@@ -29,8 +33,7 @@
 	font-style: normal;
 }
 
-body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
-	points-container {
+body, h1, h2, h3, p, a {
 	font-family: 'Goorm Sans' !important;
 }
 
@@ -64,7 +67,6 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 	margin-top: 10px;
 }
 
-
 .coupon-info {
 	font-size: 1.2rem; /* 글씨 크기 조정 */
 	line-height: 1.5; /* 줄 간격 조정 */
@@ -85,7 +87,6 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 .points-note ul li {
 	margin-bottom: 5px;
 } */
-
 .tab-menu {
 	display: flex;
 	justify-content: flex-end; /* 우측 정렬 */
@@ -126,6 +127,40 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 .points-container h3 {
 	margin-bottom: 20px;
 }
+
+.btn-primary, .btn-secondary {
+	padding: 5px;
+	border-radius: 10px;
+	font-size: 18px;
+	width: 130px;
+}
+
+.btn-primary {
+	padding: 4px; /* padding을 조금 더 줄임 */
+	font-size: 16px; /* 폰트 크기를 조금 더 줄임 */
+	width: 120px; /* 너비를 조금 더 줄임 */
+	background-color: #FFB200;
+	border: none;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+	background-color: #031550;
+	color: white;
+}
+
+.btn-secondary {
+	background-color: #6c757d;
+	border: none;
+	color: white;
+	transition: background-color 0.3s ease;
+}
+
+.btn-secondary:hover {
+	background-color: #5a6268;
+	color: white;
+}
 </style>
 </head>
 <body>
@@ -139,16 +174,19 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 
 	<!-- 배너영역 start -->
 	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/mypagebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 쿠폰현황</span>
+							<span>LocKB</span> 쿠폰현황
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -191,7 +229,7 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 										<th>발급 날짜</th>
 										<th>쿠폰 종류</th>
 										<th>사용현황</th>
-										<th>재발송</th>
+										<th style="width: 230px;">재발송</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -213,7 +251,7 @@ body, h1, h2, h3, p, a, table, points-summary, points-note, tab-menu,
 												</c:choose></td>
 											<td><c:choose>
 													<c:when test="${!coupon.expired && coupon.is_used == 0}">
-														<button class="btn btn-warning"
+														<button class="btn btn-primary"
 															onclick="openResendWindow('${coupon.coupon_id}')">발송</button>
 													</c:when>
 													<c:otherwise>

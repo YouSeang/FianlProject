@@ -184,16 +184,20 @@ body, h1, h2, h3, p, a {
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- 배너영역 start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5">
+	<section class="promo-area" data-stellar-background-ratio="0.5"
+		style="background: none; background-position: initial;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 마이페이지</span>
+							<span>LocKB</span> 마이페이지
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
