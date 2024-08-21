@@ -36,7 +36,7 @@ public class AdminUpdatePhishing {
         adminDao.resetIsFinalByScenarioName(scenarioName);
 
         // Handle new audio files
-        int fileId = 0;
+        int fileId = 0; // 0번 오디오부터 등록됨
         if (existingAudioFiles != null) {
             for (String voicePath : existingAudioFiles) {
                 adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", voicePath, "isFinal", 0));

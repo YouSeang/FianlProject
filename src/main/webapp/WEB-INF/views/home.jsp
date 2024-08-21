@@ -407,7 +407,7 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/박소미.png"
 									alt="">
-								<!-- <div class="member-social">
+								<!-- <div class="member-social"> sns부분
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
 										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
 										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
