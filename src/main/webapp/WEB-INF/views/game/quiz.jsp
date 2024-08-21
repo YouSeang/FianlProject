@@ -91,12 +91,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 
@@ -114,8 +109,8 @@ body, h1, h2, h3, p, a {
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">금융게임</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -260,14 +255,24 @@ body, h1, h2, h3, p, a {
     }
 
     function loadQuestion(index) {
+        const quizQuestion = document.getElementById('quiz-question');
+        
         if (index < questions.length) {
-            const quizQuestion = document.getElementById('quiz-question');
             quizQuestion.innerText = questions[index].question;
             document.getElementById('next-question').style.display = 'none';
             document.getElementById('retry-question').style.display = 'none';
+            
+            // OX 버튼을 다시 보여줍니다.
+            document.getElementById('btn-true').style.display = 'inline';
+            document.getElementById('btn-false').style.display = 'inline';
         } else {
-            document.getElementById('quiz-question').innerText = '퀴즈를 모두 완료했습니다!';
-            document.getElementById('quiz-buttons').style.display = 'none';
+            quizQuestion.innerText = '퀴즈를 모두 완료했습니다!';
+            
+            // OX 버튼을 숨깁니다.
+            document.getElementById('btn-true').style.display = 'none';
+            document.getElementById('btn-false').style.display = 'none';
+            
+            // "다음 문제로" 버튼을 숨깁니다.
             document.getElementById('next-question').style.display = 'none';
             document.getElementById('retry-question').style.display = 'none';
         }
@@ -278,25 +283,37 @@ body, h1, h2, h3, p, a {
         const isCorrect = (answer === 'O' && question.answer) || (answer === 'X' && !question.answer);
 
         if (isCorrect) {
-            score += question.points;
+            if (userId && userId !== 'null' && userId.trim() !== '') { // 로그인한 경우
+                const response = await updatePoints(question.points, '퀴즈 정답', question.id);
 
-            if (userId !== null && userId !== '') { // 로그인한 경우
-                Swal.fire({
-                    icon: 'success',
-                    title: '정답입니다!',
-                    text: '누적 포인트: ' + score,  //누적포인트
-                    confirmButtonText: '다음 문제로'
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        loadNextQuestion();
-                    }
-                });
-                await updatePoints(question.points, '퀴즈 정답', question.id); // quizId를 함께 전송합니다.
+                if (response.message === "포인트가 이미 지급되었습니다.") {
+                    Swal.fire({
+                        icon: 'info',
+                        title: '정답입니다!',
+                        text: '포인트가 이미 지급되었습니다.',
+                        confirmButtonText: '다음 문제로'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            loadNextQuestion();
+                        }
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'success',
+                        title: '정답입니다!',
+                        text: '적립된 포인트: ' + question.points + ' 포인트',
+                        confirmButtonText: '다음 문제로'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            loadNextQuestion();
+                        }
+                    });
+                }
             } else { // 로그인하지 않은 경우
                 Swal.fire({
                     icon: 'success',
                     title: '정답입니다!',
-                    text: '다음 문제로 넘어갑니다.',
+                    text: '로그인하시면 포인트가 적립됩니다.',
                     confirmButtonText: '다음 문제로'
                 }).then((result) => {
                     if (result.isConfirmed) {
@@ -317,7 +334,13 @@ body, h1, h2, h3, p, a {
                 }
             });
         }
+
+        // OX 버튼을 다시 보여줍니다.
+        document.getElementById('btn-true').style.display = 'inline';
+        document.getElementById('btn-false').style.display = 'inline';
     }
+
+
 
     function loadNextQuestion() {
         currentQuestionIndex++;
@@ -332,7 +355,7 @@ body, h1, h2, h3, p, a {
         const data = {
             pointsEarned: points,
             pointReason: reason,
-            quizId: quizId // quizId를 함께 전송합니다.
+            quizId: quizId
         };
         const response = await fetch('${pageContext.request.contextPath}/game/quiz/points/update', {
             method: 'POST',
@@ -343,6 +366,7 @@ body, h1, h2, h3, p, a {
         });
         const result = await response.json();
         console.log(result.message);
+        return result;
     }
     
     function restartQuiz() {
@@ -354,7 +378,7 @@ body, h1, h2, h3, p, a {
     // 초기 로드 시 금융 카테고리의 퀴즈를 로드합니다.
     loadQuestions();
 </script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+	<%@ include file="/WEB-INF/views/chatbot.jsp"%>
 </body>
 
 </html>

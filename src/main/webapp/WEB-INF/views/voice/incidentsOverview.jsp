@@ -69,12 +69,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+
 	<!-- header start -->
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
@@ -91,9 +86,8 @@ body, h1, h2, h3, p, a {
 						<h1 class="promo-title">금융 사고 현황</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">금융
-									사고 현황</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -161,30 +155,33 @@ body, h1, h2, h3, p, a {
 									</ul>
 									<div class="tab-content">
 										<div id="description">
-											<div class="d-flex">
-												<div class="desc-txt pe-5 me-4">
-													<h3>보이스피싱 피해액</h3>
-													<p>보이스피싱 피해액을 연도별로 살펴보면, 2006년에는 106억 원, 2009년에는 621억
-														원으 로 소폭 증가하다가 2011년 1,019억 원의 피해 가 발생해 최초로 1,000억 원을
-														돌파하였다. 그 리고 2015년 2,040억 원, 2018년 4,040억 원, 2021년 7,744억
-														원이 발생해 피해액이 계속 증 가하고 있다. 이처럼 매년 사건 발생 건수는 다 소 감소하거나 3만여
-														건에서 정체되어 있지만, 피해액수가 계속 늘어난다는 점이 심각한 문제 다. 즉, 1건당 피해금액은
-														2006년 712만 원, 2011년 1,236만 원, 2015년 1,100만 원으로 1,000만 원
-														내외를 유지하다가 2019년 1,699만 원, 2020년 2,210만 원, 2021년에는 2,500만
-														원으로 최고를 기록하였다. 이는 발생 건수의 경우 관계기관의 노력 등으로 감소하였으나, 범 인들이
-														범행수법을 진화시키고 악성앱을 통해 피해자의 휴대폰을 원격조종하게 되면서 피해 금액이 늘어난 것으로
-														분석할 수 있다. 2006년 부터 2021년까지 누적 피해금액은 3조 8,681억 원이다</p>
-													<p>메신저피싱은 2020년 급격한 증가세를 보였 다. 경찰청 통계에 따르면 2019년
-														2,963건이 발 생하였는데, 2020년에는 1만 3,224건으로 4.5배 증가하였고, 2021년에는
-														1만 7,841건으로 빠르 게 증가하였다. 보이스피싱 콜센터 일당들도 코 로나19 감염병 사태로 인해
-														음성보다는 메신저피 싱으로 이동한 것으로 추정할 수 있다. 연도별 피 해금액은 2020년 587억 원에서
-														2021년 1,265억 원으로 크게 늘어났다. 2021년 기준 메신저피싱 1건당 피해금액은 709만
-														원이다
+											<div class="row">
+												<div class="col-lg-7 order-2 order-lg-1">
+													<div class="desc-txt pe-lg-5 me-lg-4">
+														<h3>보이스피싱 피해액</h3>
+														<p>보이스피싱 피해액을 연도별로 살펴보면, 2006년에는 106억 원, 2009년에는 621억
+															원으 로 소폭 증가하다가 2011년 1,019억 원의 피해 가 발생해 최초로 1,000억 원을
+															돌파하였다. 그 리고 2015년 2,040억 원, 2018년 4,040억 원, 2021년 7,744억
+															원이 발생해 피해액이 계속 증 가하고 있다. 이처럼 매년 사건 발생 건수는 다 소 감소하거나 3만여
+															건에서 정체되어 있지만, 피해액수가 계속 늘어난다는 점이 심각한 문제 다. 즉, 1건당 피해금액은
+															2006년 712만 원, 2011년 1,236만 원, 2015년 1,100만 원으로 1,000만 원
+															내외를 유지하다가 2019년 1,699만 원, 2020년 2,210만 원, 2021년에는 2,500만
+															원으로 최고를 기록하였다. 이는 발생 건수의 경우 관계기관의 노력 등으로 감소하였으나, 범 인들이
+															범행수법을 진화시키고 악성앱을 통해 피해자의 휴대폰을 원격조종하게 되면서 피해 금액이 늘어난 것으로
+															분석할 수 있다. 2006년 부터 2021년까지 누적 피해금액은 3조 8,681억 원이다</p>
+														<p>메신저피싱은 2020년 급격한 증가세를 보였 다. 경찰청 통계에 따르면 2019년
+															2,963건이 발 생하였는데, 2020년에는 1만 3,224건으로 4.5배 증가하였고, 2021년에는
+															1만 7,841건으로 빠르 게 증가하였다. 보이스피싱 콜센터 일당들도 코 로나19 감염병 사태로 인해
+															음성보다는 메신저피 싱으로 이동한 것으로 추정할 수 있다. 연도별 피 해금액은 2020년 587억
+															원에서 2021년 1,265억 원으로 크게 늘어났다. 2021년 기준 메신저피싱 1건당 피해금액은
+															709만 원이다</p>
+													</div>
 												</div>
-												<img
-													src="${pageContext.request.contextPath}/resources/
-												images/incident/overView2.png"
-													alt="">
+												<div class="col-lg-5 order-1 order-lg-2 mb-4 mb-lg-0">
+													<img class="img-fluid"
+														src="${pageContext.request.contextPath}/resources/images/incident/overView2.png"
+														alt="Incident Overview">
+												</div>
 											</div>
 										</div>
 										<div id="extra-info">
@@ -366,7 +363,7 @@ Javascript
 	<script src="<c:url value="/resources/js/form.js"/>"></script>
 	<script src="<c:url value="/resources/js/jquery.nice-select.min.js"/>"></script>
 	<script src="<c:url value="/resources/js/custom.js"/>"></script>
-      	<%@ include file="/WEB-INF/views/chatbot.jsp"%> 
+
 </body>
 
 </html>
