@@ -78,7 +78,7 @@ public class PointsCommand implements PCommand {
 			pointsDto.setUsageType(used_pointReason);
 			pointsDto.setTotalPoints(updatedTotalPoints);
 			pointsDAO.substractPoints(pointsDto);
-			return "Points used successfully.";
+			return "포인트가 사용되었습니다.";
 		} else {
 			return "Not enough points.";
 		}

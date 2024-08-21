@@ -81,10 +81,18 @@ public class loginController {
 			}
 		} else {
 			session.setAttribute("isLoggedIn", false); // 로그인 실패 시
-			model.addAttribute("loginError", "Invalid username or password.");
-			System.out.println("admin error");
-			return "login";
-		}
+			  // 실패 이유에 따라 SweetAlert 메시지를 전달합니다.
+            if ("invalidId".equals(loginResult)) {
+                model.addAttribute("loginError", "invalidId");
+            } else if ("invalidPassword".equals(loginResult)) {
+                model.addAttribute("loginError", "invalidPassword");
+            } else {
+                model.addAttribute("loginError", "unknownError");
+            }
+
+            System.out.println("Login error: " + loginResult);
+            return "login";
+        }
 	}
 
 	// 로그인 후 home 으로 이동
@@ -142,7 +150,7 @@ public class loginController {
 		String resetToken = userService.createPasswordResetToken(user.getUser_id());
 
 		// 이메일로 비밀번호 재설정 링크 전송
-		String resetLink = "http://localhost:8080/resetPassword?token=" + resetToken;
+		String resetLink = "https://lockb.duckdns.org/resetPassword?token=" + resetToken;
 		emailService.sendResetPasswordEmail(user.getEmail(), resetLink);
 
 		model.addAttribute("message", "비밀번호 재설정 링크가 이메일로 전송되었습니다.");
