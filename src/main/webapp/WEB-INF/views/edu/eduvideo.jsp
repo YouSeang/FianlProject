@@ -67,9 +67,9 @@ body, h1, h2, h3, p, a {
 
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
-	<section class="promo-area" data-stellar-background-ratio="0.5" style="background: none; background-position: initial;">
-		<div class="container">
-			<div class="row">
+		<section class="promo-area" data-stellar-background-ratio="0.5" 
+	style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/financebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
+	<div class="container">			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">금융영상</h1>
