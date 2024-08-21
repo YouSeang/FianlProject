@@ -42,6 +42,9 @@ public class PointsCommand implements PCommand {
 			// 포인트 이유에 따라 다른 포인트를 설정
 			if ("출석체크".equals(pointReason)) {
 				newPoints = 100; // 출석체크일 경우 100 포인트
+			} else if ("범죄자 잡기 게임".equals(pointReason)) {
+				int gameScore = (Integer) map.get("gameScore"); // 게임 점수를 받아옴
+				newPoints = gameScore * 5; // 1점당 5포인트 계산
 			}
 
 			int updatedTotalPoints = totalPoints != null ? totalPoints + newPoints : newPoints;

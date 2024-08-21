@@ -285,30 +285,41 @@ body, h1, h2, h3, p, a {
         gameStarted = false;
         document.getElementById('startButton').disabled = false;
         
-        // 게임 종료 시 총점 표시 및 서버에 점수 전송
-        Swal.fire({
-            title: `게임 오버!`,
-            text: '총점: ' + score + '점',
-            confirmButtonText: '확인'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                // 서버에 점수 전송
-                fetch('${pageContext.request.contextPath}/game/end', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ score: score })
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                    // 필요한 경우 추가 작업 수행
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-            }
+        // 서버에 점수 전송
+        fetch('${pageContext.request.contextPath}/game/end', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ score: score })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+            
+            // 포인트 적립 여부 안내 메시지와 함께 총점을 표시
+            let message = '총점: ' + score + '점<br>' + data.message;  // 서버에서 반환된 메시지 포함
+
+            Swal.fire({
+                title: '게임 오버!',
+                html: message,
+                icon: 'success',
+                confirmButtonText: '확인'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // 페이지 리로드 또는 다른 액션을 원할 경우 이곳에서 처리
+                    location.reload();  // 페이지를 리로드
+                }
+            });
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+            Swal.fire({
+                title: '오류 발생',
+                text: '점수 전송 중 오류가 발생했습니다.',
+                icon: 'error',
+                confirmButtonText: '확인'
+            });
         });
     }
 
