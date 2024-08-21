@@ -242,7 +242,7 @@ body, h1, h2, h3, p, a {
                 error: function(xhr, status, error) {
                     Swal.fire({
                         title: '출석체크 실패',
-                        text: `이미 출석체크가 완료되었습니다: ${error}`,
+                        text: `출석체크 중 오류가 발생했습니다: ${error}`,
                         icon: 'error',
                         confirmButtonText: '확인'
                     });
