@@ -150,7 +150,7 @@ public class loginController {
 		String resetToken = userService.createPasswordResetToken(user.getUser_id());
 
 		// 이메일로 비밀번호 재설정 링크 전송
-		String resetLink = "http://localhost:8080/resetPassword?token=" + resetToken;
+		String resetLink = "https://lockb.duckdns.org/resetPassword?token=" + resetToken;
 		emailService.sendResetPasswordEmail(user.getEmail(), resetLink);
 
 		model.addAttribute("message", "비밀번호 재설정 링크가 이메일로 전송되었습니다.");
