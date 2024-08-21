@@ -100,8 +100,8 @@ body, h1, h2, h3, p, a {
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-        var contextPath = '${pageContext.request.contextPath}';
-    </script>
+    var contextPath = '${pageContext.request.contextPath}';
+</script>
 <script>
     function sendSmishing(buttonType) {
         var formData = {
@@ -119,20 +119,20 @@ body, h1, h2, h3, p, a {
                 if (response.isSent) {
                     Swal.fire({
                         title: '문자 발송 성공!',
-                        text: '문자가 성공적으로 발송되었습니다. ' + response.pointUpdateResult,
+                        html: '문자가 성공적으로 발송되었습니다.<br>' + response.pointUpdateResult,
                         icon: 'success',
                         confirmButtonText: '확인',
                         showDenyButton: true,
                         denyButtonText: '체험 다시하기'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            Swal.fire({
+                            /* Swal.fire({
                                 title: '포인트 업데이트 완료!',
                                 text: response.pointUpdateResult,
                                 icon: 'success'
-                            }).then(() => {
+                            }).then(() => { */
                                 window.location.href = contextPath + "/voice/smishing";
-                            });
+                            //});
                         } else if (result.isDenied) {
                             location.reload();
                         }
@@ -151,16 +151,16 @@ body, h1, h2, h3, p, a {
 
 <body>
 	<!-- Preloader -->
-	<div id="preloader">
+	<!-- <div id="preloader">
 		<div class="preloader">
 			<span></span> <span></span>
 		</div>
-	</div>
+	</div> -->
 	<jsp:include page="/WEB-INF/views/header0802.jsp" />
 
 	<!-- 배너영역 Start -->
-	<section class="promo-area" data-stellar-background-ratio="0.5"
-		style="background: none; background-position: initial;">
+<section class="promo-area" data-stellar-background-ratio="0.5"
+			style="background-image: url('${pageContext.request.contextPath}/resources/images/bgimg/securebgimg.jpg'); background-position: center; background-size: cover; background-attachment: fixed;">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
@@ -170,8 +170,9 @@ body, h1, h2, h3, p, a {
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">smishing</li>
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -185,10 +186,10 @@ body, h1, h2, h3, p, a {
 	<section class="ourself-area section-padding">
 		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-6 col-sm-6">
+				<div class="col-lg-7 col-sm-6">
 					<div class="about-txt">
 						<h3 class="section-title mb-4">
-							스미싱<span class="color"> 시뮬레이션 </span>
+							스미싱&nbsp;<span class="color"> 시뮬레이션 </span>
 						</h3>
 						<p>
 						<h2>스미싱이란?</h2>
@@ -198,10 +199,10 @@ body, h1, h2, h3, p, a {
 						</p>
 						<ul>
 							<li>스미싱을 체험하고자 하는 휴대폰 번호 및 함께 전송하고 싶은 메시지가 있다면 입력 후
-								'체험하기'버튼을 클릭하세요<br /> ex) '어머니, 이런 문자를 받으시면 링크를 절대 클릭하시면 안돼요!'
+								'체험하기'버튼을 클릭하세요<br /> ex) '엄마, 요즘 이런식의 스미싱 문자가 유행이래 조심해!'
 							</li>
 							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요.</li>
-							<li>스미싱 시뮬레이션은 로그인 후 하루에 한 번만 가능합니다.</li>
+							<li>스미싱 시뮬레이션은 로그인 후 체험 가능하며, 포인트는 하루에 한번만 지급됩니다.</li>
 						</ul>
 						<div class="form-container">
 							<h2>스미싱 시뮬레이션</h2>
@@ -235,77 +236,19 @@ body, h1, h2, h3, p, a {
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-5 col-sm-6">
-					<div
-						class="ourself-gallery owl-carousel shadow owl-loaded owl-drag">
-						<div class="owl-stage-outer">
-							<div class="owl-stage"
-								style="transform: translate3d(-1072px, 0px, 0px); transition: all 0s ease 0s; width: 2680px;">
-								<div class="owl-item cloned" style="width: 536px;">
-									<div class="single-item">
-										<figure>
-											<img src="/study/resources/images/incident/voiceIntro.jpg"
-												alt="">
-											<figcaption>Education Proggrame is running
-												smoothly.</figcaption>
-										</figure>
-									</div>
-								</div>
-								<div class="owl-item cloned" style="width: 536px;">
-									<div class="single-item">
-										<figure>
-											<img src="/study/resources/images/incident/voiceIntro.jpg"
-												alt="">
-											<figcaption>Education Proggrame is running
-												smoothly.</figcaption>
-										</figure>
-									</div>
-								</div>
-								<div class="owl-item active" style="width: 536px;">
-									<div class="single-item">
-										<figure>
-											<img src="/study/resources/images/incident/voiceIntro.jpg"
-												alt="">
-											<figcaption>Education Proggrame is running
-												smoothly.</figcaption>
-										</figure>
-									</div>
-								</div>
-								<div class="owl-item cloned" style="width: 536px;">
-									<div class="single-item">
-										<figure>
-											<img src="/study/resources/images/incident/voiceIntro.jpg"
-												alt="">
-											<figcaption>Education Proggrame is
-												runningcpgjagkrl smoothly.</figcaption>
-										</figure>
-									</div>
-								</div>
-								<div class="owl-item cloned" style="width: 536px;">
-									<div class="single-item">
-										<figure>
-											<img src="/study/resources/images/incident/voiceIntro.jpg"
-												alt="">
-											<figcaption>Education Proggrame is running
-												smoothly.</figcaption>
-										</figure>
-									</div>
-								</div>
-							</div>
+				<div class="col-lg-5 col-sm-8">
+					<div class="ourself-gallery owl-carousel shadow">
+						<div class="single-item">
+							<figure>
+								<img
+									src="${pageContext.request.contextPath}/resources/images/incident/smishingimage.png"
+									alt="">
+
+							</figure>
 						</div>
-						<div class="owl-nav disabled">
-							<div class="owl-prev">
-								<i class="fa fa-angle-left"></i>
-							</div>
-							<div class="owl-next">
-								<i class="fa fa-angle-right"></i>
-							</div>
-						</div>
-						<div class="owl-dots disabled"></div>
 					</div>
 				</div>
 			</div>
-		</div>
 	</section>
 	<!-- Ourself Area End -->
 
@@ -330,6 +273,7 @@ body, h1, h2, h3, p, a {
 	<script src="<c:url value='/resources/js/form.js' />"></script>
 	<script src="<c:url value='/resources/js/jquery.nice-select.min.js' />"></script>
 	<script src="<c:url value='/resources/js/custom.js' />"></script>
+	
 </body>
 
 </html>
