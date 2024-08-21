@@ -93,6 +93,10 @@ body, h1, h2, h3, p, a {
 	margin-right: 10px;
 	margin-bottom: 20px; /* 각 카드 아래에 20px의 여백 추가 */
 }
+
+
+
+
 </style>
 
 <!-- Style css
@@ -124,12 +128,7 @@ function openVoicePhishingWindow() {
 </script>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	
 	<%@ include file="header0802.jsp"%>
 
 	<!-- Banner Area Start -->
@@ -156,11 +155,11 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							KB금융을 <span><br />지금바로</span><br /> 체험해보세요
+							KB스타뱅킹을 <span><br />지금바로</span><br /> 체험해보세요
 						</h1>
-						<p>LocKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
+						<p style="text-transform: none;">LocKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
-							<a href="/study/edu/sbjoin" class="custom-btn">체험하러가기</a>
+							<a href="/study/edu/sbtransfer" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
@@ -192,7 +191,7 @@ function openVoicePhishingWindow() {
 						<p>
 							메신저피싱, 보이스피싱을 예방하기 위해<br> 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요
 						</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="/study/voice/voicePhishing">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -205,7 +204,7 @@ function openVoicePhishingWindow() {
 						<p>
 							어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 <br>다양한 거래를 체험해볼 수 있어요.
 						</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="/study/edu/sbtransfer">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -218,7 +217,7 @@ function openVoicePhishingWindow() {
 						<p>
 							보안을 강화할 수 있는 방법을 확인하고 <br>적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!
 						</p>
-						<a href="#">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="/study/security/securityTemp">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -240,7 +239,7 @@ function openVoicePhishingWindow() {
 						<p>
 							<strong>LocKB에서 웃음과 재미, 금융지식까지 선물해드려요.</strong>
 						</p>
-						<a href="#" class="custom-btn">자세히보기 <i
+						<a href="/study/edu/eduvideo" class="custom-btn">자세히보기 <i
 							class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -289,7 +288,7 @@ function openVoicePhishingWindow() {
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">사회초년생을 위한 신용 관리방법</a>
+								<a>사회초년생을 위한 신용 관리방법</a>
 							</h3>
 							<p>
 								1. 갚을 능력 고려하여 채무 규모 설정하기<br /> 2. 인터넷/전화 대출은 신중하게 결정하기<br />
@@ -310,7 +309,7 @@ function openVoicePhishingWindow() {
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">예/적금 가입 전 알아두세요!</a>
+								<a>예/적금 가입 전 알아두세요!</a>
 							</h3>
 							<p>
 								1. 예금자보호제도 확인하기<br /> 2. 금융상품 한눈에 서비스로 비교해보기<br /> 3. 가입가능한 특판
@@ -331,7 +330,7 @@ function openVoicePhishingWindow() {
 						</figure>
 						<div class="project-info p-lg-4 p-3">
 							<h3>
-								<a href="#">실수로 돈을 잘못송금했다면?</a>
+								<a>실수로 돈을 잘못송금했다면?</a>
 							</h3>
 							<p>
 								1. 착오송금반환지원제도 이용하기<br /> - 신청대상은 최근 1년 이내 발생한 <br />5만 원 이상
@@ -376,18 +375,17 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/박소미.png"
 									alt="">
-								<div class="member-social">
+								<!-- <div class="member-social">
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
 										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
 										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
 										class="fa-brands fa-instagram"></i></a>
-								</div>
+								</div> -->
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">박소미</a>
+									<a>박소미</a>
 								</h4>
-								<small>팀장</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
@@ -396,18 +394,11 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/최은숙.png"
 									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">최은숙</a>
+									<a>최은숙</a>
 								</h4>
-								<small>부팀장</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
@@ -416,18 +407,12 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/이슬기.png"
 									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
+								
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">이슬기</a>
+									<a>이슬기</a>
 								</h4>
-								<small>팀원</small>
 							</div>
 						</div>
 						<!-- Team Member End -->
@@ -436,18 +421,11 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/유세앙.png"
 									alt="">
-								<div class="member-social">
-									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
-										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
-										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
-										class="fa-brands fa-instagram"></i></a>
-								</div>
 							</figure>
 							<div class="member-name">
 								<h4>
-									<a href="volunteer-single.html">유세앙</a>
+									<a>유세앙</a>
 								</h4>
-								<small>팀원</small>
 							</div>
 						</div>
 						<!-- Team Member End -->

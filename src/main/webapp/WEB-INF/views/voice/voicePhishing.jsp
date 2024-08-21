@@ -97,13 +97,6 @@ function openVoicePhishingWindow() {
 </script>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
-
 
 	<!-- header start -->
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
@@ -117,13 +110,11 @@ function openVoicePhishingWindow() {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							<span>보이스 피싱</span> 시뮬레이션
+							<span>보이스피싱</span> 시뮬레이션
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-								<li class="breadcrumb-item active" aria-current="page">voice
-									phishing</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
 							</ol>
 						</nav>
 					</div>
@@ -140,13 +131,13 @@ function openVoicePhishingWindow() {
 				<div class="col-lg-6 col-sm-6">
 					<div class="about-txt">
 						<h3 class="section-title mb-4">
-							보이스 피싱<span class="color"> 시뮬레이션 </span>
+							보이스피싱 <span class="color"> 시뮬레이션 </span>
 						</h3>
 						<p>실제 보이스피싱 범인과의 통화를 각색한 시뮬레이션입니다. 음성인식을 통해 가상의 피해자가 되어
 							대답하면서, 보이스피싱 범죄의 주요 시나리오 흐름에 대해 습득하는 시간을 가져보세요.</p>
 						<ul>
 							<li>가상의 피해자가 되어 범인의 심리와 시나리오를 파악해 봅시다.</li>
-							<li>시뮬레이션 체험 종료시 50포인트 지급됩니다.</li>
+							<li>시뮬레이션 체험 종료시 500포인트 지급됩니다.</li>
 							<li>포인트는 하루에 한번만 지급됩니다.</li>
 						</ul>
 						<a href="#" class="custom-btn" onclick="openVoicePhishingWindow()">체험하러
