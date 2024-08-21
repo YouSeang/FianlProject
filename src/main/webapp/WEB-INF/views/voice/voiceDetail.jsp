@@ -267,7 +267,7 @@ body, h1, h2, h3, p, a {
     $.ajax({
         url: "${pageContext.request.contextPath}/getVoice",
         method: "GET",
-        data: { id: id, scenarioName: scenarioName},
+        data: { id: id, scenarioName: scenarioName },
         success: function(response) {
             console.log("AJAX request successful. Response:", response);
 
@@ -282,48 +282,68 @@ body, h1, h2, h3, p, a {
                 console.error("Failed to parse JSON response: ", response);
                 return;
             }
+
             $("#voicePath").text("Audio Path: " + data.audioPath);
             $("#isFinal").text("Is Final: " + data.isFinal);
             $("#voiceNotFound").text("Voice Not Found: " + data.voiceNotFound);
-            
+
             if (data.isFinal) {
                 let finalMessage = "";
-                if (scenarioName  === "impersonation") {
+                if (scenarioName === "impersonation") {
                     finalMessage = "범인은 고립된 장소로 유도하여 주변인의 간섭이나 도움을 차단하고, 제 3자에게 알리면 소환장이 발부된다는 식의 압박을 하는 경우가 많으니 이를 주의 바랍니다.";
-                } else if (scenarioName  === "loan") {
+                } else if (scenarioName === "loan") {
                     finalMessage = "범인은 대출 조건을 맞추기 위한 편법으로 타 대출을 일시적으로 실행하게끔 유도하여 상환 목적으로 자금을 갈취하는 경우가 많으니 주의 바랍니다.";
                 }
                 $("#finalMessage").text(finalMessage);
-                
-                // 18초 후에 첫 번째 알림 창 띄우기
-                setTimeout(() => {
-                    Swal.fire({
-                        title: '체험 종료',
-                        html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br>',
-                        icon: 'info',
-                        confirmButtonText: '확인'
-                    }).then((result) => {
-                        if (result.isConfirmed) {
-                            Swal.fire({
-                                title: '유의 사항',
-                                text: finalMessage,
-                                icon: 'info',
-                                confirmButtonText: '닫기'
-                            });
-                        }
-                    });
-                }, 18000); // 18초 후 실행
 
-                // 포인트 업데이트 요청
+                // 포인트 업데이트 요청 및 알림 창 띄우기
                 $.ajax({
-                    url: "${pageContext.request.contextPath}/updatePoints",
+                    url: "${pageContext.request.contextPath}/resultMessagePhishing",
                     method: "POST",
-                    data: { pointReason: '보이스피싱 체험완료' }, 
+                    data: { pointReason: '보이스피싱 체험완료' },
                     success: function(response) {
                         console.log(response);
+
+                        // 성공 시 18초 후 알림 창 띄우기
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: '보이스피싱 체험 종료',
+                                html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
+                                icon: 'info',
+                                confirmButtonText: '확인'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    Swal.fire({
+                                        title: '포인트 지급',
+                                        text: response.pointUpdateResult,
+                                        icon: 'check',
+                                        confirmButtonText: '닫기'
+                                    });
+                                }
+                            });
+                        }, 18000); // 18초 후 실행
                     },
                     error: function(xhr, status, error) {
                         console.error("Failed to update points. Status: " + status + ", Error: " + error);
+                        
+                        // 실패 시 별도 알림 창 띄우기
+                        setTimeout(() => {
+                            Swal.fire({
+                                title: '보이스피싱 체험 종료',
+                                html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
+                                icon: 'info',
+                                confirmButtonText: '확인'
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    Swal.fire({
+                                    	 title: '포인트 지급',
+                                         text: response.pointUpdateResult,
+                                        icon: 'check',
+                                        confirmButtonText: '닫기'
+                                    });
+                                }
+                            });
+                        }, 18000); // 18초 후 실행
                     }
                 });
             }
@@ -333,8 +353,8 @@ body, h1, h2, h3, p, a {
                 var audioSrc = "${pageContext.request.contextPath}/resources/audio/" + data.audioPath + "?t=" + new Date().getTime();
                 audioPlayer.src = audioSrc;
                 audioPlayer.style.display = "block";
-                
-                console.log("Audio source set to: " + audioSrc); 
+
+                console.log("Audio source set to: " + audioSrc);
 
                 audioPlayer.load();
                 audioPlayer.play().then(() => {
@@ -357,6 +377,7 @@ body, h1, h2, h3, p, a {
         }
     });
 }
+
 
 
     function showAlert(message) {
