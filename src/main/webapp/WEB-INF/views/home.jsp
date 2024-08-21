@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -94,6 +96,19 @@ body, h1, h2, h3, p, a {
 	margin-bottom: 20px; /* 각 카드 아래에 20px의 여백 추가 */
 }
 
+.video-thumbnail {
+    position: relative;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: white;
+    opacity: 0.7;
+}
 
 
 
@@ -244,6 +259,23 @@ function openVoicePhishingWindow() {
 					</div>
 				</div>
 				<div class="col-lg-6 col-sm-6">
+    <div class="f-cause-wrap owl-carousel">
+        <c:forEach var="video" items="${recentVideos}">
+            <div class="f-cause-img video-thumbnail">
+                <a href="${pageContext.request.contextPath}/edu/eduvideo">
+                    <img class="img-rounded"
+                         src="https://img.youtube.com/vi/${fn:substringAfter(video.link, 'embed/')}/0.jpg"
+                         alt="${video.videoName}">
+                    <div class="play-button">
+                        <i class="fa fa-play"></i>
+                    </div>
+                </a>
+            </div>
+        </c:forEach>
+    </div>
+</div>
+				
+				<%-- <div class="col-lg-6 col-sm-6">
 					<div class="f-cause-wrap owl-carousel">
 						<div class="f-cause-img">
 							<a href="#"><img class="img-rounded"
@@ -256,7 +288,7 @@ function openVoicePhishingWindow() {
 								alt=""></a>
 						</div>
 					</div>
-				</div>
+				</div> --%>
 			</div>
 		</div>
 	</div>
