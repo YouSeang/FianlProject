@@ -47,7 +47,7 @@
         
 <div id="frogue-container" class="position-right-bottom" style="bottom: 130px;"
 data-chatbot="356efa41-08e2-45a9-905c-75ede6cb677b"
-data-service-type=""
+data-service-type="toad"
 data-user="사용자ID"
 data-init-key="srststs@gmail.com"
 data-close-use="Y" data-close-bgcolor="#ffffff" data-close-linecolor="#000000"
@@ -63,16 +63,8 @@ data-move-use="Y" data-move-bgcolor="#ffffff" data-move-linecolor="#000000"
     js.src = "https://frogue.danbee.ai/js/embed/v20220906/frogue-embed.min.js";
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'frogue-embed'));
-
-document.addEventListener('DOMContentLoaded', function() {
-    var frogueContainer = document.getElementById('frogue-container');
-    var chatbotValueId = frogueContainer.getAttribute('data-chatbot');
-    console.log('Chatbot ID:', chatbotValueId);
-
-    var userValueId = frogueContainer.getAttribute('data-init-key');
-    console.log('Init Key:', userValueId);
-});
 </script>
+        
 	
 </body>
 </html>

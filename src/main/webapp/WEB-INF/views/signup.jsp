@@ -71,12 +71,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+
 
 	<!-- header start -->
 	<%@ include file="/WEB-INF/views/header0802.jsp" %> 
@@ -91,12 +86,12 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 회원가입</span>
+							LocKB <span> 회원가입</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">회원가입</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -115,7 +110,7 @@ body, h1, h2, h3, p, a {
 						<h2 class="h6 fw-normal mb-5">
 							<span class="fw-bold tex-primary d-block display-5"> 회원가입</span>
 						</h2>
-						<form role="form" action="./signup" method="post">
+						<form id="signup-form" role="form" action="./signup" method="post">
 							<div class="form-group">
 								<label for="user_id">아이디 :</label> <input class="form-control"
 									type="text" id="user_id" name="user_id">
@@ -147,7 +142,7 @@ body, h1, h2, h3, p, a {
 							<button class="custom-btn mt-3" type="submit">가입완료</button>
 							<div class="login-bottom mt-4">
 								<label><i class="fa fa-user me-2"></i> 계정이 이미 있으시다면 <a
-									href="signin.html">로그인</a> 해주세요</label>
+									href="./loginView">로그인</a> 해주세요</label>
 							</div>
 						</form>
 					</div>
@@ -161,9 +156,92 @@ body, h1, h2, h3, p, a {
 	<!-- Footer start-->
 	<%@ include file="/WEB-INF/views/footer.jsp"%>
 
+ <!-- Show SweetAlert if there was an error -->
+    <c:if test="${not empty errorMessage}">
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: '회원가입 오류',
+                text: '${errorMessage}'
+            });
+        </script>
+    </c:if>
+ <!-- Javascript -->
+    <script>
+        function validateForm() {
+            let userId = document.getElementById("user_id").value.trim();
+            let name = document.getElementById("name").value.trim();
+            let email = document.getElementById("email").value.trim();
+            let phoneNumber = document.getElementById("phone_number").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let passwordConfirm = document.getElementById("pass-c").value.trim();
 
+            if (!userId) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '아이디가 비어 있습니다.',
+                    text: '아이디를 입력해 주세요.'
+                });
+                return false;
+            }
 
+            if (!name) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '이름이 비어 있습니다.',
+                    text: '이름을 입력해 주세요.'
+                });
+                return false;
+            }
 
+            if (!email) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '이메일이 비어 있습니다.',
+                    text: '이메일을 입력해 주세요.'
+                });
+                return false;
+            }
+
+            if (!phoneNumber) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '휴대폰번호가 비어 있습니다.',
+                    text: '휴대폰번호를 입력해 주세요.'
+                });
+                return false;
+            }
+
+            if (!password) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호가 비어 있습니다.',
+                    text: '비밀번호를 입력해 주세요.'
+                });
+                return false;
+            }
+
+            if (!passwordConfirm) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 확인이 비어 있습니다.',
+                    text: '비밀번호 확인을 입력해 주세요.'
+                });
+                return false;
+            }
+
+            if (password !== passwordConfirm) {
+                Swal.fire({
+                    icon: 'error',
+                    title: '비밀번호 불일치',
+                    text: '비밀번호가 일치하지 않습니다.'
+                });
+                return false;
+            }
+
+            return true;
+        }
+        </script>
 	<!--
 Javascript
 ======================================================== -->
