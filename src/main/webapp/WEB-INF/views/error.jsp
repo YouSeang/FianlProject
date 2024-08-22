@@ -86,7 +86,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-8 offset-lg-2">
 					<div class="error-wrap py-5">
 						<span class="error-title display-2">404 ERROR</span>
-						<h1>페이지를 다시 확인해주세요.</h1>
+						<h1>다시 한번 시도해주세요</h1>
 
 						<a href="/" class="custom-btn">메인으로</a>
 					</div>

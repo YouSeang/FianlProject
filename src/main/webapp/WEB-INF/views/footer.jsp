@@ -119,7 +119,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-xl-6 col-md-5 order-1 order-md-2">
 					<nav class="quick-link text-lg-end">
 						<ul>
-							<li><a href="#" class="nav-link">개인정보처리방침</a></li>
+							<li><a href="https://obank.kbstar.com/quics?page=C108662&QSL=F&_ga=2.186682536.1207975163.1724293254-510392353.1724293254#loading" class="nav-link">개인정보처리방침</a></li>
 						</ul>
 					</nav>
 				</div>
