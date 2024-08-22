@@ -154,7 +154,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							보이스피싱 시뮬레이션으로<br> <span>금융사고를 </span><br />예방해보세요
+							보이스피싱 체험으로<br> <span>금융사고를 </span><br />예방해보세요
 						</h1>
 						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
 						<div class="banner-btn">
@@ -170,7 +170,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							KB스타뱅킹을 <span><br />지금바로</span><br /> 체험해보세요
+							KB스타뱅킹을 <span><br />지금 바로</span><br /> 체험해보세요
 						</h1>
 						<p style="text-transform: none;">LocKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
