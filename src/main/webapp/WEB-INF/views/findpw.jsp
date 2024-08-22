@@ -90,13 +90,12 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							KB큽스쿨 <span> 비밀번호 찾기</span>
+							LocKB <span> 비밀번호 찾기</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="index.html">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">비밀번호
-									찾기</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -127,7 +126,7 @@ body, h1, h2, h3, p, a {
 							<label>ㅇ가입 당시 입력하셨던 이메일로 발송되는 링크를 통해 비밀번호 재설정이 가능합니다.</label>
 							<label>ㅇ이메일이 기억이 안나시는 경우에는 고객센터(1588-9999)로 문의해주세요.</label>
 								<br><br><label><i class="fa fa-user me-2"></i> 계정이 있으시다면 <a
-									href="signin.html">로그인</a> 해주세요</label>
+									href="./loginView">로그인</a> 해주세요</label>
 							</div>
 						</form>
 					</div>
