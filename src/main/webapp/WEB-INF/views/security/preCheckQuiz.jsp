@@ -155,7 +155,7 @@ body, h1, h2, h3, p, a {
 											<c:out value="${quiz.imageUrl}" />
 											<!-- 여기에 이미지 경로가 제대로 출력되는지 확인 -->
 											<img id="quiz-image"
-												src="/resources/images/secure/${quiz.imageUrl}"
+												src="${pageContext.request.contextPath}/resources/images/secure/${quiz.imageUrl}"
 												alt="Quiz Image"
 												style="width: 200%; height: auto; max-width: 1500px; margin-top: 10px; display: block;">
 										</c:when>
