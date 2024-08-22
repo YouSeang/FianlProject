@@ -170,7 +170,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							KB스타뱅킹을 <span><br />지금바로</span><br /> 체험해보세요
+							KB스타뱅킹을 <span><br />지금 바로</span><br /> 체험해보세요
 						</h1>
 						<p style="text-transform: none;">LocKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
