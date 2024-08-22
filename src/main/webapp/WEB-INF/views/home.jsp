@@ -217,7 +217,7 @@ function openVoicePhishingWindow() {
 							alt=""></span>
 						<h3>디지털금융 교육</h3>
 						<p>
-							어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 <br>다양한 거래를 체험해볼 수 있어요.
+							어렵게만 느껴졌던 스타뱅킹의 <br>이체와 상품가입을 체험해볼 수 있어요.
 						</p>
 						<a href="${pageContext.request.contextPath}/edu/sbtransfer">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
