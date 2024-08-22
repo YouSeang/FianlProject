@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page session="false"%>
+
 
 
 <!DOCTYPE html>
@@ -74,12 +74,7 @@
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	
   <%@ include file="/WEB-INF/views/header0802.jsp" %> 
 	
     <!-- Promo Area Start -->
@@ -92,11 +87,11 @@
                     <div class="promo-wrap">
                          <h1 class="promo-title">KB스타뱅킹 <span> 적금가입</span></h1>
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">메인</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">체험하기</li>
-                            </ol>
-                        </nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+							</ol>
+						</nav>
                     </div>
                 </div>
             </div>

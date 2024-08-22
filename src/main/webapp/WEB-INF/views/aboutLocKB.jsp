@@ -248,7 +248,7 @@ body, h1, h2, h3, h4, h5, p, a {
 				<div class="col-lg-6 col-sm-6">
 					<div class="about-txt">
 						<h3 class="section-title mb-4">
-							About<span class="color"> LocKB </span>
+							<span class="color"> LocKB</span>는
 						</h3>
 						<p>"금융사기 예방 및 디지털 금융 보안 인식 제고"를 목표로, 금융 거래자에게 금융사기와 디지털 보안 위협에
 							대한 경각심을 일깨우고, 올바른 금융 보안 인식을 가질 수 있는 것을 목표로 합니다.</p>
@@ -277,23 +277,7 @@ body, h1, h2, h3, h4, h5, p, a {
 							</figure>
 						</div>
 						<!-- Single Item End -->
-						<div class="single-item">
-							<figure>
-								<img
-									src="${pageContext.request.contextPath}/resources/images/incident/about3.png"
-									alt="">
-								<figcaption>금융 보안 팁을 실천하여 보안온도를 높여보세요.</figcaption>
-							</figure>
-						</div>
-						<!-- Single Item End -->
-						<div class="single-item">
-							<figure>
-								<img
-									src="${pageContext.request.contextPath}/resources/images/incident/about3.png"
-									alt="">
-								<figcaption>어렵게만 느껴졌던 금융어플, 체험으로 친숙해지세요.</figcaption>
-							</figure>
-						</div>
+						
 						<!-- Single Item End -->
 					</div>
 				</div>
@@ -309,7 +293,7 @@ body, h1, h2, h3, h4, h5, p, a {
 				<div class="col-lg-12">
 					<div class="section-intro">
 						<h2 class="section-title">
-							Our <span class="color">Services</span>
+							<span class="color">LocKB</span>의 서비스
 						</h2>
 						<p>실제 같은 시뮬레이션과 체험 중심의 컨텐츠를 통해, <br>사용자들이 능동적으로 학습하는 것을 지향합니다.</p>
 					</div>

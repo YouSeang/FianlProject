@@ -51,37 +51,39 @@ public class loginController {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result,
-			HttpSession session, Model model, HttpServletRequest request) {
-		UserValidator validator = new UserValidator();
-		validator.validate(userDto, result);
+    public String login(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result,
+                        HttpSession session, Model model, HttpServletRequest request) {
+        UserValidator validator = new UserValidator();
+        validator.validate(userDto, result);
 
-		if (result.hasErrors()) {
-			session.setAttribute("isLoggedIn", false); // 로그인 실패 시
-			return "login";
-		}
+        if (result.hasErrors()) {
+            session.setAttribute("isLoggedIn", false); // 로그인 실패 시
+            model.addAttribute("loginError", "invalidId");
+            return "login";
+        }
 
-		model.addAttribute("request", request);
-		userLogin.execute(model);
+        model.addAttribute("request", request);
+        userLogin.execute(model);
 
-		String loginResult = (String) session.getAttribute("loginResult");
-		if ("success".equals(loginResult)) {
-			session.setAttribute("isLoggedIn", true); // 로그인 성공 시 세션에 true값 담음
-			UserDto user = (UserDto) session.getAttribute("user");
-			session.setAttribute("userId", user.getUser_id());
-			System.out.println("User logged in: " + user.getUser_id());
-			System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
+        String loginResult = (String) session.getAttribute("loginResult");
+        if ("success".equals(loginResult)) {
+            session.setAttribute("isLoggedIn", true); // 로그인 성공 시 세션에 true값 담음
+            UserDto user = (UserDto) session.getAttribute("user");
+            session.setAttribute("userId", user.getUser_id());
+            System.out.println("User logged in: " + user.getUser_id());
+            System.out.println("isLoggedIn: " + session.getAttribute("isLoggedIn"));
 
-			String userRole = (String) session.getAttribute("userRole");
-			if ("admin".equals(userRole)) {
-				System.out.println("admin login");
-				return "redirect:admin/admin";
-			} else {
-				return "redirect:/home";
-			}
-		} else {
-			session.setAttribute("isLoggedIn", false); // 로그인 실패 시
-			  // 실패 이유에 따라 SweetAlert 메시지를 전달합니다.
+            String userRole = (String) session.getAttribute("userRole");
+            if ("admin".equals(userRole)) {
+                System.out.println("admin login");
+                return "redirect:admin/admin";
+            } else {
+                return "redirect:/home";
+            }
+        } else {
+            session.setAttribute("isLoggedIn", false); // 로그인 실패 시
+
+            // 실패 이유에 따라 SweetAlert 메시지를 전달합니다.
             if ("invalidId".equals(loginResult)) {
                 model.addAttribute("loginError", "invalidId");
             } else if ("invalidPassword".equals(loginResult)) {
@@ -93,7 +95,7 @@ public class loginController {
             System.out.println("Login error: " + loginResult);
             return "login";
         }
-	}
+    }
 
 	// 로그인 후 home 으로 이동
 	@RequestMapping("/home")
@@ -120,18 +122,28 @@ public class loginController {
 
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model,
-			HttpServletRequest request) {
-		UserValidator validator = new UserValidator();
-		validator.validate(userDto, result);
+	        HttpServletRequest request, HttpSession session) {
 
-		if (result.hasErrors()) {
-			return "signup";
-		}
+	    // Custom validator (if needed)
+	    UserValidator validator = new UserValidator();
+	    validator.validate(userDto, result);
 
-		model.addAttribute("request", request);
-		userSignup.execute(model);
-		return "home";
+	    // Check validation errors
+	    if (result.hasErrors()) {
+	        // Adding error messages to the model to display in the JSP
+	        model.addAttribute("errorMessage", "회원가입 도중 오류가 발생했습니다. 입력 내용을 다시 확인해 주세요.");
+	        return "signup"; // Return to the signup page if there are errors
+	    }
+
+	    // Simulate sign-up logic execution
+	    userSignup.execute(model);
+
+	    // Assuming the signup was successful
+	    session.setAttribute("signUpResult", "success");
+
+	    return "redirect:/home"; // Redirect to the home page after successful signup
 	}
+
 
 	@RequestMapping("/findpw")
 	public String findpw(Model model) {

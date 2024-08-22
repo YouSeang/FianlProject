@@ -73,6 +73,12 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">금융영상</h1>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+							</ol>
+						</nav>
 					</div>
 				</div>
 			</div>
@@ -110,14 +116,7 @@ body, h1, h2, h3, p, a {
 				</c:forEach>
 			</div>
 
-			<div class="col-lg-12">
-				<div class="pager text-center">
-					<a href="#" class="next-btn"> <i class="fa fa-angle-left"></i></a>
-					<span>1</span> <a href="#">2</a> <a href="#">3</a> <a href="#">4</a>
-					<a href="#">5</a> <a href="#" class="next-btn"> <i
-						class="fa fa-angle-right"></i></a>
-				</div>
-			</div>
+			
 		</div>
 	</section>
 

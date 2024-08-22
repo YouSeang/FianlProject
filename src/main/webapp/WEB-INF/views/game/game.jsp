@@ -189,7 +189,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 						<h3>
 							<strong>1점당 5포인트씩 적립됩니다.</strong>
 						</h3>
-						<p>포인트는 하루에 한번만 적립됩니다. 시작을 누르면 게임이 시작됩니다.</p>
+						<p>로그인 후 체험하시면 포인트가 지급되며, 하루에 한 번만 지급됩니다.</p>
 					</div>
 
 					<div id="game" class="text-center">

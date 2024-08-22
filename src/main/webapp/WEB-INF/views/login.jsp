@@ -87,8 +87,11 @@ body, h1, h2, h3, p, a {
 						<h1 class="promo-title">
 							LocKB <span> 로그인</span>
 						</h1>
-						<nav aria-label="breadcrumb">
-							
+					<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+							</ol>
 						</nav>
 					</div>
 				</div>

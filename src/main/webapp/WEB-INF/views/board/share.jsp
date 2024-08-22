@@ -127,8 +127,8 @@ body, h1, h2, h3, p, a {
 						<h1 class="promo-title s-title">피해사례 공유</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">소통창구</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -150,7 +150,7 @@ body, h1, h2, h3, p, a {
 				<table class="table table-hover table-bordered">
 					<thead class="thead-dark">
 						<tr>
-							<th>ID</th>
+							
 							<th>제목</th>
 							<th>작성일시</th>
 							<th>작성자 ID</th>
@@ -160,12 +160,11 @@ body, h1, h2, h3, p, a {
 						<c:set var="seenTitles"
 							value="${empty seenTitles ? '' : seenTitles}" scope="page" />
 						<c:forEach var="share" items="${shareList}">
-							<c:if test="${fn:contains(seenTitles, share.title) == false}">
+							 <c:if test="${share.postType == 'main'}">
 								<tr>
-									<td>${share.id}</td>
 									<td><a href="detail?id=${share.id}">${share.title}</a></td>
 									<td><fmt:formatDate value="${share.writetime}"
-											pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC" /></td>
+											pattern="yyyy-MM-dd HH:mm:ss" timeZone="Asia/Seoul" /></td>
 									<td>${share.userId}</td>
 								</tr>
 								<c:set var="seenTitles" value="${seenTitles},${share.title}" />

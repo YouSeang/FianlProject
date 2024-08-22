@@ -213,7 +213,7 @@ body, h1, h2, h3, p, a {
 				</div>
 			</div>
 
-			<div class="text-end text-center" s>
+			<div class="text-end text-center">
 				<button type="submit" class="btn btn-primary mt-3">계산</button>
 			</div>
 		</form>
@@ -269,8 +269,8 @@ body, h1, h2, h3, p, a {
 														.serialize();
 												var propertyType = $(
 														'#propertyType').val();
-												var url = propertyType === "apartment" ? '/study/calculate/apartment'
-														: '/study/calculate/villa';
+												var url = propertyType === "apartment" ? '${pageContext.request.contextPath}/calculate/apartment'
+														: 'S/${pageContext.request.contextPath}/calculate/villa';
 
 												$
 														.post(

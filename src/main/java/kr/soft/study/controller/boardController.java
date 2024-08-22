@@ -72,14 +72,14 @@ public class boardController {
         shareDto.setUserId(userId);
         shareDto.setPostType(postType);
 
-        // 현재 시간을 UTC 타임존으로 설정
-        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("UTC"));
+        // 현재 시간을 KST (UTC+9) 시간대로 설정
+        ZonedDateTime now = ZonedDateTime.now(ZoneId.of("Asia/Seoul"));
         Timestamp timestamp = Timestamp.from(now.toInstant());
         shareDto.setWritetime(timestamp);
 
         if (image != null && !image.isEmpty()) {
-            String applicationPath = request.getSession().getServletContext().getRealPath("");
-            String uploadDir = applicationPath + "resources/images/uploads";
+            // 설정된 경로를 사용하여 파일을 저장
+            String uploadDir = "/var/www/uploads";
             File uploadDirFile = new File(uploadDir);
             if (!uploadDirFile.exists()) {
                 uploadDirFile.mkdirs();
@@ -91,7 +91,9 @@ public class boardController {
             try {
                 File uploadFile = new File(filePath);
                 image.transferTo(uploadFile);
-                String webPath = "/resources/images/uploads/" + uniqueFilename;
+                
+                // 클라이언트가 접근할 수 있는 URL 경로 설정
+                String webPath = "/uploads/" + uniqueFilename;
                 shareDto.setImage(webPath);
             } catch (IOException e) {
                 logger.error("File upload error", e);
@@ -101,6 +103,7 @@ public class boardController {
         shareDao.writeShare(shareDto);
         return "redirect:/board/share";
     }
+
 
     @GetMapping("/board/detail")
     public String detail(@RequestParam("id") int id, Model model) {
@@ -119,18 +122,18 @@ public class boardController {
             @RequestParam("commentContent") String commentContent,
             HttpServletRequest request) {
 
-        // 현재 로그인된 사용자의 ID를 세션에서 가져옵니다.
+        // �쁽�옱 濡쒓렇�씤�맂 �궗�슜�옄�쓽 ID瑜� �꽭�뀡�뿉�꽌 媛��졇�샃�땲�떎.
         String userId = (String) request.getSession().getAttribute("userId");
         if (userId == null) {
-            // userId가 없으면 로그인 페이지로 리다이렉트하거나 오류 처리
-            return "redirect:/login"; // 또는 오류 페이지로 이동
+            // userId媛� �뾾�쑝硫� 濡쒓렇�씤 �럹�씠吏�濡� 由щ떎�씠�젆�듃�븯嫄곕굹 �삤瑜� 泥섎━
+            return "redirect:/login"; // �삉�뒗 �삤瑜� �럹�씠吏�濡� �씠�룞
         }
 
         ShareDto commentDto = new ShareDto();
-        commentDto.setTitle(shareTitle); // 댓글이 달린 게시물의 제목을 사용
+        commentDto.setTitle(shareTitle); // �뙎湲��씠 �떖由� 寃뚯떆臾쇱쓽 �젣紐⑹쓣 �궗�슜
         commentDto.setContents(commentContent);
         commentDto.setUserId(userId);
-        commentDto.setPostType("comment"); // 댓글을 나타내는 'comment' 설정
+        commentDto.setPostType("comment"); // �뙎湲��쓣 �굹���궡�뒗 'comment' �꽕�젙
         commentDto.setWritetime(new Timestamp(System.currentTimeMillis()));
 
         shareDao.writeShare(commentDto);

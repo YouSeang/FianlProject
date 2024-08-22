@@ -31,9 +31,16 @@
 <link rel="preload" as="style" crossorigin href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 <link rel="stylesheet" href="https://statics.goorm.io/fonts/GoormSans/v1.0.0/GoormSans.min.css" />
 
+
+<!-- SweetAlert2 스타일 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
 <!-- Style css -->
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
-
+<script>
+        var isLoggedIn = <c:out value="${sessionScope.isLoggedIn}" default="false" />;
+    </script>
 <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -184,12 +191,7 @@ body {
 
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	
   <%@ include file="/WEB-INF/views/header0802.jsp" %> 
 	
    <!-- Promo Area Start -->
@@ -201,11 +203,11 @@ body {
                     <div class="promo-wrap">
                         <h1 class="promo-title s-title">피해사례 공유</h1>
                         <nav aria-label="breadcrumb">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">메인</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">소통창구</li>
-                            </ol>
-                        </nav>
+							<ol class="breadcrumb">
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+							</ol>
+						</nav>
                     </div>
                 </div>
             </div>
@@ -223,7 +225,7 @@ body {
                     <div class="card-header"><br>
                         <h3>${share.title}</h3><br>
                        <p class="text-muted text-end" style="font-size:1rem;">작성자: ${share.userId}<br>작성일시:   
-                       <fmt:formatDate value="${share.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC"/></p>
+                       <fmt:formatDate value="${share.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="Asia/Seoul"/></p>
                     </div>
                     <div class="card-body">
                         <p>${share.contents}</p>
@@ -239,7 +241,7 @@ body {
                 <!-- 댓글 입력 폼 -->
                 <div class="card mt-4">
                     <div class="card-body">
-                        <form id="commentForm" action="${pageContext.request.contextPath}/board/addComment" method="post">
+                        <form id="commentForm" action="${pageContext.request.contextPath}/board/addComment"  method="post">
                             <input type="hidden" name="shareId" value="${share.id}">
                             <input type="hidden" name="shareTitle" value="${share.title}">
                             <input type="hidden" name="userId" value="${sessionScope.userId}">
@@ -247,8 +249,10 @@ body {
                                 <label for="commentContent" class="form-label">댓글 내용</label>
                                 <textarea class="form-control" id="commentContent" name="commentContent" rows="3" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary">댓글 달기</button>
+                               
+                            <button type="button" class="btn btn-primary" onclick="checkLogin()">댓글 달기</button>
                         </form>
+                       
                     </div>
                 </div>
 
@@ -260,7 +264,7 @@ body {
                                 <p style="margin-bottom: 5px; font-size: 1rem;">${comment.contents}</p>
                                <p style="margin: 0; color: #6c757d; text-align: right; font-size: 1rem;">
                                     작성자: ${comment.userId} | 작성일시: 
-                                    <fmt:formatDate value="${comment.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="UTC"/>
+                                    <fmt:formatDate value="${comment.writetime}" pattern="yyyy-MM-dd HH:mm:ss" timeZone="Asia/Seoul"/>
                                 </p>
                             </div>
                         </div>
@@ -275,7 +279,29 @@ body {
     <!-- FAQ AREA END -->
 
     <%@ include file="/WEB-INF/views/footer.jsp" %> 
+   <script>
+  function checkLogin() {
+      event.preventDefault(); // 기본 동작 방지
 
+      if (isLoggedIn) {
+          // 로그인된 경우 폼 제출
+          document.getElementById('commentForm').submit();
+      } else {
+          // 로그인 필요 알림
+          Swal.fire({
+              icon: 'warning',
+              title: '로그인 필요',
+              text: '댓글을 작성하려면 로그인이 필요합니다.',
+              confirmButtonText: '확인'
+          }).then((result) => {
+              if (result.isConfirmed) {
+                /*   // 로그인 페이지로 리다이렉트
+                  window.location.href = "${pageContext.request.contextPath}/loginView"; */
+              }
+          });
+      }
+  }
+</script>
     <!--
 Javascript
 ======================================================== -->

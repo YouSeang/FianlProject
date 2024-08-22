@@ -154,7 +154,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							보이스피싱 시뮬레이션으로<br> <span>금융사고를 </span><br />예방해보세요
+							보이스피싱 체험으로<br> <span>금융사고를 </span><br />예방해보세요
 						</h1>
 						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
 						<div class="banner-btn">
@@ -170,11 +170,11 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							KB스타뱅킹을 <span><br />지금바로</span><br /> 체험해보세요
+							KB스타뱅킹을 <span><br />지금 바로</span><br /> 체험해보세요
 						</h1>
 						<p style="text-transform: none;">LocKB와 함께라면 뱅킹도 더이상 어렵지 않아요</p>
 						<div class="banner-btn">
-							<a href="/study/edu/sbtransfer" class="custom-btn">체험하러가기</a>
+							<a href="${pageContext.request.contextPath}/edu/sbtransfer" class="custom-btn">체험하러가기</a>
 						</div>
 					</div>
 				</div>
@@ -206,7 +206,7 @@ function openVoicePhishingWindow() {
 						<p>
 							메신저피싱, 보이스피싱을 예방하기 위해<br> 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요
 						</p>
-						<a href="/study/voice/voicePhishing">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="${pageContext.request.contextPath}/voice/voicePhishing">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -217,9 +217,9 @@ function openVoicePhishingWindow() {
 							alt=""></span>
 						<h3>디지털금융 교육</h3>
 						<p>
-							어렵게만 느껴졌던 스타뱅킹, 인터넷뱅킹의 <br>다양한 거래를 체험해볼 수 있어요.
+							어렵게만 느껴졌던 스타뱅킹의 <br>이체와 상품가입을 체험해볼 수 있어요.
 						</p>
-						<a href="/study/edu/sbtransfer">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="${pageContext.request.contextPath}/edu/sbtransfer">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -232,7 +232,7 @@ function openVoicePhishingWindow() {
 						<p>
 							보안을 강화할 수 있는 방법을 확인하고 <br>적용해볼 수 있어요. 나의 보안점수까지 챙겨보세요!
 						</p>
-						<a href="/study/security/securityTemp">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
+						<a href="${pageContext.request.contextPath}/security/securityTemp">자세히보기 <i class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
 				<!-- Single Mission End -->
@@ -254,7 +254,7 @@ function openVoicePhishingWindow() {
 						<p>
 							<strong>LocKB에서 웃음과 재미, 금융지식까지 선물해드려요.</strong>
 						</p>
-						<a href="/study/edu/eduvideo" class="custom-btn">자세히보기 <i
+						<a href="${pageContext.request.contextPath}/edu/eduvideo" class="custom-btn">자세히보기 <i
 							class="fa fa-long-arrow-right"></i></a>
 					</div>
 				</div>
@@ -407,7 +407,7 @@ function openVoicePhishingWindow() {
 								<img
 									src="${pageContext.request.contextPath}/resources/images/team/박소미.png"
 									alt="">
-								<!-- <div class="member-social">
+								<!-- <div class="member-social"> sns부분
 									<a href="#"><i class="fa-brands fa-facebook-f"></i></a> <a
 										href="#"><i class="fa-brands fa-twitter"></i></a> <a href="#"><i
 										class="fa-brands fa-linkedin-in"></i></a> <a href="#"><i
