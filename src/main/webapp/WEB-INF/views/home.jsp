@@ -154,7 +154,7 @@ function openVoicePhishingWindow() {
 				<div class="container">
 					<div class="banner-info">
 						<h1 class="banner-title text-white" style="color: white;">
-							보이스피싱 시뮬레이션으로<br> <span>금융사고를 </span><br />예방해보세요
+							보이스피싱 체험으로<br> <span>금융사고를 </span><br />예방해보세요
 						</h1>
 						<p>실제같은 체험을 통해 사고를 예방할 수 있어요</p>
 						<div class="banner-btn">
