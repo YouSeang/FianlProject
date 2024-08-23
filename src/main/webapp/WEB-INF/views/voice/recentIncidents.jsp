@@ -108,12 +108,12 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							최근 <span>사기기법/사례</span>
+							최근&nbsp;<span>금융사고 뉴스</span>
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -125,8 +125,10 @@ body, h1, h2, h3, p, a {
 	<main class="main-content testimonial-page">
 		<div class="container">
 			<div class="section-intro intro-full">
-				<h3 class="section-title">최근 금융사고 뉴스</h3>
-				<p>키워드로 뉴스내용을 확인해보세요.</p>
+				<h3 class="section-title">
+							최근 <span class="color">금융사고 뉴스</span>
+						</h3>
+				<p>키워드로 뉴스내용을 확인해보세요!</p>
 				<br><br>
 				<a class="custom-btn" onclick="searchKeyword('금융사고')">#금융사고</a>
 				<a class="custom-btn" onclick="searchKeyword('금융사기')">#금융사기</a>

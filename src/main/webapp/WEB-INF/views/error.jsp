@@ -77,7 +77,7 @@ body, h1, h2, h3, p, a {
 			<span></span> <span></span>
 		</div>
 	</div>
-	<%@ include file="header.jsp"%>
+	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Banner Area Start -->
 	<main class="main-content error-page section-padding">

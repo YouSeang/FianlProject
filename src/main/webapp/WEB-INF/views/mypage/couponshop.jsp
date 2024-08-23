@@ -182,7 +182,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 							</div>
 							<div class="product-summery p-3" style="margin-right: 20px;">
 								<h3 class="product-title">
-									<a class="text-reset" href="single-product.html">${coupon.coupon_type}</a>
+									<a >${coupon.coupon_type}</a>
 								</h3>
 								<div class="radio-container">
 									<label> <input type="radio" name="selectedCouponId"

@@ -72,11 +72,13 @@ body, h1, h2, h3, p, a {
 	<div class="container">			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title">금융영상</h1>
+						<h1 class="promo-title">
+							<span>금융</span>영상
+						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
