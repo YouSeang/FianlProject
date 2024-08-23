@@ -381,7 +381,7 @@ input:checked+.slider:before {
                         } else {
                             Swal.fire({
                                 title: '예방성공!',
-                                html:  '포인트 업데이트에 실패했습니다.' + response.pointUpdateResult,
+                                html: '지인 및 자녀를 사칭한 메신저피싱에 유의하세요.<br>',
                                 icon: 'warning',
                                 showCloseButton: true,
                                 showDenyButton: true,

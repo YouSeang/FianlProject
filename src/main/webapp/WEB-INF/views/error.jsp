@@ -85,10 +85,11 @@ body, h1, h2, h3, p, a {
 			<div class="row">
 				<div class="col-lg-8 offset-lg-2">
 					<div class="error-wrap py-5">
-						<span class="error-title display-2">404 ERROR</span>
-						<h1>페이지를 다시 확인해주세요.</h1>
+						<span class="error-title display-2">Not Found</span>
+						<h1>죄송합니다. 원하시는 페이지를 찾을 수 없습니다. </h1>
+						<h3>찾으시는 페이지의 주소가 잘못 입력되었거나 변경 혹은 삭제로 사용하실 수 없습니다. <br/> 다시 한번 확인 후 시도해주세요.</h3>
 
-						<a href="/" class="custom-btn">메인으로</a>
+						<a href="${pageContext.request.contextPath}" class="custom-btn">메인으로</a>
 					</div>
 				</div>
 			</div>

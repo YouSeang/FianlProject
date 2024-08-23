@@ -58,8 +58,7 @@ public class MessagePhishingController {
 	    UserDto user = (UserDto) session.getAttribute("user");
 	    if (user == null || user.getUser_id() == null) {
 	        System.out.println("세션에서 사용자를 찾을 수 없습니다.");
-	        response.put("isSent", false);
-	        response.put("message", "로그인 후 이용해주세요");
+	        //response.put("pointUpdateResult", "로그인 후 이용해주세요");
 	        return response;
 	    }
 		String userId = user.getUser_id();
