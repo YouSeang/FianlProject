@@ -50,26 +50,31 @@ public class PointsController {
 	@RequestMapping(value = "/subtractPoints", method = RequestMethod.POST)
 	@ResponseBody
 	public String subtractPoints(HttpSession session, @RequestParam("pointReason") String pointReason,
-			@RequestParam("couponId") int couponId) {
-		UserDto user = (UserDto) session.getAttribute("user");
-		if (user != null && user.getUser_id() != null) {
-			Map<String, Object> map = new HashMap<>();
-			map.put("userId", user.getUser_id());
-			map.put("pointReason", pointReason);
-			String result = pointsCommand.useExecute(map);
-			if (result.contains("successfully")) {
-				// 쿠폰 이력 저장
-				String couponResult = couponCommand.saveUserCoupon(user.getUser_id(), couponId);
-				if (couponResult.equals("success")) {
-					return "Points subtracted and coupon issued successfully.";
-				} else {
-					return "Failed to save coupon history: " + couponResult;
-				}
-			} else {
-				return "Failed to subtract points: " + result;
-			}
-		} else {
-			return "User is not logged in.";
-		}
+	        @RequestParam("couponId") int couponId) {
+	    UserDto user = (UserDto) session.getAttribute("user");
+	    if (user != null && user.getUser_id() != null) {
+	        Map<String, Object> map = new HashMap<>();
+	        map.put("userId", user.getUser_id());
+	        map.put("pointReason", pointReason);
+	        String result = pointsCommand.useExecute(map);
+
+	        System.out.println("포인트 차감 결과: " + result); // 포인트 차감 결과 로그 출력
+
+	        if (result.contains("포인트가 사용되었습니다.")) {
+	            // 쿠폰 이력 저장
+	            String couponResult = couponCommand.saveUserCoupon(user.getUser_id(), couponId);
+	            System.out.println("쿠폰 저장 결과: " + couponResult); // 쿠폰 저장 결과 로그 출력
+
+	            if (couponResult.equals("success")) {
+	                return "쿠폰이 발행되었습니다.";
+	            } else {
+	                return "Failed to save coupon history: " + couponResult;
+	            }
+	        } else {
+	            return "Failed to subtract points: " + result;
+	        }
+	    } else {
+	        return "로그인 후 이용해주세요";
+	    }
 	}
 }

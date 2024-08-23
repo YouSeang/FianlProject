@@ -83,11 +83,13 @@ body, h1, h2, h3, p, a {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title">금융 사고 현황</h1>
+						<h1 class="promo-title">
+							금융&nbsp;<span>사고 현황</span>
+						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -117,7 +119,7 @@ body, h1, h2, h3, p, a {
 								<div class="sp-details">
 									<h2>사기 유형별 현황</h2>
 									<!-- <span class="pricing"><strong>Price:</strong> $120.50</span> -->
-									<p>보이스피싱은 일반적으로 검찰, 경찰, 금융감 독원 등을 사칭하고 의심계좌가 발견되었다며 수사를 할
+									<p>보이스피싱은 일반적으로 검찰, 경찰, 금융감독원 등을 사칭하고 의심계좌가 발견되었다며 수사를 할
 										것처럼 겁을 주어 안전한 계좌로 돈을 이체 또는 전달하라는 ‘기관사칭형’과 저리에 대 출을 해주기 위해
 										거래실적을 만들어야 한다거 나 추가 대출을 위해서는 기존 대출금을 모두 상 환해야 한다는 ‘대출사기형’이 가장
 										대표적이다. 그 외에도 아들·딸 등 지인을 사칭하는 방법이 계속 유행하고 있으며, 그 당시의 사회적 이슈를

@@ -114,11 +114,13 @@ body, h1, h2, h3, p, a {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title">보안 강화 어플/사이트</h1>
+						<h1 class="promo-title">
+							<span>보안&nbsp;</span> 어플/사이트
+						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -136,7 +138,7 @@ body, h1, h2, h3, p, a {
 					<div class="col-lg-12">
 						<div class="section-intro">
 							<h2 class="section-title">
-								유용한<span class="color">보안 어플</span>
+								보안&nbsp;<span class="color">어플/사이트</span>
 							</h2>
 							<p>
 								다양한 위험으로부터 우리의 정보와 재산을 지키는 데 도움이 되는<br> 어플리케이션들을 소개합니다. 지금
