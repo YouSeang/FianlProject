@@ -166,7 +166,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -184,7 +184,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 
 					<div class="section-intro intro-full">
 						<h2 class="section-title">
-							<span class="color">범죄자</span> 잡기
+							범죄자 <span class="color">잡기</span>
 						</h2>
 						<h3>
 							<strong>1점당 5포인트씩 적립됩니다.</strong>
@@ -194,7 +194,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 
 					<div id="game" class="text-center">
 						<div>
-							<span id="timer">60</span>초&nbsp; <span id="score">0</span>점
+							<span id="timer">10</span>초&nbsp; <span id="score">0</span>점
 						</div>
 						<div class="row mt-4 justify-content-center">
 							<c:forEach var="row" begin="0" end="2">
