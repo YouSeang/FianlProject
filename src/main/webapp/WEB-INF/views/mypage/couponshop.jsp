@@ -245,6 +245,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
                 couponId: document.getElementById('selectedCouponId').value
             },
             success: function(response) {
+            	   console.log("AJAX 응답: ", response); // 이 부분 추가
                 if (response.includes("Points subtracted and coupon issued successfully.")) {
                     $.ajax({
                         url: "${pageContext.request.contextPath}/sendMms",
@@ -274,7 +275,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
                 } else {
                     Swal.fire({
                         title: '포인트 부족 또는 쿠폰 저장 실패',
-                        text: response,
+                        text: '쿠폰이 정상적으로 발행되지 않았습니다. 상세 문의는 고객센터(1588-9999)로 부탁드립니다',
                         icon: 'error',
                         confirmButtonText: '확인'
                     });
