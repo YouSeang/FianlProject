@@ -270,7 +270,7 @@ body, h1, h2, h3, p, a {
 												var propertyType = $(
 														'#propertyType').val();
 												var url = propertyType === "apartment" ? '${pageContext.request.contextPath}/calculate/apartment'
-														: 'S/${pageContext.request.contextPath}/calculate/villa';
+														: '${pageContext.request.contextPath}/calculate/villa';
 
 												$
 														.post(
