@@ -319,7 +319,7 @@
             case 8:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings8.png";
                 newMap = `
-                    <area target="" alt="1000000" title="1000000" href="" coords="289,428,347,461" shape="rect">
+                    <area id="1000000" target="" alt="1000000" title="1000000" href="" coords="289,428,347,461" shape="rect">
                     <area id="500000" target="" alt="500000" title="500000" href="" coords="354,427,412,460" shape="rect">
                     <area id="100000" target="" alt="100000" title="100000" href="" coords="417,428,478,462" shape="rect">
                     <area id="50000" target="" alt="50000" title="50000" href="" coords="484,428,541,463" shape="rect">
@@ -399,7 +399,7 @@
                 if (parseInt(inputdate) < 6 || parseInt(inputdate) > 36) {
                     Swal.fire({
                         title: '잘못된 입력',
-                        text: '가입기간은 6에서 36 사이의 숫자여야 합니다.',
+                        text: '가입기간은 6개월에서 24개월 사이여야 합니다.',
                         icon: 'error'
                     });
                 } else {
@@ -413,7 +413,7 @@
                 if (parseInt(inputpay) < 10000 || parseInt(inputpay) > 3000000) {
                     Swal.fire({
                         title: '잘못된 입력',
-                        text: '입력된 금액은 1만원에서 300만원 사이여야 합니다.',
+                        text: '가입금액은 1만원에서 300만원 사이여야 합니다.',
                         icon: 'error'
                     });
                 } else {
@@ -435,10 +435,16 @@
         event.preventDefault();
         var areaId = $(this).attr('id');
         var value = '';
+        var addvalue = ''; 
         var currentSrc = $("#main-image").attr("src");
-        if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '36', '24', '12', '1000000', '500000', '100000', '50000', '10000', '00'].includes(areaId)) {
+
+        // 숫자 입력과 금액 단위 입력을 구분
+        if (['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '36', '24', '12', '00'].includes(areaId)) {
             value = areaId;
+        } else if (['1000000', '500000', '100000', '50000', '10000'].includes(areaId)) {
+            addvalue = areaId;
         } else if (areaId === 'back') {
+            // Backspace 처리
             if (currentSrc.includes("sbsavings6.png")) {
                 inputdate = inputdate.slice(0, -1);
                 $("#display-text").text(inputdate);
@@ -453,21 +459,28 @@
             }
             return;
         }
+
         if (currentSrc.includes("sbsavings6.png")) {
             inputdate += value;
             $("#display-text").text(inputdate);
         } else if (currentSrc.includes("sbsavings8.png")) {
-            inputpay += value;
-            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
-            $("#display-text4").text(inputpay);
+            if (addvalue) {
+                inputpay += parseInt(inputpay.replace(/,/g, '') || 0) + parseInt(addvalue); // 금액을 누적해서 더함
+            } else {
+                inputpay += value; // 일반 숫자는 뒤에 붙임
+            }
+            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString(); // 최종 금액에 콤마 추가
+            $("#display-text4").text(inputpay); // 화면에 표시
         } else {
-            inputpay += value;
-            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
-            $("#display-text4").text(inputpay);
+            if (addvalue) {
+                inputpay += parseInt(inputpay.replace(/,/g, '') || 0) + parseInt(addvalue); // 금액을 누적해서 더함
+            }
+            inputpay = value; // 일반 숫자는 뒤에 붙임
+            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString(); // 최종 금액에 콤마 추가
+            $("#display-text4").text(inputpay); // 화면에 표시
         }
     });
-    
-    
+
     $(document).on('click', '#keypad-check', function(event) {
         event.preventDefault();
         if (parseInt(inputdate) < 6 || parseInt(inputdate) > 36) {

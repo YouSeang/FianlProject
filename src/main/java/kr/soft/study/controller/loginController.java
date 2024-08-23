@@ -126,7 +126,18 @@ public class loginController {
 	    UserValidator validator = new UserValidator();
 	    validator.validate(userDto, result);
 
+	 // ID 중복 확인
+	    if (userService.findUserById(userDto.getUser_id()) != null) {
+	        model.addAttribute("errorMessage", "duplicateId");
+	        return "signup";
+	    }
 
+	 // 이메일 중복 확인
+	    if (userService.findUserByEmail(userDto.getEmail()) != null) {
+	        model.addAttribute("errorMessage", "duplicateEmail");
+	        return "signup";
+	    }
+	    
 	    if (result.hasErrors()) {
 	        model.addAttribute("errorMessage", "모든 필드를 입력해 주세요.");
 	        return "signup";
