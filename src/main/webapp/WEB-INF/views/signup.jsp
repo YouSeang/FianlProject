@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/magnific-popup.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 
     <style>
         @font-face {
@@ -77,7 +77,7 @@
                         <h2 class="h6 fw-normal mb-5">
                             <span class="fw-bold tex-primary d-block display-5"> 회원가입</span>
                         </h2>
-                        <form id="signup-form" role="form" action="./signup" method="post">
+                        <form id="signupForm" role="form" action="./signup" method="post" onsubmit="return validateForm()">
                             <div class="form-group">
                                 <label for="user_id">아이디 :</label> 
                                 <input class="form-control" type="text" id="user_id" name="user_id">
@@ -117,17 +117,40 @@
 
     <!-- Footer start-->
     <%@ include file="/WEB-INF/views/footer.jsp"%>
+    <script src="<c:url value='/resources/js/sweetalert2.all.min.js'/>"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Show SweetAlert if there was an error -->
-    <c:if test="${not empty errorMessage}">
-        <script>
-            Swal.fire({
-                icon: 'error',
-                title: '회원가입 오류',
-                text: '${errorMessage}'
-            });
-        </script>
-    </c:if>
+<c:if test="${not empty errorMessage}">
+    <script>
+        <c:choose>
+            <c:when test="${errorMessage == 'duplicateId'}">
+                Swal.fire({
+                    icon: 'error',
+                    title: '회원가입 오류',
+                    text: '이미 가입된 ID입니다.',
+                    confirmButtonText: '확인'
+                });
+            </c:when>
+            <c:when test="${errorMessage == 'duplicateEmail'}">
+                Swal.fire({
+                    icon: 'error',
+                    title: '회원가입 오류',
+                    text: '이미 가입된 이메일입니다.',
+                    confirmButtonText: '확인'
+                });
+            </c:when>
+            <c:otherwise>
+                Swal.fire({
+                    icon: 'error',
+                    title: '회원가입 오류',
+                    text: '${errorMessage}',
+                    confirmButtonText: '확인'
+                });
+            </c:otherwise>
+        </c:choose>
+    </script>
+</c:if>
 
     <!-- Javascript -->
     <script>

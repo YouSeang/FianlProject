@@ -136,7 +136,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 									<div class="col-lg-12">
 										<div class="section-intro intro-full">
 											<h2 class="section-title">
-												<span class="color">금융 </span>OX 퀴즈
+												<span class="color">금융 </span> OX 퀴즈
 											</h2>
 											<h3>
 												<strong>퀴즈를 풀고 금융지식을 올려요</strong>

@@ -20,6 +20,11 @@ public class UserService {
 	public UserDto findUserByEmail(String email) {
 		return userDao.findUserByEmail(email);
 	}
+	
+	// ID로 사용자 조회
+		public UserDto findUserById(String user_Id) {
+			return userDao.getUserById(user_Id);
+		}
 
 	// 비밀번호 재설정 토큰 생성
 	public String createPasswordResetToken(String userId) {
