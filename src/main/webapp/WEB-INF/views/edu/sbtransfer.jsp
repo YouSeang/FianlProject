@@ -135,7 +135,7 @@ body, h1, h2, h3, p, a {
 							<ol class="breadcrumb">
 
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>

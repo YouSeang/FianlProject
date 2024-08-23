@@ -253,6 +253,12 @@
                     <area target="_self" alt="" title="" href="#" coords="255,40,635,39,645,376,387,378,388,444,648,449,638,779,260,793" shape="poly" id="goto-sbsavings1-1">
                 `;
                 break;
+            case 1-1:
+                newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings1-1.png";
+                newMap = `
+                    <area target="_self" alt="" title="" href="#" coords="630,439,392,391" shape="rect" id="goto-sbsavings2">
+                                   `;
+                break;
             case 2:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings2.png";
                 newMap = `
@@ -340,8 +346,9 @@
                     <area target="" alt="" title="" href="#" coords="251,734,632,794" shape="rect" id="goto-sbsavings10">
                 `; displayAreaCoords3 = "425,305,459,336";
                 displayAreaCoords4 = "416,364,495,399";
-               
+                
                 break;
+                
             case 10:
                 newSrc = "${pageContext.request.contextPath}/resources/images/sb/sbsavings10.png";
                 newMap = `
@@ -370,6 +377,9 @@
         event.preventDefault();
         const targetId = $(this).attr('id');
         switch(targetId) {
+        case 'goto-sbsavings1-1':
+            changeStep(1-1);
+            break;
             case 'goto-sbsavings2':
                 changeStep(2);
                 break;
@@ -386,17 +396,35 @@
                 changeStep(6);
                 break;
             case 'goto-sbsavings7':
-                changeStep(7);
+                if (parseInt(inputdate) < 6 || parseInt(inputdate) > 36) {
+                    Swal.fire({
+                        title: '잘못된 입력',
+                        text: '가입기간은 6에서 36 사이의 숫자여야 합니다.',
+                        icon: 'error'
+                    });
+                } else {
+                    changeStep(7);
+                }
                 break;
             case 'goto-sbsavings8':
                 changeStep(8);
                 break;
             case 'goto-sbsavings9':
-                changeStep(9);
+                if (parseInt(inputpay) < 10000 || parseInt(inputpay) > 3000000) {
+                    Swal.fire({
+                        title: '잘못된 입력',
+                        text: '입력된 금액은 1만원에서 300만원 사이여야 합니다.',
+                        icon: 'error'
+                    });
+                } else {
+                    changeStep(9);
+                }
                 break;
             case 'goto-sbsavings10':
                 changeStep(10);
-                updatePoints();
+                if (isLoggedIn) {
+                    updatePoints();
+                }
                 break;
             case 'finish':
               	
@@ -416,9 +444,11 @@
                 $("#display-text").text(inputdate);
             } else if (currentSrc.includes("sbsavings8.png")) {
                 inputpay = inputpay.slice(0, -1);
+                inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
                 $("#display-text4").text(inputpay);
             } else {
                 inputpay = inputpay.slice(0, -1);
+                inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
                 $("#display-text4").text(inputpay);
             }
             return;
@@ -428,20 +458,44 @@
             $("#display-text").text(inputdate);
         } else if (currentSrc.includes("sbsavings8.png")) {
             inputpay += value;
+            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
             $("#display-text4").text(inputpay);
         } else {
             inputpay += value;
+            inputpay = parseInt(inputpay.replace(/,/g, '') || 0).toLocaleString();
             $("#display-text4").text(inputpay);
         }
     });
+    
+    
     $(document).on('click', '#keypad-check', function(event) {
         event.preventDefault();
-        changeStep(7);
+        if (parseInt(inputdate) < 6 || parseInt(inputdate) > 36) {
+            Swal.fire({
+                title: '잘못된 입력',
+                text: '가입기간은 6에서 36 사이의 숫자여야 합니다.',
+                icon: 'error'
+            });
+        } else {
+            changeStep(7);
+        }
     });
+
     $(document).on('click', '#keypad-check2', function(event) {
         event.preventDefault();
-        changeStep(9);
+        let cleanInputPay = parseInt(inputpay.replace(/,/g, ''));
+
+        if (cleanInputPay < 10000 || cleanInputPay > 3000000) {
+            Swal.fire({
+                title: '잘못된 입력',
+                text: '입력된 금액은 1만원에서 300만원 사이여야 합니다.',
+                icon: 'error'
+            });
+        } else {
+            changeStep(9);
+        }
     });
+    
     $(window).resize(resizeImageMap);
 });
 /*

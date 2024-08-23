@@ -83,7 +83,13 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 						<h1 class="promo-title">
 							<span>정보수정</span>
 						</h1>
-						<nav aria-label="breadcrumb"></nav>
+						<nav aria-label="breadcrumb">
+							<ol class="breadcrumb">
+
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
+							</ol>
+						</nav>
 					</div>
 				</div>
 			</div>
