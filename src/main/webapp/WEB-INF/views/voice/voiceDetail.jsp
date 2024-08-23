@@ -118,59 +118,60 @@ body, h1, h2, h3, p, a {
 	</section>
 
 	<script>
-    let voiceType;
-    let userId = '<c:out value="${sessionScope.userId}"/>'; // JSP에서 세션 값을 JavaScript로 전달
-    let audioPlayer;
-    let scenarioName; // 세앙 시나리오 name
+	let voiceType;
+	let userId = '<c:out value="${sessionScope.userId}"/>'; // JSP에서 세션 값을 JavaScript로 전달
+	let audioPlayer;
+	let scenarioName;
 
-    $(document).ready(function() {
-        console.log("User ID from session: ", userId); // JavaScript 콘솔에 출력
-        audioPlayer = document.getElementById("audioPlayer");
-        var urlParams = new URLSearchParams(window.location.search);
-        voiceType = urlParams.get('voice');
-        scenarioName = urlParams.get('scenarioName'); // 시나리오 이름 설정
-        
-        Swal.fire({
-            title: voiceType === 'impersonation' ? '검찰 사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
-            	    text: voiceType === 'impersonation' 
-            	        ? '당신은 사기에 연루되었다며, 검찰로부터 전화를 받게 되었습니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.'
-            	        : '당신은 서민금융 대출 관련 문자를 받고, 대출을 신청한 상태입니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.',
-            icon: 'info',
-            confirmButtonText: '확인'
-        }).then((result) => {
-            if (result.isConfirmed) {
-                setTimeout(playAudio, 2000); // 3초 후에 음성 재생
-            }
-        });
-    });
+	$(document).ready(function () {
+	    console.log("User ID from session: ", userId); // JavaScript 콘솔에 출력
+	    audioPlayer = document.getElementById("audioPlayer");
+	    var urlParams = new URLSearchParams(window.location.search);
+	    voiceType = urlParams.get('voice');
+	    scenarioName = urlParams.get('scenarioName'); // 시나리오 이름 설정
 
-    function playAudio() {
-        if (voiceType) {
-            var audioPath = "";
-            if (voiceType === "impersonation") {
-                audioPath = "impersonation1-1.mp3"; // 기관사칭 음성 파일 경로
-            } else if (voiceType === "loan") {
-                audioPath = "loan1-1.mp3"; // 대출사기 음성 파일 경로
-            }
+	    Swal.fire({
+	        title: voiceType === 'impersonation' ? '검찰 사칭 금융사기 연루 케이스' : '정부 지원 저금리 대출 안내 케이스',
+	        text: voiceType === 'impersonation'
+	            ? '당신은 사기에 연루되었다며, 검찰로부터 전화를 받게 되었습니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.'
+	            : '당신은 서민금융 대출 관련 문자를 받고, 대출을 신청한 상태입니다. 가상 피해자가 되어 범인과 통화해보세요. 준비가 되셨다면 확인 버튼을 눌러주세요.',
+	        icon: 'info',
+	        confirmButtonText: '확인'
+	    }).then((result) => {
+	        if (result.isConfirmed) {
+	            setTimeout(playAudio, 2000); // 2초 후에 음성 재생
+	        }
+	    });
+	});
 
-            if (audioPath) {
-                var audioSrc = "${pageContext.request.contextPath}/resources/audio/" + audioPath + "?t=" + new Date().getTime();
-                audioPlayer.src = audioSrc;
-                audioPlayer.style.display = "block";
-                
-                audioPlayer.load();
-                audioPlayer.play().then(() => {
-                    console.log("Audio is playing.");
-                }).catch(error => {
-                    console.error("Failed to play audio automatically. Trying to play after user interaction.", error);
-                    document.getElementById("result").innerText += " Click to play.";
-                    document.getElementById("result").onclick = function() {
-                        audioPlayer.play();
-                    };
-                });
-            }
-        }
-    }
+	function playAudio() {
+	    if (voiceType) {
+	        var audioPath = "";
+	        if (voiceType === "impersonation") {
+	            audioPath = "impersonation1-1.mp3"; // 기관사칭 음성 파일 경로
+	        } else if (voiceType === "loan") {
+	            audioPath = "loan1-1.mp3"; // 대출사기 음성 파일 경로
+	        }
+
+	        if (audioPath) {
+	            var audioSrc = "${pageContext.request.contextPath}/resources/audio/" + audioPath + "?t=" + new Date().getTime();
+	            audioPlayer.src = audioSrc;
+	            audioPlayer.style.display = "block";
+
+	            audioPlayer.load();
+	            audioPlayer.play().then(() => {
+	                console.log("Audio is playing.");
+	            }).catch(error => {
+	                console.error("Failed to play audio automatically. Trying to play after user interaction.", error);
+	                document.getElementById("result").innerText += " Click to play.";
+	                document.getElementById("result").onclick = function () {
+	                    audioPlayer.play();
+	                };
+	            });
+	        }
+	    }
+	}
+
 
     var mediaRecorder;
     var socket;
@@ -268,7 +269,7 @@ body, h1, h2, h3, p, a {
         url: "${pageContext.request.contextPath}/getVoice",
         method: "GET",
         data: { id: id, scenarioName: scenarioName },
-        success: function(response) {
+        success: function (response) {
             console.log("AJAX request successful. Response:", response);
 
             var data;
@@ -301,47 +302,48 @@ body, h1, h2, h3, p, a {
                     url: "${pageContext.request.contextPath}/resultMessagePhishing",
                     method: "POST",
                     data: { pointReason: '보이스피싱 체험완료' },
-                    success: function(response) {
+                    success: function (response) {
                         console.log(response);
 
-                        // 성공 시 18초 후 알림 창 띄우기
-                        setTimeout(() => {
-                            Swal.fire({
-                                title: '보이스피싱 체험 종료',
-                                html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
-                                icon: 'info',
-                                confirmButtonText: '확인'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire({
-                                        title: '포인트 지급',
-                                        text: response.pointUpdateResult,
-                                        icon: 'check',
-                                        confirmButtonText: '닫기'
-                                    });
-                                }
-                            });
-                        }, 18000); // 18초 후 실행
+                        // 세션에 userId가 있을 경우에만 포인트 지급 알림창 표시
+                        if (userId) {
+                            setTimeout(() => {
+                                Swal.fire({
+                                    title: '보이스피싱 체험 종료',
+                                    html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
+                                    icon: 'info',
+                                    confirmButtonText: '확인'
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        Swal.fire({
+                                            title: '포인트 지급',
+                                            text: response.pointUpdateResult,
+                                            icon: 'check',
+                                            confirmButtonText: '닫기'
+                                        });
+                                    }
+                                });
+                            }, 18000); // 18초 후 실행
+                        } else {
+                            // 세션에 userId가 없을 경우 포인트 지급 알림창을 표시하지 않음
+                            setTimeout(() => {
+                                Swal.fire({
+                                    title: '보이스피싱 체험 종료',
+                                    html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
+                                    icon: 'info',
+                                    confirmButtonText: '확인'
+                                });
+                            }, 18000); // 18초 후 실행
+                        }
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         console.error("Failed to update points. Status: " + status + ", Error: " + error);
-                        
-                        // 실패 시 별도 알림 창 띄우기
                         setTimeout(() => {
                             Swal.fire({
                                 title: '보이스피싱 체험 종료',
                                 html: '당신은 보이스피싱 범죄의 시나리오를 알아 채셨나요?<br><br>' + '<span style="font-size: 15px;">' + finalMessage + '</span>',
                                 icon: 'info',
                                 confirmButtonText: '확인'
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    Swal.fire({
-                                    	 title: '포인트 지급',
-                                         text: response.pointUpdateResult,
-                                        icon: 'check',
-                                        confirmButtonText: '닫기'
-                                    });
-                                }
                             });
                         }, 18000); // 18초 후 실행
                     }
@@ -363,7 +365,7 @@ body, h1, h2, h3, p, a {
                 }).catch(error => {
                     console.error("Failed to play audio automatically. Trying to play after user interaction.", error);
                     document.getElementById("result").innerText += " Click to play.";
-                    document.getElementById("result").onclick = function() {
+                    document.getElementById("result").onclick = function () {
                         audioPlayer.play();
                         visualizePlayback(audioPlayer);
                     };
@@ -372,7 +374,7 @@ body, h1, h2, h3, p, a {
                 $("#audioPlayer").hide();
             }
         },
-        error: function(xhr, status, error) {
+        error: function (xhr, status, error) {
             console.error("AJAX request failed. Status:", status, "Error:", error);
         }
     });
