@@ -489,8 +489,7 @@ body {
 					<li class="dept-2 dropdown-submenu"><a href="#"
 						class="dropdown-toggle" id="nav-simulation">KB스타뱅킹 체험</a>
 						<ul class="dropdown-menu">
-							<li class="dept-3"><a
-								href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
+						
 							<li class="dept-3"><a
 								href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
 							<li class="dept-3"><a
