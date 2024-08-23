@@ -121,11 +121,11 @@ body, h1, h2, h3, p, a {
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="promo-wrap">
-						<h1 class="promo-title s-title">예방방법</h1>
+						<h1 class="promo-title s-title"><span>예방</span> 요령</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
-								<li class="breadcrumb-item"><a href="#">메인</a></li>
-								<li class="breadcrumb-item active" aria-current="page">소통창구</li>
+								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -140,7 +140,7 @@ body, h1, h2, h3, p, a {
 		<div class="container">
 			<div class="row">
 				<div class="section-header text-center mb-5">
-					<h2 class="display-5 fw-bold">금융피해 예방요령</h2>
+					<h2 class="display-5 fw-bold">예방 요령</h2>
 					<p>피싱사기는 이렇게 예방해요!</p>
 				</div>
 				<!-- Collum Start -->

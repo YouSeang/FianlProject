@@ -270,106 +270,165 @@ body {
 
 
 
-<!-- Header Start -->
-<header class="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" style="margin-left: 100px;" href="${pageContext.request.contextPath}/">
-                <img src="${pageContext.request.contextPath}/resources/images/components/logo6.png" alt="Logo">
-            </a>
-            <button class="navbar-toggler" type="button" id="mobile-nav-toggle">
-                <span class="fa fa-bars"></span>
-            </button>
-            
-           
-            
-            
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item"><a href="${pageContext.request.contextPath}/aboutLocKB" class="nav-link" style="color: #333333;">LocKB소개</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/voice/incidentsOverview" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">사고예방</a>
-                        <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/recentIncidents">최근 금융사고 뉴스</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/phoneLookupForm">발신번호 조회</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/preCheckQuiz">전세계약 사전확인</a></li>
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/voice/smishing">금융사고예방 시뮬레이션</a>
-                                <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                                    <li class="dropdown-header">금융사고예방 시뮬레이션</li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/smishing">스미싱</a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/voice/messagePhishing">메신저피싱</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">금융</a>
-                        <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/edu/sbjoin">KB스타뱅킹 체험</a>
-                                <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                                    <li class="dropdown-header">KB스타뱅킹 체험</li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
-                                </ul>
-                            </li>
+	<!-- Header Start -->
+	<header class="header">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" style="margin-left: 100px;"
+					href="${pageContext.request.contextPath}/"> <img
+					src="${pageContext.request.contextPath}/resources/images/components/logo6.png"
+					alt="Logo">
+				</a>
+				<button class="navbar-toggler" type="button" id="mobile-nav-toggle">
+					<span class="fa fa-bars"></span>
+				</button>
 
-                            <li class="dropdown-submenu dropend">
-                                <a class="dropdown-item dropdown-toggle" href="${pageContext.request.contextPath}/game/quiz">금융게임</a>
-                                <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                                    <li class="dropdown-header">금융게임</li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
-                                    <li><a class="dropdown-item" href="${pageContext.request.contextPath}/game/game">범죄자 잡기</a></li>
-                                </ul>
-                            </li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="${pageContext.request.contextPath}/security/securityTemp" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">나의보안</a>
-                        <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/security/securityTemp">나의 보안점수</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/security/securityGuide">보안 강화 어플/사이트</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #333333;">소통창구</a>
-                        <ul class="dropdown-menu" style="background-color: rgba(255, 255, 255, 0.9);">
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
-                            <li><a class="dropdown-item" href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <div class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
-                    <c:choose>
-                        <c:when test="${not empty sessionScope.user}">
-                            <a href="${pageContext.request.contextPath}/logout" class="custom-btn">로그아웃</a>
-                           <!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
-                            <c:choose>
-                                <c:when test="${sessionScope.user.role eq 'admin'}">
-                                    <a href="${pageContext.request.contextPath}/admin/admin" class="text-reset icon position-relative me-2"><i class="fa fa-user"></i></a>
-                                </c:when>
-                                <c:otherwise>
-                                    <a href="${pageContext.request.contextPath}/mypage" class="text-reset icon" style="margin-right: 100px;"><i class="fa fa-user"></i></a>
-                                </c:otherwise>
-                            </c:choose>
-                        </c:when>
-                        <c:otherwise>
-                            <a href="${pageContext.request.contextPath}/loginView" class="custom-btn">로그인</a>
-                           <!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
-                            <a href="${pageContext.request.contextPath}/loginView" class="text-reset icon" style="margin-right: 100px;" onclick="alert('로그인이 필요합니다. \n로그인화면으로 이동합니다.');"><i class="fa fa-user"></i></a>
-                        </c:otherwise>
-                    </c:choose>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-<!-- Header End -->
+
+
+
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav mx-auto">
+						<li class="nav-item"><a
+							href="${pageContext.request.contextPath}/aboutLocKB"
+							class="nav-link" style="color: #333333;">LocKB소개</a></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle"
+							href="${pageContext.request.contextPath}/voice/incidentsOverview"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #333333;">금융사기 예방하기</a>
+							<ul class="dropdown-menu"
+								style="background-color: rgba(255, 255, 255, 0.9);">
+								<li class="dropdown-submenu dropend"><a
+									class="dropdown-item dropdown-toggle"
+									href="${pageContext.request.contextPath}/voice/smishing">금융사기
+										시뮬레이션</a>
+									<ul class="dropdown-menu"
+										style="background-color: rgba(255, 255, 255, 0.9);">
+										<li class="dropdown-header">금융사고예방 시뮬레이션</li>
+										<li><a class="dropdown-item"
+											href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
+										<li><a class="dropdown-item"
+											href="${pageContext.request.contextPath}/voice/smishing">스미싱</a></li>
+										<li><a class="dropdown-item"
+											href="${pageContext.request.contextPath}/voice/messagePhishing">메신저피싱</a></li>
+									</ul></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/phoneLookupForm">발신번호
+										조회</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
+
+
+
+
+
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #333333;">금융 익숙해지기</a>
+							<ul class="dropdown-menu"
+								style="background-color: rgba(255, 255, 255, 0.9);">
+								<li class="dropdown-submenu dropend"><a
+									class="dropdown-item dropdown-toggle"
+									href="${pageContext.request.contextPath}/edu/sbjoin">KB스타뱅킹
+										체험</a>
+									<ul class="dropdown-menu"
+										style="background-color: rgba(255, 255, 255, 0.9);">
+										<li class="dropdown-header">KB스타뱅킹 체험</li>
+										<li><a class="dropdown-item"
+											href="${pageContext.request.contextPath}/edu/sbtransfer">이체</a></li>
+										<li><a class="dropdown-item"
+											href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
+									</ul></li>
+
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/preCheckQuiz">전세계약
+										사전확인</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/game/quiz">금융 퀴즈</a></li>
+
+
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle"
+							href="${pageContext.request.contextPath}/security/securityTemp"
+							role="button" data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #333333;">정보 모아보기</a>
+							<ul class="dropdown-menu"
+								style="background-color: rgba(255, 255, 255, 0.9);">
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/voice/incidentsOverview">금융
+										사고 현황</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/voice/recentIncidents">최신
+										금융 뉴스</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/security/securityGuide">보안
+										어플/사이트</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/edu/eduvideo">금융
+										영상</a></li>
+
+
+
+							</ul></li>
+						<li class="nav-item dropdown"><a
+							class="nav-link dropdown-toggle" href="#" role="button"
+							data-bs-toggle="dropdown" aria-expanded="false"
+							style="color: #333333;">함께 참여하기</a>
+							<ul class="dropdown-menu"
+								style="background-color: rgba(255, 255, 255, 0.9);">
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/board/attendance">출석
+										체크</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/board/share">피해 사례
+										공유</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/security/securityTemp">나의
+										보안점수</a></li>
+								<li><a class="dropdown-item"
+									href="${pageContext.request.contextPath}/game/game">범죄자 잡기
+										게임</a></li>
+							</ul></li>
+					</ul>
+					<div
+						class="mt-3 mt-lg-0 d-flex align-items-center header-actions justify-content-between">
+						<c:choose>
+							<c:when test="${not empty sessionScope.user}">
+								<a href="${pageContext.request.contextPath}/logout"
+									class="custom-btn">로그아웃</a>
+								<!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
+								<c:choose>
+									<c:when test="${sessionScope.user.role eq 'admin'}">
+										<a href="${pageContext.request.contextPath}/admin/admin"
+											class="text-reset icon position-relative me-2"><i
+											class="fa fa-user"></i></a>
+									</c:when>
+									<c:otherwise>
+										<a href="${pageContext.request.contextPath}/mypage"
+											class="text-reset icon" style="margin-right: 100px;"><i
+											class="fa fa-user"></i></a>
+									</c:otherwise>
+								</c:choose>
+							</c:when>
+							<c:otherwise>
+								<a href="${pageContext.request.contextPath}/loginView"
+									class="custom-btn">로그인</a>
+								<!--  <a class="text-reset icon" href="#" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-search"><i class="fa fa-search"></i></a> -->
+								<a href="${pageContext.request.contextPath}/loginView"
+									class="text-reset icon" style="margin-right: 100px;"
+									onclick="alert('로그인이 필요합니다. \n로그인화면으로 이동합니다.');"><i
+									class="fa fa-user"></i></a>
+							</c:otherwise>
+						</c:choose>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</header>
+	<!-- Header End -->
 
 	<!-- Mobile Navigation -->
 	<div class="mobile-nav" id="mobile-nav">
@@ -402,24 +461,13 @@ body {
 		</div>
 
 		<ul>
-
-
-
-			<li class="dept-1"><a href="./about.html">LocKB소개</a></li>
-			<li class="dept-1"><a href="#" class="dropdown-toggle">사고예방</a>
+			<li class="dept-1"><a
+				href="${pageContext.request.contextPath}/aboutLocKB">LocKB소개</a></li>
+			<li class="dept-1"><a href="#" class="dropdown-toggle" id="nav-prevent">금융사기
+					예방하기</a>
 				<ul class="dropdown-menu">
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/voice/incidentsOverview">금융사고현황</a></li>
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/voice/recentIncidents">최근
-							금융사고 뉴스</a></li>
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/phoneLookupForm">발신번호
-							조회</a></li>
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/preCheckQuiz">전세계약 사전확인</a></li>
 					<li class="dept-2 dropdown-submenu"><a href="#"
-						class="dropdown-toggle">금융사고예방 시뮬레이션</a>
+						class="dropdown-toggle" id="nav-simulation">금융사기 시뮬레이션</a>
 						<ul class="dropdown-menu">
 							<li class="dept-3"><a
 								href="${pageContext.request.contextPath}/voice/voicePhishing">보이스피싱</a></li>
@@ -428,11 +476,18 @@ body {
 							<li class="dept-3"><a
 								href="${pageContext.request.contextPath}/voice/messagePhishing">메신저피싱</a></li>
 						</ul></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/phoneLookupForm">발신번호
+							조회</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
+					
 				</ul></li>
-			<li class="dept-1"><a href="#" class="dropdown-toggle">금융교육</a>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">금융
+					익숙해지기</a>
 				<ul class="dropdown-menu">
 					<li class="dept-2 dropdown-submenu"><a href="#"
-						class="dropdown-toggle">KB스타뱅킹 체험</a>
+						class="dropdown-toggle" id="nav-simulation">KB스타뱅킹 체험</a>
 						<ul class="dropdown-menu">
 							<li class="dept-3"><a
 								href="${pageContext.request.contextPath}/edu/sbjoin">회원가입</a></li>
@@ -441,83 +496,101 @@ body {
 							<li class="dept-3"><a
 								href="${pageContext.request.contextPath}/edu/sbsavings">상품가입</a></li>
 						</ul></li>
-
-					<li class="dept-2 dropdown-submenu"><a href="#"
-						class="dropdown-toggle">금융게임</a>
-						<ul class="dropdown-menu">
-							<li class="dept-3"><a
-								href="${pageContext.request.contextPath}/game/quiz">OX퀴즈</a></li>
-							<li class="dept-3"><a
-								href="${pageContext.request.contextPath}/game/findcrime">범죄자
-									잡기</a></li>
-						</ul></li>
 					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/edu/eduvideo">교육영상</a></li>
+						href="${pageContext.request.contextPath}/preCheckQuiz">전세계약
+							사전확인</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/game/quiz">금융 퀴즈</a></li>
 				</ul></li>
-			<li class="dept-1"><a href="#" class="dropdown-toggle">나의보안</a>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">정보
+					모아보기</a>
 				<ul class="dropdown-menu">
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/voice/incidentsOverview">금융
+							사고 현황</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/voice/recentIncidents">최신
+							금융 뉴스</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/security/securityGuide">보안
+							어플/사이트</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/edu/eduvideo">금융 영상</a></li>
+				</ul></li>
+			<li class="dept-1"><a href="#" class="dropdown-toggle">함께
+					참여하기</a>
+				<ul class="dropdown-menu">
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/attendance">출석
+							체크</a></li>
+					<li class="dept-2"><a
+						href="${pageContext.request.contextPath}/board/share">피해 사례 공유</a></li>
 					<li class="dept-2"><a
 						href="${pageContext.request.contextPath}/security/securityTemp">나의
 							보안점수</a></li>
 					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/security/securityGuide">보안
-							강화 어플/사이트</a></li>
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/board/guide">예방 요령</a></li>
-				</ul></li>
-
-			<li class="dept-1"><a href="#" class="dropdown-toggle">소통창구</a>
-				<ul class="dropdown-menu">
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/board/attendance">출석체크</a></li>
-					<li class="dept-2"><a
-						href="${pageContext.request.contextPath}/board/share">사례공유</a></li>
+						href="${pageContext.request.contextPath}/game/game">범죄자 잡기 게임</a></li>
 				</ul></li>
 		</ul>
 	</div>
 	<div class="mobile-nav-backdrop" id="mobile-nav-backdrop"></div>
 
-<!-- Scripts -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+	<!-- Scripts -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 <script>
-$(document).ready(function () {
-    $('#mobile-nav-toggle').click(function () {
-        $('#mobile-nav').addClass('active');
-        $('#mobile-nav-backdrop').addClass('active');
-    });
+	$(document).ready(function() {
+		// 모바일 네비게이션 바 열기
+		$('#mobile-nav-toggle').click(function() {
+			$('#mobile-nav').addClass('active');
+			$('#mobile-nav-backdrop').addClass('active');
 
-    $('#mobile-nav-close, #mobile-nav-backdrop').click(function () {
-        $('#mobile-nav').removeClass('active');
-        $('#mobile-nav-backdrop').removeClass('active');
-    });
+			// 세션 스토리지에서 저장된 드롭다운 상태 복원
+			$('.mobile-nav .dropdown-toggle').each(function() {
+				var menuId = $(this).attr('id');
+				var isActive = sessionStorage.getItem(menuId);
+				if (isActive === 'true') {
+					$(this).parent().addClass('active');
+					$(this).siblings('.dropdown-menu').show();
+				}
+			});
+		});
 
-    $('.mobile-nav .dropdown-toggle').click(function (e) {
-        e.preventDefault();
-        e.stopPropagation();
+		// 모바일 네비게이션 바 닫기
+		$('#mobile-nav-close, #mobile-nav-backdrop').click(function() {
+			$('#mobile-nav').removeClass('active');
+			$('#mobile-nav-backdrop').removeClass('active');
+		});
 
-        var $this = $(this);
-        var $dropdownMenu = $this.siblings('.dropdown-menu');
+		// 드롭다운 토글
+		$('.mobile-nav .dropdown-toggle').click(function(e) {
+			e.preventDefault();
+			e.stopPropagation();
 
-        // 다른 열린 드롭다운 메뉴 닫기
-        $('.mobile-nav .dropdown-menu').not($dropdownMenu).slideUp().parent().removeClass('active');
+			var $this = $(this);
+			var $dropdownMenu = $this.siblings('.dropdown-menu');
+			var menuId = $this.attr('id');
 
-        // 현재 드롭다운 메뉴 열기/닫기
-        if ($this.parent().hasClass('active')) {
-            $dropdownMenu.slideUp();
-            $this.parent().removeClass('active');
-        } else {
-            $dropdownMenu.slideDown();
-            $this.parent().addClass('active');
-        }
-    });
+			// 현재 드롭다운 메뉴의 열림/닫힘 상태 저장
+			if ($this.parent().hasClass('active')) {
+				$dropdownMenu.slideUp();
+				$this.parent().removeClass('active');
+				sessionStorage.setItem(menuId, 'false');
+			} else {
+				$dropdownMenu.slideDown();
+				$this.parent().addClass('active');
+				sessionStorage.setItem(menuId, 'true');
+			}
+		});
 
-    // 드롭다운 메뉴 내 클릭 시 닫히지 않도록 방지
-    $('.mobile-nav .dropdown-menu').click(function (e) {
-        e.stopPropagation();
-    });
-});
+		// 드롭다운 메뉴 내 클릭 시 닫히지 않도록 방지
+		$('.mobile-nav .dropdown-menu').click(function(e) {
+			e.stopPropagation();
+		});
+	});
 </script>
+
 
 
 </body>
