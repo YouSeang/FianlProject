@@ -109,12 +109,7 @@ body, h1, h2, h3, p, a {
 </head>
 
 <body>
-	<!-- Preloader -->
-	<div id="preloader">
-		<div class="preloader">
-			<span></span> <span></span>
-		</div>
-	</div>
+	
 	<%@ include file="/WEB-INF/views/header0802.jsp"%>
 
 	<!-- Promo Area Start -->

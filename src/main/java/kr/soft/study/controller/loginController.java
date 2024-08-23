@@ -123,22 +123,16 @@ public class loginController {
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public String signup(@ModelAttribute("userDto") @Validated UserDto userDto, BindingResult result, Model model,
 	        HttpServletRequest request, HttpSession session) {
-
-	    // Custom validator (if needed)
 	    UserValidator validator = new UserValidator();
 	    validator.validate(userDto, result);
 
-	    // Check validation errors
+
 	    if (result.hasErrors()) {
-	        // Adding error messages to the model to display in the JSP
-	        model.addAttribute("errorMessage", "회원가입 도중 오류가 발생했습니다. 입력 내용을 다시 확인해 주세요.");
-	        return "signup"; // Return to the signup page if there are errors
+	        model.addAttribute("errorMessage", "모든 필드를 입력해 주세요.");
+	        return "signup";
 	    }
 
-	    // Simulate sign-up logic execution
 	    userSignup.execute(model);
-
-	    // Assuming the signup was successful
 	    session.setAttribute("signUpResult", "success");
 
 	    return "redirect:/home"; // Redirect to the home page after successful signup
