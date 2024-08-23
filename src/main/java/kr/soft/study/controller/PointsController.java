@@ -60,13 +60,13 @@ public class PointsController {
 
 	        System.out.println("포인트 차감 결과: " + result); // 포인트 차감 결과 로그 출력
 
-	        if (result.contains("포인트가 사용되었습니다.")) {
+	        if (result.contains("success.")) {
 	            // 쿠폰 이력 저장
 	            String couponResult = couponCommand.saveUserCoupon(user.getUser_id(), couponId);
 	            System.out.println("쿠폰 저장 결과: " + couponResult); // 쿠폰 저장 결과 로그 출력
 
 	            if (couponResult.equals("success")) {
-	                return "쿠폰이 발행되었습니다.";
+	                return "Points subtracted and coupon issued successfully.";
 	            } else {
 	                return "Failed to save coupon history: " + couponResult;
 	            }
