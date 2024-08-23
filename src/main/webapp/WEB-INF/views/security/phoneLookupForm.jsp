@@ -147,12 +147,12 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							<span>발신번호 조회</span>
+							<span>발신번호</span> 조회
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
 								<li class="breadcrumb-item active" aria-current="page">LocKB</li>
-								<li class="breadcrumb-item"><a href="index.html">:락비</a></li>
+								<li class="breadcrumb-item"><a>:락비</a></li>
 							</ol>
 						</nav>
 					</div>
@@ -168,7 +168,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="section-intro intro-full text-center">
 						<h3 class="section-title mb-4">
-							발신번호<span class="color"> 조회 </span>
+							발신번호 조회
 						</h3>
 						<div
 							style="display: flex; align-items: center; justify-content: center; text-align: center;">
