@@ -73,7 +73,7 @@ body, h1, h2, h3, p, a {
 				<div class="col-lg-12">
 					<div class="promo-wrap">
 						<h1 class="promo-title">
-							<span>금융</span>영상
+							<span>금융 </span> 영상
 						</h1>
 						<nav aria-label="breadcrumb">
 							<ol class="breadcrumb">
@@ -89,6 +89,15 @@ body, h1, h2, h3, p, a {
 
 	<section class="video-area section-padding">
 		<div class="container">
+		<div class="row">
+                <div class="col-lg-12">
+                    <div class="section-intro intro-full">
+                        <h2 class="section-title"> <span class="color">금융 영상</span> 시청</h2>
+                        <p>금융 영상을 보고, 지식을 쌓아봐요!<br>
+                        포인트는 영상별로 하루에 한 번만 적립됩니다.</p>
+                    </div>
+                </div>
+            </div>
 			<div class="row g-5">
 				<c:forEach var="video" items="${videos}">
 					<div class="col-lg-4 col-sm-6">
