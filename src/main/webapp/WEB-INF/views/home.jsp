@@ -202,7 +202,7 @@ function openVoicePhishingWindow() {
 						<span><img
 							src="${pageContext.request.contextPath}/resources/images/components/mis1.png"
 							alt=""></span>
-						<h3>사고예방 시뮬레이션</h3>
+						<h3>금융사기 시뮬레이션</h3>
 						<p>
 							메신저피싱, 보이스피싱을 예방하기 위해<br> 실제 사례와 유사한 시뮬레이션을 해볼 수 있어요
 						</p>
@@ -215,7 +215,7 @@ function openVoicePhishingWindow() {
 						<span><img
 							src="${pageContext.request.contextPath}/resources/images/components/mis2.png"
 							alt=""></span>
-						<h3>디지털금융 교육</h3>
+						<h3>KB스타뱅킹 체험</h3>
 						<p>
 							어렵게만 느껴졌던 스타뱅킹의 <br>이체와 상품가입을 체험해볼 수 있어요.
 						</p>
