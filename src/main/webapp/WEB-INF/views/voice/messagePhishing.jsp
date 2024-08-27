@@ -124,7 +124,7 @@ body, h1, h2, h3, p, a {
 							개인정보 및 금융거래 정보를 요구하거나 피해자의 금전을 이체하도록 하는 수법입니다.</p>
 						<ul>
 							<li>지인을 사칭한 메신저피싱에 유의하세요</li>
-							<li>로그인 후 체험하시면 포인트가 지급되며, 하루에 한 번만 지급됩니다.</li>
+							<li>포인트는 하루에 한 번만 지급됩니다.</li>
 						</ul>
 						<a href="#" class="custom-btn"
 							onclick="openMessagePhishingWindow()">체험하러 가기</a>
