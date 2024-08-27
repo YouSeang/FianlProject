@@ -24,8 +24,10 @@ public class AdminUpdatePhishing {
         String scenarioName = (String) model.get("scenarioName");
         String scenarioPrompt = (String) model.get("scenarioPrompt");
         List<MultipartFile> audioFiles = (List<MultipartFile>) model.get("audioFiles");
+        List<MultipartFile> finalAudioFiles = (List<MultipartFile>) model.get("finalAudioFiles"); //추가
         List<String> existingAudioFiles = (List<String>) model.get("existingAudioFiles");
-
+        List<String> existingFinalAudioFiles = (List<String>) model.get("existingFinalAudioFiles"); //추가
+        
         // Update scenario
         adminDao.updateScenario(model);
 
@@ -42,7 +44,7 @@ public class AdminUpdatePhishing {
                 adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", voicePath, "isFinal", 0));
             }
         }
-
+        
         if (audioFiles != null) {
             for (MultipartFile file : audioFiles) {
                 if (!file.isEmpty()) {
@@ -50,16 +52,45 @@ public class AdminUpdatePhishing {
                     adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", fileName, "isFinal", 0));
                 }
             }
-            // Set the isFinal of the last file to 1
-            int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
-            adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
-        } else {
-            // If no new audio files are added, ensure the last existing file is set to isFinal = 1
-            int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
-            if (maxId > 0) {
-                adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
+        }
+
+        // 결말 오디오 파일에 대해 새로운 fileId를 사용
+        int finalFileId = fileId; // 새롭게 시작하는 fileId
+
+        // 기존 결말 오디오 파일 처리
+        if (existingFinalAudioFiles != null) {
+            for (String voicePath : existingFinalAudioFiles) {
+                adminDao.insertAudioFile(Map.of("id", finalFileId++, "scenarioName", scenarioName, "voicePath", voicePath, "isFinal", 1));
             }
         }
+
+        // 새로운 결말 오디오 파일 처리
+        if (finalAudioFiles != null) {
+            for (MultipartFile file : finalAudioFiles) {
+                if (!file.isEmpty()) {
+                    String fileName = saveFile(file);
+                    adminDao.insertAudioFile(Map.of("id", finalFileId++, "scenarioName", scenarioName, "voicePath", fileName, "isFinal", 1));
+                }
+            }
+        }
+
+        // 마지막 결말 오디오 파일을 isFinal=1로 설정
+        if (finalFileId > fileId) { // 결말 오디오 파일이 추가된 경우
+            adminDao.updateIsFinal(Map.of("id", finalFileId - 1, "scenarioName", scenarioName));
+        } else if (fileId > 0) { // 결말 오디오 파일이 추가되지 않았지만 일반 파일이 있는 경우
+            adminDao.updateIsFinal(Map.of("id", fileId - 1, "scenarioName", scenarioName));
+        }
+        
+		/*
+		 * // Set the isFinal of the last file to 1 int maxId =
+		 * adminDao.getMaxAudioIdByScenarioName(scenarioName);
+		 * adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName)); }
+		 * else { // If no new audio files are added, ensure the last existing file is
+		 * set to isFinal = 1 int maxId =
+		 * adminDao.getMaxAudioIdByScenarioName(scenarioName); if (maxId > 0) {
+		 * adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName)); }
+		 * }
+		 */
     }
 
     private String saveFile(MultipartFile file) {

@@ -1,5 +1,6 @@
 package kr.soft.study.dao;
 
+import kr.soft.study.dto.CriminalVoiceDTO;
 import kr.soft.study.dto.Scenario;
 
 import java.util.List;
@@ -32,4 +33,12 @@ public interface AdminDao {
     void updateScenario(Map<String, Object> paramMap); // 시나리오 업데이트
 
     void deleteScenario(int scenarioId); // 시나리오 삭제
+    
+    
+    
+    List<CriminalVoiceDTO> getNonFinalAudioFilesByScenarioName(String scenarioName);
+    
+    // 추가: is_final이 1인 오디오 파일만 가져오는 메서드
+    List<CriminalVoiceDTO> getFinalAudioFilesByScenarioName(String scenarioName);
+
 }
