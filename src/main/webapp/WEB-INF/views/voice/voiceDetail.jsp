@@ -74,10 +74,16 @@ body, h1, h2, h3, p, a {
 .icon-class {
 	font-family: inherit !important;
 }
+
+    #result,
+    #voiceDetail {
+        display: none;
+    }
+
 </style>
 </head>
 <body>
-<!-- <h1>데이터 확인용</h1>
+<!-- <h1>데이터 확인용</h1> 숨김처리 -->
 	<p id="result"></p>
 	<div id="voiceDetail">
 		<p id="voicePath"></p>
@@ -85,7 +91,7 @@ body, h1, h2, h3, p, a {
 		<p id="voiceNotFound"></p>
 		<p id="finalMessage"></p>
 	</div>
-	<audio id="audioPlayer" controls style="display: none;" autoplay></audio> -->
+	<!-- <audio id="audioPlayer" controls style="display: none;" autoplay></audio> -->
 	<audio id="audioPlayer" controls style="display: none; visibility: hidden; height: 0; width: 0;" autoplay></audio>
 	
 	<section class="banner-area parallax-banner bg-cover"
@@ -226,8 +232,8 @@ body, h1, h2, h3, p, a {
                 alert("마이크 접근 권한을 허용해야 합니다. 설정에서 확인해 주세요.");
             });
         document.getElementById("recordButton").innerText = "답변 종료";
-        socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
-        // socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
+        //socket = new WebSocket("wss://lockb.duckdns.org/audio?scenarioName=" + scenarioName);
+        socket = new WebSocket("ws://localhost:8080/study/audio?scenarioName=" + scenarioName);
         socket.binaryType = "arraybuffer";
         socket.onopen = function(event) {
             console.log("WebSocket connection opened.");
