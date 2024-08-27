@@ -403,7 +403,7 @@ body {
 								<c:choose>
 									<c:when test="${sessionScope.user.role eq 'admin'}">
 										<a href="${pageContext.request.contextPath}/admin/admin"
-											class="text-reset icon position-relative me-2"><i
+											class="text-reset icon"  style="margin-right: 100px;"><i
 											class="fa fa-user"></i></a>
 									</c:when>
 									<c:otherwise>
