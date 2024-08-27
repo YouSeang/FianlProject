@@ -122,79 +122,54 @@ public class SmsController {
 	@PostMapping("/sendSmishing")
 	@ResponseBody
 	public Map<String, Object> sendSmishing(@RequestParam("to") String phoneNumber,
-			@RequestParam("text") String messageText, @RequestParam("buttonType") String buttonType,
-			@RequestParam("pointReason") String pointReason, HttpSession session) {
-		Map<String, Object> response = new HashMap<>();
+	        @RequestParam("text") String messageText, @RequestParam("buttonType") String buttonType,
+	        @RequestParam("pointReason") String pointReason, HttpSession session) {
+	    Map<String, Object> response = new HashMap<>();
 
-		// 로그인 확인
-		UserDto user = (UserDto) session.getAttribute("user");
-		if (user == null || user.getUser_id() == null) {
-			response.put("isSent", false);
-			response.put("message", "로그인 후 이용해주세요");
-			return response;
-		}
+	    UserDto user = (UserDto) session.getAttribute("user");
+	    String userId = null;
+	    boolean isUserLoggedIn = false;
 
-		String userId = user.getUser_id();
-		System.out.println("User ID: " + userId); // 세션에 사용자 ID 출력
+	    if (user != null && user.getUser_id() != null) {
+	        userId = user.getUser_id();
+	        isUserLoggedIn = true;
+	    }
 
-		/*
-		 * // 오늘 발송했는지 확인 LocalDateTime startOfDay = LocalDateTime.of(LocalDate.now(),
-		 * LocalTime.MIDNIGHT); boolean hasSentToday =
-		 * smishingLogDAO.hasSentToday(userId, startOfDay);
-		 * System.out.println("Has sent today: " + hasSentToday);
-		 * 
-		 * if (hasSentToday) { response.put("isSent", false); response.put("message",
-		 * "스미싱 체험은 하루에 한 번만 가능합니다."); return response; }
-		 */
+	    SmishingDto smishingCase = smishingService.getSmishingByType(buttonType);
+	    if (smishingCase == null) {
+	        response.put("isSent", false);
+	        response.put("message", "Invalid button type");
+	        return response;
+	    }
 
-		// 스미싱 시나리오 정보 가져오기
-		SmishingDto smishingCase = smishingService.getSmishingByType(buttonType);
-		if (smishingCase == null) {
-			response.put("isSent", false);
-			response.put("message", "Invalid button type");
-			return response;
-		}
+	    String imageUrl = smishingCase.getImageUrl();
+	    String adminText = smishingCase.getAdminText();
 
-		String imageUrl = smishingCase.getImageUrl();
-		String adminText = smishingCase.getAdminText();
+	    boolean isSent = false;
+	    try {
+	        isSent = messageService.sendSmishing(phoneNumber, messageText, imageUrl, adminText);
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	        response.put("isSent", false);
+	        response.put("message", "문자 발송에 실패했습니다. 오류: " + e.getMessage());
+	        return response;
+	    }
 
-		/*
-		 * String imageUrl; String adminText; if ("delivery".equals(buttonType)) {
-		 * imageUrl = "http://211.37.179.32:8080/smishing"; adminText =
-		 * "[KB국민은행] 주문하신 물품이 오늘 도착예정입니다."; } else if ("invitation".equals(buttonType))
-		 * { imageUrl = "http://211.37.179.32:8080/smishing"; adminText =
-		 * "[KB국민은행] 저희의 결혼식에 와서 함께 축하해주세요!"; } else { throw new
-		 * IllegalArgumentException("Invalid button type"); }
-		 */
+	    response.put("isSent", isSent);
+	    response.put("isUserLoggedIn", isUserLoggedIn);
 
-		// 문자 메시지 발송
-		boolean isSent = false;
-		try {
-			isSent = messageService.sendSmishing(phoneNumber, messageText, imageUrl, adminText);
-			System.out.println("Message sent: " + isSent);
-		} catch (Exception e) {
-			e.printStackTrace();
-			response.put("isSent", false);
-			response.put("message", "문자 발송에 실패했습니다. 오류: " + e.getMessage());
-			return response;
-		}
+	    if (isSent && isUserLoggedIn) {
+	        smishingLogDAO.saveLog(userId);
 
-		// 문자 발송 결과에 따른 응답 생성
-		response.put("isSent", isSent);
+	        Map<String, Object> map = new HashMap<>();
+	        map.put("userId", userId);
+	        map.put("pointReason", pointReason);
 
-		if (isSent) {
-			// 문자 발송 이력 저장
-			smishingLogDAO.saveLog(userId);
+	        String result = pointsCommand.execute(map);
+	        response.put("pointUpdateResult", result);
+	    }
 
-			Map<String, Object> map = new HashMap<>();
-			map.put("userId", user.getUser_id());
-			map.put("pointReason", pointReason);
-
-			String result = pointsCommand.execute(map);
-			response.put("pointUpdateResult", result);
-		}
-
-		return response;
+	    return response;
 	}
 
 	@GetMapping("/smishing")

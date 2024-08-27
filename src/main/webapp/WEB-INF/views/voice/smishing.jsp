@@ -127,22 +127,21 @@ body, h1, h2, h3, p, a {
             data: formData,
             success: function(response) {
                 if (response.isSent) {
+                    let messageHtml = '문자가 성공적으로 발송되었습니다.';
+                    if (response.isUserLoggedIn && response.pointUpdateResult) {
+                        messageHtml += '<br>' + response.pointUpdateResult;
+                    }
+
                     Swal.fire({
                         title: '문자 발송 성공!',
-                        html: '문자가 성공적으로 발송되었습니다.<br>' + response.pointUpdateResult,
+                        html: messageHtml,
                         icon: 'success',
                         confirmButtonText: '확인',
                         showDenyButton: true,
                         denyButtonText: '체험 다시하기'
                     }).then((result) => {
                         if (result.isConfirmed) {
-                            /* Swal.fire({
-                                title: '포인트 업데이트 완료!',
-                                text: response.pointUpdateResult,
-                                icon: 'success'
-                            }).then(() => { */
-                                window.location.href = contextPath + "/voice/smishing";
-                            //});
+                            window.location.href = contextPath + "/voice/smishing";
                         } else if (result.isDenied) {
                             location.reload();
                         }
