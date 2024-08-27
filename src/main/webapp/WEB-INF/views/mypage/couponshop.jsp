@@ -284,7 +284,7 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
             error: function(xhr, status, error) {
                 Swal.fire({
                     title: '포인트 차감 실패',
-                    text: `포인트 차감 중 오류가 발생했습니다: ${error}`,
+                    text: '쿠폰이 정상적으로 발행되지 않았습니다. 상세 문의는 고객센터(1588-9999)로 부탁드립니다',
                     icon: 'error',
                     confirmButtonText: '확인'
                 });

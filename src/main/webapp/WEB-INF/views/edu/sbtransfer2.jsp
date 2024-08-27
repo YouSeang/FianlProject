@@ -111,25 +111,32 @@ body, h1, h2, h3, p, a {
 }
 
 /* /* display-text2에만 수평 및 수직 가운데 정렬 적용 */
-#display-text2, #display-text4, #display-text5,#display-text6 {
-    align-items: center; /* 수직 가운데 정렬 */
-    justify-content: center; /* 수평 가운데 정렬 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    width: 100%; /* 부모 요소에서 가운데 정렬되도록 너비 설정 */
-} */
+#display-text2, #display-text4, #display-text5, #display-text6 {
+	align-items: center; /* 수직 가운데 정렬 */
+	justify-content: center; /* 수평 가운데 정렬 */
+	text-align: center; /* 텍스트 중앙 정렬 */
+	width: 100%; /* 부모 요소에서 가운데 정렬되도록 너비 설정 */
+}
+
+*
+/
+
+
 
 @media ( max-width : 767.98px) {
-	.display-text {
-		font-size: 12px;
-	}
-	#warning-text {
-		font-size: 3px; /* 폰트 크기 더 줄이기 */
-		padding: 3px; /* 패딩 더 줄이기 */
-		top: 35%; /* 위치 더 위로 조정 */
-		max-width: 90%; /* 최대 너비 줄이기 */
-		line-height: 1.2; /* 줄 간격 줄이기 */
-		box-shadow: none; /* 그림자 제거 */
-		border: 1px solid red; /* 간단한 테두리 추가 */
+    #content .display-area .display-text {
+        font-size: 6vw !important;
+        line-height: 1.2 !important;
+        white-space: nowrap !important;
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+	#display-area, #display-area1, #display-area2, #display-area3,
+		#display-area4, #display-area5, #display-area6 {
+		font-size: 4vw !important; /* 화면 크기에 따라 더 작은 폰트 크기 강제 설정 */
+		padding: 1vw !important; /* 패딩 강제 설정 */
+		width: 90% !important; /* 너비 강제 설정 */
+		overflow: hidden !important; /* 텍스트가 영역을 벗어나지 않도록 강제 설정 */
 	}
 }
 </style>
@@ -138,7 +145,8 @@ body, h1, h2, h3, p, a {
 
 
 	<div id="step-indicator">
-		<img id="back-button" src="${pageContext.request.contextPath}/resources/images/transfer/back-button.png"
+		<img id="back-button"
+			src="${pageContext.request.contextPath}/resources/images/transfer/back-button.png"
 			alt="뒤로가기"> <span id="step-text">1단계 / 7단계</span>
 		<div id="progress-bar">
 			<div id="progress-bar-fill"></div>
@@ -757,6 +765,39 @@ body, h1, h2, h3, p, a {
         $(window).resize(resizeImageMap);
     });
     </script>
+
+	<script>
+	$(document).ready(function() {
+	    function adjustFontSize() {
+	        if ($(window).width() <= 767.98) {
+	            $('.display-text').css({
+	                'font-size': '1.3vw',
+	                'line-height': '1.2',
+	                'white-space': 'nowrap',
+	                'overflow': 'hidden',
+	                'text-overflow': 'ellipsis'
+	            });
+	        } else {
+	            // 기본 폰트 크기 설정 (화면이 넓을 때)
+	            $('.display-text').css({
+	                'font-size': '18px',  // 원래 크기로 되돌리기
+	                'line-height': 'normal',
+	                'white-space': 'normal',
+	                'overflow': 'visible',
+	                'text-overflow': 'clip'
+	            });
+	        }
+	    }
+
+	    // 처음 로드할 때 폰트 크기 조정
+	    adjustFontSize();
+
+	    // 창 크기 변경 시 폰트 크기 다시 조정
+	    $(window).resize(function() {
+	        adjustFontSize();
+	    });
+	});
+</script>
 
 </body>
 </html>
