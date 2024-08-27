@@ -107,6 +107,74 @@ body, h1, h2, h3, p, a {
 	flex-wrap: wrap;
 	gap: 10px; /* 버튼들이 줄바꿈될 때 버튼들 사이의 간격을 설정합니다. */
 }
+
+.tooltip-icon-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px; /* 리스트와의 간격을 조정 */
+}
+
+.info-text {
+    margin-right: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+.info-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc; /* 배경색을 회색으로 변경 */
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.tooltip-container {
+    position: absolute;
+    display: none;
+    bottom: 30px; /* 아이콘의 위쪽에 툴팁을 배치 */
+    left: 0;
+    z-index: 1000;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.tooltip-container::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ddd transparent transparent transparent;
+}
+
+.tooltip-image strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.tooltip-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.tooltip-icon-container:hover .tooltip-container {
+    display: block;
+}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
@@ -214,6 +282,18 @@ body, h1, h2, h3, p, a {
 							<li>해당 휴대폰번호로 발송되는 문자의 인터넷주소는 클릭하셔도 되지만, 실제 사례에서는 유의하세요.</li>
 							<li>스미싱 시뮬레이션은 로그인 후 체험 가능하며, 포인트는 하루에 한번만 지급됩니다.</li>
 						</ul>
+
+						<div class="tooltip-icon-container">
+							<span class="info-text">예시 이미지</span> <span class="info-icon">?</span>
+							<div class="tooltip-container">
+								<div class="tooltip-image">
+									<h3><strong>스미싱 문자전송 예시입니다.</strong></h3>
+									<img
+										src="${pageContext.request.contextPath}/resources/images/secure/smishing.png"
+										alt="스미싱 시뮬레이션 이미지">
+								</div>
+							</div>
+						</div>
 						<div class="form-container">
 							<h2>스미싱 시뮬레이션</h2>
 							<div class="form-group">
