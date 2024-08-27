@@ -128,6 +128,22 @@ body, h1, h2, h3, p, a {
 										</c:forEach>
 									</ul>
 								</div>
+								
+<!-- 결말 오디오 파일 목록 -->
+<div class="mb-3">
+    <label class="form-label">결말 오디오 파일</label>
+    <ul id="finalFileInputsContainer${scenario.id}" class="sortable list-unstyled">
+        <c:forEach var="audio" items="${scenario.finalAudioFiles}">
+            <li class="sortable-item" data-id="${audio.voicePath}">
+                <span class="drag-handle"><i class="fas fa-bars"></i></span>
+                <input type="hidden" name="existingFinalAudioFiles" value="${audio.voicePath}">
+                <input type="text" class="form-control col" value="${audio.voicePath}" readonly>
+                <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+            </li>
+        </c:forEach>
+    </ul>
+</div>
+								
 								<button type="button" class="btn btn-secondary mb-3"
 									onclick="addFileInput('${scenario.id}')">다른 파일 추가</button>
 								<div class="text-end mb-3">
@@ -159,7 +175,30 @@ body, h1, h2, h3, p, a {
 								<textarea class="form-control" id="scenarioPromptNew"
 									name="scenarioPrompt" rows="5" required></textarea>
 							</div>
-							<div class="mb-3">
+<div class="mb-3">
+    <label for="audioFileNew" class="form-label">오디오 파일</label>
+    <div id="fileInputsContainerNew" class="sortable">
+        <div class="sortable-item">
+            <span class="drag-handle"><i class="fas fa-bars"></i></span>
+            <input type="file" class="form-control col" id="audioFileNew" name="audioFiles" accept="audio/*">
+            <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+        </div>
+    </div>
+</div>
+
+<div class="mb-3">
+    <label for="finalAudioFileNew" class="form-label">결말 오디오 파일</label>
+    <div id="finalFileInputsContainerNew" class="sortable">
+        <div class="sortable-item">
+            <span class="drag-handle"><i class="fas fa-bars"></i></span>
+            <input type="file" class="form-control col" id="finalAudioFileNew" name="finalAudioFiles" accept="audio/*">
+            <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+        </div>
+    </div>
+   	<button type="button" class="btn btn-secondary mb-3" onclick="addFileInput('New')">다른 파일 추가</button>
+</div>
+							
+							<!-- <div class="mb-3">
 								<label for="audioFileNew" class="form-label">오디오 파일</label>
 								<div id="fileInputsContainerNew" class="sortable">
 									<div class="sortable-item">
@@ -172,7 +211,7 @@ body, h1, h2, h3, p, a {
 								</div>
 							</div>
 							<button type="button" class="btn btn-secondary mb-3"
-								onclick="addFileInput('New')">다른 파일 추가</button>
+								onclick="addFileInput('New')">다른 파일 추가</button> -->
 							<div class="text-end mb-3">
 								<button type="submit" class="btn btn-primary">시나리오 추가</button>
 							</div>
@@ -210,9 +249,30 @@ body, h1, h2, h3, p, a {
             `;
             container.appendChild(fileInputDiv);
         }
+        
+        // 결말 오디오 추가
+/*         function addFileInput(tabId) {
+            const container = document.getElementById('finalFileInputsContainer' + tabId);
+            const fileInputDiv = document.createElement('div');
+            fileInputDiv.classList.add('sortable-item');
+            fileInputDiv.innerHTML = `
+                <span class="drag-handle"><i class="fas fa-bars"></i></span>
+                <input type="file" class="form-control col" name="finalAudioFiles" accept="audio/*">
+                <button type="button" class="btn btn-danger col-auto" onclick="removeFileInput(this)">제거</button>
+            `;
+            container.appendChild(fileInputDiv);
+        } */
 
         function removeFileInput(button) {
             const container = button.parentElement.parentElement;
+            if (container.id === 'finalFileInputsContainerNew') {
+                // 결말 오디오 파일이 하나만 남아있는지 확인
+                const remainingItems = container.getElementsByClassName('sortable-item').length;
+                if (remainingItems <= 1) {
+                    alert('결말 오디오 파일은 최소 1개는 있어야 합니다.');
+                    return; // 제거하지 않음
+                }
+            }
             container.removeChild(button.parentElement);
         }
 
@@ -234,14 +294,24 @@ body, h1, h2, h3, p, a {
 
         $(function() {
             $(".sortable").sortable({
+                connectWith: ".sortable", // 결말 오디오와 연결
                 handle: ".drag-handle",
                 placeholder: "sortable-placeholder",
                 update: function(event, ui) {
                     // 순서 변경 시의 처리 로직 추가 (옵션)
+                    let containerId = ui.item.parent().attr('id');
+                    if (containerId.includes('finalFileInputsContainer')) {
+                        // 결말 오디오로 이동된 경우
+                        ui.item.find('input[type="hidden"]').attr('name', 'existingFinalAudioFiles');
+                    } else {
+                        // 일반 오디오로 이동된 경우
+                        ui.item.find('input[type="hidden"]').attr('name', 'existingAudioFiles');
+                    }
                 }
             });
             $(".sortable").disableSelection();
         });
+
     </script>
 </body>
 </html>

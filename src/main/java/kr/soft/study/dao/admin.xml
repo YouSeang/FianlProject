@@ -41,7 +41,7 @@
         SELECT COALESCE(MAX(id), 0) FROM criminal_voice WHERE scenario_name = #{scenarioName}
     </select>
 
-    <!-- 모든 시나리오 가져오기 -->
+	<!-- 모든 시나리오 가져오기 -->
     <select id="getAllScenarios" resultMap="ScenarioMap">
         SELECT s.id, s.scenario_name, s.scenario_prompt, cv.voice_path
         FROM Scenarios s
@@ -75,7 +75,13 @@
         <result property="scenarioPrompt" column="scenario_prompt"/>
         <collection property="audioFiles" ofType="kr.soft.study.dto.CriminalVoiceDTO">
             <result property="voicePath" column="voice_path"/>
+            <result property="isFinal" column="is_final"  javaType="boolean"/> <!-- 추가 -->
         </collection>
+        <!-- 추가 -->
+        <collection property="finalAudioFiles" ofType="kr.soft.study.dto.CriminalVoiceDTO">
+        	<result property="voicePath" column="voice_path"/>
+        	<result property="isFinal" column="is_final"/>
+    	</collection>
     </resultMap>
     
     <update id="resetIsFinalByScenarioName">
@@ -89,4 +95,32 @@
 	    SET is_final = 1 
 	    WHERE id = #{id} AND scenario_name = #{scenarioName}
 	</update>
+	
+	
+	
+<!-- 시나리오별 일반 오디오 파일 가져오기 -->
+<select id="getNonFinalAudioFilesByScenarioName" parameterType="string" resultMap="CriminalVoiceMap">
+    SELECT idx, id, voice_path, is_final, scenario_name
+    FROM criminal_voice
+    WHERE scenario_name = #{scenarioName}
+    AND is_final = 0
+</select> 
+
+<!-- is_final이 1인 오디오 파일들만 가져오기 -->
+<select id="getFinalAudioFilesByScenarioName" parameterType="string" resultMap="CriminalVoiceMap">
+    SELECT idx, id, voice_path, is_final, scenario_name
+    FROM criminal_voice
+    WHERE scenario_name = #{scenarioName}
+    AND is_final = 1
+</select>
+
+<!-- CriminalVoiceDTO의 매핑 설정 -->
+<resultMap id="CriminalVoiceMap" type="kr.soft.study.dto.CriminalVoiceDTO">
+    <id property="idx" column="idx"/>
+    <result property="id" column="id"/>
+    <result property="voicePath" column="voice_path"/>
+    <result property="isFinal" column="is_final"/>
+    <result property="scenarioName" column="scenario_name"/>
+</resultMap>
+	
 </mapper>

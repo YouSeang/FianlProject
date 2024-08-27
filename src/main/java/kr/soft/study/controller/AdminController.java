@@ -4,6 +4,7 @@ import kr.soft.study.command.AdminAddPhishing;
 import kr.soft.study.command.AdminUpdatePhishing;
 import kr.soft.study.dao.AdminDao;
 import kr.soft.study.dao.CouponDao;
+import kr.soft.study.dto.CriminalVoiceDTO;
 import kr.soft.study.dto.Scenario;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +48,14 @@ public class AdminController {
 	@RequestMapping("/admin/adminPhishing")
 	public String adminPhishing(Model model) {
 		List<Scenario> scenarios = adminDao.getAllScenarios();
+		for (Scenario scenario : scenarios) {
+			 // 시나리오의 일반 오디오 파일과 결말 오디오 파일을 각각 가져옴
+	        List<CriminalVoiceDTO> nonFinalAudioFiles = adminDao.getNonFinalAudioFilesByScenarioName(scenario.getScenarioName());
+	        List<CriminalVoiceDTO> finalAudioFiles = adminDao.getFinalAudioFilesByScenarioName(scenario.getScenarioName());
+	        
+	        scenario.setAudioFiles(nonFinalAudioFiles); // 일반 오디오 파일 설정
+	        scenario.setFinalAudioFiles(finalAudioFiles); // 결말 오디오 파일 설정
+        }
 		model.addAttribute("scenarios", scenarios);
 		return "admin/adminPhishing";
 	}
@@ -55,11 +64,15 @@ public class AdminController {
 	@PostMapping("/admin/addScenario")
 	public String addScenario(@RequestParam("scenarioName") String scenarioName,
 			@RequestParam("scenarioPrompt") String scenarioPrompt,
-			@RequestParam("audioFiles") List<MultipartFile> audioFiles, Model model) {
+			@RequestParam("audioFiles") List<MultipartFile> audioFiles, 
+			@RequestParam("finalAudioFiles") List<MultipartFile> finalAudioFiles,
+			Model model) {
+		
 		AdminAddPhishing command = new AdminAddPhishing(adminDao, context);
 		model.addAttribute("scenarioName", scenarioName);
 		model.addAttribute("scenarioPrompt", scenarioPrompt);
 		model.addAttribute("audioFiles", audioFiles);
+        model.addAttribute("finalAudioFiles", finalAudioFiles);
 		command.execute(model.asMap());
 
 		return "redirect:/admin/adminPhishing";
@@ -71,13 +84,18 @@ public class AdminController {
 			@RequestParam("scenarioName") String scenarioName, @RequestParam("scenarioPrompt") String scenarioPrompt,
 			@RequestParam(value = "audioFiles", required = false) List<MultipartFile> audioFiles,
 			@RequestParam(value = "existingAudioFiles", required = false) List<String> existingAudioFiles,
+			@RequestParam(value = "finalAudioFiles", required = false) List<MultipartFile> finalAudioFiles,
+			@RequestParam(value = "existingFinalAudioFiles", required = false) List<String> existingFinalAudioFiles,
 			Model model) {
+		
 		AdminUpdatePhishing command = new AdminUpdatePhishing(adminDao, context);
 		model.addAttribute("scenarioId", scenarioId);
 		model.addAttribute("scenarioName", scenarioName);
 		model.addAttribute("scenarioPrompt", scenarioPrompt);
 		model.addAttribute("audioFiles", audioFiles);
+        model.addAttribute("finalAudioFiles", finalAudioFiles);
 		model.addAttribute("existingAudioFiles", existingAudioFiles);
+        model.addAttribute("existingFinalAudioFiles", existingFinalAudioFiles);
 		command.execute(model.asMap());
 
 		return "redirect:/admin/adminPhishing";

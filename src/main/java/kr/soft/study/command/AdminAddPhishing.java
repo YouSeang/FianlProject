@@ -23,6 +23,7 @@ public class AdminAddPhishing {
         String scenarioName = (String) model.get("scenarioName");
         String scenarioPrompt = (String) model.get("scenarioPrompt");
         List<MultipartFile> audioFiles = (List<MultipartFile>) model.get("audioFiles");
+        List<MultipartFile> finalAudioFiles = (List<MultipartFile>) model.get("finalAudioFiles");
 
         // Insert scenario
         adminDao.insertScenario(model);
@@ -30,16 +31,36 @@ public class AdminAddPhishing {
         // Reset all is_final to 0 for this scenario before adding new files
         adminDao.resetIsFinalByScenarioName(scenarioName);
 
+        int fileId = 0;
+        
         // Handle audio files
         if (audioFiles != null) {
-            int fileId = 0;
+            //int fileId = 0;
             for (MultipartFile file : audioFiles) {
                 if (!file.isEmpty()) {
                     String fileName = saveFile(file);
                     adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", fileName, "isFinal", 0));
                 }
             }
-            // Set the isFinal of the last file to 1
+        }
+        
+        // 결말시나리오 추가
+        if (finalAudioFiles != null) {
+            for (MultipartFile file : finalAudioFiles) {
+                if (!file.isEmpty()) {
+                    String fileName = saveFile(file);
+                    adminDao.insertAudioFile(Map.of("id", fileId++, "scenarioName", scenarioName, "voicePath", fileName, "isFinal", 1));
+                }
+            }
+        }
+        
+        // If no new audio files are added, ensure the last existing file is set to isFinal = 1
+        int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
+        if (maxId > 0 && (finalAudioFiles == null || finalAudioFiles.isEmpty())) {
+            adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
+        }
+        
+/*            // Set the isFinal of the last file to 1
             int maxId = adminDao.getMaxAudioIdByScenarioName(scenarioName);
             adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
         } else {
@@ -48,7 +69,7 @@ public class AdminAddPhishing {
             if (maxId > 0) {
                 adminDao.updateIsFinal(Map.of("id", maxId, "scenarioName", scenarioName));
             }
-        }
+        }*/
     }
 
     private String saveFile(MultipartFile file) {

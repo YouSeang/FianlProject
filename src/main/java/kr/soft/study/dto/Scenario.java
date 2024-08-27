@@ -7,6 +7,17 @@ public class Scenario {
     private String scenarioName;
     private String scenarioPrompt;
     private List<CriminalVoiceDTO> audioFiles;
+    private List<CriminalVoiceDTO> finalAudioFiles; // 결말 오디오 파일 리스트 추가
+    
+    
+    
+    public List<CriminalVoiceDTO> getFinalAudioFiles() {
+		return finalAudioFiles;
+	}
+
+	public void setFinalAudioFiles(List<CriminalVoiceDTO> finalAudioFiles) {
+		this.finalAudioFiles = finalAudioFiles;
+	}
 
     // Getters and Setters
     public int getId() {
