@@ -77,7 +77,7 @@ body, h1, h2, h3, p, a {
 </style>
 </head>
 <body>
-<!-- 	<h1>데이터 확인용</h1>
+<!-- <h1>데이터 확인용</h1>
 	<p id="result"></p>
 	<div id="voiceDetail">
 		<p id="voicePath"></p>
@@ -86,6 +86,8 @@ body, h1, h2, h3, p, a {
 		<p id="finalMessage"></p>
 	</div>
 	<audio id="audioPlayer" controls style="display: none;" autoplay></audio> -->
+	<audio id="audioPlayer" controls style="display: none; visibility: hidden; height: 0; width: 0;" autoplay></audio>
+	
 	<section class="banner-area parallax-banner bg-cover"
 		data-stellar-background-ratio=".6"
 		style="background-image: url('${pageContext.request.contextPath}/resources/images/banner/voiceBanner3.jpg');">
