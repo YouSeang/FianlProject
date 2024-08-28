@@ -289,7 +289,7 @@ body, h1, h2, h3, p, a {
 								<div class="tooltip-image">
 									<h3><strong>스미싱 문자전송 예시입니다.</strong></h3>
 									<img
-										src="${pageContext.request.contextPath}/resources/images/secure/smishing.png"
+										src="${pageContext.request.contextPath}/resources/images/secure/smishing2.png"
 										alt="스미싱 시뮬레이션 이미지">
 								</div>
 							</div>
