@@ -120,6 +120,68 @@ body, h1, h2, h3, p, a {
 .btn-warning {
 	background-color: #FFB200;
 }
+
+.tooltip-icon-container {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    margin-top: 10px; /* 리스트와의 간격을 조정 */
+}
+.info-text {
+    margin-right: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+.info-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #ccc; /* 배경색을 회색으로 변경 */
+    color: #fff;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+}
+.tooltip-container {
+    position: absolute;
+    display: none;
+    bottom: 30px; /* 아이콘의 위쪽에 툴팁을 배치 */
+    left: 0;
+    z-index: 1000;
+    width: 500px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+.tooltip-container::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 10px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #ddd transparent transparent transparent;
+}
+.tooltip-image strong {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+.tooltip-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+.tooltip-icon-container:hover .tooltip-container {
+    display: block;
+}
+
 </style>
 </head>
 <body>
@@ -167,8 +229,19 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 			</div>
 		</div>
 
-
+						
 		<div class="container">
+		<div class="tooltip-icon-container" >
+							<span class="info-text">예시 이미지</span> <span class="info-icon">?</span>
+							<div class="tooltip-container">
+								<div class="tooltip-image">
+									<h3><strong>쿠폰 문자전송 예시입니다.</strong></h3>
+									<img
+										src="${pageContext.request.contextPath}/resources/images/secure/couponex.png"
+										alt="쿠폰 이미지">
+								</div>
+							</div>
+						</div>
 			<div class="shop-body row g-4">
 				<c:forEach var="coupon" items="${coupon_list}">
 					<div class="col-lg-4 col-sm-6">
