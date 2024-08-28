@@ -142,7 +142,7 @@ body, h1, h2, h3, p, a {
     bottom: 30px; /* 아이콘의 위쪽에 툴팁을 배치 */
     left: 0;
     z-index: 1000;
-    width: 500px;
+    width: 600px;
     padding: 10px;
     border: 1px solid #ddd;
     background-color: #fff;
