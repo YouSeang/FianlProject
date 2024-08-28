@@ -279,8 +279,8 @@ style="background-image: url('${pageContext.request.contextPath}/resources/image
 														pattern="yyyy-MM-dd" /></td>
 												<td><c:out value="${coupon.coupon_type}" /></td>
 												<td>미사용</td>
-												<td><button class="btn btn-warning"
-														onclick="openResendWindow('${coupon.coupon_id}')">발송</button></td>
+												<td><button class="btn btn-primary"
+															onclick="openResendWindow('${coupon.coupon_id}')">발송</button></td>
 											</tr>
 										</c:if>
 									</c:forEach>
