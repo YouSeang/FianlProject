@@ -46,10 +46,10 @@
 <body>
         
 <div id="frogue-container" class="position-right-bottom" style="bottom: 130px;"
-data-chatbot="356efa41-08e2-45a9-905c-75ede6cb677b"
+data-chatbot="06a941d1-1a51-44d5-b184-dbb27d32cf40"
 data-service-type="toad"
 data-user="사용자ID"
-data-init-key="srststs@gmail.com"
+data-init-key="srstst@naver.com"
 data-close-use="Y" data-close-bgcolor="#ffffff" data-close-linecolor="#000000"
 data-move-use="Y" data-move-bgcolor="#ffffff" data-move-linecolor="#000000"
 ></div>

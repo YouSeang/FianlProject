@@ -24,7 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
 	}
 	
 	 public WebConfig() {
-		 uploadPath = "/var/www/uploads/"; 
+		 uploadPath = "/var/www/uploads"; 
 		 
 	 }
 	 
