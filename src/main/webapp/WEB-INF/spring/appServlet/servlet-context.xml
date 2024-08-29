@@ -41,11 +41,10 @@
 			value="jdbc:mysql://localhost:3306/finaldb?serverTimezone=Asia/Seoul&amp;useSSL=false" />
 		<!-- <beans:property name="url" value="jdbc:mysql://localhost:3306/finaldb?serverTimezone=UTC&amp;useSSL=false" 
 			/> -->
-		  <!--  <beans:property name="username" value="manager" /> <beans:property 
-			name="password" value="!Q@W3e4r" /> 
- -->		  
-   <beans:property name="username" value="root" />
-		<beans:property name="password" value="qwe123!@#" /> 
+		   <beans:property name="username" value="manager" /> <beans:property 
+			name="password" value="!Q@W3e4r" /> 	  
+   <!-- <beans:property name="username" value="root" />
+		<beans:property name="password" value="qwe123!@#" />  -->
 	</beans:bean>
 
 	<!-- MyBatis 설정 -->
