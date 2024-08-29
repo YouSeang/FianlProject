@@ -362,7 +362,7 @@ body {
 										사고 현황</a></li>
 								<li><a class="dropdown-item"
 									href="${pageContext.request.contextPath}/voice/recentIncidents">최신
-										금융 뉴스</a></li>
+										금융사고 뉴스</a></li>
 								<li><a class="dropdown-item"
 									href="${pageContext.request.contextPath}/security/securityGuide">보안
 										어플/사이트</a></li>
@@ -509,7 +509,7 @@ body {
 							사고 현황</a></li>
 					<li class="dept-2"><a
 						href="${pageContext.request.contextPath}/voice/recentIncidents">최신
-							금융 뉴스</a></li>
+							금융사고 뉴스</a></li>
 					<li class="dept-2"><a
 						href="${pageContext.request.contextPath}/security/securityGuide">보안
 							어플/사이트</a></li>

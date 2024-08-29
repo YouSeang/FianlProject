@@ -208,7 +208,7 @@ body, h1, h2, h3, p, a {
 						name="totalOtherDepositAmount" class="form-control" required>
 				</div>
 				<div class="form-group">
-					<label for="rentPrice">임대 가격 (백만원단위):</label> <input type="number"
+					<label for="rentPrice">임대 가격 (백만원):</label> <input type="number"
 						id="rentPrice" name="rentPrice" class="form-control" required>
 				</div>
 			</div>

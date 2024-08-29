@@ -225,7 +225,7 @@
             data: { pointReason: '스타뱅킹 적금가입 체험완료' },
             success: function (response) {
                 Swal.fire({
-                    title: '포인트 업데이트 완료!',
+                    title: '스타뱅킹 적금가입 체험완료!',
                     text: response,
                     icon: 'success'
                 }).then(() => {
