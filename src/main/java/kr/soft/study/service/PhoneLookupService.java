@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Service
 public class PhoneLookupService {
 
-	private final String apiKey = "num_live_QyjzZPKEr0dTM64ZJN5ScVQ5l3dDY1fW1BcbuXqC"; // 여기에 실제 API 키를 넣으세요
+	private final String apiKey = ""; // 여기에 실제 API 키를 넣으세요
 
 	private static final String API_URL = "https://api.numlookupapi.com/v1/validate/";
 

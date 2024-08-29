@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class GoogleTextToSpeechService2 {
 
-	private final String apiKey = "AIzaSyCJOpdCB0zJZ1O4Eevono66WCtATWAb-Cg"; // 여기에 실제 API 키를 입력하세요.
+	private final String apiKey = ""; // 여기에 실제 API 키를 입력하세요.
 
 	public String synthesizeSpeech(String text, String speaker) throws Exception {
 		String url = "https://texttospeech.googleapis.com/v1/text:synthesize?key=" + apiKey;

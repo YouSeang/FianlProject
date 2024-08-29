@@ -23,7 +23,7 @@ public class MessageService {
 
 	public MessageService() {
 		// 여기에 실제 API 키와 시크릿 키를 입력하세요
-		this.messageService = NurigoApp.INSTANCE.initialize("NCSDNQBMFSNRNH46", "YJRPJUPXCTOKDLHFO4DLR1V2YHL5QC2Q",
+		this.messageService = NurigoApp.INSTANCE.initialize("", "",
 				"https://api.coolsms.co.kr");
 	}
 
